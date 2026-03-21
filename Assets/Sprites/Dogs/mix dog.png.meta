@@ -1,0 +1,2587 @@
+fileFormatVersion: 2
+guid: a1361df6a0d3646f0a11d0231820462b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4550691084915367664
+    second: mix dog_0
+  - first:
+      213: 3952120425216099224
+    second: mix dog_1
+  - first:
+      213: -485384596330031105
+    second: mix dog_2
+  - first:
+      213: -7809447806066654895
+    second: mix dog_3
+  - first:
+      213: 2486659778742248959
+    second: mix dog_4
+  - first:
+      213: 8215338891606093836
+    second: mix dog_5
+  - first:
+      213: 176275035973121573
+    second: mix dog_6
+  - first:
+      213: 706922165275313668
+    second: mix dog_7
+  - first:
+      213: 8050763808233096581
+    second: mix dog_8
+  - first:
+      213: 2713419214257492014
+    second: mix dog_9
+  - first:
+      213: -6069189689314159434
+    second: mix dog_10
+  - first:
+      213: -3224204130075266511
+    second: mix dog_11
+  - first:
+      213: -3216838257992562446
+    second: mix dog_12
+  - first:
+      213: -1896762231955057721
+    second: mix dog_13
+  - first:
+      213: -8913273332053295038
+    second: mix dog_14
+  - first:
+      213: -3125201113619891144
+    second: mix dog_15
+  - first:
+      213: 1973404193173828034
+    second: mix dog_16
+  - first:
+      213: -1277583778139660130
+    second: mix dog_17
+  - first:
+      213: 7662957233715204615
+    second: mix dog_18
+  - first:
+      213: 5901751934973337582
+    second: mix dog_19
+  - first:
+      213: 6589361666829865819
+    second: mix dog_20
+  - first:
+      213: -6383327758464925760
+    second: mix dog_21
+  - first:
+      213: -3025044839797066432
+    second: mix dog_22
+  - first:
+      213: 5099543008104842025
+    second: mix dog_23
+  - first:
+      213: -6716973267639267391
+    second: mix dog_24
+  - first:
+      213: -6844686806268146856
+    second: mix dog_25
+  - first:
+      213: -3354230394630833201
+    second: mix dog_26
+  - first:
+      213: -5559063373766403644
+    second: mix dog_27
+  - first:
+      213: 1090488590174572692
+    second: mix dog_28
+  - first:
+      213: 3018254894371422678
+    second: mix dog_29
+  - first:
+      213: 1735979346618354285
+    second: mix dog_30
+  - first:
+      213: -442341160848515936
+    second: mix dog_31
+  - first:
+      213: 9065414741712726114
+    second: mix dog_32
+  - first:
+      213: -7055631570200916002
+    second: mix dog_33
+  - first:
+      213: -3396033512593769761
+    second: mix dog_34
+  - first:
+      213: 2980945139168925436
+    second: mix dog_35
+  - first:
+      213: 7950332308605565955
+    second: mix dog_36
+  - first:
+      213: -8691253763965809027
+    second: mix dog_37
+  - first:
+      213: -1978247698626580374
+    second: mix dog_38
+  - first:
+      213: 4336071209838193071
+    second: mix dog_39
+  - first:
+      213: -4494633739532712062
+    second: mix dog_40
+  - first:
+      213: -6311645658193219578
+    second: mix dog_41
+  - first:
+      213: -5103349150266935704
+    second: mix dog_42
+  - first:
+      213: -8565128851773938115
+    second: mix dog_43
+  - first:
+      213: -3948072925028772074
+    second: mix dog_44
+  - first:
+      213: 6536592783140697489
+    second: mix dog_45
+  - first:
+      213: 5860100176615339887
+    second: mix dog_46
+  - first:
+      213: -7912036204003893707
+    second: mix dog_47
+  - first:
+      213: -5519342116190360931
+    second: mix dog_48
+  - first:
+      213: 3862223514744255397
+    second: mix dog_49
+  - first:
+      213: 8883648584515836094
+    second: mix dog_50
+  - first:
+      213: -3161484439619903335
+    second: mix dog_51
+  - first:
+      213: -6893654350955104288
+    second: mix dog_52
+  - first:
+      213: -3167575587082487604
+    second: mix dog_53
+  - first:
+      213: 9156806335235766796
+    second: mix dog_54
+  - first:
+      213: -8439532160719190951
+    second: mix dog_55
+  - first:
+      213: 7453917398991376872
+    second: mix dog_56
+  - first:
+      213: -4886031565623891245
+    second: mix dog_57
+  - first:
+      213: -5811076660925545878
+    second: mix dog_58
+  - first:
+      213: 3192952682328017803
+    second: mix dog_59
+  - first:
+      213: 1132162546469911456
+    second: mix dog_60
+  - first:
+      213: 2741554647576240725
+    second: mix dog_61
+  - first:
+      213: -7690780372395821946
+    second: mix dog_62
+  - first:
+      213: 4560033057991020196
+    second: mix dog_63
+  - first:
+      213: 2655426423482612278
+    second: mix dog_64
+  - first:
+      213: 1252244066149887545
+    second: mix dog_65
+  - first:
+      213: 9175843006110647913
+    second: mix dog_66
+  - first:
+      213: -5146399978126223063
+    second: mix dog_67
+  - first:
+      213: 2357800805500174169
+    second: mix dog_68
+  - first:
+      213: 4993446100266425653
+    second: mix dog_69
+  - first:
+      213: 2884436009910117470
+    second: mix dog_70
+  - first:
+      213: 8603465744736189505
+    second: mix dog_71
+  - first:
+      213: -1877236882859173886
+    second: mix dog_72
+  - first:
+      213: 6892631434771610245
+    second: mix dog_73
+  - first:
+      213: 6790641708043992657
+    second: mix dog_74
+  - first:
+      213: 5632999963870974358
+    second: mix dog_75
+  - first:
+      213: 6260380022021855059
+    second: mix dog_76
+  - first:
+      213: 4971548397571086707
+    second: mix dog_77
+  - first:
+      213: -5003294114559908783
+    second: mix dog_78
+  - first:
+      213: -162045186271118056
+    second: mix dog_79
+  - first:
+      213: 4470935704630628165
+    second: mix dog_80
+  - first:
+      213: -6846203511245617603
+    second: mix dog_81
+  - first:
+      213: 6226555120831836607
+    second: mix dog_82
+  - first:
+      213: 5393009976095177139
+    second: mix dog_83
+  - first:
+      213: 1419330786925665841
+    second: mix dog_84
+  - first:
+      213: 7202493339843878010
+    second: mix dog_85
+  - first:
+      213: 3453062210199546907
+    second: mix dog_86
+  - first:
+      213: -2363981759542391549
+    second: mix dog_87
+  - first:
+      213: -1254264007699192476
+    second: mix dog_88
+  - first:
+      213: 2686595883278581600
+    second: mix dog_89
+  - first:
+      213: 1483315426635510206
+    second: mix dog_90
+  - first:
+      213: -958857706591039716
+    second: mix dog_91
+  - first:
+      213: -3097732757153217010
+    second: mix dog_92
+  - first:
+      213: 5814639605508475095
+    second: mix dog_93
+  - first:
+      213: 1688868096690464470
+    second: mix dog_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mix dog_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 489
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fedaee5e6d472f30800000000000000
+      internalID: 4550691084915367664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 481
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89342966690c8d630800000000000000
+      internalID: 3952120425216099224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff75d4408419349f0800000000000000
+      internalID: -485384596330031105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151817bb8944f9390800000000000000
+      internalID: -7809447806066654895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5ee25d4e3628220800000000000000
+      internalID: 2486659778742248959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 481
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00f1a7f13fb20270800000000000000
+      internalID: 8215338891606093836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52672f51631427200800000000000000
+      internalID: 176275035973121573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406c511c6fd7fc900800000000000000
+      internalID: 706922165275313668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 450
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5850e40670f0abf60800000000000000
+      internalID: 8050763808233096581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 457
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e209988266008a520800000000000000
+      internalID: 2713419214257492014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 437
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b457fd2228e5cba0800000000000000
+      internalID: -6069189689314159434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 437
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132348f1d635143d0800000000000000
+      internalID: -3224204130075266511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 437
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8877cd5ae7b53d0800000000000000
+      internalID: -3216838257992562446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 417
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c311fcacc85da5e0800000000000000
+      internalID: -1896762231955057721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 424
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24040090121bd4480800000000000000
+      internalID: -8913273332053295038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83cf70b252e01a4d0800000000000000
+      internalID: -3125201113619891144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1746c78a0f26b10800000000000000
+      internalID: 1973404193173828034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_17
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e902f2d925c154ee0800000000000000
+      internalID: -1277583778139660130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702da94010b485a60800000000000000
+      internalID: 7662957233715204615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_19
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef5f84bd1c37e150800000000000000
+      internalID: 5901751934973337582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_20
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 388
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5358f7268d127b50800000000000000
+      internalID: 6589361666829865819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfbec7593dd967a0800000000000000
+      internalID: -6383327758464925760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_22
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045744edeb1e406d0800000000000000
+      internalID: -3025044839797066432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_23
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9238aeae85735c640800000000000000
+      internalID: 5099543008104842025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 380
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf0190b66488c2a0800000000000000
+      internalID: -6716973267639267391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 380
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b85994d99c201a0800000000000000
+      internalID: -6844686806268146856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbf5314a316371d0800000000000000
+      internalID: -3354230394630833201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_27
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c9d4c2905d3ad2b0800000000000000
+      internalID: -5559063373766403644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490d8f85891322f00800000000000000
+      internalID: 1090488590174572692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_29
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 349
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1c794c5def2e920800000000000000
+      internalID: 3018254894371422678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a0a94a400771810800000000000000
+      internalID: 1735979346618354285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 356
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac171ece0d7cd9f0800000000000000
+      internalID: -442341160848515936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 341
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268606d4da2decd70800000000000000
+      internalID: 9065414741712726114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 341
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf8420287c551e90800000000000000
+      internalID: -7055631570200916002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_34
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 341
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdab684638dded0d0800000000000000
+      internalID: -3396033512593769761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf657137fc17e5920800000000000000
+      internalID: 2980945139168925436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_36
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30cfebcac11455e60800000000000000
+      internalID: 7950332308605565955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 328
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e8a0affb6726780800000000000000
+      internalID: -8691253763965809027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_38
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60f0a5033adb84e0800000000000000
+      internalID: -1978247698626580374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_39
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa92437bac1dc2c30800000000000000
+      internalID: 4336071209838193071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_40
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 287caaf6d6adf91c0800000000000000
+      internalID: -4494633739532712062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 319
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600b143e6b78868a0800000000000000
+      internalID: -6311645658193219578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 290
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8663c8d8cf24d29b0800000000000000
+      internalID: -5103349150266935704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_43
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 283
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36a09670bc822980800000000000000
+      internalID: -8565128851773938115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_44
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 283
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617925ca790a539c0800000000000000
+      internalID: -3948072925028772074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_45
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 277
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195bb700184a6ba50800000000000000
+      internalID: 6536592783140697489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_46
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f677c5fff02435150800000000000000
+      internalID: 5860100176615339887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_47
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e51520efcc23290800000000000000
+      internalID: -7912036204003893707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 258
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9aee9a869b5763b0800000000000000
+      internalID: -5519342116190360931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_49
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 250
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3fd7fd2df599530800000000000000
+      internalID: 3862223514744255397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_50
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 245
+        width: 54
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8d77de15f094b70800000000000000
+      internalID: 8883648584515836094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_51
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 245
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990e78507a62024d0800000000000000
+      internalID: -3161484439619903335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_52
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 245
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7bef654e1d450a0800000000000000
+      internalID: -6893654350955104288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 231
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8bfbc39c28a04d0800000000000000
+      internalID: -3167575587082487604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_54
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 224
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a36c8d8d2831f70800000000000000
+      internalID: 9156806335235766796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_55
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 224
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95409d1e632c0ea80800000000000000
+      internalID: -8439532160719190951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_56
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 231
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e11cffb162a17760800000000000000
+      internalID: 7453917398991376872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_57
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 224
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da64a9ad24513cb0800000000000000
+      internalID: -4886031565623891245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_58
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6248f6b098ea5fa0800000000000000
+      internalID: -5811076660925545878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_59
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8bcace2c85af4c20800000000000000
+      internalID: 3192952682328017803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_60
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 214
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab375a66df36bf00800000000000000
+      internalID: 1132162546469911456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_61
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5526a153d65fb0620800000000000000
+      internalID: 2741554647576240725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_62
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 191
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684fcc1bffbd44590800000000000000
+      internalID: -7690780372395821946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_63
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 181
+        width: 56
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aec799f7ed784f30800000000000000
+      internalID: 4560033057991020196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_64
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63afdda5348f9d420800000000000000
+      internalID: 2655426423482612278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_65
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 199
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e64fee75dd06110800000000000000
+      internalID: 1252244066149887545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_66
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 181
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9664afd2994275f70800000000000000
+      internalID: 9175843006110647913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_67
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 181
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92955b79c705498b0800000000000000
+      internalID: -5146399978126223063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_68
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 170
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fb7f6275798b020800000000000000
+      internalID: 2357800805500174169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_69
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 170
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d907395c84c4540800000000000000
+      internalID: 4993446100266425653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_70
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54a904c443970820800000000000000
+      internalID: 2884436009910117470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_71
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 149
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cfd300386a56770800000000000000
+      internalID: 8603465744736189505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_72
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 149
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208dae54007b2f5e0800000000000000
+      internalID: -1877236882859173886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_73
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 149
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ab04d65cb87af50800000000000000
+      internalID: 6892631434771610245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_74
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 149
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ef9e4b7a43d3e50800000000000000
+      internalID: 6790641708043992657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_75
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 135
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691515a4f9f6c2e40800000000000000
+      internalID: 5632999963870974358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_76
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 135
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357909b067651e650800000000000000
+      internalID: 6260380022021855059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_77
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 118
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37913ec5dec7ef440800000000000000
+      internalID: 4971548397571086707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_78
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 117
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154aadae28ab09ab0800000000000000
+      internalID: -5003294114559908783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_79
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 117
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d7fbaf2cc40cdf0800000000000000
+      internalID: -162045186271118056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_80
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 117
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f8e18d554fb0e30800000000000000
+      internalID: 4470935704630628165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_81
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d364c24ed266df0a0800000000000000
+      internalID: -6846203511245617603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_82
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 101
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1329784ea296650800000000000000
+      internalID: 6226555120831836607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_83
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 85
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b97a47fff1d7da40800000000000000
+      internalID: 5393009976095177139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_84
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13eda7da4d972b310800000000000000
+      internalID: 1419330786925665841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_85
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 85
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7cd28a388564f360800000000000000
+      internalID: 7202493339843878010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_86
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 85
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ce44af8cdbbef20800000000000000
+      internalID: 3453062210199546907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_87
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 53
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d09f65d13713fd0800000000000000
+      internalID: -2363981759542391549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_88
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 53
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4652886c785f79ee0800000000000000
+      internalID: -1254264007699192476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_89
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fb8ddb8b4b84520800000000000000
+      internalID: 2686595883278581600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_90
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb17776858bc59410800000000000000
+      internalID: 1483315426635510206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_91
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 67
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fce700ff371b2f0800000000000000
+      internalID: -958857706591039716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_92
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 67
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e068ac84874a205d0800000000000000
+      internalID: -3097732757153217010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_93
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 74
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d80047f9efb1b050800000000000000
+      internalID: 5814639605508475095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mix dog_94
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 58
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6a9bff590107710800000000000000
+      internalID: 1688868096690464470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mix dog_0: 4550691084915367664
+      mix dog_1: 3952120425216099224
+      mix dog_10: -6069189689314159434
+      mix dog_11: -3224204130075266511
+      mix dog_12: -3216838257992562446
+      mix dog_13: -1896762231955057721
+      mix dog_14: -8913273332053295038
+      mix dog_15: -3125201113619891144
+      mix dog_16: 1973404193173828034
+      mix dog_17: -1277583778139660130
+      mix dog_18: 7662957233715204615
+      mix dog_19: 5901751934973337582
+      mix dog_2: -485384596330031105
+      mix dog_20: 6589361666829865819
+      mix dog_21: -6383327758464925760
+      mix dog_22: -3025044839797066432
+      mix dog_23: 5099543008104842025
+      mix dog_24: -6716973267639267391
+      mix dog_25: -6844686806268146856
+      mix dog_26: -3354230394630833201
+      mix dog_27: -5559063373766403644
+      mix dog_28: 1090488590174572692
+      mix dog_29: 3018254894371422678
+      mix dog_3: -7809447806066654895
+      mix dog_30: 1735979346618354285
+      mix dog_31: -442341160848515936
+      mix dog_32: 9065414741712726114
+      mix dog_33: -7055631570200916002
+      mix dog_34: -3396033512593769761
+      mix dog_35: 2980945139168925436
+      mix dog_36: 7950332308605565955
+      mix dog_37: -8691253763965809027
+      mix dog_38: -1978247698626580374
+      mix dog_39: 4336071209838193071
+      mix dog_4: 2486659778742248959
+      mix dog_40: -4494633739532712062
+      mix dog_41: -6311645658193219578
+      mix dog_42: -5103349150266935704
+      mix dog_43: -8565128851773938115
+      mix dog_44: -3948072925028772074
+      mix dog_45: 6536592783140697489
+      mix dog_46: 5860100176615339887
+      mix dog_47: -7912036204003893707
+      mix dog_48: -5519342116190360931
+      mix dog_49: 3862223514744255397
+      mix dog_5: 8215338891606093836
+      mix dog_50: 8883648584515836094
+      mix dog_51: -3161484439619903335
+      mix dog_52: -6893654350955104288
+      mix dog_53: -3167575587082487604
+      mix dog_54: 9156806335235766796
+      mix dog_55: -8439532160719190951
+      mix dog_56: 7453917398991376872
+      mix dog_57: -4886031565623891245
+      mix dog_58: -5811076660925545878
+      mix dog_59: 3192952682328017803
+      mix dog_6: 176275035973121573
+      mix dog_60: 1132162546469911456
+      mix dog_61: 2741554647576240725
+      mix dog_62: -7690780372395821946
+      mix dog_63: 4560033057991020196
+      mix dog_64: 2655426423482612278
+      mix dog_65: 1252244066149887545
+      mix dog_66: 9175843006110647913
+      mix dog_67: -5146399978126223063
+      mix dog_68: 2357800805500174169
+      mix dog_69: 4993446100266425653
+      mix dog_7: 706922165275313668
+      mix dog_70: 2884436009910117470
+      mix dog_71: 8603465744736189505
+      mix dog_72: -1877236882859173886
+      mix dog_73: 6892631434771610245
+      mix dog_74: 6790641708043992657
+      mix dog_75: 5632999963870974358
+      mix dog_76: 6260380022021855059
+      mix dog_77: 4971548397571086707
+      mix dog_78: -5003294114559908783
+      mix dog_79: -162045186271118056
+      mix dog_8: 8050763808233096581
+      mix dog_80: 4470935704630628165
+      mix dog_81: -6846203511245617603
+      mix dog_82: 6226555120831836607
+      mix dog_83: 5393009976095177139
+      mix dog_84: 1419330786925665841
+      mix dog_85: 7202493339843878010
+      mix dog_86: 3453062210199546907
+      mix dog_87: -2363981759542391549
+      mix dog_88: -1254264007699192476
+      mix dog_89: 2686595883278581600
+      mix dog_9: 2713419214257492014
+      mix dog_90: 1483315426635510206
+      mix dog_91: -958857706591039716
+      mix dog_92: -3097732757153217010
+      mix dog_93: 5814639605508475095
+      mix dog_94: 1688868096690464470
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

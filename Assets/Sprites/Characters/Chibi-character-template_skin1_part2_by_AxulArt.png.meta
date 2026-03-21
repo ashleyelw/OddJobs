@@ -1,0 +1,2613 @@
+fileFormatVersion: 2
+guid: fdec824b2cf7c4d69ad1e59d86424de5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4930225379607014129
+    second: Chibi-character-template_skin1_part2_by_AxulArt_0
+  - first:
+      213: 705394762083521082
+    second: Chibi-character-template_skin1_part2_by_AxulArt_1
+  - first:
+      213: 3501509229840193557
+    second: Chibi-character-template_skin1_part2_by_AxulArt_2
+  - first:
+      213: 7322926303495327943
+    second: Chibi-character-template_skin1_part2_by_AxulArt_3
+  - first:
+      213: 3344002590250108650
+    second: Chibi-character-template_skin1_part2_by_AxulArt_4
+  - first:
+      213: -9218704751845894005
+    second: Chibi-character-template_skin1_part2_by_AxulArt_5
+  - first:
+      213: 8614483094500764271
+    second: Chibi-character-template_skin1_part2_by_AxulArt_6
+  - first:
+      213: 7347005044791865532
+    second: Chibi-character-template_skin1_part2_by_AxulArt_7
+  - first:
+      213: 3405673635349214510
+    second: Chibi-character-template_skin1_part2_by_AxulArt_8
+  - first:
+      213: 7136217359653388860
+    second: Chibi-character-template_skin1_part2_by_AxulArt_9
+  - first:
+      213: -5607634680548633238
+    second: Chibi-character-template_skin1_part2_by_AxulArt_10
+  - first:
+      213: 1874695633653112747
+    second: Chibi-character-template_skin1_part2_by_AxulArt_11
+  - first:
+      213: -5435049676306705524
+    second: Chibi-character-template_skin1_part2_by_AxulArt_12
+  - first:
+      213: 3989011238589015790
+    second: Chibi-character-template_skin1_part2_by_AxulArt_13
+  - first:
+      213: 1715617083180132414
+    second: Chibi-character-template_skin1_part2_by_AxulArt_14
+  - first:
+      213: -2393564225892578351
+    second: Chibi-character-template_skin1_part2_by_AxulArt_15
+  - first:
+      213: -5474283735870791996
+    second: Chibi-character-template_skin1_part2_by_AxulArt_16
+  - first:
+      213: -2524619704304125264
+    second: Chibi-character-template_skin1_part2_by_AxulArt_17
+  - first:
+      213: 8052665726361265282
+    second: Chibi-character-template_skin1_part2_by_AxulArt_18
+  - first:
+      213: -4643716916904958163
+    second: Chibi-character-template_skin1_part2_by_AxulArt_19
+  - first:
+      213: 276306806511731997
+    second: Chibi-character-template_skin1_part2_by_AxulArt_20
+  - first:
+      213: -1667413428533781510
+    second: Chibi-character-template_skin1_part2_by_AxulArt_21
+  - first:
+      213: 5219091005930977401
+    second: Chibi-character-template_skin1_part2_by_AxulArt_22
+  - first:
+      213: -3866425106189648969
+    second: Chibi-character-template_skin1_part2_by_AxulArt_23
+  - first:
+      213: -8451687529192809838
+    second: Chibi-character-template_skin1_part2_by_AxulArt_24
+  - first:
+      213: 582990956477761137
+    second: Chibi-character-template_skin1_part2_by_AxulArt_25
+  - first:
+      213: 444573789640316870
+    second: Chibi-character-template_skin1_part2_by_AxulArt_26
+  - first:
+      213: -4525816168912660923
+    second: Chibi-character-template_skin1_part2_by_AxulArt_27
+  - first:
+      213: -7628272885422674024
+    second: Chibi-character-template_skin1_part2_by_AxulArt_28
+  - first:
+      213: -2206906214560395488
+    second: Chibi-character-template_skin1_part2_by_AxulArt_29
+  - first:
+      213: -7053505951003214677
+    second: Chibi-character-template_skin1_part2_by_AxulArt_30
+  - first:
+      213: 3298777543734743366
+    second: Chibi-character-template_skin1_part2_by_AxulArt_31
+  - first:
+      213: -7151109169797479310
+    second: Chibi-character-template_skin1_part2_by_AxulArt_32
+  - first:
+      213: 4061117862749669468
+    second: Chibi-character-template_skin1_part2_by_AxulArt_33
+  - first:
+      213: 5524983720037466464
+    second: Chibi-character-template_skin1_part2_by_AxulArt_34
+  - first:
+      213: 6824148335179977680
+    second: Chibi-character-template_skin1_part2_by_AxulArt_35
+  - first:
+      213: -1628791677881250428
+    second: Chibi-character-template_skin1_part2_by_AxulArt_36
+  - first:
+      213: 4954456645330053104
+    second: Chibi-character-template_skin1_part2_by_AxulArt_37
+  - first:
+      213: -1606734194319478142
+    second: Chibi-character-template_skin1_part2_by_AxulArt_38
+  - first:
+      213: 6989664859206741156
+    second: Chibi-character-template_skin1_part2_by_AxulArt_39
+  - first:
+      213: 691984231332484250
+    second: Chibi-character-template_skin1_part2_by_AxulArt_40
+  - first:
+      213: -7408961416632017166
+    second: Chibi-character-template_skin1_part2_by_AxulArt_41
+  - first:
+      213: -6307492011515468544
+    second: Chibi-character-template_skin1_part2_by_AxulArt_42
+  - first:
+      213: 1783237767528278285
+    second: Chibi-character-template_skin1_part2_by_AxulArt_43
+  - first:
+      213: -4358714556243866869
+    second: Chibi-character-template_skin1_part2_by_AxulArt_44
+  - first:
+      213: 5471543657326856096
+    second: Chibi-character-template_skin1_part2_by_AxulArt_45
+  - first:
+      213: 3570276327855484615
+    second: Chibi-character-template_skin1_part2_by_AxulArt_46
+  - first:
+      213: 8239678870822453620
+    second: Chibi-character-template_skin1_part2_by_AxulArt_47
+  - first:
+      213: 229512755103819919
+    second: Chibi-character-template_skin1_part2_by_AxulArt_48
+  - first:
+      213: -5156883115162665373
+    second: Chibi-character-template_skin1_part2_by_AxulArt_49
+  - first:
+      213: 687101456734803250
+    second: Chibi-character-template_skin1_part2_by_AxulArt_50
+  - first:
+      213: -7674234968199776972
+    second: Chibi-character-template_skin1_part2_by_AxulArt_51
+  - first:
+      213: -2724883785722578978
+    second: Chibi-character-template_skin1_part2_by_AxulArt_52
+  - first:
+      213: 9004410046012587520
+    second: Chibi-character-template_skin1_part2_by_AxulArt_53
+  - first:
+      213: 1529624963831757615
+    second: Chibi-character-template_skin1_part2_by_AxulArt_54
+  - first:
+      213: -7968166230347211303
+    second: Chibi-character-template_skin1_part2_by_AxulArt_55
+  - first:
+      213: -586787231176541119
+    second: Chibi-character-template_skin1_part2_by_AxulArt_56
+  - first:
+      213: 8241586648716460869
+    second: Chibi-character-template_skin1_part2_by_AxulArt_57
+  - first:
+      213: 1355762020145207758
+    second: Chibi-character-template_skin1_part2_by_AxulArt_58
+  - first:
+      213: 8395872073500107206
+    second: Chibi-character-template_skin1_part2_by_AxulArt_59
+  - first:
+      213: -5594000837349190801
+    second: Chibi-character-template_skin1_part2_by_AxulArt_60
+  - first:
+      213: -8263502153157318965
+    second: Chibi-character-template_skin1_part2_by_AxulArt_61
+  - first:
+      213: 6828256485514490768
+    second: Chibi-character-template_skin1_part2_by_AxulArt_62
+  - first:
+      213: -7504140765236524156
+    second: Chibi-character-template_skin1_part2_by_AxulArt_63
+  - first:
+      213: -3970291670828166068
+    second: Chibi-character-template_skin1_part2_by_AxulArt_64
+  - first:
+      213: 715112484839492853
+    second: Chibi-character-template_skin1_part2_by_AxulArt_65
+  - first:
+      213: -202411848594206173
+    second: Chibi-character-template_skin1_part2_by_AxulArt_66
+  - first:
+      213: -7538920286703286424
+    second: Chibi-character-template_skin1_part2_by_AxulArt_67
+  - first:
+      213: -6969337433714467582
+    second: Chibi-character-template_skin1_part2_by_AxulArt_68
+  - first:
+      213: -6183027667044439354
+    second: Chibi-character-template_skin1_part2_by_AxulArt_69
+  - first:
+      213: 5870429952246911233
+    second: Chibi-character-template_skin1_part2_by_AxulArt_70
+  - first:
+      213: -8080138157038922965
+    second: Chibi-character-template_skin1_part2_by_AxulArt_71
+  - first:
+      213: 3988637480405286172
+    second: Chibi-character-template_skin1_part2_by_AxulArt_72
+  - first:
+      213: -3904124273042624142
+    second: Chibi-character-template_skin1_part2_by_AxulArt_73
+  - first:
+      213: -4581297673948000818
+    second: Chibi-character-template_skin1_part2_by_AxulArt_74
+  - first:
+      213: -5424667965590549886
+    second: Chibi-character-template_skin1_part2_by_AxulArt_75
+  - first:
+      213: 1875527703343424895
+    second: Chibi-character-template_skin1_part2_by_AxulArt_76
+  - first:
+      213: 865221210826445045
+    second: Chibi-character-template_skin1_part2_by_AxulArt_77
+  - first:
+      213: -7275500756637505542
+    second: Chibi-character-template_skin1_part2_by_AxulArt_78
+  - first:
+      213: -487931475972530538
+    second: Chibi-character-template_skin1_part2_by_AxulArt_79
+  - first:
+      213: 2296328079830223685
+    second: Chibi-character-template_skin1_part2_by_AxulArt_80
+  - first:
+      213: -8463682639999033314
+    second: Chibi-character-template_skin1_part2_by_AxulArt_81
+  - first:
+      213: 8113544919125886230
+    second: Chibi-character-template_skin1_part2_by_AxulArt_82
+  - first:
+      213: 4551355048938408643
+    second: Chibi-character-template_skin1_part2_by_AxulArt_83
+  - first:
+      213: -3465007705326619540
+    second: Chibi-character-template_skin1_part2_by_AxulArt_84
+  - first:
+      213: -871491500265084396
+    second: Chibi-character-template_skin1_part2_by_AxulArt_85
+  - first:
+      213: 6847838079794551535
+    second: Chibi-character-template_skin1_part2_by_AxulArt_86
+  - first:
+      213: 8516592021554816109
+    second: Chibi-character-template_skin1_part2_by_AxulArt_87
+  - first:
+      213: -283990961641855526
+    second: Chibi-character-template_skin1_part2_by_AxulArt_88
+  - first:
+      213: -5324709949925564468
+    second: Chibi-character-template_skin1_part2_by_AxulArt_89
+  - first:
+      213: 6704985888787133337
+    second: Chibi-character-template_skin1_part2_by_AxulArt_90
+  - first:
+      213: -8905934579064527346
+    second: Chibi-character-template_skin1_part2_by_AxulArt_91
+  - first:
+      213: -4572741296989131615
+    second: Chibi-character-template_skin1_part2_by_AxulArt_92
+  - first:
+      213: 6212582840781378194
+    second: Chibi-character-template_skin1_part2_by_AxulArt_93
+  - first:
+      213: -815507331717240570
+    second: Chibi-character-template_skin1_part2_by_AxulArt_94
+  - first:
+      213: 7435522546495216554
+    second: Chibi-character-template_skin1_part2_by_AxulArt_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 225
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0598e18322549bb0800000000000000
+      internalID: -4930225379607014129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 225
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32d86c7cc01ac900800000000000000
+      internalID: 705394762083521082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 225
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518506eb71cd79030800000000000000
+      internalID: 3501509229840193557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 224
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0143caca240a560800000000000000
+      internalID: 7322926303495327943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 225
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae608d773a8486e20800000000000000
+      internalID: 3344002590250108650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 224
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b881509fed4901080800000000000000
+      internalID: -9218704751845894005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 225
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a6353abbacc8770800000000000000
+      internalID: 8614483094500764271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_7
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 225
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb072d1892ec5f560800000000000000
+      internalID: 7347005044791865532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_8
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 225
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2537e79022634f20800000000000000
+      internalID: 3405673635349214510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_9
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 224
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32cd1a11efe80360800000000000000
+      internalID: 7136217359653388860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_10
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 225
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65dcb3f7fdad22b0800000000000000
+      internalID: -5607634680548633238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_11
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 224
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf9ed90fb1440a10800000000000000
+      internalID: 1874695633653112747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 193
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8313239d13d294b0800000000000000
+      internalID: -5435049676306705524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_13
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 193
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6a3293690db5730800000000000000
+      internalID: 3989011238589015790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 193
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e382b8db5a81fc710800000000000000
+      internalID: 1715617083180132414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 193
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db0798a40a58ced0800000000000000
+      internalID: -2393564225892578351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 193
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce19bb32ff6704b0800000000000000
+      internalID: -5474283735870791996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_17
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 193
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba300441cfb6fcd0800000000000000
+      internalID: -2524619704304125264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_18
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 193
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284e9b230d0d0cf60800000000000000
+      internalID: 8052665726361265282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_19
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 193
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d27686a41143e8fb0800000000000000
+      internalID: -4643716916904958163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_20
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 193
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15872b9393a5d300800000000000000
+      internalID: 276306806511731997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_21
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 193
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb178232582cd8e0800000000000000
+      internalID: -1667413428533781510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_22
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 193
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978b3f23e9fed6840800000000000000
+      internalID: 5219091005930977401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_23
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 193
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bbf9e2e9d2b75ac0800000000000000
+      internalID: -3866425106189648969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 161
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a1ddd98f295ba80800000000000000
+      internalID: -8451687529192809838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_25
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 161
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1764f14af23371800800000000000000
+      internalID: 582990956477761137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_26
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 161
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7d5f791817b2600800000000000000
+      internalID: 444573789640316870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_27
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 161
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546dd355c221131c0800000000000000
+      internalID: -4525816168912660923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_28
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 161
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f23ae1a3ee22690800000000000000
+      internalID: -7628272885422674024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_29
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 161
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f86849d7e7f51e0800000000000000
+      internalID: -2206906214560395488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_30
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 161
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac795965b9ec1e90800000000000000
+      internalID: -7053505951003214677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_31
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 161
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6415857c2bc97cd20800000000000000
+      internalID: 3298777543734743366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_32
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 161
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274ce28291822cc90800000000000000
+      internalID: -7151109169797479310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_33
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 161
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c580030fd2dfb5830800000000000000
+      internalID: 4061117862749669468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_34
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 161
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06146a6bb6facac40800000000000000
+      internalID: 5524983720037466464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_35
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 161
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3d9f441ce34be50800000000000000
+      internalID: 6824148335179977680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 129
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d86c2499e5569e0800000000000000
+      internalID: -1628791677881250428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_37
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 129
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f7a8ffa114c1c440800000000000000
+      internalID: 4954456645330053104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_38
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 129
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2823d1b53cbb3b9e0800000000000000
+      internalID: -1606734194319478142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_39
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 129
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac6c081827400160800000000000000
+      internalID: 6989664859206741156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_40
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 129
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a949ebafdfb6a9900800000000000000
+      internalID: 691984231332484250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_41
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 129
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fed21f88d41e2990800000000000000
+      internalID: -7408961416632017166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_42
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 129
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005a10e1f694778a0800000000000000
+      internalID: -6307492011515468544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_43
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 129
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0965933d455fb810800000000000000
+      internalID: 1783237767528278285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_44
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 129
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b82cd543cb283c0800000000000000
+      internalID: -4358714556243866869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_45
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 129
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7420487f3deeb40800000000000000
+      internalID: 5471543657326856096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_46
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 129
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ceefcf676b2c8130800000000000000
+      internalID: 3570276327855484615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_47
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 129
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4710aaef648395270800000000000000
+      internalID: 8239678870822453620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_48
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 96
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88626f72a46f2300800000000000000
+      internalID: 229512755103819919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_49
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 97
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ef48c01221f68b0800000000000000
+      internalID: -5156883115162665373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_50
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 97
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235d45d6223198900800000000000000
+      internalID: 687101456734803250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_51
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 96
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435329dc4f3af7590800000000000000
+      internalID: -7674234968199776972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_52
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 97
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7b8c942a44f2ad0800000000000000
+      internalID: -2724883785722578978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_53
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 97
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ef98cba3716fc70800000000000000
+      internalID: 9004410046012587520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_54
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 96
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2bf2c0ecc15a3510800000000000000
+      internalID: 1529624963831757615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_55
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 97
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd14e8d7036b6190800000000000000
+      internalID: -7968166230347211303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_56
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 97
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cbcf64f105bd7f0800000000000000
+      internalID: -586787231176541119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_57
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 96
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543c856246fff5270800000000000000
+      internalID: 8241586648716460869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_58
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 97
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec998bacf52a0d210800000000000000
+      internalID: 1355762020145207758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_59
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 97
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1a898ea21248470800000000000000
+      internalID: 8395872073500107206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_60
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 65
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63509070ed1e52b0800000000000000
+      internalID: -5594000837349190801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_61
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 65
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6e168d294225d80800000000000000
+      internalID: -8263502153157318965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_62
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 64
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093395e8817d2ce50800000000000000
+      internalID: 6828256485514490768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_63
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 65
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b8c8f8bbfebd790800000000000000
+      internalID: -7504140765236524156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_64
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 65
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c445899c2c0b6e8c0800000000000000
+      internalID: -3970291670828166068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_65
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 64
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc0e4124079ce900800000000000000
+      internalID: 715112484839492853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_66
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 65
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32256320f73e03df0800000000000000
+      internalID: -202411848594206173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_67
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 65
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867801131ff506790800000000000000
+      internalID: -7538920286703286424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_68
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 64
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ddd977780f74f90800000000000000
+      internalID: -6969337433714467582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_69
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 65
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca676d8819713aa0800000000000000
+      internalID: -6183027667044439354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_70
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 65
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1019d7e40f4f77150800000000000000
+      internalID: 5870429952246911233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_71
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 64
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b239d9518259ddf80800000000000000
+      internalID: -8080138157038922965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_72
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 33
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1dbd5dd7ac7a5730800000000000000
+      internalID: 3988637480405286172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_73
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 33
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271705a98a3c1d9c0800000000000000
+      internalID: -3904124273042624142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_74
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 32
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd810ec906fb60c0800000000000000
+      internalID: -4581297673948000818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_75
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 33
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ac886f935b7b4b0800000000000000
+      internalID: -5424667965590549886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_76
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 33
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75603c5286370a10800000000000000
+      internalID: 1875527703343424895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_77
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 32
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f0917b6b12e10c00800000000000000
+      internalID: 865221210826445045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_78
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 33
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7298deb9a380b90800000000000000
+      internalID: -7275500756637505542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_79
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 33
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69edce368e48a39f0800000000000000
+      internalID: -487931475972530538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_80
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 32
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b090ed8323edf10800000000000000
+      internalID: 2296328079830223685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_81
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 33
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10a73f3b75fa8a80800000000000000
+      internalID: -8463682639999033314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_82
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 33
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6158ca5dd1a199070800000000000000
+      internalID: 8113544919125886230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_83
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 32
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca87aa8d49a92f30800000000000000
+      internalID: 4551355048938408643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_84
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64f304b9d1d9efc0800000000000000
+      internalID: -3465007705326619540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_85
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a6ded0917d7e3f0800000000000000
+      internalID: -871491500265084396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_86
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fea1c81c378680f50800000000000000
+      internalID: 6847838079794551535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_87
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6463bd1253013670800000000000000
+      internalID: 8516592021554816109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_88
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad56aeb99bf0f0cf0800000000000000
+      internalID: -283990961641855526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_89
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccfd2b61384da16b0800000000000000
+      internalID: -5324709949925564468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_90
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993f92d2425ec0d50800000000000000
+      internalID: 6704985888787133337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_91
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e06adfd9fa3c76480800000000000000
+      internalID: -8905934579064527346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_92
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac243f840c5a80c0800000000000000
+      internalID: -4572741296989131615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_93
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29216729d27873650800000000000000
+      internalID: 6212582840781378194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_94
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609644d076cbea4f0800000000000000
+      internalID: -815507331717240570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chibi-character-template_skin1_part2_by_AxulArt_95
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab51476c58403760800000000000000
+      internalID: 7435522546495216554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Chibi-character-template_skin1_part2_by_AxulArt_0: -4930225379607014129
+      Chibi-character-template_skin1_part2_by_AxulArt_1: 705394762083521082
+      Chibi-character-template_skin1_part2_by_AxulArt_10: -5607634680548633238
+      Chibi-character-template_skin1_part2_by_AxulArt_11: 1874695633653112747
+      Chibi-character-template_skin1_part2_by_AxulArt_12: -5435049676306705524
+      Chibi-character-template_skin1_part2_by_AxulArt_13: 3989011238589015790
+      Chibi-character-template_skin1_part2_by_AxulArt_14: 1715617083180132414
+      Chibi-character-template_skin1_part2_by_AxulArt_15: -2393564225892578351
+      Chibi-character-template_skin1_part2_by_AxulArt_16: -5474283735870791996
+      Chibi-character-template_skin1_part2_by_AxulArt_17: -2524619704304125264
+      Chibi-character-template_skin1_part2_by_AxulArt_18: 8052665726361265282
+      Chibi-character-template_skin1_part2_by_AxulArt_19: -4643716916904958163
+      Chibi-character-template_skin1_part2_by_AxulArt_2: 3501509229840193557
+      Chibi-character-template_skin1_part2_by_AxulArt_20: 276306806511731997
+      Chibi-character-template_skin1_part2_by_AxulArt_21: -1667413428533781510
+      Chibi-character-template_skin1_part2_by_AxulArt_22: 5219091005930977401
+      Chibi-character-template_skin1_part2_by_AxulArt_23: -3866425106189648969
+      Chibi-character-template_skin1_part2_by_AxulArt_24: -8451687529192809838
+      Chibi-character-template_skin1_part2_by_AxulArt_25: 582990956477761137
+      Chibi-character-template_skin1_part2_by_AxulArt_26: 444573789640316870
+      Chibi-character-template_skin1_part2_by_AxulArt_27: -4525816168912660923
+      Chibi-character-template_skin1_part2_by_AxulArt_28: -7628272885422674024
+      Chibi-character-template_skin1_part2_by_AxulArt_29: -2206906214560395488
+      Chibi-character-template_skin1_part2_by_AxulArt_3: 7322926303495327943
+      Chibi-character-template_skin1_part2_by_AxulArt_30: -7053505951003214677
+      Chibi-character-template_skin1_part2_by_AxulArt_31: 3298777543734743366
+      Chibi-character-template_skin1_part2_by_AxulArt_32: -7151109169797479310
+      Chibi-character-template_skin1_part2_by_AxulArt_33: 4061117862749669468
+      Chibi-character-template_skin1_part2_by_AxulArt_34: 5524983720037466464
+      Chibi-character-template_skin1_part2_by_AxulArt_35: 6824148335179977680
+      Chibi-character-template_skin1_part2_by_AxulArt_36: -1628791677881250428
+      Chibi-character-template_skin1_part2_by_AxulArt_37: 4954456645330053104
+      Chibi-character-template_skin1_part2_by_AxulArt_38: -1606734194319478142
+      Chibi-character-template_skin1_part2_by_AxulArt_39: 6989664859206741156
+      Chibi-character-template_skin1_part2_by_AxulArt_4: 3344002590250108650
+      Chibi-character-template_skin1_part2_by_AxulArt_40: 691984231332484250
+      Chibi-character-template_skin1_part2_by_AxulArt_41: -7408961416632017166
+      Chibi-character-template_skin1_part2_by_AxulArt_42: -6307492011515468544
+      Chibi-character-template_skin1_part2_by_AxulArt_43: 1783237767528278285
+      Chibi-character-template_skin1_part2_by_AxulArt_44: -4358714556243866869
+      Chibi-character-template_skin1_part2_by_AxulArt_45: 5471543657326856096
+      Chibi-character-template_skin1_part2_by_AxulArt_46: 3570276327855484615
+      Chibi-character-template_skin1_part2_by_AxulArt_47: 8239678870822453620
+      Chibi-character-template_skin1_part2_by_AxulArt_48: 229512755103819919
+      Chibi-character-template_skin1_part2_by_AxulArt_49: -5156883115162665373
+      Chibi-character-template_skin1_part2_by_AxulArt_5: -9218704751845894005
+      Chibi-character-template_skin1_part2_by_AxulArt_50: 687101456734803250
+      Chibi-character-template_skin1_part2_by_AxulArt_51: -7674234968199776972
+      Chibi-character-template_skin1_part2_by_AxulArt_52: -2724883785722578978
+      Chibi-character-template_skin1_part2_by_AxulArt_53: 9004410046012587520
+      Chibi-character-template_skin1_part2_by_AxulArt_54: 1529624963831757615
+      Chibi-character-template_skin1_part2_by_AxulArt_55: -7968166230347211303
+      Chibi-character-template_skin1_part2_by_AxulArt_56: -586787231176541119
+      Chibi-character-template_skin1_part2_by_AxulArt_57: 8241586648716460869
+      Chibi-character-template_skin1_part2_by_AxulArt_58: 1355762020145207758
+      Chibi-character-template_skin1_part2_by_AxulArt_59: 8395872073500107206
+      Chibi-character-template_skin1_part2_by_AxulArt_6: 8614483094500764271
+      Chibi-character-template_skin1_part2_by_AxulArt_60: -5594000837349190801
+      Chibi-character-template_skin1_part2_by_AxulArt_61: -8263502153157318965
+      Chibi-character-template_skin1_part2_by_AxulArt_62: 6828256485514490768
+      Chibi-character-template_skin1_part2_by_AxulArt_63: -7504140765236524156
+      Chibi-character-template_skin1_part2_by_AxulArt_64: -3970291670828166068
+      Chibi-character-template_skin1_part2_by_AxulArt_65: 715112484839492853
+      Chibi-character-template_skin1_part2_by_AxulArt_66: -202411848594206173
+      Chibi-character-template_skin1_part2_by_AxulArt_67: -7538920286703286424
+      Chibi-character-template_skin1_part2_by_AxulArt_68: -6969337433714467582
+      Chibi-character-template_skin1_part2_by_AxulArt_69: -6183027667044439354
+      Chibi-character-template_skin1_part2_by_AxulArt_7: 7347005044791865532
+      Chibi-character-template_skin1_part2_by_AxulArt_70: 5870429952246911233
+      Chibi-character-template_skin1_part2_by_AxulArt_71: -8080138157038922965
+      Chibi-character-template_skin1_part2_by_AxulArt_72: 3988637480405286172
+      Chibi-character-template_skin1_part2_by_AxulArt_73: -3904124273042624142
+      Chibi-character-template_skin1_part2_by_AxulArt_74: -4581297673948000818
+      Chibi-character-template_skin1_part2_by_AxulArt_75: -5424667965590549886
+      Chibi-character-template_skin1_part2_by_AxulArt_76: 1875527703343424895
+      Chibi-character-template_skin1_part2_by_AxulArt_77: 865221210826445045
+      Chibi-character-template_skin1_part2_by_AxulArt_78: -7275500756637505542
+      Chibi-character-template_skin1_part2_by_AxulArt_79: -487931475972530538
+      Chibi-character-template_skin1_part2_by_AxulArt_8: 3405673635349214510
+      Chibi-character-template_skin1_part2_by_AxulArt_80: 2296328079830223685
+      Chibi-character-template_skin1_part2_by_AxulArt_81: -8463682639999033314
+      Chibi-character-template_skin1_part2_by_AxulArt_82: 8113544919125886230
+      Chibi-character-template_skin1_part2_by_AxulArt_83: 4551355048938408643
+      Chibi-character-template_skin1_part2_by_AxulArt_84: -3465007705326619540
+      Chibi-character-template_skin1_part2_by_AxulArt_85: -871491500265084396
+      Chibi-character-template_skin1_part2_by_AxulArt_86: 6847838079794551535
+      Chibi-character-template_skin1_part2_by_AxulArt_87: 8516592021554816109
+      Chibi-character-template_skin1_part2_by_AxulArt_88: -283990961641855526
+      Chibi-character-template_skin1_part2_by_AxulArt_89: -5324709949925564468
+      Chibi-character-template_skin1_part2_by_AxulArt_9: 7136217359653388860
+      Chibi-character-template_skin1_part2_by_AxulArt_90: 6704985888787133337
+      Chibi-character-template_skin1_part2_by_AxulArt_91: -8905934579064527346
+      Chibi-character-template_skin1_part2_by_AxulArt_92: -4572741296989131615
+      Chibi-character-template_skin1_part2_by_AxulArt_93: 6212582840781378194
+      Chibi-character-template_skin1_part2_by_AxulArt_94: -815507331717240570
+      Chibi-character-template_skin1_part2_by_AxulArt_95: 7435522546495216554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

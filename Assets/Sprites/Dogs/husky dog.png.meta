@@ -1,0 +1,2587 @@
+fileFormatVersion: 2
+guid: 148871cf8ab70407eac3994115c18ad9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5740135094015193356
+    second: husky dog_0
+  - first:
+      213: 6780760173152468460
+    second: husky dog_1
+  - first:
+      213: 5811237197416166296
+    second: husky dog_2
+  - first:
+      213: -7220727569440790224
+    second: husky dog_3
+  - first:
+      213: -7464130106522148192
+    second: husky dog_4
+  - first:
+      213: -748988961778567332
+    second: husky dog_5
+  - first:
+      213: 8305182161764376953
+    second: husky dog_6
+  - first:
+      213: -817506587688040777
+    second: husky dog_7
+  - first:
+      213: 6264117268684006755
+    second: husky dog_8
+  - first:
+      213: -7929933502810882297
+    second: husky dog_9
+  - first:
+      213: 357365719511801934
+    second: husky dog_10
+  - first:
+      213: -1594376442104398197
+    second: husky dog_11
+  - first:
+      213: -9169982912046921102
+    second: husky dog_12
+  - first:
+      213: -3275684875766790210
+    second: husky dog_13
+  - first:
+      213: 2589663040916095807
+    second: husky dog_14
+  - first:
+      213: -403902971247598867
+    second: husky dog_15
+  - first:
+      213: 6461091228295437058
+    second: husky dog_16
+  - first:
+      213: -3458884000620676271
+    second: husky dog_17
+  - first:
+      213: 8645637543493805475
+    second: husky dog_18
+  - first:
+      213: 3445059824399154932
+    second: husky dog_19
+  - first:
+      213: -3343571195238900614
+    second: husky dog_20
+  - first:
+      213: -3681513689568027358
+    second: husky dog_21
+  - first:
+      213: -3609004914669080197
+    second: husky dog_22
+  - first:
+      213: -6995657889515491016
+    second: husky dog_23
+  - first:
+      213: -2955088506579795402
+    second: husky dog_24
+  - first:
+      213: -8636379741574419976
+    second: husky dog_25
+  - first:
+      213: -350348706949610732
+    second: husky dog_26
+  - first:
+      213: -6075267412440928272
+    second: husky dog_27
+  - first:
+      213: -560629068030717776
+    second: husky dog_28
+  - first:
+      213: -5160592391795570
+    second: husky dog_29
+  - first:
+      213: -6923112226721160512
+    second: husky dog_30
+  - first:
+      213: 7568390461521878296
+    second: husky dog_31
+  - first:
+      213: 2797438896661139159
+    second: husky dog_32
+  - first:
+      213: 531315813027162162
+    second: husky dog_33
+  - first:
+      213: -432597808322811066
+    second: husky dog_34
+  - first:
+      213: 5321069271906888722
+    second: husky dog_35
+  - first:
+      213: -2505517860357473050
+    second: husky dog_36
+  - first:
+      213: 6690339433390062076
+    second: husky dog_37
+  - first:
+      213: -2801377622368884931
+    second: husky dog_38
+  - first:
+      213: 4912473153552321747
+    second: husky dog_39
+  - first:
+      213: 4353859359788709620
+    second: husky dog_40
+  - first:
+      213: -2941563220126633982
+    second: husky dog_41
+  - first:
+      213: 5665162405953865644
+    second: husky dog_42
+  - first:
+      213: -7494377022732920743
+    second: husky dog_43
+  - first:
+      213: -4769969525500525036
+    second: husky dog_44
+  - first:
+      213: -1642211960659161109
+    second: husky dog_45
+  - first:
+      213: -719002539544457426
+    second: husky dog_46
+  - first:
+      213: -7509941823988350427
+    second: husky dog_47
+  - first:
+      213: 1805174661585596615
+    second: husky dog_48
+  - first:
+      213: -6606354789220377739
+    second: husky dog_49
+  - first:
+      213: 706740132094991911
+    second: husky dog_50
+  - first:
+      213: -6111077098231357737
+    second: husky dog_51
+  - first:
+      213: -1466486811462464062
+    second: husky dog_52
+  - first:
+      213: -4453897522319778622
+    second: husky dog_53
+  - first:
+      213: 3849056099463933379
+    second: husky dog_54
+  - first:
+      213: 1209668821246829721
+    second: husky dog_55
+  - first:
+      213: 2116307592991983166
+    second: husky dog_56
+  - first:
+      213: -6012023263510711224
+    second: husky dog_57
+  - first:
+      213: -6752502600074747071
+    second: husky dog_58
+  - first:
+      213: -39179496890940616
+    second: husky dog_59
+  - first:
+      213: 6302704198703513368
+    second: husky dog_60
+  - first:
+      213: 1355423385514843268
+    second: husky dog_61
+  - first:
+      213: 1874638228711626548
+    second: husky dog_62
+  - first:
+      213: 4661909849387498318
+    second: husky dog_63
+  - first:
+      213: 3592128980115058735
+    second: husky dog_64
+  - first:
+      213: -3185313188911134694
+    second: husky dog_65
+  - first:
+      213: -3133058020592712340
+    second: husky dog_66
+  - first:
+      213: 6006136962726987918
+    second: husky dog_67
+  - first:
+      213: 1534908629791297717
+    second: husky dog_68
+  - first:
+      213: -1351547857395752987
+    second: husky dog_69
+  - first:
+      213: 6750046363786369596
+    second: husky dog_70
+  - first:
+      213: 8928776511360011500
+    second: husky dog_71
+  - first:
+      213: 7247575474348313175
+    second: husky dog_72
+  - first:
+      213: 1701714710170848162
+    second: husky dog_73
+  - first:
+      213: -7430068937143420492
+    second: husky dog_74
+  - first:
+      213: -3642730869391956130
+    second: husky dog_75
+  - first:
+      213: 1054784080668200215
+    second: husky dog_76
+  - first:
+      213: -7905684891710895104
+    second: husky dog_77
+  - first:
+      213: -7015301351220467389
+    second: husky dog_78
+  - first:
+      213: 618642597803093526
+    second: husky dog_79
+  - first:
+      213: 2637055690152516047
+    second: husky dog_80
+  - first:
+      213: 5587881614638369727
+    second: husky dog_81
+  - first:
+      213: 6257309191907816851
+    second: husky dog_82
+  - first:
+      213: -7443300204137540905
+    second: husky dog_83
+  - first:
+      213: 9205700265175825008
+    second: husky dog_84
+  - first:
+      213: 2487983009680079229
+    second: husky dog_85
+  - first:
+      213: 356676311017502303
+    second: husky dog_86
+  - first:
+      213: 6403482878547495518
+    second: husky dog_87
+  - first:
+      213: 8189453555083493449
+    second: husky dog_88
+  - first:
+      213: 5469812550677090148
+    second: husky dog_89
+  - first:
+      213: 1487969490809899557
+    second: husky dog_90
+  - first:
+      213: 6670568861061610522
+    second: husky dog_91
+  - first:
+      213: -36956764723841727
+    second: husky dog_92
+  - first:
+      213: -1440092627945239667
+    second: husky dog_93
+  - first:
+      213: 8477968799085031659
+    second: husky dog_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: husky dog_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 489
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c017789947e09af40800000000000000
+      internalID: 5740135094015193356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 481
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced7ed393791a1e50800000000000000
+      internalID: 6780760173152468460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893f6891179a5a050800000000000000
+      internalID: 5811237197416166296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039ac9b5882dacb90800000000000000
+      internalID: -7220727569440790224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2e27bf6351a6890800000000000000
+      internalID: -7464130106522148192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 481
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57ff70f18e0b95f0800000000000000
+      internalID: -748988961778567332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97160e26c2fe14370800000000000000
+      internalID: 8305182161764376953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6005ff612a7a4f0800000000000000
+      internalID: -817506587688040777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 450
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365ec47977d9ee650800000000000000
+      internalID: 6264117268684006755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 457
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ffc786e7733f190800000000000000
+      internalID: -7929933502810882297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 437
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40276e7a3e95f400800000000000000
+      internalID: 357365719511801934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 437
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ebd12c213afd9e0800000000000000
+      internalID: -1594376442104398197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 437
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a8a0b402dadb080800000000000000
+      internalID: -9169982912046921102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 417
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb70dc7f5fd6a82d0800000000000000
+      internalID: -3275684875766790210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 424
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3303c9a0d450f320800000000000000
+      internalID: 2589663040916095807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2ef0b336c056af0800000000000000
+      internalID: -403902971247598867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b11f36d386aa950800000000000000
+      internalID: 6461091228295437058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_17
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bf8bfc3539fffc0800000000000000
+      internalID: -3458884000620676271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5aabc0a897bf770800000000000000
+      internalID: 8645637543493805475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_19
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fef74758af4fcf20800000000000000
+      internalID: 3445059824399154932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_20
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 388
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c9e8286bf3991d0800000000000000
+      internalID: -3343571195238900614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d5f890ec2a8ecc0800000000000000
+      internalID: -3681513689568027358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_22
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71b284c62d3aedc0800000000000000
+      internalID: -3609004914669080197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_23
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 831354dc63e6aee90800000000000000
+      internalID: -6995657889515491016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 380
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632c875f8aa6df6d0800000000000000
+      internalID: -2955088506579795402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 380
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9a31ee16a652880800000000000000
+      internalID: -8636379741574419976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41340ce05bf432bf0800000000000000
+      internalID: -350348706949610732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_27
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffa3fdf97050bba0800000000000000
+      internalID: -6075267412440928272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0554d35de3838f0800000000000000
+      internalID: -560629068030717776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_29
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 349
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c08a3f77aadeff0800000000000000
+      internalID: -5160592391795570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c22f1a2c1a2cef90800000000000000
+      internalID: -6923112226721160512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 356
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d57749603580960800000000000000
+      internalID: 7568390461521878296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 341
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de0954eadf72d620800000000000000
+      internalID: 2797438896661139159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 341
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238280bbaec9f5700800000000000000
+      internalID: 531315813027162162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_34
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 341
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b6e48d59a1ff9f0800000000000000
+      internalID: -432597808322811066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ca1418f4c38d940800000000000000
+      internalID: 5321069271906888722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_36
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ecfef2e7cc9a3dd0800000000000000
+      internalID: -2505517860357473050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 328
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf9b00a844cd8dc50800000000000000
+      internalID: 6690339433390062076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_38
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3769f015e18f19d0800000000000000
+      internalID: -2801377622368884931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_39
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc01264e4c9c2440800000000000000
+      internalID: 4912473153552321747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_40
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6373e15040c6c30800000000000000
+      internalID: 4353859359788709620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 319
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2007ffb16d77d27d0800000000000000
+      internalID: -2941563220126633982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 290
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca707c16133be9e40800000000000000
+      internalID: 5665162405953865644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_43
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 283
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95897230ecf9ef790800000000000000
+      internalID: -7494377022732920743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_44
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 283
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4164a1b2df9adcdb0800000000000000
+      internalID: -4769969525500525036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_45
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 277
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef430f2ce0b539e0800000000000000
+      internalID: -1642211960659161109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_46
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f49ddeff69506f0800000000000000
+      internalID: -719002539544457426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_47
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522435153b357c790800000000000000
+      internalID: -7509941823988350427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 258
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0785d5ac44d0910800000000000000
+      internalID: 1805174661585596615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_49
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 250
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b915832538154a0800000000000000
+      internalID: -6606354789220377739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_50
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 245
+        width: 54
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ed80ad768dec900800000000000000
+      internalID: 706740132094991911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_51
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 245
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de15ecc1c7113ba0800000000000000
+      internalID: -6111077098231357737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_52
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 245
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd0cf6c30ef5abe0800000000000000
+      internalID: -1466486811462464062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 231
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc132c1dc39032c0800000000000000
+      internalID: -4453897522319778622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_54
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 224
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd291911289a6530800000000000000
+      internalID: 3849056099463933379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_55
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 224
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9946842426b99c010800000000000000
+      internalID: 1209668821246829721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_56
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 231
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e36cfbb0b82ae5d10800000000000000
+      internalID: 2116307592991983166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_57
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 224
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8443f05e1b0019ca0800000000000000
+      internalID: -6012023263510711224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_58
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143a4a959aa4a42a0800000000000000
+      internalID: -6752502600074747071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_59
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8334655847ec47ff0800000000000000
+      internalID: -39179496890940616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_60
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 214
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ff5185314b77750800000000000000
+      internalID: 6302704198703513368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_61
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c9ed5436e6fc210800000000000000
+      internalID: 1355423385514843268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_62
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 191
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43759b8698d040a10800000000000000
+      internalID: 1874638228711626548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_63
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 181
+        width: 56
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bf2a3ee4e62b040800000000000000
+      internalID: 4661909849387498318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_64
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20f427864ec9d130800000000000000
+      internalID: 3592128980115058735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_65
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 199
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18c59cf78e7bc3d0800000000000000
+      internalID: -3185313188911134694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_66
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 181
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6502e574542584d0800000000000000
+      internalID: -3133058020592712340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_67
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 181
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e888fa7eeb51a5350800000000000000
+      internalID: 6006136962726987918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_68
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 170
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0546934471d4510800000000000000
+      internalID: 1534908629791297717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_69
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 170
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef5cfe62665e3de0800000000000000
+      internalID: -1351547857395752987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_70
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3a57e2976bfcad50800000000000000
+      internalID: 6750046363786369596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_71
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 149
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec077e2ee269eb70800000000000000
+      internalID: 8928776511360011500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_72
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 149
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a4d5f9e7f849460800000000000000
+      internalID: 7247575474348313175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_73
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 149
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab4ac84384bd9710800000000000000
+      internalID: 1701714710170848162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_74
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 149
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9f6e8faa713e890800000000000000
+      internalID: -7430068937143420492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_75
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 135
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57ea85039b627dc0800000000000000
+      internalID: -3642730869391956130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_76
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 135
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d07fa688853ae00800000000000000
+      internalID: 1054784080668200215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_77
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 118
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c46632a7d594290800000000000000
+      internalID: -7905684891710895104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_78
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 117
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349af28f694a4ae90800000000000000
+      internalID: -7015301351220467389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_79
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 117
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e6afc3a2cd59800800000000000000
+      internalID: 618642597803093526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_80
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 117
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc99670bd24b89420800000000000000
+      internalID: 2637055690152516047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_81
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbbc47ff8b42c8d40800000000000000
+      internalID: 5587881614638369727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_82
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 101
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395b371be8d66d650800000000000000
+      internalID: 6257309191907816851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_83
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 85
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d21acf86e514b890800000000000000
+      internalID: -7443300204137540905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_84
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a36860e9731cf70800000000000000
+      internalID: 9205700265175825008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_85
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 85
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79303b8d57178220800000000000000
+      internalID: 2487983009680079229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_86
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 85
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56bef1173b23f400800000000000000
+      internalID: 356676311017502303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_87
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 53
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a8e1d30cdbdd850800000000000000
+      internalID: 6403482878547495518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_88
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 53
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940cf476e98c6a170800000000000000
+      internalID: 8189453555083493449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_89
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fc417d88da8eb40800000000000000
+      internalID: 5469812550677090148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_90
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ac7584e5456a410800000000000000
+      internalID: 1487969490809899557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_91
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 67
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1cfb55790f929c50800000000000000
+      internalID: 6670568861061610522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_92
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 67
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145769ea404bc7ff0800000000000000
+      internalID: -36956764723841727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_93
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 74
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b4aa38263c30ce0800000000000000
+      internalID: -1440092627945239667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: husky dog_94
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 58
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0fe4e54bbc7a570800000000000000
+      internalID: 8477968799085031659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      husky dog_0: 5740135094015193356
+      husky dog_1: 6780760173152468460
+      husky dog_10: 357365719511801934
+      husky dog_11: -1594376442104398197
+      husky dog_12: -9169982912046921102
+      husky dog_13: -3275684875766790210
+      husky dog_14: 2589663040916095807
+      husky dog_15: -403902971247598867
+      husky dog_16: 6461091228295437058
+      husky dog_17: -3458884000620676271
+      husky dog_18: 8645637543493805475
+      husky dog_19: 3445059824399154932
+      husky dog_2: 5811237197416166296
+      husky dog_20: -3343571195238900614
+      husky dog_21: -3681513689568027358
+      husky dog_22: -3609004914669080197
+      husky dog_23: -6995657889515491016
+      husky dog_24: -2955088506579795402
+      husky dog_25: -8636379741574419976
+      husky dog_26: -350348706949610732
+      husky dog_27: -6075267412440928272
+      husky dog_28: -560629068030717776
+      husky dog_29: -5160592391795570
+      husky dog_3: -7220727569440790224
+      husky dog_30: -6923112226721160512
+      husky dog_31: 7568390461521878296
+      husky dog_32: 2797438896661139159
+      husky dog_33: 531315813027162162
+      husky dog_34: -432597808322811066
+      husky dog_35: 5321069271906888722
+      husky dog_36: -2505517860357473050
+      husky dog_37: 6690339433390062076
+      husky dog_38: -2801377622368884931
+      husky dog_39: 4912473153552321747
+      husky dog_4: -7464130106522148192
+      husky dog_40: 4353859359788709620
+      husky dog_41: -2941563220126633982
+      husky dog_42: 5665162405953865644
+      husky dog_43: -7494377022732920743
+      husky dog_44: -4769969525500525036
+      husky dog_45: -1642211960659161109
+      husky dog_46: -719002539544457426
+      husky dog_47: -7509941823988350427
+      husky dog_48: 1805174661585596615
+      husky dog_49: -6606354789220377739
+      husky dog_5: -748988961778567332
+      husky dog_50: 706740132094991911
+      husky dog_51: -6111077098231357737
+      husky dog_52: -1466486811462464062
+      husky dog_53: -4453897522319778622
+      husky dog_54: 3849056099463933379
+      husky dog_55: 1209668821246829721
+      husky dog_56: 2116307592991983166
+      husky dog_57: -6012023263510711224
+      husky dog_58: -6752502600074747071
+      husky dog_59: -39179496890940616
+      husky dog_6: 8305182161764376953
+      husky dog_60: 6302704198703513368
+      husky dog_61: 1355423385514843268
+      husky dog_62: 1874638228711626548
+      husky dog_63: 4661909849387498318
+      husky dog_64: 3592128980115058735
+      husky dog_65: -3185313188911134694
+      husky dog_66: -3133058020592712340
+      husky dog_67: 6006136962726987918
+      husky dog_68: 1534908629791297717
+      husky dog_69: -1351547857395752987
+      husky dog_7: -817506587688040777
+      husky dog_70: 6750046363786369596
+      husky dog_71: 8928776511360011500
+      husky dog_72: 7247575474348313175
+      husky dog_73: 1701714710170848162
+      husky dog_74: -7430068937143420492
+      husky dog_75: -3642730869391956130
+      husky dog_76: 1054784080668200215
+      husky dog_77: -7905684891710895104
+      husky dog_78: -7015301351220467389
+      husky dog_79: 618642597803093526
+      husky dog_8: 6264117268684006755
+      husky dog_80: 2637055690152516047
+      husky dog_81: 5587881614638369727
+      husky dog_82: 6257309191907816851
+      husky dog_83: -7443300204137540905
+      husky dog_84: 9205700265175825008
+      husky dog_85: 2487983009680079229
+      husky dog_86: 356676311017502303
+      husky dog_87: 6403482878547495518
+      husky dog_88: 8189453555083493449
+      husky dog_89: 5469812550677090148
+      husky dog_9: -7929933502810882297
+      husky dog_90: 1487969490809899557
+      husky dog_91: 6670568861061610522
+      husky dog_92: -36956764723841727
+      husky dog_93: -1440092627945239667
+      husky dog_94: 8477968799085031659
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

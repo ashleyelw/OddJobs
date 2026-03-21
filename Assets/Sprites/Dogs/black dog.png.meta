@@ -1,0 +1,2431 @@
+fileFormatVersion: 2
+guid: 265098dc823964b0891ab722e3515fc5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1386268838643090102
+    second: black dog_0
+  - first:
+      213: -6660915244080415538
+    second: black dog_1
+  - first:
+      213: 8889127601126022089
+    second: black dog_2
+  - first:
+      213: 2122481980753163108
+    second: black dog_3
+  - first:
+      213: 6115837237811496414
+    second: black dog_4
+  - first:
+      213: -244347135441371847
+    second: black dog_5
+  - first:
+      213: -7882884961261479235
+    second: black dog_6
+  - first:
+      213: 3245598163991699427
+    second: black dog_7
+  - first:
+      213: -8026220024810857799
+    second: black dog_8
+  - first:
+      213: -8536678942843344801
+    second: black dog_9
+  - first:
+      213: -1121316020517352188
+    second: black dog_10
+  - first:
+      213: -3224681333751372610
+    second: black dog_11
+  - first:
+      213: -8417007357843320381
+    second: black dog_12
+  - first:
+      213: 4878248764697160652
+    second: black dog_13
+  - first:
+      213: 1035759994703047776
+    second: black dog_14
+  - first:
+      213: -4535256381992639895
+    second: black dog_15
+  - first:
+      213: -9193567387515878018
+    second: black dog_16
+  - first:
+      213: 2367532539046098985
+    second: black dog_17
+  - first:
+      213: 7630010150588188729
+    second: black dog_18
+  - first:
+      213: 1359970589855187240
+    second: black dog_19
+  - first:
+      213: 5695583052648812374
+    second: black dog_20
+  - first:
+      213: -7242555582479466220
+    second: black dog_21
+  - first:
+      213: 5221430788881217009
+    second: black dog_22
+  - first:
+      213: 3932966583020413103
+    second: black dog_23
+  - first:
+      213: 2389113755684126136
+    second: black dog_24
+  - first:
+      213: 2269622195504206760
+    second: black dog_25
+  - first:
+      213: -7873011797198695542
+    second: black dog_26
+  - first:
+      213: 5741758168912296068
+    second: black dog_27
+  - first:
+      213: 2712330106708731088
+    second: black dog_28
+  - first:
+      213: -5756038054017284096
+    second: black dog_29
+  - first:
+      213: -78042309486960454
+    second: black dog_30
+  - first:
+      213: 7737828767311477685
+    second: black dog_31
+  - first:
+      213: -7973447603523275644
+    second: black dog_32
+  - first:
+      213: -3909864014145790675
+    second: black dog_33
+  - first:
+      213: 5000465917575427855
+    second: black dog_34
+  - first:
+      213: -7165534211808757765
+    second: black dog_35
+  - first:
+      213: -7342278489672918283
+    second: black dog_36
+  - first:
+      213: -8361885049251820222
+    second: black dog_37
+  - first:
+      213: 533498488301101158
+    second: black dog_38
+  - first:
+      213: 8347568938215915342
+    second: black dog_39
+  - first:
+      213: 6858194952639920097
+    second: black dog_40
+  - first:
+      213: 1601601654257051997
+    second: black dog_41
+  - first:
+      213: -7698441207025089879
+    second: black dog_42
+  - first:
+      213: 8784903363109279419
+    second: black dog_43
+  - first:
+      213: -663463870333082944
+    second: black dog_44
+  - first:
+      213: -4419308045604474131
+    second: black dog_45
+  - first:
+      213: 8860638333580176871
+    second: black dog_46
+  - first:
+      213: 3783983608670705415
+    second: black dog_47
+  - first:
+      213: 6457618280994834728
+    second: black dog_48
+  - first:
+      213: 6471146146495695508
+    second: black dog_49
+  - first:
+      213: -7122151109371422903
+    second: black dog_50
+  - first:
+      213: 8180159874022756385
+    second: black dog_51
+  - first:
+      213: -9057587631415226632
+    second: black dog_52
+  - first:
+      213: -3793579780074802283
+    second: black dog_53
+  - first:
+      213: -4550865723221033067
+    second: black dog_54
+  - first:
+      213: -4519476969339188843
+    second: black dog_55
+  - first:
+      213: 3835936303128541120
+    second: black dog_56
+  - first:
+      213: -2313561081524652526
+    second: black dog_57
+  - first:
+      213: -8550457590748569195
+    second: black dog_58
+  - first:
+      213: -1890139965874959211
+    second: black dog_59
+  - first:
+      213: 2403542093464271383
+    second: black dog_60
+  - first:
+      213: 858598873181379128
+    second: black dog_61
+  - first:
+      213: -9064901600063841210
+    second: black dog_62
+  - first:
+      213: -1301488696130558746
+    second: black dog_63
+  - first:
+      213: 2123984063784232638
+    second: black dog_64
+  - first:
+      213: -4077860823911447413
+    second: black dog_65
+  - first:
+      213: 4259601218467648085
+    second: black dog_66
+  - first:
+      213: 2301652259845062054
+    second: black dog_67
+  - first:
+      213: 489478081732256854
+    second: black dog_68
+  - first:
+      213: 3788753917698827959
+    second: black dog_69
+  - first:
+      213: -945588545944296560
+    second: black dog_70
+  - first:
+      213: -2548340422290770147
+    second: black dog_71
+  - first:
+      213: 362140492571812536
+    second: black dog_72
+  - first:
+      213: 3675664706038392804
+    second: black dog_73
+  - first:
+      213: 5268089210213167671
+    second: black dog_74
+  - first:
+      213: -4931290592238026438
+    second: black dog_75
+  - first:
+      213: -4499027586312297623
+    second: black dog_76
+  - first:
+      213: -7967736324568874910
+    second: black dog_77
+  - first:
+      213: 3637272695509360058
+    second: black dog_78
+  - first:
+      213: 483848024953442658
+    second: black dog_79
+  - first:
+      213: 380514724670728370
+    second: black dog_80
+  - first:
+      213: 4481309570512353598
+    second: black dog_81
+  - first:
+      213: 7406256838370231211
+    second: black dog_82
+  - first:
+      213: 1411210173438585585
+    second: black dog_83
+  - first:
+      213: 4971459995925458437
+    second: black dog_84
+  - first:
+      213: -8577666042465434400
+    second: black dog_85
+  - first:
+      213: 2132406620044611182
+    second: black dog_86
+  - first:
+      213: 3601266438286438109
+    second: black dog_87
+  - first:
+      213: 1317920331378328809
+    second: black dog_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: black dog_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 489
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2c38af9240d3310800000000000000
+      internalID: 1386268838643090102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 481
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc3a9560ecaf83a0800000000000000
+      internalID: -6660915244080415538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb9c34e4768c5b70800000000000000
+      internalID: 8889127601126022089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463b5f8bd12947d10800000000000000
+      internalID: 2122481980753163108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 469
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed54cdf8091dfd450800000000000000
+      internalID: 6115837237811496414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 481
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93df12e2397eb9cf0800000000000000
+      internalID: -244347135441371847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba9dbe94ed5a9290800000000000000
+      internalID: -7882884961261479235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 481
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef9260955eaa0d20800000000000000
+      internalID: 3245598163991699427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 450
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba950489632d9090800000000000000
+      internalID: -8026220024810857799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 457
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58e3421bbf978980800000000000000
+      internalID: -8536678942843344801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 437
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40dcb1435094070f0800000000000000
+      internalID: -1121316020517352188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 437
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4aaeb7961af33d0800000000000000
+      internalID: -3224681333751372610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 437
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c156eb3768c03b80800000000000000
+      internalID: -8417007357843320381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 417
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb23c9c76503b340800000000000000
+      internalID: 4878248764697160652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 424
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ce5dc3a32cf5e00800000000000000
+      internalID: 1035759994703047776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962610279588f01c0800000000000000
+      internalID: -4535256381992639895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e750080bb23e96080800000000000000
+      internalID: -9193567387515878018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_17
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 405
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9287500fc4a2bd020800000000000000
+      internalID: 2367532539046098985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9380f627ecd33e960800000000000000
+      internalID: 7630010150588188729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_19
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 388
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8210c49cb069fd210800000000000000
+      internalID: 1359970589855187240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_20
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 388
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f0ed12c96ca0f40800000000000000
+      internalID: 5695583052648812374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4110a4802164d7b90800000000000000
+      internalID: -7242555582479466220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_22
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f57d8e53af367840800000000000000
+      internalID: 5221430788881217009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_23
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 373
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0e96ef444b49630800000000000000
+      internalID: 3932966583020413103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 380
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd3d8f7d46d72120800000000000000
+      internalID: 2389113755684126136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 380
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3de51ac515f7f10800000000000000
+      internalID: 2269622195504206760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a831383cb717db290800000000000000
+      internalID: -7873011797198695542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_27
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488f63c22a2deaf40800000000000000
+      internalID: 5741758168912296068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4a8fb8cd124a520800000000000000
+      internalID: 2712330106708731088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_29
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 349
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0084bacf2e17e10b0800000000000000
+      internalID: -5756038054017284096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 356
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab02499deecbaeef0800000000000000
+      internalID: -78042309486960454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_31
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 356
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb3660644a426b60800000000000000
+      internalID: 7737828767311477685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 341
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4843ec456af985190800000000000000
+      internalID: -7973447603523275644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 341
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2dd1ccf46f5db9c0800000000000000
+      internalID: -3909864014145790675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_34
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 341
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07f7882249356540800000000000000
+      internalID: 5000465917575427855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7fa375998ee8c90800000000000000
+      internalID: -7165534211808757765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_36
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 328
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fadd0d5d9cfa1a90800000000000000
+      internalID: -7342278489672918283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 328
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d02b2d9dd94fb80800000000000000
+      internalID: -8361885049251820222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_38
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660256b6c0e576700800000000000000
+      internalID: 533498488301101158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_39
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4fb174d8b588d370800000000000000
+      internalID: 8347568938215915342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_40
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 309
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7ba7029f33d2f50800000000000000
+      internalID: 6858194952639920097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_41
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 319
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d596ba908380a3610800000000000000
+      internalID: 1601601654257051997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 290
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a24a03a284a92590800000000000000
+      internalID: -7698441207025089879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_43
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 283
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb65348701f3ae970800000000000000
+      internalID: 8784903363109279419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_44
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 283
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2ad770027eac6f0800000000000000
+      internalID: -663463870333082944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_45
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 277
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de238bc3fb67ba2c0800000000000000
+      internalID: -4419308045604474131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_46
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed61446e9f47fa70800000000000000
+      internalID: 8860638333580176871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_47
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 277
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707d7be2b09638430800000000000000
+      internalID: 3783983608670705415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 258
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82904c5dc911e9950800000000000000
+      internalID: 6457618280994834728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_49
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 250
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a838772212ec950800000000000000
+      internalID: 6471146146495695508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_50
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 245
+        width: 54
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94713410d49092d90800000000000000
+      internalID: -7122151109371422903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_51
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 245
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120d709a014c58170800000000000000
+      internalID: 8180159874022756385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_52
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 245
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe0683d90cfc4280800000000000000
+      internalID: -9057587631415226632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_53
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 231
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593798d0a4f7a5bc0800000000000000
+      internalID: -3793579780074802283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_54
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 224
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59fb8ea7cb318d0c0800000000000000
+      internalID: -4550865723221033067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_55
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 224
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5998aff34a79741c0800000000000000
+      internalID: -4519476969339188843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_56
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 231
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c770097ebbfb3530800000000000000
+      internalID: 3835936303128541120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_57
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 224
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 216fd81447494efd0800000000000000
+      internalID: -2313561081524652526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_58
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591a36c9f1ca65980800000000000000
+      internalID: -8550457590748569195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_59
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 213
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c014627bfd4c5e0800000000000000
+      internalID: -1890139965874959211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_60
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 214
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71af2abacc81b5120800000000000000
+      internalID: 2403542093464271383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_61
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ad688402b5aeb00800000000000000
+      internalID: 858598873181379128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_62
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 191
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c135cc500033280800000000000000
+      internalID: -9064901600063841210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_63
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 181
+        width: 56
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e4a3fb2dee20fde0800000000000000
+      internalID: -1301488696130558746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_64
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 199
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb6237ea048e97d10800000000000000
+      internalID: 2123984063784232638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_65
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 199
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84c643af278867c0800000000000000
+      internalID: -4077860823911447413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_66
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 181
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 552d5976db42d1b30800000000000000
+      internalID: 4259601218467648085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_67
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 181
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad3a80298c11ff10800000000000000
+      internalID: 2301652259845062054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_68
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 170
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654adf2d8b9fac600800000000000000
+      internalID: 489478081732256854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_69
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 170
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6eecd4d9b549430800000000000000
+      internalID: 3788753917698827959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_70
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093ef473a3890e2f0800000000000000
+      internalID: -945588545944296560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_71
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 149
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17f69a33e972acd0800000000000000
+      internalID: -2548340422290770147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_72
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 149
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2278afbd4960500800000000000000
+      internalID: 362140492571812536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_73
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 149
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7ebdc5395920330800000000000000
+      internalID: 3675664706038392804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_74
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 149
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732f2d3a9330c1940800000000000000
+      internalID: 5268089210213167671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_75
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 135
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a314d6d5559809bb0800000000000000
+      internalID: -4931290592238026438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_76
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 135
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9632c234f3e3091c0800000000000000
+      internalID: -4499027586312297623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_77
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 118
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2608816170aec6190800000000000000
+      internalID: -7967736324568874910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_78
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 117
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd1017de303a7230800000000000000
+      internalID: 3637272695509360058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_79
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 117
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261df941739f6b600800000000000000
+      internalID: 483848024953442658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_80
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 117
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8edc3402cd74500800000000000000
+      internalID: 380514724670728370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_81
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3972f6bf4fc03e30800000000000000
+      internalID: 4481309570512353598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_82
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 101
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba38d5eba5f48c660800000000000000
+      internalID: 7406256838370231211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_83
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 85
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa69330d20a59310800000000000000
+      internalID: 1411210173438585585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_84
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ea330c68c2ef440800000000000000
+      internalID: 4971459995925458437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_85
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 85
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4cae84e2206f880800000000000000
+      internalID: -8577666042465434400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_86
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 85
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e4370e584d79d10800000000000000
+      internalID: 2132406620044611182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_87
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 53
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde699bceb44af130800000000000000
+      internalID: 3601266438286438109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black dog_88
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 53
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4021a0f813a4210800000000000000
+      internalID: 1317920331378328809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      black dog_0: 1386268838643090102
+      black dog_1: -6660915244080415538
+      black dog_10: -1121316020517352188
+      black dog_11: -3224681333751372610
+      black dog_12: -8417007357843320381
+      black dog_13: 4878248764697160652
+      black dog_14: 1035759994703047776
+      black dog_15: -4535256381992639895
+      black dog_16: -9193567387515878018
+      black dog_17: 2367532539046098985
+      black dog_18: 7630010150588188729
+      black dog_19: 1359970589855187240
+      black dog_2: 8889127601126022089
+      black dog_20: 5695583052648812374
+      black dog_21: -7242555582479466220
+      black dog_22: 5221430788881217009
+      black dog_23: 3932966583020413103
+      black dog_24: 2389113755684126136
+      black dog_25: 2269622195504206760
+      black dog_26: -7873011797198695542
+      black dog_27: 5741758168912296068
+      black dog_28: 2712330106708731088
+      black dog_29: -5756038054017284096
+      black dog_3: 2122481980753163108
+      black dog_30: -78042309486960454
+      black dog_31: 7737828767311477685
+      black dog_32: -7973447603523275644
+      black dog_33: -3909864014145790675
+      black dog_34: 5000465917575427855
+      black dog_35: -7165534211808757765
+      black dog_36: -7342278489672918283
+      black dog_37: -8361885049251820222
+      black dog_38: 533498488301101158
+      black dog_39: 8347568938215915342
+      black dog_4: 6115837237811496414
+      black dog_40: 6858194952639920097
+      black dog_41: 1601601654257051997
+      black dog_42: -7698441207025089879
+      black dog_43: 8784903363109279419
+      black dog_44: -663463870333082944
+      black dog_45: -4419308045604474131
+      black dog_46: 8860638333580176871
+      black dog_47: 3783983608670705415
+      black dog_48: 6457618280994834728
+      black dog_49: 6471146146495695508
+      black dog_5: -244347135441371847
+      black dog_50: -7122151109371422903
+      black dog_51: 8180159874022756385
+      black dog_52: -9057587631415226632
+      black dog_53: -3793579780074802283
+      black dog_54: -4550865723221033067
+      black dog_55: -4519476969339188843
+      black dog_56: 3835936303128541120
+      black dog_57: -2313561081524652526
+      black dog_58: -8550457590748569195
+      black dog_59: -1890139965874959211
+      black dog_6: -7882884961261479235
+      black dog_60: 2403542093464271383
+      black dog_61: 858598873181379128
+      black dog_62: -9064901600063841210
+      black dog_63: -1301488696130558746
+      black dog_64: 2123984063784232638
+      black dog_65: -4077860823911447413
+      black dog_66: 4259601218467648085
+      black dog_67: 2301652259845062054
+      black dog_68: 489478081732256854
+      black dog_69: 3788753917698827959
+      black dog_7: 3245598163991699427
+      black dog_70: -945588545944296560
+      black dog_71: -2548340422290770147
+      black dog_72: 362140492571812536
+      black dog_73: 3675664706038392804
+      black dog_74: 5268089210213167671
+      black dog_75: -4931290592238026438
+      black dog_76: -4499027586312297623
+      black dog_77: -7967736324568874910
+      black dog_78: 3637272695509360058
+      black dog_79: 483848024953442658
+      black dog_8: -8026220024810857799
+      black dog_80: 380514724670728370
+      black dog_81: 4481309570512353598
+      black dog_82: 7406256838370231211
+      black dog_83: 1411210173438585585
+      black dog_84: 4971459995925458437
+      black dog_85: -8577666042465434400
+      black dog_86: 2132406620044611182
+      black dog_87: 3601266438286438109
+      black dog_88: 1317920331378328809
+      black dog_9: -8536678942843344801
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
