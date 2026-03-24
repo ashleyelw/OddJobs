@@ -36,12 +36,11 @@ public class Scissors : MonoBehaviour
         Transform bud=other.transform.GetChild(0);
         bud.SetParent(null);
 
+        GameManager.Instance.collectedFlowers.Add(bud.gameObject);
         if(bud.GetComponent<DraggableFlower>()==null)
-            bud.gameObject.AddComponent<DraggableFlower>();
+        bud.gameObject.AddComponent<DraggableFlower>();
 
-        bud.position+=new Vector3(0.5f,0.5f,0);
         Destroy(other.gameObject);
-        dragging=false;
     }
    }
 }
