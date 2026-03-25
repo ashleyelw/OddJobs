@@ -3,31 +3,28 @@ using UnityEngine;
 public class DraggableFlower : MonoBehaviour
 {
    private Vector3 offset;
-   private bool dragging = false;
+   private bool dragging;
 
-void OnMouseDown()
-{
-    offset=transform.position-GetMouseWorldPos();
+   private void OnMouseDown()
+   {
+    Vector3 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    mousePos.z=0f;
+    offset=transform.position-mousePos;
     dragging=true;
-}
+   }
 
-void OnMouseUp()
-{
+   private void OnMouseUp()
+   {
     dragging=false;
-}
+   }
 
-void Update()
-{
+   private void Update()
+   {
     if(dragging)
     {
-        transform.position=GetMouseWorldPos()+offset;
+        Vector3 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z=0f;
+        transform.position=mousePos+offset;
     }
-}
-
-Vector3 GetMouseWorldPos()
-{
-    Vector3 mousePoint=Input.mousePosition;
-    mousePoint.z=10f;
-    return Camera.main.ScreenToWorldPoint(mousePoint);
-}
+   }
 }
