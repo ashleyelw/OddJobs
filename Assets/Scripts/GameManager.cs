@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Header("花朵库存（类型 → 数量）")]
     public SerializableDictionary<string, int> flowerInventory = new SerializableDictionary<string, int>();
 
+    [Header("待处理订单（供 OrderSystemController 显示）")]
+    public List<CustomerOrder> pendingOrders = new List<CustomerOrder>();
+
     void Awake()
     {
         if (Instance == null)
@@ -25,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
     public void AddToInventory(GameObject flower)
     {
