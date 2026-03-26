@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2169410692026081698}
   - component: {fileID: 3459020871807727956}
   - component: {fileID: -420851647440031058}
+  - component: {fileID: -7098870805568727408}
   m_Layer: 0
   m_Name: Daisy2
   m_TagString: Untagged
@@ -138,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-7098870805568727408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762144020994147065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178a48f78abdea94bb2b2520b7808db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerData
+  prefabReference: {fileID: 4762144020994147065}

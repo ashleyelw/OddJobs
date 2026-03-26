@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 586765124599774472}
   - component: {fileID: 4850576437784714620}
   - component: {fileID: -5867790741808764596}
+  - component: {fileID: -396364655051157452}
   m_Layer: 0
   m_Name: Orchid2
   m_TagString: Untagged
@@ -138,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-396364655051157452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692726304881311908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178a48f78abdea94bb2b2520b7808db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerData
+  prefabReference: {fileID: 692726304881311908}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8195761751985230071}
   - component: {fileID: 6843586927755901954}
   - component: {fileID: -6644420454483757165}
+  - component: {fileID: 6072423471506103724}
   m_Layer: 0
   m_Name: Blossom2
   m_TagString: Untagged
@@ -138,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &6072423471506103724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181271623334979889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178a48f78abdea94bb2b2520b7808db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerData
+  prefabReference: {fileID: 9181271623334979889}

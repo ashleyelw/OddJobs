@@ -44,5 +44,14 @@ public class Scissors : MonoBehaviour
     bud.gameObject.AddComponent<DraggableFlower>();
 
     Destroy(stem);
+
+    FlowerData data=bud.GetComponent<FlowerData>();
+    if(data!=null)
+    {
+        if(data.prefabReference!=null)
+        {
+        FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(data.prefabReference);
+    }
    }
+}
 }
