@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool canMove = true;
+    private static bool shouldTeleport = false;
+    private static Vector3 teleportPosition;
 
     void Awake()
     {
@@ -18,6 +21,21 @@ public class PlayerController : MonoBehaviour
         }
         rb.freezeRotation = true;
         rb.gravityScale = 0f;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "FlowerGarden" && GardenEntrance.GetSpawnPosition() != Vector3.zero)
+        {
+            transform.position = GardenEntrance.GetSpawnPosition();
+        }
     }
 
     void Update()
