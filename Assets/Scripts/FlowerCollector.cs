@@ -55,15 +55,11 @@ public class FlowerCollector : MonoBehaviour
 
         GameObject flower = point.currentFlower;
 
-        // 播放音效
         if (harvestSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(harvestSound);
         }
 
-    
-
-        
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddToInventory(flower);
@@ -72,15 +68,11 @@ public class FlowerCollector : MonoBehaviour
 
      
         FlowerSpawner.Instance.OnFlowerHarvested(point);
-
-      
-        //Destroy(flower);
         flower.SetActive(false);
     }
 
     void OnDrawGizmosSelected()
     {
-        // 绘制采集范围
         Gizmos.color = new Color(1f, 0.8f, 0f, 0.3f);
         Gizmos.DrawWireSphere(transform.position, harvestRange);
     }

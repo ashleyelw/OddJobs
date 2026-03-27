@@ -26,7 +26,7 @@ public class FlowerSpawner : MonoBehaviour
     public class SpawnPoint
     {
         public Vector2 position;
-        public GameObject currentFlower;  // 当前生成的花朵，null表示空闲
+        public GameObject currentFlower;
         public bool isOccupied => currentFlower != null;
     }
 
@@ -140,7 +140,6 @@ public class FlowerSpawner : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        // 绘制生成区域边框
         Gizmos.color = new Color(0f, 1f, 0f, 0.3f);
         Vector3 center = new Vector3(
             (spawnAreaMin.x + spawnAreaMax.x) / 2f,
@@ -161,17 +160,14 @@ public class FlowerSpawner : MonoBehaviour
     {
         if (spawnPoints == null || spawnPoints.Count == 0) return;
 
-        // 绘制每个生成点
         foreach (SpawnPoint sp in spawnPoints)
         {
             if (sp.isOccupied)
             {
-                // 绿色实心圆 = 有花朵
                 Gizmos.color = new Color(0.2f, 1f, 0.2f, 0.9f);
             }
             else
             {
-                // 灰色空心圆 = 空闲
                 Gizmos.color = new Color(0.7f, 0.7f, 0.7f, 0.6f);
             }
 
@@ -184,11 +180,9 @@ public class FlowerSpawner : MonoBehaviour
                 Gizmos.DrawSphere(pos, 0.3f);
             }
 
-            // 绘制点编号
             int index = spawnPoints.IndexOf(sp);
             UnityEditor.Handles.Label(pos + new Vector3(0.4f, 0.4f, 0f), $"P{index}");
 
-            // 绘制最小间距圆弧（仅选中时显示最近的一个）
             Gizmos.color = new Color(1f, 1f, 0f, 0.15f);
             Gizmos.DrawWireSphere(pos, minDistanceBetweenPoints);
         }

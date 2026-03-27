@@ -22,7 +22,6 @@ public class OrderPanelPage : MonoBehaviour
         return I[index];
     }
 
-    /// <summary>返回该页实际填了多少个槽（null 的不计入）。</summary>
     public int GetFilledSlotCount()
     {
         int count = 0;

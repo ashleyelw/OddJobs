@@ -158,7 +158,6 @@ public class OrderSystemController : MonoBehaviour
             return;
         }
 
-        // 优先在最后一页找空槽
         bool appended = false;
         if (_lastPage != null)
         {
@@ -174,7 +173,6 @@ public class OrderSystemController : MonoBehaviour
             }
         }
 
-        // 所有页都满了 → 新建一页
         if (!appended)
         {
             var newPageGo = Instantiate(panelPagePrefab, panelPagesParent);
@@ -190,7 +188,6 @@ public class OrderSystemController : MonoBehaviour
             CreateOrderRowInSlot(newPage, 0, order);
             SetupNavigation(_pageInstances.Count);
 
-            // 
             ShowPage(_pageInstances.Count - 1);
             _lastPage = newPage;
         }

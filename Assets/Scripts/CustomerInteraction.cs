@@ -33,20 +33,17 @@ public class CustomerInteraction : InteractionZone
             return;
         }
         Debug.Log("按下了");
-        // 创建新订单
         CustomerOrder order = new CustomerOrder
         {
             customerNumber = this.customerNumber,
             customerName = gameObject.name
         };
 
-        // 随机分配花朵
         string[] randomFlowers = GetRandomFlowers(flowersPerOrder);
         order.flowerPrefabName0 = randomFlowers[0];
         order.flowerPrefabName1 = randomFlowers[1];
         order.flowerPrefabName2 = randomFlowers[2];
 
-        // 添加到 GameManager 的待处理订单列表
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterActiveCustomer(gameObject.name, -1);
@@ -59,7 +56,6 @@ public class CustomerInteraction : InteractionZone
             return;
         }
 
-        // 开始冷却
         StartCooldown();
     }
 
@@ -71,10 +67,8 @@ public class CustomerInteraction : InteractionZone
             return new string[] { "", "", "" };
         }
 
-        // 如果可用花朵少于需要数量，返回所有可用花朵
         count = Mathf.Min(count, availableFlowers.Length);
 
-        // Fisher-Yates 洗牌算法打乱顺序
         string[] shuffled = (string[])availableFlowers.Clone();
         for (int i = shuffled.Length - 1; i > 0; i--)
         {
@@ -84,13 +78,11 @@ public class CustomerInteraction : InteractionZone
             shuffled[j] = temp;
         }
 
-        // 取前 count 个，其余填空
         string[] result = new string[3];
         for (int i = 0; i < 3; i++)
         {
             result[i] = i < count ? shuffled[i] : "";
         }
-
         return result;
     }
 
@@ -102,7 +94,6 @@ public class CustomerInteraction : InteractionZone
 
     private void Update()
     {
-        // 处理冷却计时
         if (isOnCooldown)
         {
             cooldownTimer -= Time.deltaTime;
@@ -113,6 +104,4 @@ public class CustomerInteraction : InteractionZone
             }
         }
     }
-
-    // public void ResetCooldown() { isOnCooldown = false; cooldownTimer = 0f; }
 }
