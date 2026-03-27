@@ -4,6 +4,8 @@ public class Scissors : MonoBehaviour
 {
    private bool dragging=false;
    private Vector3 offset;
+   private float cutCooldown=0.2f;
+   private float lastCutTime;
 
    private void Update()
    {
@@ -28,30 +30,39 @@ public class Scissors : MonoBehaviour
    private void OnTriggerEnter2D(Collider2D other)
    {
     if(!dragging) return;
-    if(other.CompareTag("Flower"))
+    if(Time.time - lastCutTime < cutCooldown) return;
+    if(!other.CompareTag("Flower")) return;
+    lastCutTime=Time.time;
     CutFlower(other.gameObject);
    }
 
    private void CutFlower(GameObject stem)
    {
-    if(stem.transform.childCount ==0) return;
+    if(stem==null) return;
+    if(!stem.activeInHierarchy) return;
+
+    if(stem.transform.childCount==0)
+    {
+        Debug.Log("No bud found - ignoring cut");
+        return;
+    }
 
     Transform bud=stem.transform.GetChild(0);
+    FlowerData data = bud.GetComponent<FlowerData>();
+
+    if(data!= null && data.prefabReference != null)
+    {
+        FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(data.prefabReference);
+        Debug.Log("Flower added: " + data.prefabReference.name);
+    }
+
     bud.SetParent(null);
-    bud.position+=new Vector3(0.5f,0.5f,0f);
+    bud.position += new Vector3(0.5f,0.5f,0f);
 
     if(bud.GetComponent<DraggableFlower>()==null)
     bud.gameObject.AddComponent<DraggableFlower>();
 
-    Destroy(stem);
-
-    FlowerData data=bud.GetComponent<FlowerData>();
-    if(data!=null)
-    {
-        if(data.prefabReference!=null)
-        {
-        FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(data.prefabReference);
-    }
-   }
+    Destroy(stem); 
+   
 }
 }
