@@ -2,9 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 订单 UI：按列表生成 Order 行，每页最多 3 条；超过则复制 Panel Prefab 并链式翻页。
-/// </summary>
 public class OrderSystemController : MonoBehaviour
 {
     public const int OrdersPerPage = 3;
@@ -25,8 +22,36 @@ public class OrderSystemController : MonoBehaviour
     [Header("调试")]
     [SerializeField] List<CustomerOrder> debugOrders = new List<CustomerOrder>();
 
+    [Header("金币奖励（每完成一个订单获得的金币）")]
+    [SerializeField] int coinRewardPerOrder = 10;
+
+    [Header("提示 UI（运行时显示不足/成功信息）")]
+    [SerializeField] GameObject tipRoot;
+    [SerializeField] Text tipText;
+    [SerializeField] float tipDuration = 2.5f;
+
+    [Header("金币显示（当前金币）")]
+    [SerializeField] Text coinDisplayText;
+
+    public static OrderSystemController Instance { get; private set; }
+
+    private bool _isPanelShowing = false;
+
+    private OrderPanelPage _lastPage;
+
     readonly List<GameObject> _pageInstances = new List<GameObject>();
     int _currentPageIndex;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
@@ -35,7 +60,6 @@ public class OrderSystemController : MonoBehaviour
         OpenDebugOrders();
     }
 
-    /// <summary>打开并显示订单（会销毁上次生成的页面后重建）。</summary>
     public void OpenWithOrders(IReadOnlyList<CustomerOrder> orders)
     {
         ClearPages();
@@ -77,6 +101,12 @@ public class OrderSystemController : MonoBehaviour
 
         if (ordersRoot != null)
             ordersRoot.SetActive(true);
+
+        _isPanelShowing = true;
+        UpdateCoinDisplay();
+        HideTip();
+        if (_pageInstances.Count > 0)
+            _lastPage = _pageInstances[^1].GetComponent<OrderPanelPage>();
     }
 
     public void OpenDebugOrders()
@@ -96,6 +126,8 @@ public class OrderSystemController : MonoBehaviour
     {
         if (ordersRoot != null)
             ordersRoot.SetActive(false);
+        _isPanelShowing = false;
+        _lastPage = null;
     }
 
     public void Toggle()
@@ -109,7 +141,72 @@ public class OrderSystemController : MonoBehaviour
             ordersRoot.SetActive(false);
     }
 
-    /// <summary>向指定页的固定槽位生成一行 Order。</summary>
+    public void AppendOrder(CustomerOrder order)
+    {
+        if (order == null) return;
+
+        if (!_isPanelShowing || ordersRoot == null || !ordersRoot.activeSelf)
+        {
+            OpenPendingOrdersFromGameManager();
+            return;
+        }
+
+        if (panelPagePrefab == null || orderRowPrefab == null || flowerSpriteRegistry == null)
+        {
+            Debug.LogError("[OrderSystem] AppendOrder 所需引用未设置。");
+            return;
+        }
+
+        // 优先在最后一页找空槽
+        bool appended = false;
+        if (_lastPage != null)
+        {
+            for (int i = 0; i < OrdersPerPage; i++)
+            {
+                var slot = _lastPage.GetSlot(i);
+                if (slot != null && slot.childCount == 0)
+                {
+                    CreateOrderRowInSlot(_lastPage, i, order);
+                    appended = true;
+                    break;
+                }
+            }
+        }
+
+        // 所有页都满了 → 新建一页
+        if (!appended)
+        {
+            var newPageGo = Instantiate(panelPagePrefab, panelPagesParent);
+            _pageInstances.Add(newPageGo);
+            var newPage = newPageGo.GetComponent<OrderPanelPage>();
+            if (newPage == null)
+            {
+                Debug.LogError("[OrderSystem] Panel Prefab 上需要 OrderPanelPage 组件。");
+                Destroy(newPageGo);
+                return;
+            }
+
+            CreateOrderRowInSlot(newPage, 0, order);
+            SetupNavigation(_pageInstances.Count);
+
+            // 自动翻到新页（最后一页）
+            ShowPage(_pageInstances.Count - 1);
+            _lastPage = newPage;
+        }
+
+        Debug.Log($"[OrderSystem] 追加订单: 客户{order.customerNumber}");
+    }
+
+    public void NotifyOrderAdded()
+    {
+        if (GameManager.Instance != null &&
+            GameManager.Instance.pendingOrders != null &&
+            GameManager.Instance.pendingOrders.Count > 0)
+        {
+            AppendOrder(GameManager.Instance.pendingOrders[^1]);
+        }
+    }
+
     void CreateOrderRowInSlot(OrderPanelPage page, int slotIndex, CustomerOrder order)
     {
         var slot = page.GetSlot(slotIndex);
@@ -127,7 +224,8 @@ public class OrderSystemController : MonoBehaviour
             return;
         }
 
-        row.Bind(order.customerNumber, order.GetFlowerNames(), flowerSpriteRegistry);
+        row.BindWithDeliver(order.customerNumber, order.GetFlowerNames(),
+            flowerSpriteRegistry, order, TryDeliverOrder);
     }
 
     void SetupNavigation(int pageCount)
@@ -179,6 +277,89 @@ public class OrderSystemController : MonoBehaviour
                 Destroy(go);
         }
         _pageInstances.Clear();
+        _lastPage = null;
+    }
+
+    public void RemoveOrder(CustomerOrder order)
+    {
+        if (order == null) return;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.pendingOrders.Remove(order);
+
+        ClearPages();
+        OpenPendingOrdersFromGameManager();
+        UpdateCoinDisplay();
+
+        Debug.Log($"[OrderSystem] 订单已删除: 客户{order.customerNumber}");
+
+        // 支付成功后用客户名字在场景中找到并隐藏，持续检测
+        if (GameManager.Instance != null && !string.IsNullOrEmpty(order.customerName))
+            GameManager.Instance.MarkCustomerCompleted(order.customerName);
+    }
+
+    public void TryDeliverOrder(CustomerOrder order)
+    {
+        if (GameManager.Instance == null || order == null) return;
+
+        var missing = GameManager.Instance.GetMissingFlowers(order);
+
+        if (missing.Count > 0)
+        {
+            // 库存不足 → 构建缺失提示
+            var parts = new List<string>();
+            foreach (var kvp in missing)
+                parts.Add($"{kvp.Key} x{kvp.Value}");
+            ShowTip($"库存不足！缺少: {string.Join(", ", parts)}");
+            return;
+        }
+
+        // 库存充足 → 执行交付
+        GameManager.Instance.DeductOrderFlowers(order);
+        GameManager.Instance.AddCoins(coinRewardPerOrder);
+        UpdateCoinDisplay();
+        ShowTip($"支付成功！+{coinRewardPerOrder} 金币");
+
+        // 延迟一小帧删除订单行（让用户看到成功提示）
+        Invoke(nameof(RemoveOrderDelayed), 0.1f);
+        _pendingDeliverOrder = order;
+    }
+
+    private CustomerOrder _pendingDeliverOrder;
+
+    void RemoveOrderDelayed()
+    {
+        if (_pendingDeliverOrder != null)
+        {
+            RemoveOrder(_pendingDeliverOrder);
+            _pendingDeliverOrder = null;
+        }
+    }
+
+    public void UpdateCoinDisplay()
+    {
+        if (coinDisplayText == null) return;
+        if (GameManager.Instance != null)
+            coinDisplayText.text = $"金币: {GameManager.Instance.coins}";
+        else
+            coinDisplayText.text = "金币: 0";
+    }
+
+    public void ShowTip(string message)
+    {
+        if (tipRoot == null || tipText == null) return;
+
+        tipText.text = message;
+        tipRoot.SetActive(true);
+
+        CancelInvoke(nameof(HideTip));
+        Invoke(nameof(HideTip), tipDuration);
+    }
+
+    void HideTip()
+    {
+        if (tipRoot != null)
+            tipRoot.SetActive(false);
     }
 
     void OnDestroy()

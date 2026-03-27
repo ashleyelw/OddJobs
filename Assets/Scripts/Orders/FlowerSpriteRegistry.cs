@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 在 Inspector 中拖入 Assets/Prefabs 下的花朵预制体，运行时按预制体名称查找 Sprite（根物体上的 SpriteRenderer）。
-/// </summary>
+
 public class FlowerSpriteRegistry : MonoBehaviour
 {
 

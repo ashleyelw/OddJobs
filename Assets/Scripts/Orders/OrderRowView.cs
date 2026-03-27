@@ -3,9 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-/// <summary>
-/// 挂在 Order 行 Prefab 上：第一个 Image 为头像（不修改），后三个为花槽，Text 为客户编号。
-/// </summary>
+
 public class OrderRowView : MonoBehaviour
 {
     [Header("UI 引用")]
@@ -17,9 +15,13 @@ public class OrderRowView : MonoBehaviour
     [Header("空槽")]
     [SerializeField] Sprite emptySlotSprite;
 
-    [Header("交付按钮")]
     [SerializeField] Button deliverButton;
     public UnityEvent onDeliverClicked;
+
+
+    private CustomerOrder _boundOrder;
+
+    private System.Action<CustomerOrder> _onDeliverRequested;
 
     Image[] FlowerSlots => new[] { flowerSlot0, flowerSlot1, flowerSlot2 };
 
@@ -63,5 +65,23 @@ public class OrderRowView : MonoBehaviour
                 img.enabled = emptySlotSprite != null;
             }
         }
+    }
+
+    public void BindWithDeliver(int customerNumber, string[] flowerPrefabNames,
+        FlowerSpriteRegistry registry, CustomerOrder order, System.Action<CustomerOrder> onDeliver)
+    {
+        _boundOrder = order;
+        _onDeliverRequested = onDeliver;
+
+        Bind(customerNumber, flowerPrefabNames, registry);
+
+        onDeliverClicked.RemoveAllListeners();
+        onDeliverClicked.AddListener(RequestDeliver);
+    }
+
+    void RequestDeliver()
+    {
+        if (_onDeliverRequested != null && _boundOrder != null)
+            _onDeliverRequested.Invoke(_boundOrder);
     }
 }
