@@ -25,6 +25,7 @@ public class GameTimeController : MonoBehaviour
     [SerializeField] string timeSuffix = "";
 
     DateTime _currentTime;
+    int _lastNotifiedTotalMinutes;
     float _timer;
 
     void Awake()
@@ -41,6 +42,7 @@ public class GameTimeController : MonoBehaviour
         }
 
         _currentTime = new DateTime(startYear, startMonth, startDay, startHour, startMinute, 0);
+        _lastNotifiedTotalMinutes = TotalMinutes(_currentTime);
         AutoFindUI();
         RefreshUI();
     }
@@ -61,8 +63,16 @@ public class GameTimeController : MonoBehaviour
             _timer -= minutesToAdd;
             _currentTime = _currentTime.AddMinutes(minutesToAdd);
             RefreshUI();
+            int currentMins = TotalMinutes(_currentTime);
+            if (currentMins > _lastNotifiedTotalMinutes)
+            {
+                _lastNotifiedTotalMinutes = currentMins;
+                CustomerSpawner.Instance?.OnGameMinuteChanged();
+            }
         }
     }
+
+    int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 
     void RefreshUI()
     {
@@ -85,12 +95,19 @@ public class GameTimeController : MonoBehaviour
     {
         _currentTime = new DateTime(year, month, day, hour, minute, 0);
         _timer = 0f;
+        _lastNotifiedTotalMinutes = TotalMinutes(_currentTime);
         RefreshUI();
     }
 
     public void AddMinutes(int minutes)
     {
         _currentTime = _currentTime.AddMinutes(minutes);
+        int currentMins = TotalMinutes(_currentTime);
+        if (currentMins > _lastNotifiedTotalMinutes)
+        {
+            _lastNotifiedTotalMinutes = currentMins;
+            CustomerSpawner.Instance?.OnGameMinuteChanged();
+        }
         RefreshUI();
     }
 }

@@ -20,6 +20,11 @@ public class CustomerInteraction : InteractionZone
     private bool isOnCooldown = false;
     private float cooldownTimer = 0f;
 
+    public void SetCustomerNumber(int number)
+    {
+        customerNumber = number;
+    }
+
     protected override void Interact()
     {
         if (isOnCooldown)
@@ -31,7 +36,8 @@ public class CustomerInteraction : InteractionZone
         // 创建新订单
         CustomerOrder order = new CustomerOrder
         {
-            customerNumber = this.customerNumber
+            customerNumber = this.customerNumber,
+            customerName = gameObject.name
         };
 
         // 随机分配花朵
@@ -43,6 +49,7 @@ public class CustomerInteraction : InteractionZone
         // 添加到 GameManager 的待处理订单列表
         if (GameManager.Instance != null)
         {
+            GameManager.Instance.RegisterActiveCustomer(gameObject.name, -1);
             GameManager.Instance.pendingOrders.Add(order);
             Debug.Log($"[Customer {customerNumber}] 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
         }

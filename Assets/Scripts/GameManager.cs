@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int coins = 0;
 
     [SerializeField]
-    private SerializableDictionary<string, bool> _completedCustomers = new SerializableDictionary<string, bool>();
+    private SerializableDictionary<int, int> _activeCustomerSlots = new SerializableDictionary<int, int>();
 
     void Awake()
     {
@@ -145,32 +145,25 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager] 金币 +{amount}，当前: {coins}");
     }
 
+    public void RegisterActiveCustomer(string customerName, int slotIndex)
+    {
+        int instanceId = GameObject.Find(customerName)?.GetInstanceID() ?? 0;
+        _activeCustomerSlots[instanceId] = slotIndex;
+    }
+
     public void MarkCustomerCompleted(string customerName)
     {
-        if (string.IsNullOrEmpty(customerName)) return;
-        _completedCustomers[customerName] = true;
-        HideCustomerByName(customerName);
-        Debug.Log($"[GameManager] 客户已完成订单: {customerName}");
-    }
-
-    void HideCustomerByName(string customerName)
-    {
-        var transforms = FindObjectsOfType<Transform>();
-        foreach (var t in transforms)
+        var go = GameObject.Find(customerName);
+        if (go == null) return;
+        int instanceId = go.GetInstanceID();
+        if (_activeCustomerSlots.ContainsKey(instanceId))
         {
-            if (t.name == customerName)
-            {
-                t.gameObject.SetActive(false);
-                Debug.Log($"[GameManager] 隐藏客户: {customerName}");
-                return;
-            }
+            int slot = _activeCustomerSlots[instanceId];
+            _activeCustomerSlots.Remove(instanceId);
+            CustomerSpawner.Instance?.OnCustomerLeft(slot);
         }
-    }
-
-    void Update()
-    {
-        foreach (var name in _completedCustomers.Keys)
-            HideCustomerByName(name);
+        go.SetActive(false);
+        Debug.Log($"[GameManager] 客户已完成订单: {customerName}");
     }
 }
 

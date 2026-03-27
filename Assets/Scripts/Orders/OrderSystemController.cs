@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -189,7 +190,7 @@ public class OrderSystemController : MonoBehaviour
             CreateOrderRowInSlot(newPage, 0, order);
             SetupNavigation(_pageInstances.Count);
 
-            // 自动翻到新页（最后一页）
+            // 
             ShowPage(_pageInstances.Count - 1);
             _lastPage = newPage;
         }
@@ -293,9 +294,16 @@ public class OrderSystemController : MonoBehaviour
 
         Debug.Log($"[OrderSystem] 订单已删除: 客户{order.customerNumber}");
 
-        // 支付成功后用客户名字在场景中找到并隐藏，持续检测
+     
         if (GameManager.Instance != null && !string.IsNullOrEmpty(order.customerName))
-            GameManager.Instance.MarkCustomerCompleted(order.customerName);
+        {
+            var coordinator = FindObjectsOfType<CustomerOrderCoordinator>()
+                .FirstOrDefault(c => c.gameObject.name == order.customerName);
+            if (coordinator != null)
+                coordinator.NotifyOrderCompleted();
+            else
+                GameManager.Instance.MarkCustomerCompleted(order.customerName);
+        }
     }
 
     public void TryDeliverOrder(CustomerOrder order)
@@ -306,7 +314,7 @@ public class OrderSystemController : MonoBehaviour
 
         if (missing.Count > 0)
         {
-            // 库存不足 → 构建缺失提示
+            
             var parts = new List<string>();
             foreach (var kvp in missing)
                 parts.Add($"{kvp.Key} x{kvp.Value}");
@@ -314,13 +322,13 @@ public class OrderSystemController : MonoBehaviour
             return;
         }
 
-        // 库存充足 → 执行交付
+        
         GameManager.Instance.DeductOrderFlowers(order);
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
         ShowTip($"支付成功！+{coinRewardPerOrder} 金币");
 
-        // 延迟一小帧删除订单行（让用户看到成功提示）
+        
         Invoke(nameof(RemoveOrderDelayed), 0.1f);
         _pendingDeliverOrder = order;
     }

@@ -2,59 +2,78 @@ using UnityEngine;
 
 public class CustomerOrderCoordinator : InteractionZone
 {
-    [Header("客户设置")]
-    [Tooltip("客户编号，用于显示为「客户N」")]
-    [SerializeField] private int customerNumber = 1;
-
-    [Header("订单设置")]
-    [Tooltip("可选的花朵预制体名称列表")]
+    [Header("")]
     [SerializeField] private string[] availableFlowers = new string[] { "Rose2", "Daisy2", "Tulip2" };
 
-    [Tooltip("每个订单需要多少种花 (1-3)")]
+    [Header("")]
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
 
-    private bool hasOrderedThisSession = false;
+    int _slotIndex = -1;
+    int _customerNumber = 1;
+    bool _hasOrderedThisSession = false;
+    CustomerSpawner _spawner;
+
+    public int SlotIndex => _slotIndex;
+
+    public void Initialize(int slotIndex, int customerNumber, string[] flowers, int perOrder, CustomerSpawner spawner)
+    {
+        _slotIndex = slotIndex;
+        _customerNumber = customerNumber;
+        availableFlowers = flowers;
+        flowersPerOrder = perOrder;
+        _spawner = spawner;
+        _hasOrderedThisSession = false;
+    }
+
+    public void SetCustomerNumber(int number)
+    {
+        _customerNumber = number;
+    }
 
     protected override void Interact()
     {
-        if (hasOrderedThisSession)
+        if (_hasOrderedThisSession)
         {
-            Debug.Log($"[Customer {customerNumber}] 本次已下过单，无需重复下单。");
+            Debug.Log($"[Customer {_customerNumber}] 本次已下过单。");
             return;
         }
 
-        hasOrderedThisSession = true;
+        _hasOrderedThisSession = true;
 
-        // 创建新订单
+        if (_spawner != null && _slotIndex >= 0)
+            _spawner.OnCustomerOrdered(_slotIndex);
+
         CustomerOrder order = new CustomerOrder
         {
-            customerNumber = this.customerNumber,
+            customerNumber = _customerNumber,
             customerName = gameObject.name
         };
 
-        // 随机分配花朵
         string[] randomFlowers = GetRandomFlowers(flowersPerOrder);
         order.flowerPrefabName0 = randomFlowers[0];
         order.flowerPrefabName1 = randomFlowers[1];
         order.flowerPrefabName2 = randomFlowers[2];
 
-        // 添加到 GameManager 的待处理订单列表
         if (GameManager.Instance != null)
         {
+            GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
-            Debug.Log($"[Customer {customerNumber}] 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
-
-            // 同步刷新订单面板
+            Debug.Log($"[Customer {_customerNumber}] 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
             OrderSystemController.Instance?.NotifyOrderAdded();
-        }
-        else
-        {
-            Debug.LogError("[CustomerOrderCoordinator] 未找到 GameManager 实例！");
         }
     }
 
-    private string[] GetRandomFlowers(int count)
+    public void NotifyOrderCompleted()
+    {
+        Debug.Log($"[Customer {_customerNumber}] 订单完成，离开。");
+        if (_spawner != null && _slotIndex >= 0)
+            _spawner.OnCustomerLeft(_slotIndex);
+        else
+            Destroy(gameObject);
+    }
+
+    string[] GetRandomFlowers(int count)
     {
         if (availableFlowers == null || availableFlowers.Length == 0)
         {
@@ -64,7 +83,6 @@ public class CustomerOrderCoordinator : InteractionZone
 
         count = Mathf.Min(count, availableFlowers.Length);
 
-        // Fisher-Yates 洗牌
         string[] shuffled = (string[])availableFlowers.Clone();
         for (int i = shuffled.Length - 1; i > 0; i--)
         {
@@ -76,9 +94,7 @@ public class CustomerOrderCoordinator : InteractionZone
 
         string[] result = new string[3];
         for (int i = 0; i < 3; i++)
-        {
             result[i] = i < count ? shuffled[i] : "";
-        }
         return result;
     }
 }
