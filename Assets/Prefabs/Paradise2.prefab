@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7265321226008504380}
   - component: {fileID: 1457284044744443977}
   - component: {fileID: 8738504940615657062}
+  - component: {fileID: -7937957645153171896}
   m_Layer: 0
   m_Name: Paradise2
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,3 +153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlowerData
   prefabReference: {fileID: 8818979247545782439}
+--- !u!114 &-7937957645153171896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818979247545782439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293e033459745214f934e69b4d549b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableFlower

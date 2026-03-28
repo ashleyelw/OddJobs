@@ -36,18 +36,18 @@ public class Scissors : MonoBehaviour
     CutFlower(other.gameObject);
    }
 
-   private void CutFlower(GameObject stem)
+   private void CutFlower(GameObject bud)
    {
-    if(stem==null) return;
-    if(!stem.activeInHierarchy) return;
+    if(bud==null) return;
+    if(!bud.activeInHierarchy) return;
 
-    if(stem.transform.childCount==0)
+    if(bud.transform.childCount==0)
     {
-        Debug.Log("No bud found - ignoring cut");
+        Debug.Log("No stem found - ignoring cut");
         return;
     }
 
-    Transform bud=stem.transform.GetChild(0);
+    Transform stem=bud.transform.GetChild(0);
     FlowerData data = bud.GetComponent<FlowerData>();
 
     if(data!= null && data.prefabReference != null)
@@ -56,13 +56,13 @@ public class Scissors : MonoBehaviour
         Debug.Log("Flower added: " + data.prefabReference.name);
     }
 
-    bud.SetParent(null);
-    bud.position += new Vector3(0.5f,0.5f,0f);
+    //bud.SetParent(null);
+    bud.transform.position += new Vector3(0.5f,0.5f,0f);
 
-    if(bud.GetComponent<DraggableFlower>()==null)
+    if  (bud.GetComponent<DraggableFlower>()==null)
     bud.gameObject.AddComponent<DraggableFlower>();
 
-    Destroy(stem); 
+    Destroy(stem.gameObject); 
    
 }
 }

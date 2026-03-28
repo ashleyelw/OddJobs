@@ -11,7 +11,7 @@ public class FlowerManager : MonoBehaviour
         stem.tag="Flower";
 
         GameObject bud=Instantiate(budPrefab,spawnPoint.position,Quaternion.identity);
-        bud.transform.SetParent(stem.transform);
-        bud.transform.localPosition=new Vector3(0,1f,0);
+        stem.transform.SetParent(bud.transform);
+        stem.transform.localPosition=new Vector3(0,-1f,0);
     }
 }
