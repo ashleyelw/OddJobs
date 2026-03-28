@@ -230,7 +230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 389.2851, y: 425.44}
+  m_AnchoredPosition: {x: 384.25507, y: 466.61603}
   m_SizeDelta: {x: 66.1729, y: 56.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131973488
@@ -527,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220.96997, y: 421.82397}
+  m_AnchoredPosition: {x: -226, y: 463}
   m_SizeDelta: {x: 47.0913, y: 48.9629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218827151
@@ -938,7 +938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -344.94128, y: 421.0337}
+  m_AnchoredPosition: {x: -349.9713, y: 462.20972}
   m_SizeDelta: {x: 45.8373, y: 46.5127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339777915
@@ -1159,7 +1159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 514, y: 421.63}
+  m_AnchoredPosition: {x: 508.96997, y: 462.80603}
   m_SizeDelta: {x: 54.4794, y: 60.0679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356762477
@@ -1752,7 +1752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -101, y: 422.05}
+  m_AnchoredPosition: {x: -106.03003, y: 463.226}
   m_SizeDelta: {x: 54.2096, y: 46.6759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623331168
@@ -4206,7 +4206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -470, y: 421.63}
+  m_AnchoredPosition: {x: -475.03003, y: 462.80603}
   m_SizeDelta: {x: 44.6533, y: 45.8326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566175440
@@ -4555,7 +4555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.826, y: 421.63}
+  m_AnchoredPosition: {x: 20.79597, y: 462.80603}
   m_SizeDelta: {x: 51.6524, y: 52.985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1808447997
@@ -4872,7 +4872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271.37283, y: 424.15}
+  m_AnchoredPosition: {x: 266.3428, y: 465.32602}
   m_SizeDelta: {x: 48.4858, y: 50.8736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822037142
@@ -5018,7 +5018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145.3475, y: 420.76395}
+  m_AnchoredPosition: {x: 140.31747, y: 461.93997}
   m_SizeDelta: {x: 51.4262, y: 50.2868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044495855
