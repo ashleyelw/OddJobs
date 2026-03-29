@@ -16,6 +16,7 @@ public class FlowerWrapSpawn : MonoBehaviour
 
         foreach (GameObject prefab in FlowerTransferManager.Instance.selectedFlowerPrefabs)
         {
+            if (prefab == null) continue;
             Instantiate(prefab, spawnArea.position + new Vector3(offsetX, 0f, 0f), Quaternion.identity);
             offsetX += 1.5f;
         }
