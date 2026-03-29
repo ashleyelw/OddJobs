@@ -315,7 +315,7 @@ public class OrderSystemController : MonoBehaviour
             var parts = new List<string>();
             foreach (var kvp in missing)
                 parts.Add($"{kvp.Key} x{kvp.Value}");
-            ShowTip($"库存不足！缺少: {string.Join(", ", parts)}");
+            ShowTip($"Out of stock! Shortage of: {string.Join(", ", parts)}");
             return;
         }
 
@@ -323,7 +323,7 @@ public class OrderSystemController : MonoBehaviour
         GameManager.Instance.DeductOrderFlowers(order);
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
-        ShowTip($"支付成功！+{coinRewardPerOrder} 金币");
+        ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
 
         
         Invoke(nameof(RemoveOrderDelayed), 0.1f);
@@ -345,9 +345,9 @@ public class OrderSystemController : MonoBehaviour
     {
         if (coinDisplayText == null) return;
         if (GameManager.Instance != null)
-            coinDisplayText.text = $"金币: {GameManager.Instance.coins}";
+            coinDisplayText.text = $"coin: {GameManager.Instance.coins}";
         else
-            coinDisplayText.text = "金币: 0";
+            coinDisplayText.text = "coin: 0";
     }
 
     public void ShowTip(string message)

@@ -452,7 +452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Deliver\n\u4EA4\u4ED8"
+  m_Text: Deliver
 --- !u!1 &5027976542980568923
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Customer\n\u5BA2\u62371"
+  m_Text: Customer1
 --- !u!1 &6050671998030505060
 GameObject:
   m_ObjectHideFlags: 0

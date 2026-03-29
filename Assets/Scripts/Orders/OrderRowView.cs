@@ -34,7 +34,7 @@ public class OrderRowView : MonoBehaviour
     public void Bind(int customerNumber, string[] flowerPrefabNames, FlowerSpriteRegistry registry)
     {
         if (customerLabel != null)
-            customerLabel.text = $"客户{customerNumber}";
+            customerLabel.text = $"client{customerNumber}";
 
         var slots = FlowerSlots;
         var names = flowerPrefabNames ?? Array.Empty<string>();
