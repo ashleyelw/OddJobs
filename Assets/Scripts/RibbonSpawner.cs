@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class RibbonSpawner : MonoBehaviour
 {
-   public Transform bouquetPoint;
+  public Transform bouquetPoint;
 
-   void Start()
+   public void SpawnRibbon(GameObject ribbonPrefab)
    {
-    if(RibbonManager.Instance.selectedRibbonPrefab!=null)
+    if(ribbonPrefab!=null)
     {
-        Instantiate(RibbonManager.Instance.selectedRibbonPrefab,bouquetPoint.position,Quaternion.identity);
+        Instantiate(ribbonPrefab,bouquetPoint.position,Quaternion.identity);
     }
    }
 }
