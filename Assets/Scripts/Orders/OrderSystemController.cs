@@ -197,11 +197,27 @@ public class OrderSystemController : MonoBehaviour
 
     public void NotifyOrderAdded()
     {
+        Debug.Log($"[OrderSystem] NotifyOrderAdded 被调用，pendingOrders数量: {GameManager.Instance?.pendingOrders?.Count ?? -1}");
+
         if (GameManager.Instance != null &&
             GameManager.Instance.pendingOrders != null &&
             GameManager.Instance.pendingOrders.Count > 0)
         {
-            AppendOrder(GameManager.Instance.pendingOrders[^1]);
+            // 每次接到新订单都重新打开面板
+            OpenPendingOrdersFromGameManager();
+
+            // 计算新订单所在页面的索引（新订单在pendingOrders中的索引是Count-1）
+            int orderCount = GameManager.Instance.pendingOrders.Count;
+            int lastPageIndex = Mathf.CeilToInt(orderCount / (float)OrdersPerPage) - 1;
+            if (lastPageIndex < 0) lastPageIndex = 0;
+
+            Debug.Log($"[OrderSystem] 新订单在第{lastPageIndex}页（{orderCount}个订单，每页{OrdersPerPage}个）");
+
+            // 切换到显示新订单的那一页
+            if (_pageInstances.Count > 0)
+            {
+                ShowPage(lastPageIndex);
+            }
         }
     }
 

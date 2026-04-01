@@ -60,6 +60,8 @@ public class CustomerOrderCoordinator : InteractionZone
 
         _hasOrderedThisSession = true;
 
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程");
+
         if (_spawner != null && _slotIndex >= 0)
             _spawner.OnCustomerOrdered(_slotIndex);
 
@@ -80,7 +82,9 @@ public class CustomerOrderCoordinator : InteractionZone
             GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
             Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
+            Debug.Log($"[CustomerOrderCoordinator] 准备调用 OrderSystemController.Instance?.NotifyOrderAdded()");
             OrderSystemController.Instance?.NotifyOrderAdded();
+            Debug.Log($"[CustomerOrderCoordinator] NotifyOrderAdded 调用完成");
         }
     }
 

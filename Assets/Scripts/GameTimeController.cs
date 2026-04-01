@@ -74,6 +74,8 @@ public class GameTimeController : MonoBehaviour
 
     int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 
+    public int GetTotalMinutes() => TotalMinutes(_currentTime);
+
     void RefreshUI()
     {
         string d = _currentTime.ToString("yyyy/MM/dd");

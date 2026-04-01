@@ -52,8 +52,11 @@ public class CustomerSpawner : MonoBehaviour
 
     // _currentCustomerNumber 需要持久化以保持编号连续性
     [SerializeField] int _currentCustomerNumber = 1;
-    
-    int _minutesSinceLastSpawn;
+
+    // 累计游戏时间（分钟），从游戏开始记录
+    float _accumulatedGameMinutes = 0f;
+    // 记录上次生成时的累计时间
+    float _lastSpawnAccumulatedMinutes = 0f;
     string[] _cachedSpawnPointNames = new string[4];
 
     bool _isInitialized = false;
@@ -272,25 +275,38 @@ public class CustomerSpawner : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "FloristMain") return;
 
-        _minutesSinceLastSpawn++;
-        if (_minutesSinceLastSpawn < spawnIntervalMinutes) return;
+        // 获取当前游戏累计分钟数
+        float gameMinutes = GameTimeController.Instance.GetTotalMinutes();
 
-        _minutesSinceLastSpawn = 0;
-        Debug.Log("[CustomerSpawner] 触发定时生成");
-        TrySpawnAllEmptySlots();
+        // 计算自上次生成以来经过的时间
+        float minutesSinceLastSpawn = gameMinutes - _lastSpawnAccumulatedMinutes;
+
+        Debug.Log($"[CustomerSpawner] 累计游戏时间: {gameMinutes}分钟, 距离上次生成: {minutesSinceLastSpawn}分钟, 生成间隔: {spawnIntervalMinutes}分钟");
+
+        if (minutesSinceLastSpawn >= spawnIntervalMinutes)
+        {
+            _lastSpawnAccumulatedMinutes = gameMinutes;
+            Debug.Log("[CustomerSpawner] 触发定时生成");
+            TrySpawnNextCustomer();
+        }
     }
 
-    void TrySpawnAllEmptySlots()
+    void TrySpawnNextCustomer()
     {
         // 清空无效引用后再检查
         ClearInvalidCustomerRefs();
 
+        // 查找第一个空的槽位（按顺序：0, 1, 2, 3）
         for (int i = 0; i < 4; i++)
         {
-            // 只在槽位为空时生成
             if (_slotData[i].prefabIndex < 0)
+            {
                 TrySpawnInSlot(i);
+                return; // 只生成一个
+            }
         }
+
+        Debug.Log("[CustomerSpawner] 所有槽位都满了，不生成新客户");
     }
 
     public void TrySpawnInSlot(int slotIndex)
@@ -382,8 +398,8 @@ public class CustomerSpawner : MonoBehaviour
 
     public void ForceSpawnAll()
     {
-        _minutesSinceLastSpawn = 0;
-        TrySpawnAllEmptySlots();
+        // 强制立即生成一个客户（忽略时间间隔）
+        TrySpawnNextCustomer();
     }
 
     public SlotCustomerData GetSlotData(int slotIndex)

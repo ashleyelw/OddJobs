@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 23334979}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.27, y: -0.17, z: 0}
+  m_LocalPosition: {x: 0.18, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1169,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 454592379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.07, y: -0.17, z: 0}
+  m_LocalPosition: {x: -3.97, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2449,13 +2449,7 @@ MonoBehaviour:
   flowerInventory:
     keys: []
     values: 
-  pendingOrders:
-  - customerNumber: 0
-    customerName: 
-    instanceId: 
-    flowerPrefabName0: 
-    flowerPrefabName1: 
-    flowerPrefabName2: 
+  pendingOrders: []
   coins: 0
   _activeCustomerSlots:
     keys: 
@@ -3347,7 +3341,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  spawnIntervalMinutes: 3
+  spawnIntervalMinutes: 10
   availableFlowers:
   - Rose2
   - Daisy2
@@ -5365,7 +5359,7 @@ Transform:
   m_GameObject: {fileID: 1514187311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.315, y: -0.167, z: 0}
+  m_LocalPosition: {x: 2.9, y: -0.167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6915,7 +6909,7 @@ Transform:
   m_GameObject: {fileID: 1594648062}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.736, y: -0.17, z: 0}
+  m_LocalPosition: {x: -2.07, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
