@@ -17,13 +17,10 @@ public class CustomerInteraction : InteractionZone
     [Tooltip("下单后冷却时间（秒），防止重复下单")]
     [SerializeField] private float orderCooldown = 2f;
 
-    // 关键：标记此客户是否已下单（防止重复接单）
     [SerializeField] private bool _hasOrderedThisSession = false;
 
     private bool isOnCooldown = false;
     private float cooldownTimer = 0f;
-
-    // 槽位索引（用于与 CustomerSpawner 通信）
     private int _slotIndex = -1;
     private CustomerSpawner _spawner;
 
@@ -32,18 +29,12 @@ public class CustomerInteraction : InteractionZone
         customerNumber = number;
     }
 
-    /// <summary>
-    /// 设置槽位信息（场景切换后由 CustomerSpawner 调用）
-    /// </summary>
     public void SetSlotInfo(int slotIndex, CustomerSpawner spawner)
     {
         _slotIndex = slotIndex;
         _spawner = spawner;
     }
 
-    /// <summary>
-    /// 恢复客户的下单状态（场景切换后由 CustomerSpawner 调用）
-    /// </summary>
     public void RestoreHasOrderedState(bool hasOrdered)
     {
         _hasOrderedThisSession = hasOrdered;
@@ -52,7 +43,6 @@ public class CustomerInteraction : InteractionZone
 
     protected override void Interact()
     {
-        // 关键检查：如果已经下过单，拒绝再次下单
         if (_hasOrderedThisSession)
         {
             Debug.Log($"[CustomerInteraction] 客户 {customerNumber} 本次已下过单，拒绝重复下单。");
@@ -66,7 +56,7 @@ public class CustomerInteraction : InteractionZone
         }
 
         Debug.Log($"[Customer {customerNumber}] 已下单。");
-        
+
         _hasOrderedThisSession = true;
 
         if (_spawner != null && _slotIndex >= 0)

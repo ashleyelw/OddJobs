@@ -34,6 +34,9 @@ public class OrderSystemController : MonoBehaviour
     [Header("金币显示（当前金币）")]
     [SerializeField] Text coinDisplayText;
 
+    [Header("时限设置")]
+    public float defaultOrderTimeLimit = 20f;
+
     public static OrderSystemController Instance { get; private set; }
 
     private bool _isPanelShowing = false;
@@ -42,6 +45,10 @@ public class OrderSystemController : MonoBehaviour
 
     readonly List<GameObject> _pageInstances = new List<GameObject>();
     int _currentPageIndex;
+
+    readonly List<OrderRowView> _activeOrderRows = new List<OrderRowView>();
+
+    int _lastCheckedGameMinutes = -1;
 
     private void Awake()
     {
@@ -59,6 +66,46 @@ public class OrderSystemController : MonoBehaviour
         if (ordersRoot != null)
             ordersRoot.SetActive(false);
         OpenDebugOrders();
+    }
+
+    void Update()
+    {
+        if (GameTimeController.Instance != null)
+        {
+            int currentMinutes = GameTimeController.Instance.GetTotalMinutes();
+            if (currentMinutes != _lastCheckedGameMinutes)
+            {
+                _lastCheckedGameMinutes = currentMinutes;
+                CheckAllOrdersTimeout(currentMinutes);
+            }
+        }
+
+        UpdateAllOrderTimeDisplays();
+    }
+
+    void UpdateAllOrderTimeDisplays()
+    {
+        if (GameTimeController.Instance == null) return;
+        int currentMinutes = GameTimeController.Instance.GetTotalMinutes();
+
+        foreach (var row in _activeOrderRows)
+        {
+            if (row == null) continue;
+
+            var order = row.GetBoundOrder();
+            if (order == null) continue;
+
+            row.UpdateTimeDisplay(order);
+
+            if (!order.isTimedOut && !row.IsClosed() && order.orderStartGameMinutes > 0)
+            {
+                if (order.CheckTimeout(currentMinutes))
+                {
+                    Debug.Log($"[OrderSystem] 帧检测到订单超时: 客户{order.customerNumber}");
+                    HandleOrderTimeout(order);
+                }
+            }
+        }
     }
 
     public void OpenWithOrders(IReadOnlyList<CustomerOrder> orders)
@@ -180,7 +227,7 @@ public class OrderSystemController : MonoBehaviour
             var newPage = newPageGo.GetComponent<OrderPanelPage>();
             if (newPage == null)
             {
-                Debug.LogError("[OrderSystem] Panel Prefab 上需要 OrderPanelPage 组件。");
+               
                 Destroy(newPageGo);
                 return;
             }
@@ -203,17 +250,14 @@ public class OrderSystemController : MonoBehaviour
             GameManager.Instance.pendingOrders != null &&
             GameManager.Instance.pendingOrders.Count > 0)
         {
-            // 每次接到新订单都重新打开面板
             OpenPendingOrdersFromGameManager();
 
-            // 计算新订单所在页面的索引（新订单在pendingOrders中的索引是Count-1）
             int orderCount = GameManager.Instance.pendingOrders.Count;
             int lastPageIndex = Mathf.CeilToInt(orderCount / (float)OrdersPerPage) - 1;
             if (lastPageIndex < 0) lastPageIndex = 0;
 
             Debug.Log($"[OrderSystem] 新订单在第{lastPageIndex}页（{orderCount}个订单，每页{OrdersPerPage}个）");
 
-            // 切换到显示新订单的那一页
             if (_pageInstances.Count > 0)
             {
                 ShowPage(lastPageIndex);
@@ -234,12 +278,30 @@ public class OrderSystemController : MonoBehaviour
         var row = rowGo.GetComponent<OrderRowView>();
         if (row == null)
         {
-            Debug.LogError("[OrderSystem] Order Prefab 上需要 OrderRowView。");
+            
             return;
         }
 
+        if (order.orderStartGameMinutes <= 0)
+        {
+            int gameMinutes = GameTimeController.Instance != null
+                ? GameTimeController.Instance.GetTotalMinutes()
+                : 0;
+            order.orderStartGameMinutes = gameMinutes;
+            order.timeLimitMinutes = defaultOrderTimeLimit;
+            Debug.Log($"[OrderSystem] 订单时限已设置 - 客户{order.customerNumber}: " +
+                      $"开始时间={gameMinutes}, 时限={defaultOrderTimeLimit}分钟");
+        }
+
         row.BindWithDeliver(order.customerNumber, order.GetFlowerNames(),
-            flowerSpriteRegistry, order, TryDeliverOrder);
+            flowerSpriteRegistry, order, TryDeliverOrder, OnOrderCloseClicked);
+
+        if (order.isTimedOut)
+        {
+            row.MarkAsTimedOut();
+        }
+
+        _activeOrderRows.Add(row);
     }
 
     void SetupNavigation(int pageCount)
@@ -292,6 +354,140 @@ public class OrderSystemController : MonoBehaviour
         }
         _pageInstances.Clear();
         _lastPage = null;
+        _activeOrderRows.Clear();
+    }
+
+    void CheckAllOrdersTimeout(int currentGameMinutes)
+    {
+        if (GameManager.Instance == null || GameManager.Instance.pendingOrders == null)
+            return;
+
+        foreach (var order in GameManager.Instance.pendingOrders.ToList())
+        {
+            if (order == null || order.isDelivered) continue;
+            if (order.orderStartGameMinutes <= 0) continue;
+
+            bool timedOut = order.CheckTimeout(currentGameMinutes);
+            if (timedOut)
+            {
+                Debug.Log($"[OrderSystem] 订单超时: 客户{order.customerNumber}, " +
+                          $"开始={order.orderStartGameMinutes}, 当前={currentGameMinutes}, " +
+                          $"经过={currentGameMinutes - order.orderStartGameMinutes}, " +
+                          $"时限={order.timeLimitMinutes}");
+                HandleOrderTimeout(order);
+            }
+        }
+    }
+
+    void HandleOrderTimeout(CustomerOrder order)
+    {
+        Debug.Log($"[OrderSystem] HandleOrderTimeout 被调用 - 订单: {order.customerNumber}, instanceId: {order.instanceId}, customerName: {order.customerName}");
+
+        order.isTimedOut = true;
+
+        foreach (var row in _activeOrderRows)
+        {
+            if (row.GetBoundOrder() == order)
+            {
+                row.MarkAsTimedOut();
+                break;
+            }
+        }
+
+        NotifyCustomerLeft(order);
+
+        ShowTip($"Order timeout! Customer {order.customerNumber} left.");
+
+        Debug.Log($"[OrderSystem] 订单超时处理完成: 客户{order.customerNumber}, " +
+                  $"客户已消失，等待用户点击Close关闭订单");
+    }
+
+    void OnOrderCloseClicked(CustomerOrder order)
+    {
+        Debug.Log($"[OrderSystem] 关闭订单: 客户{order.customerNumber}");
+        RemoveOrder(order);
+    }
+
+    void NotifyCustomerLeft(CustomerOrder order)
+    {
+        Debug.Log($"[OrderSystem] NotifyCustomerLeft 被调用 - 订单: {order?.customerNumber}, instanceId: {order?.instanceId}, customerName: {order?.customerName}");
+
+        if (CustomerSpawner.Instance == null)
+        {
+            Debug.LogWarning("[OrderSystem] CustomerSpawner.Instance 为 null!");
+            TryForceCustomerLeaveByName(order);
+            return;
+        }
+
+        bool removedBySlot = TryRemoveCustomerBySlotIndex(order);
+
+        if (!removedBySlot && !string.IsNullOrEmpty(order.instanceId))
+        {
+            Debug.Log($"[OrderSystem] 尝试通过 instanceId 查找槽位: {order.instanceId}");
+            for (int i = 0; i < 4; i++)
+            {
+                var slotData = CustomerSpawner.Instance.GetSlotData(i);
+                if (slotData != null && slotData.instanceId == order.instanceId)
+                {
+                    CustomerSpawner.Instance.OnCustomerLeft(i);
+                    Debug.Log($"[OrderSystem] 已通过 instanceId 通知客户离开槽位: {i}");
+                    return;
+                }
+            }
+            Debug.LogWarning($"[OrderSystem] 未找到匹配的 instanceId: {order.instanceId}");
+        }
+
+        if (!removedBySlot)
+        {
+            TryForceCustomerLeaveByName(order);
+        }
+    }
+
+    bool TryRemoveCustomerBySlotIndex(CustomerOrder order)
+    {
+        if (order == null || CustomerSpawner.Instance == null) return false;
+
+        for (int i = 0; i < 4; i++)
+        {
+            var slotData = CustomerSpawner.Instance.GetSlotData(i);
+            if (slotData != null && slotData.customerNumber == order.customerNumber)
+            {
+                if (!string.IsNullOrEmpty(order.instanceId) &&
+                    !string.IsNullOrEmpty(slotData.instanceId) &&
+                    order.instanceId != slotData.instanceId)
+                {
+                    continue;
+                }
+
+                Debug.Log($"[OrderSystem] 通过 customerNumber={order.customerNumber} 匹配到槽位 {i}，调用 OnCustomerLeft");
+                CustomerSpawner.Instance.OnCustomerLeft(i);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void TryForceCustomerLeaveByName(CustomerOrder order)
+    {
+        if (string.IsNullOrEmpty(order.customerName))
+        {
+            Debug.LogWarning("[OrderSystem] customerName 也为空，无法找到客户");
+            return;
+        }
+
+        var coordinator = FindObjectsOfType<CustomerOrderCoordinator>()
+            .FirstOrDefault(c => c.gameObject.name == order.customerName);
+
+        if (coordinator != null)
+        {
+            Debug.Log($"[OrderSystem] 通过 customerName 找到客户，调用 ForceCustomerLeave");
+            coordinator.ForceCustomerLeave();
+        }
+        else
+        {
+            Debug.LogWarning($"[OrderSystem] 未找到客户 GameObject: {order.customerName}");
+        }
     }
 
     public void RemoveOrder(CustomerOrder order)
@@ -307,7 +503,7 @@ public class OrderSystemController : MonoBehaviour
 
         Debug.Log($"[OrderSystem] 订单已删除: 客户{order.customerNumber}");
 
-     
+
         if (GameManager.Instance != null && !string.IsNullOrEmpty(order.customerName))
         {
             var coordinator = FindObjectsOfType<CustomerOrderCoordinator>()
@@ -327,7 +523,7 @@ public class OrderSystemController : MonoBehaviour
 
         if (missing.Count > 0)
         {
-            
+
             var parts = new List<string>();
             foreach (var kvp in missing)
                 parts.Add($"{kvp.Key} x{kvp.Value}");
@@ -335,13 +531,13 @@ public class OrderSystemController : MonoBehaviour
             return;
         }
 
-        
+
         GameManager.Instance.DeductOrderFlowers(order);
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
         ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
 
-        
+
         Invoke(nameof(RemoveOrderDelayed), 0.1f);
         _pendingDeliverOrder = order;
     }

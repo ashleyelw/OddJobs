@@ -6,8 +6,7 @@ public class FlowerCollector : MonoBehaviour
     public float harvestRange = 1.5f;
     public KeyCode harvestKey = KeyCode.E;
 
-   
-    public AudioClip harvestSound;   
+    public AudioClip harvestSound;
 
     private AudioSource audioSource;
 
@@ -66,7 +65,6 @@ public class FlowerCollector : MonoBehaviour
             Debug.Log($"Flower harvested! Total collected: {GameManager.Instance.collectedFlowers.Count}");
         }
 
-     
         FlowerSpawner.Instance.OnFlowerHarvested(point);
         flower.SetActive(false);
     }

@@ -9,20 +9,18 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // <-- This keeps it alive across scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject);
             return;
         }
     }
 
-    // Play background music
     public void PlayMusic(AudioClip clip, bool loop = true)
     {
         if (musicSource.clip == clip) return;
@@ -32,7 +30,6 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
-    // Play sound effects
     public void PlaySFX(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);

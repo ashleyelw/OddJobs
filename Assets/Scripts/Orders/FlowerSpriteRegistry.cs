@@ -29,7 +29,7 @@ public class FlowerSpriteRegistry : MonoBehaviour
             var sr = prefab.GetComponent<SpriteRenderer>();
             if (sr == null || sr.sprite == null)
             {
-                Debug.LogWarning($"[FlowerSpriteRegistry] 预制体「{prefab.name}」没有 SpriteRenderer 或 Sprite，已跳过。");
+              
                 continue;
             }
 

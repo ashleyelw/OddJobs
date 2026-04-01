@@ -11,13 +11,8 @@ public class CustomerOrderCoordinator : InteractionZone
 
     int _slotIndex = -1;
     int _customerNumber = 1;
-    
-    // 关键：标记此客户是否已下单（跨场景持久化）
     bool _hasOrderedThisSession = false;
-    
     CustomerSpawner _spawner;
-
-    // 唯一实例ID（用于跨场景标识）
     string _instanceId;
 
     public int SlotIndex => _slotIndex;
@@ -31,13 +26,8 @@ public class CustomerOrderCoordinator : InteractionZone
         flowersPerOrder = perOrder;
         _spawner = spawner;
         _instanceId = instanceId ?? $"{customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
-
-        // 重要：不在这里重置下单状态，由外部决定是否需要重置
     }
 
-    /// <summary>
-    /// 恢复客户的下单状态（场景切换后调用）
-    /// </summary>
     public void RestoreHasOrderedState(bool hasOrdered)
     {
         _hasOrderedThisSession = hasOrdered;
@@ -51,7 +41,6 @@ public class CustomerOrderCoordinator : InteractionZone
 
     protected override void Interact()
     {
-        // 关键检查：如果已经下过单，拒绝再次下单
         if (_hasOrderedThisSession)
         {
             Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 本次已下过单，拒绝重复下单。");
@@ -60,16 +49,30 @@ public class CustomerOrderCoordinator : InteractionZone
 
         _hasOrderedThisSession = true;
 
-        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程");
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程, _instanceId={_instanceId}, _slotIndex={_slotIndex}");
 
         if (_spawner != null && _slotIndex >= 0)
             _spawner.OnCustomerOrdered(_slotIndex);
+
+        if (string.IsNullOrEmpty(_instanceId))
+        {
+            _instanceId = $"{_customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
+            Debug.LogWarning($"[CustomerOrderCoordinator] _instanceId 为空，已重新生成: {_instanceId}");
+        }
+
+        float orderTimeLimit = OrderSystemController.Instance != null
+            ? OrderSystemController.Instance.defaultOrderTimeLimit
+            : 30f;
 
         CustomerOrder order = new CustomerOrder
         {
             customerNumber = _customerNumber,
             customerName = gameObject.name,
-            instanceId = _instanceId
+            instanceId = _instanceId,
+            orderStartGameMinutes = GameTimeController.Instance != null
+                ? GameTimeController.Instance.GetTotalMinutes()
+                : 0,
+            timeLimitMinutes = orderTimeLimit
         };
 
         string[] randomFlowers = GetRandomFlowers(flowersPerOrder);
@@ -95,6 +98,21 @@ public class CustomerOrderCoordinator : InteractionZone
             _spawner.OnCustomerLeft(_slotIndex);
         else
             Destroy(gameObject);
+    }
+
+    public void ForceCustomerLeave()
+    {
+        Debug.Log($"[CustomerOrderCoordinator] ForceCustomerLeave 被调用 - 客户: {gameObject.name}, _slotIndex: {_slotIndex}, _instanceId: {_instanceId}, _spawner: {_spawner != null}");
+        if (_spawner != null && _slotIndex >= 0)
+        {
+            Debug.Log($"[CustomerOrderCoordinator] 调用 _spawner.OnCustomerLeft({_slotIndex})");
+            _spawner.OnCustomerLeft(_slotIndex);
+        }
+        else
+        {
+            Debug.Log($"[CustomerOrderCoordinator] _spawner 或 _slotIndex 无效，直接 Destroy");
+            Destroy(gameObject);
+        }
     }
 
     string[] GetRandomFlowers(int count)

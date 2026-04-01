@@ -264,6 +264,7 @@ MonoBehaviour:
   tipText: {fileID: 819025204}
   tipDuration: 2.5
   coinDisplayText: {fileID: 1241973882}
+  defaultOrderTimeLimit: 5
 --- !u!1 &23334979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,8 +2664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 146.23271, y: -254.68747}
-  m_SizeDelta: {x: 292.4754, y: 104.378}
+  m_AnchoredPosition: {x: 195.94469, y: -254.68748}
+  m_SizeDelta: {x: 391.8994, y: 104.378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819025204
 MonoBehaviour:
@@ -3341,7 +3342,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  spawnIntervalMinutes: 10
+  spawnIntervalMinutes: 15
   availableFlowers:
   - Rose2
   - Daisy2

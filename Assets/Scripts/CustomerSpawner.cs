@@ -13,7 +13,7 @@ public class CustomerSpawner : MonoBehaviour
         public int prefabIndex = -1;
         public int customerNumber;
         public bool hasOrdered;
-        public string instanceId;  // 唯一实例ID
+        public string instanceId;
 
         public SlotCustomerData() { }
 
@@ -50,21 +50,14 @@ public class CustomerSpawner : MonoBehaviour
     [Header("运行时数据（跨场景保存）")]
     [SerializeField] SlotCustomerData[] _slotData = new SlotCustomerData[4];
 
-    // _currentCustomerNumber 需要持久化以保持编号连续性
     [SerializeField] int _currentCustomerNumber = 1;
 
-    // 累计游戏时间（分钟），从游戏开始记录
     float _accumulatedGameMinutes = 0f;
-    // 记录上次生成时的累计时间
     float _lastSpawnAccumulatedMinutes = 0f;
     string[] _cachedSpawnPointNames = new string[4];
 
     bool _isInitialized = false;
-    
-    // 防止同一场景加载期间多次恢复
     bool _hasRestoredThisLoad = false;
-    
-    // 运行时客户引用（非持久化）
     GameObject[] _slotCustomers = new GameObject[4];
 
     void Awake()
@@ -87,9 +80,6 @@ public class CustomerSpawner : MonoBehaviour
     {
         _isInitialized = true;
         AutoFindSpawnPoints();
-
-        // 只在 Start 时恢复（首次进入 FloristMain 时）
-        // 后续场景切换由 OnSceneLoaded 处理
         TryRestoreAllSlots();
     }
 
@@ -127,15 +117,12 @@ public class CustomerSpawner : MonoBehaviour
     {
         Debug.Log($"[CustomerSpawner] 场景加载: {scene.name}");
 
-        // 重置恢复标志
         _hasRestoredThisLoad = false;
 
-        // 清空旧的客户引用（它们已被销毁）
         ClearInvalidCustomerRefs();
 
         AutoFindSpawnPoints();
 
-        // 只有在主场景才恢复客户
         if (scene.name == "FloristMain")
         {
             TryRestoreAllSlots();
@@ -161,7 +148,6 @@ public class CustomerSpawner : MonoBehaviour
 
     public void AutoFindSpawnPoints()
     {
-        Debug.Log("[CustomerSpawner] 调用 AutoFindSpawnPoints");
         for (int i = 0; i < 4; i++)
         {
             if (spawnPoints[i] != null) continue;
@@ -181,7 +167,6 @@ public class CustomerSpawner : MonoBehaviour
 
     public void TryRestoreAllSlots()
     {
-        // 防止重复恢复
         if (_hasRestoredThisLoad)
         {
             Debug.Log("[CustomerSpawner] TryRestoreAllSlots 已在本次场景加载中调用过，跳过。");
@@ -191,12 +176,10 @@ public class CustomerSpawner : MonoBehaviour
 
         Debug.Log($"[CustomerSpawner] TryRestoreAllSlots 被调用（_currentCustomerNumber = {_currentCustomerNumber}）");
 
-        // 清空无效引用
         ClearInvalidCustomerRefs();
 
         for (int i = 0; i < 4; i++)
         {
-            // 检查：槽位有数据 且 没有有效客户
             if (_slotData[i].prefabIndex >= 0 && !IsCustomerValid(_slotCustomers[i]))
             {
                 RestoreSlot(i);
@@ -243,11 +226,8 @@ public class CustomerSpawner : MonoBehaviour
         var coordinator = customer.GetComponent<CustomerOrderCoordinator>();
         if (coordinator != null)
         {
-            // 传递 instanceId 和已下单状态
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
                 availableFlowers, flowersPerOrder, this, _slotData[slotIndex].instanceId);
-
-            // 恢复客户的下单状态（这是关键！）
             coordinator.RestoreHasOrderedState(_slotData[slotIndex].hasOrdered);
         }
         else
@@ -257,7 +237,6 @@ public class CustomerSpawner : MonoBehaviour
             {
                 interaction.SetCustomerNumber(_slotData[slotIndex].customerNumber);
                 interaction.SetSlotInfo(slotIndex, this);
-                // 恢复客户的下单状态
                 interaction.RestoreHasOrderedState(_slotData[slotIndex].hasOrdered);
                 interaction.gameObject.SetActive(true);
             }
@@ -271,38 +250,30 @@ public class CustomerSpawner : MonoBehaviour
         if (GameTimeController.Instance == null) return;
         if (!_isInitialized) return;
 
-        // 只在 FloristMain 场景生成客户
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "FloristMain") return;
 
-        // 获取当前游戏累计分钟数
         float gameMinutes = GameTimeController.Instance.GetTotalMinutes();
 
-        // 计算自上次生成以来经过的时间
         float minutesSinceLastSpawn = gameMinutes - _lastSpawnAccumulatedMinutes;
-
-        Debug.Log($"[CustomerSpawner] 累计游戏时间: {gameMinutes}分钟, 距离上次生成: {minutesSinceLastSpawn}分钟, 生成间隔: {spawnIntervalMinutes}分钟");
 
         if (minutesSinceLastSpawn >= spawnIntervalMinutes)
         {
             _lastSpawnAccumulatedMinutes = gameMinutes;
-            Debug.Log("[CustomerSpawner] 触发定时生成");
             TrySpawnNextCustomer();
         }
     }
 
     void TrySpawnNextCustomer()
     {
-        // 清空无效引用后再检查
         ClearInvalidCustomerRefs();
 
-        // 查找第一个空的槽位（按顺序：0, 1, 2, 3）
         for (int i = 0; i < 4; i++)
         {
             if (_slotData[i].prefabIndex < 0)
             {
                 TrySpawnInSlot(i);
-                return; // 只生成一个
+                return;
             }
         }
 
@@ -336,7 +307,6 @@ public class CustomerSpawner : MonoBehaviour
 
         var chosen = validPrefabs[UnityEngine.Random.Range(0, validPrefabs.Length)];
 
-        // 生成唯一实例ID
         string instanceId = $"{_currentCustomerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
 
         GameObject customer = Instantiate(chosen.prefab, spawnPoints[slotIndex]);
@@ -345,7 +315,6 @@ public class CustomerSpawner : MonoBehaviour
         customer.name = $"Customer_{slotIndex}_{_currentCustomerNumber}";
         _slotCustomers[slotIndex] = customer;
 
-        // 保存时带上 instanceId
         _slotData[slotIndex] = new SlotCustomerData(chosen.index, _currentCustomerNumber, instanceId, false);
 
         var coordinator = customer.GetComponent<CustomerOrderCoordinator>();
@@ -361,7 +330,6 @@ public class CustomerSpawner : MonoBehaviour
             {
                 interaction.SetCustomerNumber(_slotData[slotIndex].customerNumber);
                 interaction.SetSlotInfo(slotIndex, this);
-                // 新生成的客户默认没有下单，所以不调用 RestoreHasOrderedState
             }
         }
 
@@ -379,6 +347,13 @@ public class CustomerSpawner : MonoBehaviour
     public void OnCustomerLeft(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= 4) return;
+
+        if (_slotCustomers[slotIndex] != null)
+        {
+            Debug.Log($"[CustomerSpawner] 销毁槽位 {slotIndex} 的客户: {_slotCustomers[slotIndex].name}");
+            Destroy(_slotCustomers[slotIndex]);
+        }
+
         _slotCustomers[slotIndex] = null;
         _slotData[slotIndex] = new SlotCustomerData();
         Debug.Log($"[CustomerSpawner] 槽位 {slotIndex} 客户已离开，槽位置空。");
@@ -398,7 +373,6 @@ public class CustomerSpawner : MonoBehaviour
 
     public void ForceSpawnAll()
     {
-        // 强制立即生成一个客户（忽略时间间隔）
         TrySpawnNextCustomer();
     }
 

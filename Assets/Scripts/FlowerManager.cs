@@ -11,7 +11,6 @@ public class FlowerManager : MonoBehaviour
 
         GameObject bud=Instantiate(budPrefab,spawnPoint.position,Quaternion.identity);
         bud.tag = "Flower";
-        
 
         FlowerData data = bud.GetComponent<FlowerData>();
         if (data != null)

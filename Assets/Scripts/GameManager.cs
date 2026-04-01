@@ -41,24 +41,19 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"[GameManager] 场景切换: {scene.name}");
-        
-        // 当切换到 FloristMain 场景时，清理已完成的订单
+
         if (scene.name == "FloristMain")
         {
             CleanupInvalidOrders();
         }
     }
 
-    /// <summary>
-    /// 清理无效的订单（对应的客户已不存在或已完成）
-    /// </summary>
     void CleanupInvalidOrders()
     {
         if (pendingOrders == null || pendingOrders.Count == 0) return;
 
         Debug.Log($"[GameManager] 开始清理订单，清理前数量: {pendingOrders.Count}");
 
-        // 获取当前存在的客户名称列表
         var activeCustomerNames = new HashSet<string>();
         var activeCoordinators = Object.FindObjectsOfType<CustomerOrderCoordinator>();
         foreach (var coord in activeCoordinators)
@@ -69,7 +64,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 获取 CustomerSpawner 中活跃的槽位客户名称
         if (CustomerSpawner.Instance != null)
         {
             for (int i = 0; i < 4; i++)
@@ -83,18 +77,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 移除无效订单
         int removedCount = 0;
         pendingOrders.RemoveAll(order =>
         {
-            if (order == null) return true; // 空订单移除
-            
+            if (order == null) return true;
+
             bool shouldRemove = false;
 
-            // 检查客户名称是否匹配
             if (!string.IsNullOrEmpty(order.customerName))
             {
-                // 如果客户名称不在活跃列表中，标记为无效
                 if (!activeCustomerNames.Contains(order.customerName))
                 {
                     Debug.Log($"[GameManager] 订单无效（客户不存在）: {order.customerName}");

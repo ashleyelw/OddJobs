@@ -56,13 +56,11 @@ public class Scissors : MonoBehaviour
         Debug.Log("Flower added: " + data.prefabReference.name);
     }
 
-    //bud.SetParent(null);
     bud.transform.position += new Vector3(0.5f,0.5f,0f);
 
     if  (bud.GetComponent<DraggableFlower>()==null)
     bud.gameObject.AddComponent<DraggableFlower>();
 
-    Destroy(stem.gameObject); 
-   
+    Destroy(stem.gameObject);
 }
 }
