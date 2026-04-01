@@ -11,6 +11,9 @@ public class CustomerOrder
     [Tooltip("客户 GameObject 名字")]
     public string customerName;
 
+    [Tooltip("客户唯一实例ID（跨场景标识）")]
+    public string instanceId;
+
     [Tooltip("需要的花")]
     public string flowerPrefabName0;
     public string flowerPrefabName1;

@@ -201,7 +201,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &11277529
 RectTransform:
@@ -218,6 +218,7 @@ RectTransform:
   - {fileID: 1249056799}
   - {fileID: 1317649876}
   - {fileID: 456220193}
+  - {fileID: 1396143075}
   - {fileID: 363551261}
   - {fileID: 1681913004}
   - {fileID: 214063053}
@@ -2451,6 +2452,7 @@ MonoBehaviour:
   pendingOrders:
   - customerNumber: 0
     customerName: 
+    instanceId: 
     flowerPrefabName0: 
     flowerPrefabName1: 
     flowerPrefabName2: 
@@ -3359,15 +3361,20 @@ MonoBehaviour:
   - prefabIndex: -1
     customerNumber: 0
     hasOrdered: 0
+    instanceId: 
   - prefabIndex: -1
     customerNumber: 0
     hasOrdered: 0
+    instanceId: 
   - prefabIndex: -1
     customerNumber: 0
     hasOrdered: 0
+    instanceId: 
   - prefabIndex: -1
     customerNumber: 0
     hasOrdered: 0
+    instanceId: 
+  _currentCustomerNumber: 1
 --- !u!1 &1073767439
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,7 +4692,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1551610031}
+  m_Father: {fileID: 11277529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5358,7 +5365,7 @@ Transform:
   m_GameObject: {fileID: 1514187311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.315, y: -0.167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5459,7 +5466,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1446741077}
-  - {fileID: 1396143075}
   - {fileID: 1497907171}
   - {fileID: 103785054}
   - {fileID: 1499124948}
@@ -8706,10 +8712,10 @@ SceneRoots:
   - {fileID: 1108601669}
   - {fileID: 127652618582421416}
   - {fileID: 1286076282}
-  - {fileID: 11277529}
   - {fileID: 1963360175}
   - {fileID: 778302978}
   - {fileID: 1488010930}
   - {fileID: 1036746431}
   - {fileID: 1551610031}
+  - {fileID: 11277529}
   - {fileID: 1575009391}

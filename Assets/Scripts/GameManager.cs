@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,6 +32,87 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"[GameManager] 场景切换: {scene.name}");
+        
+        // 当切换到 FloristMain 场景时，清理已完成的订单
+        if (scene.name == "FloristMain")
+        {
+            CleanupInvalidOrders();
+        }
+    }
+
+    /// <summary>
+    /// 清理无效的订单（对应的客户已不存在或已完成）
+    /// </summary>
+    void CleanupInvalidOrders()
+    {
+        if (pendingOrders == null || pendingOrders.Count == 0) return;
+
+        Debug.Log($"[GameManager] 开始清理订单，清理前数量: {pendingOrders.Count}");
+
+        // 获取当前存在的客户名称列表
+        var activeCustomerNames = new HashSet<string>();
+        var activeCoordinators = Object.FindObjectsOfType<CustomerOrderCoordinator>();
+        foreach (var coord in activeCoordinators)
+        {
+            if (coord != null && !string.IsNullOrEmpty(coord.gameObject.name))
+            {
+                activeCustomerNames.Add(coord.gameObject.name);
+            }
+        }
+
+        // 获取 CustomerSpawner 中活跃的槽位客户名称
+        if (CustomerSpawner.Instance != null)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var slotData = CustomerSpawner.Instance.GetSlotData(i);
+                if (slotData != null && slotData.prefabIndex >= 0)
+                {
+                    string customerName = $"Customer_{i}_{slotData.customerNumber}";
+                    activeCustomerNames.Add(customerName);
+                }
+            }
+        }
+
+        // 移除无效订单
+        int removedCount = 0;
+        pendingOrders.RemoveAll(order =>
+        {
+            if (order == null) return true; // 空订单移除
+            
+            bool shouldRemove = false;
+
+            // 检查客户名称是否匹配
+            if (!string.IsNullOrEmpty(order.customerName))
+            {
+                // 如果客户名称不在活跃列表中，标记为无效
+                if (!activeCustomerNames.Contains(order.customerName))
+                {
+                    Debug.Log($"[GameManager] 订单无效（客户不存在）: {order.customerName}");
+                    shouldRemove = true;
+                }
+            }
+
+            if (shouldRemove)
+            {
+                removedCount++;
+                return true;
+            }
+            return false;
+        });
+
+        if (removedCount > 0)
+        {
+            Debug.Log($"[GameManager] 已清理 {removedCount} 个无效订单，剩余: {pendingOrders.Count}");
         }
     }
 
@@ -164,6 +246,11 @@ public class GameManager : MonoBehaviour
         }
         go.SetActive(false);
         Debug.Log($"[GameManager] 客户已完成订单: {customerName}");
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
 

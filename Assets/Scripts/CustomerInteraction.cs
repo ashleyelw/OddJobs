@@ -17,22 +17,61 @@ public class CustomerInteraction : InteractionZone
     [Tooltip("下单后冷却时间（秒），防止重复下单")]
     [SerializeField] private float orderCooldown = 2f;
 
+    // 关键：标记此客户是否已下单（防止重复接单）
+    [SerializeField] private bool _hasOrderedThisSession = false;
+
     private bool isOnCooldown = false;
     private float cooldownTimer = 0f;
+
+    // 槽位索引（用于与 CustomerSpawner 通信）
+    private int _slotIndex = -1;
+    private CustomerSpawner _spawner;
 
     public void SetCustomerNumber(int number)
     {
         customerNumber = number;
     }
 
+    /// <summary>
+    /// 设置槽位信息（场景切换后由 CustomerSpawner 调用）
+    /// </summary>
+    public void SetSlotInfo(int slotIndex, CustomerSpawner spawner)
+    {
+        _slotIndex = slotIndex;
+        _spawner = spawner;
+    }
+
+    /// <summary>
+    /// 恢复客户的下单状态（场景切换后由 CustomerSpawner 调用）
+    /// </summary>
+    public void RestoreHasOrderedState(bool hasOrdered)
+    {
+        _hasOrderedThisSession = hasOrdered;
+        Debug.Log($"[CustomerInteraction] 客户 {customerNumber} 恢复下单状态: {hasOrdered}");
+    }
+
     protected override void Interact()
     {
+        // 关键检查：如果已经下过单，拒绝再次下单
+        if (_hasOrderedThisSession)
+        {
+            Debug.Log($"[CustomerInteraction] 客户 {customerNumber} 本次已下过单，拒绝重复下单。");
+            return;
+        }
+
         if (isOnCooldown)
         {
             Debug.Log($"[Customer {customerNumber}] 冷却中，请稍候...");
             return;
         }
-        Debug.Log("按下了");
+
+        Debug.Log($"[Customer {customerNumber}] 已下单。");
+        
+        _hasOrderedThisSession = true;
+
+        if (_spawner != null && _slotIndex >= 0)
+            _spawner.OnCustomerOrdered(_slotIndex);
+
         CustomerOrder order = new CustomerOrder
         {
             customerNumber = this.customerNumber,
@@ -46,7 +85,7 @@ public class CustomerInteraction : InteractionZone
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.RegisterActiveCustomer(gameObject.name, -1);
+            GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
             Debug.Log($"[Customer {customerNumber}] 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
         }
