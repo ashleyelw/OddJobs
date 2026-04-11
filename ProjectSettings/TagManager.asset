@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UI
   - Flower
+  - FlowerStem
   layers:
   - Default
   - TransparentFX

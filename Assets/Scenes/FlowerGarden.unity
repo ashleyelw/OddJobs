@@ -9414,6 +9414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlowerTransferManager
   selectedFlowerPrefabs: []
+  selectedFlowerStemPrefabs: []
 --- !u!4 &1711424283
 Transform:
   m_ObjectHideFlags: 0
@@ -10872,6 +10873,7 @@ SceneRoots:
   - {fileID: 1797292714}
   - {fileID: 1587336914}
   - {fileID: 1047304048}
+  - {fileID: 1711424283}
   - {fileID: 8910695}
   - {fileID: 1684484372}
   - {fileID: 627865503}
@@ -10891,4 +10893,3 @@ SceneRoots:
   - {fileID: 135102831}
   - {fileID: 928579742}
   - {fileID: 1912685292}
-  - {fileID: 1711424283}

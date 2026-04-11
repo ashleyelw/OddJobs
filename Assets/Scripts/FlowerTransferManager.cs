@@ -6,6 +6,8 @@ public class FlowerTransferManager : MonoBehaviour
     public static FlowerTransferManager Instance;
 
     public List<GameObject> selectedFlowerPrefabs = new List<GameObject>();
+    public List<GameObject> selectedFlowerStemPrefabs = new List<GameObject>();
+
 
     void Awake()
     {

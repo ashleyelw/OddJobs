@@ -18,7 +18,7 @@ public class CollectFlower : MonoBehaviour
     {
         if (prefabReference != null)
         {
-            FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(prefabReference);
+            FlowerTransferManager.Instance.selectedFlowerStemPrefabs.Add(prefabReference);
             Debug.Log("Collected: " + prefabReference.name);
         }
         else

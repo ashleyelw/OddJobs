@@ -4335,6 +4335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlowerTransferManager
   selectedFlowerPrefabs: []
+  selectedFlowerStemPrefabs: []
 --- !u!4 &846806626
 Transform:
   m_ObjectHideFlags: 0
@@ -6518,9 +6519,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790625668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a063e83dda37005428f08e86b0f42877, type: 3}
+  m_Script: {fileID: 11500000, guid: 98122065d74c54b27b6894a7d39a9edc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlowerWrapSpawn
+  m_EditorClassIdentifier: '::'
   spawnArea: {fileID: 791324349}
 --- !u!1 &1808447995
 GameObject:
