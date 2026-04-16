@@ -143,7 +143,12 @@ public class OrderRowView : MonoBehaviour
 
             if (timeLimitText != null)
             {
-                if (remaining <= 0)
+                if (order.isTutorialOrder)
+                {
+                    timeLimitText.text = "TUTORIAL";
+                    timeLimitText.color = Color.cyan;
+                }
+                else if (remaining <= 0)
                 {
                     timeLimitText.text = "TIMEOUT";
                     timeLimitText.color = criticalTimeColor;
@@ -160,7 +165,7 @@ public class OrderRowView : MonoBehaviour
                 }
             }
 
-            if (timerBarFill != null && order.timeLimitMinutes > 0)
+            if (timerBarFill != null && order.timeLimitMinutes > 0 && !order.isTutorialOrder)
             {
                 float progress = Mathf.Clamp01(remaining / order.timeLimitMinutes);
                 timerBarFill.fillAmount = progress;
@@ -171,6 +176,11 @@ public class OrderRowView : MonoBehaviour
                     timerBarFill.color = warningTimeColor;
                 else
                     timerBarFill.color = normalTimeColor;
+            }
+            else if (timerBarFill != null && order.isTutorialOrder)
+            {
+                timerBarFill.fillAmount = 1f;
+                timerBarFill.color = Color.cyan;
             }
         }
     }

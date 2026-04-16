@@ -183,6 +183,19 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[Inventory] Added flower {key}, now have: {flowerInventory[key]}");
     }
 
+    public void AddFlowerToInventoryByName(string flowerName)
+    {
+        if (string.IsNullOrEmpty(flowerName)) return;
+        string key = NormalizeKey(flowerName);
+
+        if (flowerInventory.ContainsKey(key))
+            flowerInventory[key]++;
+        else
+            flowerInventory[key] = 1;
+
+        Debug.Log($"[Inventory] Added flower {key}, now have: {flowerInventory[key]}");
+    }
+
     public void AddRibbonToInventory(GameObject ribbon)
     {
         if (ribbon == null) return;

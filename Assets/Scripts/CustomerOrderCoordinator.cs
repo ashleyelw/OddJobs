@@ -13,6 +13,9 @@ public class CustomerOrderCoordinator : InteractionZone
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
 
+    [Header("教程模式")]
+    [SerializeField] private bool isTutorialCustomer = false;
+
     [Header("单独订单 UI")]
     [SerializeField] private GameObject singleOrderUIPrefab;
 
@@ -24,6 +27,7 @@ public class CustomerOrderCoordinator : InteractionZone
 
     private GameObject _singleOrderUIInstance;
     private CustomerOrder _currentOrder;
+    private bool _isTutorialCustomer = false;
 
     public int SlotIndex => _slotIndex;
     public string InstanceId => _instanceId;
@@ -43,6 +47,11 @@ public class CustomerOrderCoordinator : InteractionZone
         availableRibbons = ribbons;
     }
 
+    public void SetTutorialCustomer(bool isTutorial)
+    {
+        _isTutorialCustomer = isTutorial;
+    }
+
     public void RestoreHasOrderedState(bool hasOrdered)
     {
         _hasOrderedThisSession = hasOrdered;
@@ -54,7 +63,7 @@ public class CustomerOrderCoordinator : InteractionZone
         _customerNumber = number;
     }
 
-    protected override void Interact()
+protected override void Interact()
     {
         if (_hasOrderedThisSession)
         {
@@ -74,9 +83,8 @@ public class CustomerOrderCoordinator : InteractionZone
             _instanceId = $"{_customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
         }
 
-        float orderTimeLimit = OrderSystemController.Instance != null
-            ? OrderSystemController.Instance.defaultOrderTimeLimit
-            : 30f;
+        float orderTimeLimit = _isTutorialCustomer ? float.MaxValue :
+            (OrderSystemController.Instance != null ? OrderSystemController.Instance.defaultOrderTimeLimit : 30f);
 
         CustomerOrder order = new CustomerOrder
         {
@@ -86,7 +94,8 @@ public class CustomerOrderCoordinator : InteractionZone
             orderStartGameMinutes = GameTimeController.Instance != null
                 ? GameTimeController.Instance.GetTotalMinutes()
                 : 0,
-            timeLimitMinutes = orderTimeLimit
+            timeLimitMinutes = orderTimeLimit,
+            isTutorialOrder = _isTutorialCustomer
         };
 
         string[] randomFlowers = GetRandomItems(availableFlowers, flowersPerOrder);
@@ -105,7 +114,7 @@ public class CustomerOrderCoordinator : InteractionZone
             GameManager.Instance.pendingOrders.Add(order);
             _currentOrder = order;
 
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单");
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单{( _isTutorialCustomer ? "(教程)" : "")}");
             OrderSystemController.Instance?.NotifyOrderAdded();
         }
     }
@@ -189,9 +198,17 @@ public class CustomerOrderCoordinator : InteractionZone
         Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 订单完成，离开。");
         CloseSingleOrderUI();
         if (_spawner != null && _slotIndex >= 0)
+        {
+            if (_isTutorialCustomer && _spawner.IsTutorialMode)
+            {
+                _spawner.SetTutorialCompleted();
+            }
             _spawner.OnCustomerLeft(_slotIndex);
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     public void ForceCustomerLeave()

@@ -123,7 +123,17 @@ public class SingleOrderView : MonoBehaviour
 
         float fillAlpha = 0.4f;
 
-        if (remaining <= 0)
+        if (_order.isTutorialOrder)
+        {
+            timerText.text = "TUTORIAL";
+            timerText.color = Color.cyan;
+            if (timerBarFill != null)
+            {
+                timerBarFill.fillAmount = 1f;
+                timerBarFill.color = new Color(0, 1, 1, fillAlpha);
+            }
+        }
+        else if (remaining <= 0)
         {
             timerText.text = "TIMEOUT";
             timerText.color = criticalColor;

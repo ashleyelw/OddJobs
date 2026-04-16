@@ -48,6 +48,9 @@ public class CustomerSpawner : MonoBehaviour
     [Range(1, 3)]
     [SerializeField] int flowersPerOrder = 2;
 
+    [Header("教程模式")]
+    [SerializeField] bool startWithTutorial = true;
+
     [Header("运行时数据（跨场景保存）")]
     [SerializeField] SlotCustomerData[] _slotData = new SlotCustomerData[4];
 
@@ -60,6 +63,9 @@ public class CustomerSpawner : MonoBehaviour
     bool _isInitialized = false;
     bool _hasRestoredThisLoad = false;
     GameObject[] _slotCustomers = new GameObject[4];
+
+    bool _isTutorialMode = false;
+    bool _tutorialCompleted = false;
 
     void Awake()
     {
@@ -81,7 +87,17 @@ public class CustomerSpawner : MonoBehaviour
     {
         _isInitialized = true;
         AutoFindSpawnPoints();
-        TryRestoreAllSlots();
+
+        if (startWithTutorial)
+        {
+            _isTutorialMode = true;
+            TrySpawnInSlot(0);
+            _lastSpawnAccumulatedMinutes = GameTimeController.Instance?.GetTotalMinutes() ?? 0f;
+        }
+        else
+        {
+            TryRestoreAllSlots();
+        }
     }
 
     void OnEnable()
@@ -121,13 +137,10 @@ public class CustomerSpawner : MonoBehaviour
         _hasRestoredThisLoad = false;
 
         ClearInvalidCustomerRefs();
-
         AutoFindSpawnPoints();
 
         if (scene.name == "FloristMain")
-        {
             TryRestoreAllSlots();
-        }
     }
 
     void ClearInvalidCustomerRefs()
@@ -160,9 +173,7 @@ public class CustomerSpawner : MonoBehaviour
                 Debug.Log($"[CustomerSpawner] 槽位 {i} 找到位置: {targetName}");
             }
             else
-            {
                 Debug.LogWarning($"[CustomerSpawner] 未找到名为 \"{targetName}\" 的生成位置。");
-            }
         }
     }
 
@@ -182,9 +193,7 @@ public class CustomerSpawner : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             if (_slotData[i].prefabIndex >= 0 && !IsCustomerValid(_slotCustomers[i]))
-            {
                 RestoreSlot(i);
-            }
         }
 
         LogAllSlots();
@@ -251,12 +260,12 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (GameTimeController.Instance == null) return;
         if (!_isInitialized) return;
+        if (_isTutorialMode && !_tutorialCompleted) return;
 
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "FloristMain") return;
 
         float gameMinutes = GameTimeController.Instance.GetTotalMinutes();
-
         float minutesSinceLastSpawn = gameMinutes - _lastSpawnAccumulatedMinutes;
 
         if (minutesSinceLastSpawn >= spawnIntervalMinutes)
@@ -325,6 +334,8 @@ public class CustomerSpawner : MonoBehaviour
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
                 availableFlowers, flowersPerOrder, this, instanceId);
             coordinator.InitializeRibbons(availableRibbons);
+            if (_isTutorialMode)
+                coordinator.SetTutorialCustomer(true);
         }
         else
         {
@@ -336,10 +347,19 @@ public class CustomerSpawner : MonoBehaviour
             }
         }
 
-        Debug.Log($"[CustomerSpawner] 槽位 {slotIndex} 生成了客户: {customer.name}（编号 {_currentCustomerNumber}，ID={instanceId}）");
+        Debug.Log($"[CustomerSpawner] 槽位 {slotIndex} 生成了客户: {customer.name}（编号 {_currentCustomerNumber}，ID={instanceId}，教程模式={_isTutorialMode}）");
 
         _currentCustomerNumber++;
     }
+
+    public void SetTutorialCompleted()
+    {
+        if (!_isTutorialMode) return;
+        _isTutorialMode = false;
+        Debug.Log("[CustomerSpawner] 教程完成，启用正常客户生成");
+    }
+
+    public bool IsTutorialMode => _isTutorialMode;
 
     public void OnCustomerOrdered(int slotIndex)
     {
@@ -350,6 +370,12 @@ public class CustomerSpawner : MonoBehaviour
     public void OnCustomerLeft(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= 4) return;
+
+        if (_isTutorialMode && slotIndex == 0)
+        {
+            _tutorialCompleted = true;
+            Debug.Log("[CustomerSpawner] 教程客户已完成，恢复正常生成逻辑");
+        }
 
         if (_slotCustomers[slotIndex] != null)
         {

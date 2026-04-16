@@ -46,6 +46,9 @@ public class CustomerOrder
     [Tooltip("订单是否已完成交付")]
     public bool isDelivered = false;
 
+    [Tooltip("是否为教程订单（无限时间，不触发超时）")]
+    public bool isTutorialOrder = false;
+
     public float GetRemainingMinutes(int currentGameMinutes)
     {
         if (isDelivered) return float.MaxValue;

@@ -366,6 +366,7 @@ public class OrderSystemController : MonoBehaviour
         {
             if (order == null || order.isDelivered) continue;
             if (order.orderStartGameMinutes <= 0) continue;
+            if (order.isTutorialOrder) continue;
 
             bool timedOut = order.CheckTimeout(currentGameMinutes);
             if (timedOut)
