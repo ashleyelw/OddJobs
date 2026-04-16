@@ -11,7 +11,7 @@ public class InteractionZone : MonoBehaviour
     public UnityEvent onPlayerEnter;
     public UnityEvent onPlayerExit;
 
-    private bool isPlayerInside = false;
+    protected bool isPlayerInside = false;
 
     void Start()
     {
@@ -41,7 +41,7 @@ public class InteractionZone : MonoBehaviour
         }
     }
 
-    void Update()
+    protected void Update()
     {
         if (isPlayerInside && Input.GetKeyDown(KeyCode.E))
         {

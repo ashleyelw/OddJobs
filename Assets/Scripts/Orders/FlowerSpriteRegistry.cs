@@ -29,7 +29,6 @@ public class FlowerSpriteRegistry : MonoBehaviour
             var sr = prefab.GetComponent<SpriteRenderer>();
             if (sr == null || sr.sprite == null)
             {
-              
                 continue;
             }
 

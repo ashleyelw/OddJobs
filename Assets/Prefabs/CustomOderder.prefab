@@ -282,6 +282,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2833213921213953288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6591450087744181939}
+  - component: {fileID: 2380124985921013837}
+  - component: {fileID: 7346285787053638147}
+  m_Layer: 5
+  m_Name: Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6591450087744181939
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833213921213953288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4734200548226887838}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 59.151672, y: -88.84253}
+  m_SizeDelta: {x: 435.6054, y: 47.685}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2380124985921013837
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833213921213953288}
+  m_CullTransparentMesh: 1
+--- !u!114 &7346285787053638147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833213921213953288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2995783614417476831
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +871,6 @@ GameObject:
   - component: {fileID: 548429040843882743}
   - component: {fileID: 6377103618935704412}
   - component: {fileID: 6536838362353247682}
-  - component: {fileID: 486710182526210170}
   m_Layer: 5
   m_Name: Order
   m_TagString: Untagged
@@ -872,38 +946,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &486710182526210170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188298343764711070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfcaf715522110248b4dea38781e008d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OrderRowView
-  customerLabel: {fileID: 5738901685587180473}
-  flowerSlot0: {fileID: 8773983379349574707}
-  flowerSlot1: {fileID: 69083696994164614}
-  flowerSlot2: {fileID: 9205801112394301678}
-  ribbonSlot0: {fileID: 2934402971795126070}
-  ribbonSlot1: {fileID: 0}
-  ribbonSlot2: {fileID: 0}
-  emptySlotSprite: {fileID: 0}
-  deliverButton: {fileID: 5780646839912964871}
-  onDeliverClicked:
-    m_PersistentCalls:
-      m_Calls: []
-  timeLimitText: {fileID: 2858644844694045429}
-  timerBarFill: {fileID: 6536838362353247682}
-  normalTimeColor: {r: 1, g: 1, b: 1, a: 1}
-  warningTimeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  criticalTimeColor: {r: 1, g: 0, b: 0, a: 1}
-  onCloseClicked:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5932019173026848808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1111,7 @@ GameObject:
   - component: {fileID: 4734200548226887838}
   - component: {fileID: 6190511924766687414}
   - component: {fileID: 2770765545468438981}
-  - component: {fileID: 155550339480607285}
+  - component: {fileID: 6290184885281661073}
   m_Layer: 5
   m_Name: CustomOderder
   m_TagString: Untagged
@@ -1089,6 +1131,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6591450087744181939}
   - {fileID: 548429040843882743}
   - {fileID: 4505855124859610365}
   - {fileID: 3084514165594595860}
@@ -1138,7 +1181,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &155550339480607285
+--- !u!114 &6290184885281661073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1147,24 +1190,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6844313506661459935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07ff9e8c0dd0ace4799fadfda5eae9af, type: 3}
+  m_Script: {fileID: 11500000, guid: 4079791d74d101a42a3bbaeae5cbeaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SingleOrderView
   customerNameText: {fileID: 5738901685587180473}
-  flowerSlot0: {fileID: 8773983379349574707}
-  flowerSlot1: {fileID: 69083696994164614}
-  flowerSlot2: {fileID: 9205801112394301678}
-  ribbonSlot0: {fileID: 2934402971795126070}
-  ribbonSlot1: {fileID: 6869007727775405604}
-  ribbonSlot2: {fileID: 6253832726915599704}
-  timeLimitText: {fileID: 2858644844694045429}
-  timerBarFill: {fileID: 6536838362353247682}
+  timerText: {fileID: 2858644844694045429}
+  timerBarFill: {fileID: 7346285787053638147}
+  flowerIcon0: {fileID: 8773983379349574707}
+  flowerIcon1: {fileID: 69083696994164614}
+  flowerIcon2: {fileID: 9205801112394301678}
+  ribbonIcon0: {fileID: 2934402971795126070}
+  ribbonIcon1: {fileID: 6869007727775405604}
+  ribbonIcon2: {fileID: 6253832726915599704}
   closeButton: {fileID: 3377126816275770108}
   deliverButton: {fileID: 0}
-  emptySlotSprite: {fileID: 0}
-  normalTimeColor: {r: 1, g: 1, b: 1, a: 1}
-  warningTimeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  criticalTimeColor: {r: 1, g: 0, b: 0, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  criticalColor: {r: 1, g: 0, b: 0, a: 1}
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeliver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8414308206434747348
 GameObject:
   m_ObjectHideFlags: 0

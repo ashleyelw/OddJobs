@@ -3351,7 +3351,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  spawnIntervalMinutes: 15
+  spawnIntervalMinutes: 20
   availableFlowers:
   - Rose2
   - Daisy2
@@ -8380,6 +8380,7 @@ MonoBehaviour:
   - RibbonBlue
   - RibbonYellow
   flowersPerOrder: 2
+  singleOrderUIPrefab: {fileID: 0}
 --- !u!4 &127652618582421416
 Transform:
   m_ObjectHideFlags: 0
@@ -8484,7 +8485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.267029, y: 77.85443}
+  m_AnchoredPosition: {x: 11.26709, y: 77.85449}
   m_SizeDelta: {x: -1197.922, y: -841.2092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871272018629623464
@@ -9604,7 +9605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7279031957577985983
 CanvasRenderer:
   m_ObjectHideFlags: 0

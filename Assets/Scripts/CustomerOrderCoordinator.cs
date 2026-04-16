@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class CustomerOrderCoordinator : InteractionZone
 {
@@ -12,11 +13,17 @@ public class CustomerOrderCoordinator : InteractionZone
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
 
+    [Header("单独订单 UI")]
+    [SerializeField] private GameObject singleOrderUIPrefab;
+
     int _slotIndex = -1;
     int _customerNumber = 1;
     bool _hasOrderedThisSession = false;
     CustomerSpawner _spawner;
     string _instanceId;
+
+    private GameObject _singleOrderUIInstance;
+    private CustomerOrder _currentOrder;
 
     public int SlotIndex => _slotIndex;
     public string InstanceId => _instanceId;
@@ -51,13 +58,13 @@ public class CustomerOrderCoordinator : InteractionZone
     {
         if (_hasOrderedThisSession)
         {
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 本次已下过单，拒绝重复下单。");
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 本次已下过单，跳过。");
             return;
         }
 
         _hasOrderedThisSession = true;
 
-        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程, _instanceId={_instanceId}, _slotIndex={_slotIndex}");
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程");
 
         if (_spawner != null && _slotIndex >= 0)
             _spawner.OnCustomerOrdered(_slotIndex);
@@ -65,7 +72,6 @@ public class CustomerOrderCoordinator : InteractionZone
         if (string.IsNullOrEmpty(_instanceId))
         {
             _instanceId = $"{_customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
-            Debug.LogWarning($"[CustomerOrderCoordinator] _instanceId 为空，已重新生成: {_instanceId}");
         }
 
         float orderTimeLimit = OrderSystemController.Instance != null
@@ -97,16 +103,91 @@ public class CustomerOrderCoordinator : InteractionZone
         {
             GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单: " +
-                      $"花={order.flowerPrefabName0},{order.flowerPrefabName1},{order.flowerPrefabName2}, " +
-                      $"丝带={order.ribbonPrefabName0},{order.ribbonPrefabName1},{order.ribbonPrefabName2}");
+            _currentOrder = order;
+
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单");
             OrderSystemController.Instance?.NotifyOrderAdded();
         }
+    }
+
+    void Update()
+    {
+        base.Update();
+
+        if (isPlayerInside && _hasOrderedThisSession && _currentOrder != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("调用了");
+                ToggleSingleOrderUI();
+            }
+        }
+    }
+
+    void ToggleSingleOrderUI()
+    {
+        if (_singleOrderUIInstance == null)
+        {
+            ShowSingleOrderUI();
+        }
+        else
+        {
+            CloseSingleOrderUI();
+        }
+    }
+
+    void ShowSingleOrderUI()
+    {
+        if (singleOrderUIPrefab == null)
+        {
+            Debug.LogWarning("[CustomerOrderCoordinator] 未设置 singleOrderUIPrefab");
+            return;
+        }
+
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("[CustomerOrderCoordinator] 场景中找不到 Canvas！");
+            return;
+        }
+
+        _singleOrderUIInstance = Instantiate(singleOrderUIPrefab, canvas.transform);
+
+        var view = _singleOrderUIInstance.GetComponent<SingleOrderView>();
+        if (view != null)
+        {
+            view.Bind(_currentOrder);
+            view.onClose.AddListener(CloseSingleOrderUI);
+            view.onDeliver.AddListener(OnDeliverFromSingleUI);
+        }
+        else
+        {
+            Debug.LogWarning("[CustomerOrderCoordinator] 预制体上没有 SingleOrderView 组件");
+        }
+    }
+
+    public void CloseSingleOrderUI()
+    {
+        if (_singleOrderUIInstance != null)
+        {
+            Destroy(_singleOrderUIInstance);
+            _singleOrderUIInstance = null;
+        }
+    }
+
+    void OnDeliverFromSingleUI()
+    {
+        if (OrderSystemController.Instance != null && _currentOrder != null)
+        {
+            OrderSystemController.Instance.TryDeliverOrder(_currentOrder);
+        }
+        CloseSingleOrderUI();
     }
 
     public void NotifyOrderCompleted()
     {
         Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 订单完成，离开。");
+        CloseSingleOrderUI();
         if (_spawner != null && _slotIndex >= 0)
             _spawner.OnCustomerLeft(_slotIndex);
         else
@@ -115,7 +196,8 @@ public class CustomerOrderCoordinator : InteractionZone
 
     public void ForceCustomerLeave()
     {
-        Debug.Log($"[CustomerOrderCoordinator] ForceCustomerLeave 被调用 - 客户: {gameObject.name}");
+        Debug.Log($"[CustomerOrderCoordinator] ForceCustomerLeave 被调用");
+        CloseSingleOrderUI();
         if (_spawner != null && _slotIndex >= 0)
         {
             _spawner.OnCustomerLeft(_slotIndex);

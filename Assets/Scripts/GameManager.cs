@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"[GameManager] 场景切换: {scene.name}");
 
-        // 调试日志：检查库存是否保留
         Debug.Log($"[GameManager] 当前库存 - 花: {GetInventoryDebugInfo()}, 丝带: {GetRibbonInventoryDebugInfo()}, 金币: {coins}");
 
         if (scene.name == "FloristMain")
