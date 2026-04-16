@@ -5,6 +5,9 @@ public class CustomerOrderCoordinator : InteractionZone
     [Header("花朵配置")]
     [SerializeField] private string[] availableFlowers = new string[] { "Rose2", "Daisy2", "Tulip2" };
 
+    [Header("丝带配置")]
+    [SerializeField] private string[] availableRibbons = new string[] { "RibbonRed", "RibbonBlue", "RibbonYellow" };
+
     [Header("订单配置")]
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
@@ -26,6 +29,11 @@ public class CustomerOrderCoordinator : InteractionZone
         flowersPerOrder = perOrder;
         _spawner = spawner;
         _instanceId = instanceId ?? $"{customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
+    }
+
+    public void InitializeRibbons(string[] ribbons)
+    {
+        availableRibbons = ribbons;
     }
 
     public void RestoreHasOrderedState(bool hasOrdered)
@@ -75,19 +83,24 @@ public class CustomerOrderCoordinator : InteractionZone
             timeLimitMinutes = orderTimeLimit
         };
 
-        string[] randomFlowers = GetRandomFlowers(flowersPerOrder);
-        order.flowerPrefabName0 = randomFlowers[0];
-        order.flowerPrefabName1 = randomFlowers[1];
-        order.flowerPrefabName2 = randomFlowers[2];
+        string[] randomFlowers = GetRandomItems(availableFlowers, flowersPerOrder);
+        order.flowerPrefabName0 = randomFlowers.Length > 0 ? randomFlowers[0] : "";
+        order.flowerPrefabName1 = randomFlowers.Length > 1 ? randomFlowers[1] : "";
+        order.flowerPrefabName2 = randomFlowers.Length > 2 ? randomFlowers[2] : "";
+
+        string[] randomRibbons = GetRandomItems(availableRibbons, flowersPerOrder);
+        order.ribbonPrefabName0 = randomRibbons.Length > 0 ? randomRibbons[0] : "";
+        order.ribbonPrefabName1 = randomRibbons.Length > 1 ? randomRibbons[1] : "";
+        order.ribbonPrefabName2 = randomRibbons.Length > 2 ? randomRibbons[2] : "";
 
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单: {order.flowerPrefabName0}, {order.flowerPrefabName1}, {order.flowerPrefabName2}");
-            Debug.Log($"[CustomerOrderCoordinator] 准备调用 OrderSystemController.Instance?.NotifyOrderAdded()");
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单: " +
+                      $"花={order.flowerPrefabName0},{order.flowerPrefabName1},{order.flowerPrefabName2}, " +
+                      $"丝带={order.ribbonPrefabName0},{order.ribbonPrefabName1},{order.ribbonPrefabName2}");
             OrderSystemController.Instance?.NotifyOrderAdded();
-            Debug.Log($"[CustomerOrderCoordinator] NotifyOrderAdded 调用完成");
         }
     }
 
@@ -102,30 +115,28 @@ public class CustomerOrderCoordinator : InteractionZone
 
     public void ForceCustomerLeave()
     {
-        Debug.Log($"[CustomerOrderCoordinator] ForceCustomerLeave 被调用 - 客户: {gameObject.name}, _slotIndex: {_slotIndex}, _instanceId: {_instanceId}, _spawner: {_spawner != null}");
+        Debug.Log($"[CustomerOrderCoordinator] ForceCustomerLeave 被调用 - 客户: {gameObject.name}");
         if (_spawner != null && _slotIndex >= 0)
         {
-            Debug.Log($"[CustomerOrderCoordinator] 调用 _spawner.OnCustomerLeft({_slotIndex})");
             _spawner.OnCustomerLeft(_slotIndex);
         }
         else
         {
-            Debug.Log($"[CustomerOrderCoordinator] _spawner 或 _slotIndex 无效，直接 Destroy");
             Destroy(gameObject);
         }
     }
 
-    string[] GetRandomFlowers(int count)
+    string[] GetRandomItems(string[] source, int count)
     {
-        if (availableFlowers == null || availableFlowers.Length == 0)
+        if (source == null || source.Length == 0)
         {
-            Debug.LogWarning("[CustomerOrderCoordinator] availableFlowers 为空！");
-            return new string[] { "", "", "" };
+            Debug.LogWarning("[CustomerOrderCoordinator] 源数组为空！");
+            return new string[3];
         }
 
-        count = Mathf.Min(count, availableFlowers.Length);
+        count = Mathf.Min(count, source.Length);
 
-        string[] shuffled = (string[])availableFlowers.Clone();
+        string[] shuffled = (string[])source.Clone();
         for (int i = shuffled.Length - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);

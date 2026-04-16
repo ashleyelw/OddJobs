@@ -61,7 +61,7 @@ public class FlowerCollector : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.AddToInventory(flower);
+            GameManager.Instance.AddFlowerToInventory(flower);
             Debug.Log($"Flower harvested! Total collected: {GameManager.Instance.collectedFlowers.Count}");
         }
 

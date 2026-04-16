@@ -19,9 +19,19 @@ public class CustomerOrder
     public string flowerPrefabName1;
     public string flowerPrefabName2;
 
+    [Tooltip("需要的丝带（与花一一对应）")]
+    public string ribbonPrefabName0;
+    public string ribbonPrefabName1;
+    public string ribbonPrefabName2;
+
     public string[] GetFlowerNames()
     {
         return new[] { flowerPrefabName0, flowerPrefabName1, flowerPrefabName2 };
+    }
+
+    public string[] GetRibbonNames()
+    {
+        return new[] { ribbonPrefabName0, ribbonPrefabName1, ribbonPrefabName2 };
     }
 
     [Tooltip("订单时限（秒）")]

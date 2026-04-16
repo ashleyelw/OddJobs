@@ -255,4 +255,10 @@ MonoBehaviour:
   - Rose2
   - Daisy2
   - Tulip2
+  availableRibbons:
+  - RibbonRed
+  - RibbonBlue
+  - RibbonYellow
   flowersPerOrder: 2
+  singleOrderUIPrefab: {fileID: 6844313506661459935, guid: 902c8626d939d9b499d85028854560dc, type: 3}
+  singleOrderUIParent: {fileID: 0}

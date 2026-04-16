@@ -44,6 +44,7 @@ public class CustomerSpawner : MonoBehaviour
     [Header("生成设置")]
     [SerializeField] int spawnIntervalMinutes = 3;
     [SerializeField] string[] availableFlowers = new string[] { "Rose2", "Daisy2", "Tulip2" };
+    [SerializeField] string[] availableRibbons = new string[] { "RibbonRed", "RibbonBlue", "RibbonYellow" };
     [Range(1, 3)]
     [SerializeField] int flowersPerOrder = 2;
 
@@ -228,6 +229,7 @@ public class CustomerSpawner : MonoBehaviour
         {
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
                 availableFlowers, flowersPerOrder, this, _slotData[slotIndex].instanceId);
+            coordinator.InitializeRibbons(availableRibbons);
             coordinator.RestoreHasOrderedState(_slotData[slotIndex].hasOrdered);
         }
         else
@@ -322,6 +324,7 @@ public class CustomerSpawner : MonoBehaviour
         {
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
                 availableFlowers, flowersPerOrder, this, instanceId);
+            coordinator.InitializeRibbons(availableRibbons);
         }
         else
         {

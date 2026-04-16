@@ -12,6 +12,11 @@ public class OrderRowView : MonoBehaviour
     [SerializeField] Image flowerSlot1;
     [SerializeField] Image flowerSlot2;
 
+    [Header("丝带 UI")]
+    [SerializeField] Image ribbonSlot0;
+    [SerializeField] Image ribbonSlot1;
+    [SerializeField] Image ribbonSlot2;
+
     [Header("空槽")]
     [SerializeField] Sprite emptySlotSprite;
 
@@ -34,6 +39,7 @@ public class OrderRowView : MonoBehaviour
     private bool _isClosed = false;
 
     Image[] FlowerSlots => new[] { flowerSlot0, flowerSlot1, flowerSlot2 };
+    Image[] RibbonSlots => new[] { ribbonSlot0, ribbonSlot1, ribbonSlot2 };
 
     void Awake()
     {
@@ -41,21 +47,22 @@ public class OrderRowView : MonoBehaviour
             deliverButton.onClick.AddListener(() => onDeliverClicked?.Invoke());
     }
 
-    public void Bind(int customerNumber, string[] flowerPrefabNames, FlowerSpriteRegistry registry)
+    public void Bind(int customerNumber, string[] flowerPrefabNames, FlowerSpriteRegistry flowerRegistry,
+        string[] ribbonPrefabNames, RibbonSpriteRegistry ribbonRegistry)
     {
         if (customerLabel != null)
             customerLabel.text = $"client{customerNumber}";
 
-        var slots = FlowerSlots;
-        var names = flowerPrefabNames ?? Array.Empty<string>();
+        var flowerSlots = FlowerSlots;
+        var flowerNames = flowerPrefabNames ?? Array.Empty<string>();
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < flowerSlots.Length; i++)
         {
-            var img = slots[i];
+            var img = flowerSlots[i];
             if (img == null)
                 continue;
 
-            string name = i < names.Length ? names[i] : null;
+            string name = i < flowerNames.Length ? flowerNames[i] : null;
             if (string.IsNullOrWhiteSpace(name))
             {
                 img.sprite = emptySlotSprite;
@@ -63,7 +70,7 @@ public class OrderRowView : MonoBehaviour
                 continue;
             }
 
-            if (registry != null && registry.TryGetSprite(name, out var sp))
+            if (flowerRegistry != null && flowerRegistry.TryGetSprite(name, out var sp))
             {
                 img.sprite = sp;
                 img.enabled = true;
@@ -75,10 +82,41 @@ public class OrderRowView : MonoBehaviour
                 img.enabled = emptySlotSprite != null;
             }
         }
+
+        var ribbonSlots = RibbonSlots;
+        var ribbonNames = ribbonPrefabNames ?? Array.Empty<string>();
+
+        for (int i = 0; i < ribbonSlots.Length; i++)
+        {
+            var img = ribbonSlots[i];
+            if (img == null)
+                continue;
+
+            string name = i < ribbonNames.Length ? ribbonNames[i] : null;
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                img.sprite = emptySlotSprite;
+                img.enabled = emptySlotSprite != null;
+                continue;
+            }
+
+            if (ribbonRegistry != null && ribbonRegistry.TryGetSprite(name, out var sp))
+            {
+                img.sprite = sp;
+                img.enabled = true;
+            }
+            else
+            {
+                Debug.LogWarning($"[OrderRowView] 未找到丝带的 Sprite：「{name}」");
+                img.sprite = emptySlotSprite;
+                img.enabled = emptySlotSprite != null;
+            }
+        }
     }
 
     public void BindWithDeliver(int customerNumber, string[] flowerPrefabNames,
-        FlowerSpriteRegistry registry, CustomerOrder order, System.Action<CustomerOrder> onDeliver,
+        FlowerSpriteRegistry flowerRegistry, string[] ribbonPrefabNames, RibbonSpriteRegistry ribbonRegistry,
+        CustomerOrder order, System.Action<CustomerOrder> onDeliver,
         System.Action<CustomerOrder> onClose = null)
     {
         _boundOrder = order;
@@ -86,7 +124,7 @@ public class OrderRowView : MonoBehaviour
         _onCloseRequested = onClose;
         _isClosed = false;
 
-        Bind(customerNumber, flowerPrefabNames, registry);
+        Bind(customerNumber, flowerPrefabNames, flowerRegistry, ribbonPrefabNames, ribbonRegistry);
 
         onDeliverClicked.RemoveAllListeners();
         onDeliverClicked.AddListener(RequestDeliver);

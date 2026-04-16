@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class RibbonSpriteRegistry : MonoBehaviour
+{
+
+    [SerializeField] GameObject[] ribbonPrefabs;
+
+    readonly Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
+
+    void Awake()
+    {
+        RebuildCache();
+    }
+
+    public void RebuildCache()
+    {
+        _sprites.Clear();
+        if (ribbonPrefabs == null)
+            return;
+
+        foreach (var prefab in ribbonPrefabs)
+        {
+            if (prefab == null)
+                continue;
+
+            var sr = prefab.GetComponent<SpriteRenderer>();
+            if (sr == null || sr.sprite == null)
+            {
+                continue;
+            }
+
+            _sprites[prefab.name] = sr.sprite;
+        }
+    }
+
+    public bool TryGetSprite(string ribbonPrefabName, out Sprite sprite)
+    {
+        sprite = null;
+        if (string.IsNullOrWhiteSpace(ribbonPrefabName))
+            return false;
+
+        string key = StripCloneSuffix(ribbonPrefabName.Trim());
+        return _sprites.TryGetValue(key, out sprite);
+    }
+
+    static string StripCloneSuffix(string name)
+    {
+        const string suffix = "(Clone)";
+        if (name.EndsWith(suffix, StringComparison.Ordinal))
+            return name.Substring(0, name.Length - suffix.Length).Trim();
+        return name;
+    }
+}

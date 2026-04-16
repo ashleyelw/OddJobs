@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("花朵库存（类型 → 数量）")]
     public SerializableDictionary<string, int> flowerInventory = new SerializableDictionary<string, int>();
 
+    [Header("丝带库存（类型 → 数量）")]
+    public SerializableDictionary<string, int> ribbonInventory = new SerializableDictionary<string, int>();
+
     [Header("待处理订单（供 OrderSystemController 显示）")]
     public List<CustomerOrder> pendingOrders = new List<CustomerOrder>();
 
@@ -42,10 +45,33 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"[GameManager] 场景切换: {scene.name}");
 
+        // 调试日志：检查库存是否保留
+        Debug.Log($"[GameManager] 当前库存 - 花: {GetInventoryDebugInfo()}, 丝带: {GetRibbonInventoryDebugInfo()}, 金币: {coins}");
+
         if (scene.name == "FloristMain")
         {
             CleanupInvalidOrders();
         }
+    }
+
+    string GetInventoryDebugInfo()
+    {
+        if (flowerInventory == null || flowerInventory.Count == 0)
+            return "(空)";
+        var parts = new List<string>();
+        foreach (var kvp in flowerInventory)
+            parts.Add($"{kvp.Key}×{kvp.Value}");
+        return string.Join(", ", parts);
+    }
+
+    string GetRibbonInventoryDebugInfo()
+    {
+        if (ribbonInventory == null || ribbonInventory.Count == 0)
+            return "(空)";
+        var parts = new List<string>();
+        foreach (var kvp in ribbonInventory)
+            parts.Add($"{kvp.Key}×{kvp.Value}");
+        return string.Join(", ", parts);
     }
 
     void CleanupInvalidOrders()
@@ -107,7 +133,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static string NormalizeFlowerKey(string name)
+    public static string NormalizeKey(string name)
     {
         if (string.IsNullOrEmpty(name)) return name;
         name = name.Trim();
@@ -117,41 +143,76 @@ public class GameManager : MonoBehaviour
         return name;
     }
 
-    string ResolveInventoryKey(string flowerKey)
+    string ResolveFlowerKey(string flowerKey)
     {
         if (string.IsNullOrEmpty(flowerKey)) return flowerKey;
         if (flowerInventory.ContainsKey(flowerKey)) return flowerKey;
-        string norm = NormalizeFlowerKey(flowerKey);
+        string norm = NormalizeKey(flowerKey);
         if (flowerInventory.ContainsKey(norm)) return norm;
         foreach (var k in flowerInventory.Keys)
         {
-            if (NormalizeFlowerKey(k) == norm)
+            if (NormalizeKey(k) == norm)
                 return k;
         }
         return norm;
     }
 
-    public void AddToInventory(GameObject flower)
+    string ResolveRibbonKey(string ribbonKey)
+    {
+        if (string.IsNullOrEmpty(ribbonKey)) return ribbonKey;
+        if (ribbonInventory.ContainsKey(ribbonKey)) return ribbonKey;
+        string norm = NormalizeKey(ribbonKey);
+        if (ribbonInventory.ContainsKey(norm)) return norm;
+        foreach (var k in ribbonInventory.Keys)
+        {
+            if (NormalizeKey(k) == norm)
+                return k;
+        }
+        return norm;
+    }
+
+    public void AddFlowerToInventory(GameObject flower)
     {
         collectedFlowers.Add(flower);
-        string key = NormalizeFlowerKey(flower.name);
+        string key = NormalizeKey(flower.name);
 
         if (flowerInventory.ContainsKey(key))
             flowerInventory[key]++;
         else
             flowerInventory[key] = 1;
 
-        Debug.Log($"[Inventory] Added {key}, now have: {flowerInventory[key]}");
+        Debug.Log($"[Inventory] Added flower {key}, now have: {flowerInventory[key]}");
     }
 
-    public bool HasInInventory(string flowerKey, int count = 1)
+    public void AddRibbonToInventory(GameObject ribbon)
     {
-        return GetCount(flowerKey) >= count;
+        if (ribbon == null) return;
+        string key = NormalizeKey(ribbon.name);
+
+        if (ribbonInventory.ContainsKey(key))
+            ribbonInventory[key]++;
+        else
+            ribbonInventory[key] = 1;
+
+        Debug.Log($"[Inventory] Added ribbon {key}, now have: {ribbonInventory[key]}");
+    }
+
+    public void AddRibbonToInventory(string ribbonName)
+    {
+        if (string.IsNullOrEmpty(ribbonName)) return;
+        string key = NormalizeKey(ribbonName);
+
+        if (ribbonInventory.ContainsKey(key))
+            ribbonInventory[key]++;
+        else
+            ribbonInventory[key] = 1;
+
+        Debug.Log($"[Inventory] Added ribbon {key}, now have: {ribbonInventory[key]}");
     }
 
     public void RemoveFromInventory(string flowerKey, int count = 1)
     {
-        string key = ResolveInventoryKey(flowerKey);
+        string key = ResolveFlowerKey(flowerKey);
         if (!flowerInventory.ContainsKey(key))
             return;
 
@@ -159,18 +220,42 @@ public class GameManager : MonoBehaviour
         if (flowerInventory[key] <= 0)
             flowerInventory.Remove(key);
 
-        Debug.Log($"[Inventory] Removed {key} x{count}");
+        Debug.Log($"[Inventory] Removed flower {key} x{count}");
     }
 
-    public int GetCount(string flowerKey)
+    public void RemoveRibbonFromInventory(string ribbonKey, int count = 1)
     {
-        string key = ResolveInventoryKey(flowerKey);
+        string key = ResolveRibbonKey(ribbonKey);
+        if (!ribbonInventory.ContainsKey(key))
+            return;
+
+        ribbonInventory[key] -= count;
+        if (ribbonInventory[key] <= 0)
+            ribbonInventory.Remove(key);
+
+        Debug.Log($"[Inventory] Removed ribbon {key} x{count}");
+    }
+
+    public int GetFlowerCount(string flowerKey)
+    {
+        string key = ResolveFlowerKey(flowerKey);
         return flowerInventory.ContainsKey(key) ? flowerInventory[key] : 0;
+    }
+
+    public int GetRibbonCount(string ribbonKey)
+    {
+        string key = ResolveRibbonKey(ribbonKey);
+        return ribbonInventory.ContainsKey(key) ? ribbonInventory[key] : 0;
     }
 
     public List<string> GetAvailableFlowerKeys()
     {
         return flowerInventory.Keys.ToList();
+    }
+
+    public List<string> GetAvailableRibbonKeys()
+    {
+        return ribbonInventory.Keys.ToList();
     }
 
     public Dictionary<string, int> GetMissingFlowers(CustomerOrder order)
@@ -181,7 +266,7 @@ public class GameManager : MonoBehaviour
         foreach (var name in order.GetFlowerNames())
         {
             if (string.IsNullOrWhiteSpace(name)) continue;
-            string norm = NormalizeFlowerKey(name.Trim());
+            string norm = NormalizeKey(name.Trim());
             if (required.ContainsKey(norm))
                 required[norm]++;
             else
@@ -190,7 +275,32 @@ public class GameManager : MonoBehaviour
 
         foreach (var kvp in required)
         {
-            int have = GetCount(kvp.Key);
+            int have = GetFlowerCount(kvp.Key);
+            if (have < kvp.Value)
+                missing[kvp.Key] = kvp.Value - have;
+        }
+
+        return missing;
+    }
+
+    public Dictionary<string, int> GetMissingRibbons(CustomerOrder order)
+    {
+        var missing = new Dictionary<string, int>();
+        var required = new Dictionary<string, int>();
+
+        foreach (var name in order.GetRibbonNames())
+        {
+            if (string.IsNullOrWhiteSpace(name)) continue;
+            string norm = NormalizeKey(name.Trim());
+            if (required.ContainsKey(norm))
+                required[norm]++;
+            else
+                required[norm] = 1;
+        }
+
+        foreach (var kvp in required)
+        {
+            int have = GetRibbonCount(kvp.Key);
             if (have < kvp.Value)
                 missing[kvp.Key] = kvp.Value - have;
         }
@@ -200,7 +310,7 @@ public class GameManager : MonoBehaviour
 
     public bool HasEnoughForOrder(CustomerOrder order)
     {
-        return GetMissingFlowers(order).Count == 0;
+        return GetMissingFlowers(order).Count == 0 && GetMissingRibbons(order).Count == 0;
     }
 
     public void DeductOrderFlowers(CustomerOrder order)
@@ -209,6 +319,15 @@ public class GameManager : MonoBehaviour
         {
             if (string.IsNullOrWhiteSpace(name)) continue;
             RemoveFromInventory(name, 1);
+        }
+    }
+
+    public void DeductOrderRibbons(CustomerOrder order)
+    {
+        foreach (var name in order.GetRibbonNames())
+        {
+            if (string.IsNullOrWhiteSpace(name)) continue;
+            RemoveRibbonFromInventory(name, 1);
         }
     }
 

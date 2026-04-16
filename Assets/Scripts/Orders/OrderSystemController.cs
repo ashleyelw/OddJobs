@@ -19,6 +19,7 @@ public class OrderSystemController : MonoBehaviour
 
     [Header("依赖")]
     [SerializeField] FlowerSpriteRegistry flowerSpriteRegistry;
+    [SerializeField] RibbonSpriteRegistry ribbonSpriteRegistry;
 
     [Header("调试")]
     [SerializeField] List<CustomerOrder> debugOrders = new List<CustomerOrder>();
@@ -227,7 +228,6 @@ public class OrderSystemController : MonoBehaviour
             var newPage = newPageGo.GetComponent<OrderPanelPage>();
             if (newPage == null)
             {
-               
                 Destroy(newPageGo);
                 return;
             }
@@ -278,7 +278,6 @@ public class OrderSystemController : MonoBehaviour
         var row = rowGo.GetComponent<OrderRowView>();
         if (row == null)
         {
-            
             return;
         }
 
@@ -293,8 +292,9 @@ public class OrderSystemController : MonoBehaviour
                       $"开始时间={gameMinutes}, 时限={defaultOrderTimeLimit}分钟");
         }
 
-        row.BindWithDeliver(order.customerNumber, order.GetFlowerNames(),
-            flowerSpriteRegistry, order, TryDeliverOrder, OnOrderCloseClicked);
+        row.BindWithDeliver(order.customerNumber, order.GetFlowerNames(), flowerSpriteRegistry,
+            order.GetRibbonNames(), ribbonSpriteRegistry,
+            order, TryDeliverOrder, OnOrderCloseClicked);
 
         if (order.isTimedOut)
         {
@@ -481,7 +481,7 @@ public class OrderSystemController : MonoBehaviour
 
         if (coordinator != null)
         {
-            Debug.Log($"[OrderSystem] 通过 customerName 找到客户，调用 ForceCustomerLeave");
+            Debug.Log($"[OrderSystem] 通过 customerName 找到���户，调用 ForceCustomerLeave");
             coordinator.ForceCustomerLeave();
         }
         else
@@ -523,7 +523,6 @@ public class OrderSystemController : MonoBehaviour
 
         if (missing.Count > 0)
         {
-
             var parts = new List<string>();
             foreach (var kvp in missing)
                 parts.Add($"{kvp.Key} x{kvp.Value}");
@@ -531,12 +530,21 @@ public class OrderSystemController : MonoBehaviour
             return;
         }
 
+        var missingRibbons = GameManager.Instance.GetMissingRibbons(order);
+        if (missingRibbons.Count > 0)
+        {
+            var parts = new List<string>();
+            foreach (var kvp in missingRibbons)
+                parts.Add($"{kvp.Key} x{kvp.Value}");
+            ShowTip($"Out of ribbon! Shortage of: {string.Join(", ", parts)}");
+            return;
+        }
 
         GameManager.Instance.DeductOrderFlowers(order);
+        GameManager.Instance.DeductOrderRibbons(order);
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
         ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
-
 
         Invoke(nameof(RemoveOrderDelayed), 0.1f);
         _pendingDeliverOrder = order;
