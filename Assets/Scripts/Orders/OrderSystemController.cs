@@ -38,6 +38,11 @@ public class OrderSystemController : MonoBehaviour
     [Header("时限设置")]
     public float defaultOrderTimeLimit = 20f;
 
+    [Header("对话交付")]
+    [SerializeField] DialogueDeliveryUI dialogueUIPrefab;
+    [SerializeField] Transform dialogueUIRoot;
+    private DialogueDeliveryUI _dialogueUIInstance;
+
     public static OrderSystemController Instance { get; private set; }
 
     private bool _isPanelShowing = false;
@@ -66,7 +71,32 @@ public class OrderSystemController : MonoBehaviour
     {
         if (ordersRoot != null)
             ordersRoot.SetActive(false);
+
+        InitializeDialogueUI();
         OpenDebugOrders();
+    }
+
+    void InitializeDialogueUI()
+    {
+        if (dialogueUIPrefab == null)
+        {
+            Debug.LogWarning("[OrderSystem] 对话交付UI Prefab 未设置！");
+            return;
+        }
+
+        Transform parent = dialogueUIRoot != null ? dialogueUIRoot : transform.parent;
+        if (parent == null)
+        {
+            var canvas = Object.FindObjectOfType<Canvas>();
+            parent = canvas != null ? canvas.transform : null;
+        }
+
+        if (parent != null)
+        {
+            _dialogueUIInstance = Instantiate(dialogueUIPrefab, parent);
+            _dialogueUIInstance.gameObject.SetActive(false);
+            Debug.Log("[OrderSystem] 对话交付UI已创建");
+        }
     }
 
     void Update()
@@ -520,35 +550,93 @@ public class OrderSystemController : MonoBehaviour
     {
         if (GameManager.Instance == null || order == null) return;
 
-        var missing = GameManager.Instance.GetMissingFlowers(order);
-
-        if (missing.Count > 0)
+        // 根据订单模式选择不同的库存检查
+        if (order.IsUsingBouquetMode())
         {
-            var parts = new List<string>();
-            foreach (var kvp in missing)
-                parts.Add($"{kvp.Key} x{kvp.Value}");
-            ShowTip($"Out of stock! Shortage of: {string.Join(", ", parts)}");
-            return;
+            // 花束模式：检查花束库存
+            if (!GameManager.Instance.HasEnoughBouquetsForOrder(order.bouquetName))
+            {
+                ShowTip($"Out of bouquet: {order.bouquetName}!");
+                return;
+            }
+        }
+        else
+        {
+            // 传统模式：检查鲜花和丝带库存
+            var missing = GameManager.Instance.GetMissingFlowers(order);
+            if (missing.Count > 0)
+            {
+                var parts = new List<string>();
+                foreach (var kvp in missing)
+                    parts.Add($"{kvp.Key} x{kvp.Value}");
+                ShowTip($"Out of stock! Shortage of: {string.Join(", ", parts)}");
+                return;
+            }
+
+            var missingRibbons = GameManager.Instance.GetMissingRibbons(order);
+            if (missingRibbons.Count > 0)
+            {
+                var parts = new List<string>();
+                foreach (var kvp in missingRibbons)
+                    parts.Add($"{kvp.Key} x{kvp.Value}");
+                ShowTip($"Out of ribbon! Shortage of: {string.Join(", ", parts)}");
+                return;
+            }
         }
 
-        var missingRibbons = GameManager.Instance.GetMissingRibbons(order);
-        if (missingRibbons.Count > 0)
+        if (order.RequiresDialogueDelivery())
         {
-            var parts = new List<string>();
-            foreach (var kvp in missingRibbons)
-                parts.Add($"{kvp.Key} x{kvp.Value}");
-            ShowTip($"Out of ribbon! Shortage of: {string.Join(", ", parts)}");
-            return;
+            StartDialogueDelivery(order);
+        }
+        else
+        {
+            CompleteDelivery(order);
+        }
+    }
+
+    void StartDialogueDelivery(CustomerOrder order)
+    {
+        if (_dialogueUIInstance != null)
+        {
+            _pendingDeliverOrder = order;
+            _dialogueUIInstance.StartDialogue(
+                onComplete: () => CompleteDelivery(order),
+                onCancelled: () =>
+                {
+                    Debug.Log("[OrderSystem] 对话已取消");
+                    _pendingDeliverOrder = null;
+                }
+            );
+        }
+        else
+        {
+            Debug.LogWarning("[OrderSystem] 对话UI未初始化，直接完成交付");
+            CompleteDelivery(order);
+        }
+    }
+
+    void CompleteDelivery(CustomerOrder order)
+    {
+        // 根据订单模式选择不同的扣除方式
+        if (order.IsUsingBouquetMode())
+        {
+            // 花束模式：同时扣除花束和丝带
+            GameManager.Instance.DeductBouquetOrderWithRibbons(order);
+            Debug.Log($"[OrderSystem] 花束模式交付：扣除花束 {order.bouquetName} 和丝带");
+        }
+        else
+        {
+            // 传统模式：扣除鲜花和丝带库存
+            GameManager.Instance.DeductOrderFlowers(order);
+            GameManager.Instance.DeductOrderRibbons(order);
         }
 
-        GameManager.Instance.DeductOrderFlowers(order);
-        GameManager.Instance.DeductOrderRibbons(order);
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
         ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
 
-        Invoke(nameof(RemoveOrderDelayed), 0.1f);
         _pendingDeliverOrder = order;
+        Invoke(nameof(RemoveOrderDelayed), 0.1f);
     }
 
     private CustomerOrder _pendingDeliverOrder;

@@ -32,6 +32,8 @@ public class OrderRowView : MonoBehaviour
 
     public UnityEvent onCloseClicked;
 
+    [Header("对话交付标记")]
+    [SerializeField] Image dialogueIndicator;
 
     private CustomerOrder _boundOrder;
     private System.Action<CustomerOrder> _onDeliverRequested;
@@ -128,6 +130,9 @@ public class OrderRowView : MonoBehaviour
 
         onDeliverClicked.RemoveAllListeners();
         onDeliverClicked.AddListener(RequestDeliver);
+
+        if (dialogueIndicator != null)
+            dialogueIndicator.gameObject.SetActive(order.RequiresDialogueDelivery());
 
         UpdateTimeDisplay(order);
     }

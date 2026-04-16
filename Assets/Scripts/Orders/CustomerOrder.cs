@@ -24,6 +24,29 @@ public class CustomerOrder
     public string ribbonPrefabName1;
     public string ribbonPrefabName2;
 
+    // ============================================
+    // 【新增】花束模式订单支持
+    // 如果设置了 bouquetName，则此订单使用花束库存进行检查和扣除
+    // ============================================
+
+    [Tooltip("【花束模式】订单需要的花束名称（设置后优先使用花束库存）")]
+    public string bouquetName;
+
+    [Tooltip("【花束模式】是否使用花束库存（如果为true，检查bouquetName而非鲜花）")]
+    public bool useBouquetInventory = false;
+
+    /// <summary>获取花束名称（如果 useBouquetInventory 为 true）</summary>
+    public string GetBouquetName()
+    {
+        return useBouquetInventory ? bouquetName : null;
+    }
+
+    /// <summary>是否使用花束模式</summary>
+    public bool IsUsingBouquetMode()
+    {
+        return useBouquetInventory && !string.IsNullOrEmpty(bouquetName);
+    }
+
     public string[] GetFlowerNames()
     {
         return new[] { flowerPrefabName0, flowerPrefabName1, flowerPrefabName2 };
@@ -72,4 +95,10 @@ public class CustomerOrder
 
     [NonSerialized]
     public int debugCustomerNumber;
+
+    public bool RequiresDialogueDelivery()
+    {
+        int sqrt = (int)Mathf.Sqrt(customerNumber);
+        return sqrt * sqrt == customerNumber;
+    }
 }
