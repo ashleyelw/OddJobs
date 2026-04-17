@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1911921758911854556, guid: f3baf6ce91c5742b29e028b7a7d0684e, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &43997322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -743,6 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3126137697957339099, guid: d5f00564e0c35438b844281445cea002, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1001 &72607624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1761,6 +1763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1911921758911854556, guid: f3baf6ce91c5742b29e028b7a7d0684e, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &164726837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,6 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3992411788274607451, guid: b9cba65d494594ee7b38c3b1523dda44, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &241446168
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2603,6 +2607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3645496673330183329, guid: 8595895828f304b90bf9f86e23cb36df, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &249690390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3672,6 +3677,7 @@ GameObject:
   - component: {fileID: 398881155}
   - component: {fileID: 398881154}
   - component: {fileID: 398881156}
+  - component: {fileID: 398881157}
   m_Layer: 0
   m_Name: Roses
   m_TagString: Untagged
@@ -3756,6 +3762,104 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3645496673330183329, guid: 8595895828f304b90bf9f86e23cb36df, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
+--- !u!82 &398881157
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398881153}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &410294602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4828,6 +4932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3992411788274607451, guid: b9cba65d494594ee7b38c3b1523dda44, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &465113516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5273,6 +5378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 8944618625463796998, guid: bf3876264d40243dfb652fd9e562f390, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &520597857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5460,6 +5566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1911921758911854556, guid: f3baf6ce91c5742b29e028b7a7d0684e, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &540285891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5647,6 +5754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3126137697957339099, guid: d5f00564e0c35438b844281445cea002, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &555546124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5807,6 +5915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 2131481426156462363, guid: ecb7c4e4c216d4fbfbe1278848406205, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &597500664
 GameObject:
   m_ObjectHideFlags: 0
@@ -6458,6 +6567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3645496673330183329, guid: 8595895828f304b90bf9f86e23cb36df, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &675403800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6619,6 +6729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3992411788274607451, guid: b9cba65d494594ee7b38c3b1523dda44, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &687301208
 GameObject:
   m_ObjectHideFlags: 0
@@ -7392,6 +7503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3639230173231148538, guid: 482cefe65491542cf8a55163c54ace74, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &766083247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7578,6 +7690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 5739558937439842018, guid: 8ad7154fea7494c16b28c951842f7bcb, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &785290948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8113,6 +8226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 5739558937439842018, guid: 8ad7154fea7494c16b28c951842f7bcb, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &848178748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8796,6 +8910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1535604359881096550, guid: 2378ddcd23f33400f88a714de831a9a0, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &952580081
 GameObject:
   m_ObjectHideFlags: 0
@@ -11522,6 +11637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3126137697957339099, guid: d5f00564e0c35438b844281445cea002, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &1102147886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12014,6 +12130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3639230173231148538, guid: 482cefe65491542cf8a55163c54ace74, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &1195985894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12109,6 +12226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 2131481426156462363, guid: ecb7c4e4c216d4fbfbe1278848406205, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &1206112292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12542,6 +12660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 3639230173231148538, guid: 482cefe65491542cf8a55163c54ace74, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &1241512834
 GameObject:
   m_ObjectHideFlags: 0
@@ -12910,6 +13029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 5739558937439842018, guid: 8ad7154fea7494c16b28c951842f7bcb, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!1 &1310168372
 GameObject:
   m_ObjectHideFlags: 0
@@ -14407,6 +14527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 8944618625463796998, guid: bf3876264d40243dfb652fd9e562f390, type: 3}
+  collectSound: {fileID: 0}
 --- !u!1 &1545126311
 GameObject:
   m_ObjectHideFlags: 0
@@ -14529,6 +14650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1535604359881096550, guid: 2378ddcd23f33400f88a714de831a9a0, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &1573685692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16657,6 +16779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 2131481426156462363, guid: ecb7c4e4c216d4fbfbe1278848406205, type: 3}
+  collectSound: {fileID: 0}
 --- !u!61 &1935820022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16753,6 +16876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 1535604359881096550, guid: 2378ddcd23f33400f88a714de831a9a0, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &1954779618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17425,6 +17549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFlower
   prefabReference: {fileID: 8944618625463796998, guid: bf3876264d40243dfb652fd9e562f390, type: 3}
+  collectSound: {fileID: 8300000, guid: 136c7d33df0d44adeba106e677750082, type: 3}
 --- !u!61 &2077547526
 BoxCollider2D:
   m_ObjectHideFlags: 0

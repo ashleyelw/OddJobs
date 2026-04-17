@@ -3,8 +3,15 @@ using UnityEngine;
 public class CollectFlower : MonoBehaviour
 {
     public GameObject prefabReference; 
+    public AudioClip collectSound;
 
     private bool playerInRange = false;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -20,6 +27,11 @@ public class CollectFlower : MonoBehaviour
         {
             FlowerTransferManager.Instance.selectedFlowerStemPrefabs.Add(prefabReference);
             Debug.Log("Collected: " + prefabReference.name);
+
+            if (collectSound != null)
+            {
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            }
         }
         else
         {
