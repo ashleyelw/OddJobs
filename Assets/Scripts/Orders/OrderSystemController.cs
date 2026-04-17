@@ -525,6 +525,8 @@ public class OrderSystemController : MonoBehaviour
     {
         if (order == null) return;
 
+        Debug.Log($"[OrderSystem] RemoveOrder 被调用: customerName={order.customerName}");
+
         if (GameManager.Instance != null)
             GameManager.Instance.pendingOrders.Remove(order);
 
@@ -534,15 +536,24 @@ public class OrderSystemController : MonoBehaviour
 
         Debug.Log($"[OrderSystem] 订单已删除: 客户{order.customerNumber}");
 
-
         if (GameManager.Instance != null && !string.IsNullOrEmpty(order.customerName))
         {
             var coordinator = FindObjectsOfType<CustomerOrderCoordinator>()
                 .FirstOrDefault(c => c.gameObject.name == order.customerName);
             if (coordinator != null)
+            {
+                Debug.Log($"[OrderSystem] 找到 CustomerOrderCoordinator: {coordinator.gameObject.name}，调用 NotifyOrderCompleted");
                 coordinator.NotifyOrderCompleted();
+            }
             else
+            {
+                Debug.LogWarning($"[OrderSystem] 未找到 CustomerOrderCoordinator (name={order.customerName})");
                 GameManager.Instance.MarkCustomerCompleted(order.customerName);
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[OrderSystem] customerName 为空，无法找到 CustomerOrderCoordinator");
         }
     }
 
@@ -553,11 +564,15 @@ public class OrderSystemController : MonoBehaviour
         // 根据订单模式选择不同的库存检查
         if (order.IsUsingBouquetMode())
         {
-            // 花束模式：检查花束库存
-            if (!GameManager.Instance.HasEnoughBouquetsForOrder(order.bouquetName))
+            // 花束模式：检查所有花束库存
+            string[] bouquetNames = order.GetBouquetNames();
+            for (int i = 0; i < bouquetNames.Length; i++)
             {
-                ShowTip($"Out of bouquet: {order.bouquetName}!");
-                return;
+                if (!GameManager.Instance.HasEnoughBouquetsForOrder(bouquetNames[i]))
+                {
+                    ShowTip($"Out of bouquet: {bouquetNames[i]}!");
+                    return;
+                }
             }
         }
         else
@@ -617,24 +632,27 @@ public class OrderSystemController : MonoBehaviour
 
     void CompleteDelivery(CustomerOrder order)
     {
+        Debug.Log($"[OrderSystem] CompleteDelivery 被调用，订单: {order?.customerName}");
+        
         // 根据订单模式选择不同的扣除方式
         if (order.IsUsingBouquetMode())
         {
-            // 花束模式：同时扣除花束和丝带
-            GameManager.Instance.DeductBouquetOrderWithRibbons(order);
-            Debug.Log($"[OrderSystem] 花束模式交付：扣除花束 {order.bouquetName} 和丝带");
+            // 花束模式：扣除所有花束（丝带已包含在花束中）
+            GameManager.Instance.DeductBouquetOrder(order);
+            Debug.Log($"[OrderSystem] 花束模式交付：扣除花束 {string.Join(", ", order.GetBouquetNames())}");
         }
         else
         {
-            // 传统模式：扣除鲜花和丝带库存
+            // 传统模式：扣除鲜花
             GameManager.Instance.DeductOrderFlowers(order);
-            GameManager.Instance.DeductOrderRibbons(order);
+            // 丝带（如果需要的话）
         }
 
         GameManager.Instance.AddCoins(coinRewardPerOrder);
         UpdateCoinDisplay();
         ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
 
+        Debug.Log($"[OrderSystem] 调用 RemoveOrderDelayed");
         _pendingDeliverOrder = order;
         Invoke(nameof(RemoveOrderDelayed), 0.1f);
     }
@@ -643,6 +661,7 @@ public class OrderSystemController : MonoBehaviour
 
     void RemoveOrderDelayed()
     {
+        Debug.Log($"[OrderSystem] RemoveOrderDelayed 被调用，_pendingDeliverOrder={_pendingDeliverOrder?.customerName}");
         if (_pendingDeliverOrder != null)
         {
             RemoveOrder(_pendingDeliverOrder);

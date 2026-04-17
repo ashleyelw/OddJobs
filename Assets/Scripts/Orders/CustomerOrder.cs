@@ -26,35 +26,101 @@ public class CustomerOrder
 
     // ============================================
     // 【新增】花束模式订单支持
-    // 如果设置了 bouquetName，则此订单使用花束库存进行检查和扣除
+    // 如果设置了 bouquetNames，则此订单使用花束库存进行检查和扣除
     // ============================================
 
-    [Tooltip("【花束模式】订单需要的花束名称（设置后优先使用花束库存）")]
-    public string bouquetName;
+    [Tooltip("【花束模式】订单需要的花束名称数组（设置后优先使用花束库存）")]
+    public string[] bouquetNames = new string[0];
 
-    [Tooltip("【花束模式】是否使用花束库存（如果为true，检查bouquetName而非鲜花）")]
+    [Tooltip("【花束模式】是否使用花束库存（如果为true，检查bouquetNames而非鲜花）")]
     public bool useBouquetInventory = false;
 
-    /// <summary>获取花束名称（如果 useBouquetInventory 为 true）</summary>
+    /// <summary>获取第一个花束名称（兼容旧代码）</summary>
     public string GetBouquetName()
     {
-        return useBouquetInventory ? bouquetName : null;
+        return useBouquetInventory && bouquetNames != null && bouquetNames.Length > 0 ? bouquetNames[0] : null;
+    }
+
+    /// <summary>获取所有花束名称</summary>
+    public string[] GetBouquetNames()
+    {
+        return useBouquetInventory ? bouquetNames : new string[0];
+    }
+
+    /// <summary>获取花束数量</summary>
+    public int GetBouquetCount()
+    {
+        return bouquetNames != null ? bouquetNames.Length : 0;
     }
 
     /// <summary>是否使用花束模式</summary>
     public bool IsUsingBouquetMode()
     {
-        return useBouquetInventory && !string.IsNullOrEmpty(bouquetName);
+        return useBouquetInventory && bouquetNames != null && bouquetNames.Length > 0;
     }
 
     public string[] GetFlowerNames()
     {
+        // 【花束模式】从 bouquetNames 解析鲜花名
+        if (useBouquetInventory && bouquetNames != null && bouquetNames.Length > 0)
+        {
+            string[] flowers = new string[bouquetNames.Length];
+            for (int i = 0; i < bouquetNames.Length; i++)
+            {
+                flowers[i] = ParseFlowerFromBouquet(bouquetNames[i]);
+            }
+            Debug.Log($"[CustomerOrder] 花束模式 - 鲜花数组: [{string.Join(", ", flowers)}]");
+            return flowers;
+        }
         return new[] { flowerPrefabName0, flowerPrefabName1, flowerPrefabName2 };
     }
 
     public string[] GetRibbonNames()
     {
+        // 【花束模式】从 bouquetNames 解析丝带名
+        if (useBouquetInventory && bouquetNames != null && bouquetNames.Length > 0)
+        {
+            string[] ribbons = new string[bouquetNames.Length];
+            for (int i = 0; i < bouquetNames.Length; i++)
+            {
+                ribbons[i] = ParseRibbonFromBouquet(bouquetNames[i]);
+            }
+            return ribbons;
+        }
         return new[] { ribbonPrefabName0, ribbonPrefabName1, ribbonPrefabName2 };
+    }
+
+    /// <summary>从花束名称解析鲜花名（格式：Flower_Ribbon）</summary>
+    private string ParseFlowerFromBouquet(string bouquetName)
+    {
+        if (string.IsNullOrEmpty(bouquetName)) return "";
+        int underscoreIndex = bouquetName.LastIndexOf('_');
+        string flowerName = underscoreIndex > 0 ? bouquetName.Substring(0, underscoreIndex) : bouquetName;
+        
+        // 尝试添加 "2" 后缀（如果预制体名称带有 2）
+        if (!IsKnownFlower(flowerName) && !IsKnownFlower(flowerName + "2"))
+        {
+            Debug.LogWarning($"[CustomerOrder] 未找到鲜花「{flowerName}」，尝试添加2后缀: {flowerName}2");
+        }
+        
+        return flowerName;
+    }
+
+    private bool IsKnownFlower(string name)
+    {
+        // 这个方法用于检测鲜花名称是否已知
+        // 简化处理：假设名称不是空的就返回 true
+        return !string.IsNullOrEmpty(name);
+    }
+
+    /// <summary>从花束名称解析丝带名（格式：Flower_Ribbon）</summary>
+    private string ParseRibbonFromBouquet(string bouquetName)
+    {
+        if (string.IsNullOrEmpty(bouquetName)) return "";
+        int underscoreIndex = bouquetName.LastIndexOf('_');
+        return underscoreIndex >= 0 && underscoreIndex < bouquetName.Length - 1
+            ? bouquetName.Substring(underscoreIndex + 1)
+            : "";
     }
 
     [Tooltip("订单时限（秒）")]

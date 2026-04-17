@@ -10,6 +10,25 @@ public class FlowerSpriteRegistry : MonoBehaviour
 
     readonly Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>获取所有鲜花预制体列表</summary>
+    public GameObject[] GetAllFlowerPrefabs()
+    {
+        return flowerPrefabs;
+    }
+
+    /// <summary>获取所有鲜花名称列表</summary>
+    public string[] GetAllFlowerNames()
+    {
+        if (flowerPrefabs == null) return new string[0];
+        var names = new System.Collections.Generic.List<string>();
+        foreach (var prefab in flowerPrefabs)
+        {
+            if (prefab != null)
+                names.Add(prefab.name);
+        }
+        return names.ToArray();
+    }
+
     void Awake()
     {
         RebuildCache();

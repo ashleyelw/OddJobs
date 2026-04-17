@@ -2440,16 +2440,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   collectedFlowers: []
-  flowerInventory:
+  untrimmedFlowers:
     keys: []
     values: 
-  ribbonInventory:
+  trimmedFlowers:
     keys: []
     values: 
+  bouquetInventory:
+  - bouquetId: 3479679c-534c-4da8-9909-77b3d7fb2d2f
+    bouquetName: 
+    trimmedFlowers: []
+    ribbonName: 
+    createdAt: 639119696495410751
+  - bouquetId: 7d90d210-6831-4af9-815c-8ba0d19036c0
+    bouquetName: 
+    trimmedFlowers: []
+    ribbonName: 
+    createdAt: 639119696495442849
   pendingOrders: []
   coins: 0
   _activeCustomerSlots:
     keys: 
+    values: 
+  flowerInventory:
+    keys: []
     values: 
 --- !u!114 &778302980
 MonoBehaviour:
@@ -3356,20 +3370,9 @@ MonoBehaviour:
   - 
   - 
   spawnIntervalMinutes: 20
-  availableFlowers:
-  - Rose2
-  - Daisy2
-  - Tulip2
-  - Orchid2
-  - Paradise2
-  - Lavender2
-  - Blossom2
-  availableRibbons:
-  - GreenRibbon
-  - RedRibbon
-  - SpotRibbon
-  - PinkRibbon
   flowersPerOrder: 3
+  flowerRegistry: {fileID: 778302977}
+  ribbonRegistry: {fileID: 778302980}
   startWithTutorial: 1
   _slotData:
   - prefabIndex: -1
@@ -8191,12 +8194,12 @@ GameObject:
   - component: {fileID: 2016872630}
   - component: {fileID: 2016872629}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2016872628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8241,13 +8244,14 @@ MonoBehaviour:
   - Sunflower2
   - Paradise2
   addCount: 10
-  tutorialRibbonNames:
-  - PinkRibbon
-  - RedRibbon
-  - SpotRibbon
-  - GreenRibbon
-  ribbonAddCount: 5
-  addStockButton: {fileID: 0}
+  addStockButton: {fileID: 2016872630}
+  testBouquetName: Rose_Bouquet
+  testFlowersForBouquet:
+  - Rose
+  - Tulip
+  testRibbonForBouquet: Red_Ribbon
+  customerSpawner: {fileID: 1036746432}
+  bouquetCountPerType: 2
 --- !u!114 &2016872630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8294,7 +8298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2016872629}
         m_TargetAssemblyTypeName: TutorialTestTool, Assembly-CSharp
-        m_MethodName: AddTutorialStock
+        m_MethodName: Btn_AddAllBouquetTypes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8565,14 +8569,7 @@ MonoBehaviour:
   onPlayerExit:
     m_PersistentCalls:
       m_Calls: []
-  availableFlowers:
-  - Rose2
-  - Daisy2
-  - Tulip2
-  availableRibbons:
-  - RibbonRed
-  - RibbonBlue
-  - RibbonYellow
+  useBouquetMode: 0
   flowersPerOrder: 2
   isTutorialCustomer: 0
   singleOrderUIPrefab: {fileID: 0}
@@ -8667,11 +8664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626154121228149749, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -26.652893
+      value: -26.652832
       objectReference: {fileID: 0}
     - target: {fileID: 626154121228149749, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -409.3
+      value: -409.30005
       objectReference: {fileID: 0}
     - target: {fileID: 626154121228149749, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

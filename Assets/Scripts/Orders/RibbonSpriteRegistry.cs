@@ -10,6 +10,25 @@ public class RibbonSpriteRegistry : MonoBehaviour
 
     readonly Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>获取所有丝带预制体列表</summary>
+    public GameObject[] GetAllRibbonPrefabs()
+    {
+        return ribbonPrefabs;
+    }
+
+    /// <summary>获取所有丝带名称列表</summary>
+    public string[] GetAllRibbonNames()
+    {
+        if (ribbonPrefabs == null) return new string[0];
+        var names = new System.Collections.Generic.List<string>();
+        foreach (var prefab in ribbonPrefabs)
+        {
+            if (prefab != null)
+                names.Add(prefab.name);
+        }
+        return names.ToArray();
+    }
+
     void Awake()
     {
         RebuildCache();

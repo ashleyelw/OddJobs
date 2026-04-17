@@ -57,6 +57,8 @@ public class OrderRowView : MonoBehaviour
 
         var flowerSlots = FlowerSlots;
         var flowerNames = flowerPrefabNames ?? Array.Empty<string>();
+        
+        Debug.Log($"[OrderRowView] Bind: flowerNames=[{string.Join(", ", flowerNames)}], flowerRegistry={flowerRegistry != null}");
 
         for (int i = 0; i < flowerSlots.Length; i++)
         {
@@ -72,14 +74,29 @@ public class OrderRowView : MonoBehaviour
                 continue;
             }
 
-            if (flowerRegistry != null && flowerRegistry.TryGetSprite(name, out var sp))
+            bool gotSprite = false;
+            Sprite sp = null;
+
+          
+            if (flowerRegistry != null && flowerRegistry.TryGetSprite(name + 2, out sp))
+            {
+                gotSprite = true;
+            }
+           
+            else if (flowerRegistry != null && flowerRegistry.TryGetSprite(name, out sp))
+            {
+                gotSprite = true;
+            }
+
+          
+            if (gotSprite)
             {
                 img.sprite = sp;
                 img.enabled = true;
             }
             else
             {
-                Debug.LogWarning($"[OrderRowView] 未找到花的 Sprite：「{name}」");
+                Debug.LogWarning($"[OrderRowView] 未找到花的 Sprite：「{name}」或「{name}2」");
                 img.sprite = emptySlotSprite;
                 img.enabled = emptySlotSprite != null;
             }

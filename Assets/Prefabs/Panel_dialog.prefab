@@ -736,22 +736,12 @@ MonoBehaviour:
   optionText1: {fileID: 2213939522814981686}
   closeButton: {fileID: 1102558203939055367}
   dialogueGroups:
-  - round1CustomerLine: 
-    option1Text: 
-    option2Text: 
-    round2CustomerLine: 
-    portrait: {fileID: 0}
   - round1CustomerLine: Aww, this bouquet is perfect! Exactly what I wanted. Thank
       you so much!
     option1Text: Glad you like it! Hope it brightens your day.
     option2Text: It was my pleasure! Come back anytime.
     round2CustomerLine: "I\u2019ll definitely be back soon! Have a wonderful day!"
     portrait: {fileID: -8888099350658994196, guid: ad3787751f05d491ea27075af849ca73, type: 3}
-  - round1CustomerLine: It looks lovely. Thank you for your hard work.
-    option1Text: Thank you! I hope you enjoy it.
-    option2Text: No problem at all, have a great day!
-    round2CustomerLine: "You too! I\u2019ll recommend your shop to my friends."
-    portrait: {fileID: 5227837289880610353, guid: ad3787751f05d491ea27075af849ca73, type: 3}
 --- !u!1 &8320803317749095923
 GameObject:
   m_ObjectHideFlags: 0

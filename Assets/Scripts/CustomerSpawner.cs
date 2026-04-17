@@ -43,10 +43,38 @@ public class CustomerSpawner : MonoBehaviour
 
     [Header("生成设置")]
     [SerializeField] int spawnIntervalMinutes = 3;
-    [SerializeField] string[] availableFlowers = new string[] { "Rose2", "Daisy2", "Tulip2" };
-    [SerializeField] string[] availableRibbons = new string[] { "RibbonRed", "RibbonBlue", "RibbonYellow" };
     [Range(1, 3)]
     [SerializeField] int flowersPerOrder = 2;
+
+    [Header("鲜花和丝带来源（从Registry自动获取）")]
+    [SerializeField] private FlowerSpriteRegistry flowerRegistry;
+    [SerializeField] private RibbonSpriteRegistry ribbonRegistry;
+
+    /// <summary>获取所有可用的鲜花名称（从Registry获取）</summary>
+    public string[] GetAvailableFlowers()
+    {
+        if (flowerRegistry != null)
+        {
+            var names = flowerRegistry.GetAllFlowerNames();
+            if (names != null && names.Length > 0)
+                return names;
+        }
+        Debug.LogWarning("[CustomerSpawner] FlowerRegistry未配置或为空，使用备用鲜花列表");
+        return new string[] { "Rose2", "Daisy2", "Tulip2" };
+    }
+
+    /// <summary>获取所有可用的丝带名称（从Registry获取）</summary>
+    public string[] GetAvailableRibbons()
+    {
+        if (ribbonRegistry != null)
+        {
+            var names = ribbonRegistry.GetAllRibbonNames();
+            if (names != null && names.Length > 0)
+                return names;
+        }
+        Debug.LogWarning("[CustomerSpawner] RibbonRegistry未配置或为空，使用备用丝带列表");
+        return new string[] { "RibbonRed", "RibbonBlue", "RibbonYellow" };
+    }
 
     [Header("教程模式")]
     [SerializeField] bool startWithTutorial = true;
@@ -237,8 +265,8 @@ public class CustomerSpawner : MonoBehaviour
         if (coordinator != null)
         {
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
-                availableFlowers, flowersPerOrder, this, _slotData[slotIndex].instanceId);
-            coordinator.InitializeRibbons(availableRibbons);
+                GetAvailableFlowers(), flowersPerOrder, this, _slotData[slotIndex].instanceId);
+            coordinator.InitializeRibbons(GetAvailableRibbons());
             coordinator.RestoreHasOrderedState(_slotData[slotIndex].hasOrdered);
         }
         else
@@ -332,8 +360,8 @@ public class CustomerSpawner : MonoBehaviour
         if (coordinator != null)
         {
             coordinator.Initialize(slotIndex, _slotData[slotIndex].customerNumber,
-                availableFlowers, flowersPerOrder, this, instanceId);
-            coordinator.InitializeRibbons(availableRibbons);
+                GetAvailableFlowers(), flowersPerOrder, this, instanceId);
+            coordinator.InitializeRibbons(GetAvailableRibbons());
             if (_isTutorialMode)
                 coordinator.SetTutorialCustomer(true);
         }

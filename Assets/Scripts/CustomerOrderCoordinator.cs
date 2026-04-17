@@ -3,11 +3,9 @@ using System.Linq;
 
 public class CustomerOrderCoordinator : InteractionZone
 {
-    [Header("花朵配置")]
-    [SerializeField] private string[] availableFlowers = new string[] { "Rose2", "Daisy2", "Tulip2" };
-
-    [Header("丝带配置")]
-    [SerializeField] private string[] availableRibbons = new string[] { "RibbonRed", "RibbonBlue", "RibbonYellow" };
+    [Header("花束配置")]
+    [Tooltip("是否使用花束模式订单（玩家需要先包装花束再交付）")]
+    [SerializeField] private bool useBouquetMode = false;
 
     [Header("订单配置")]
     [Range(1, 3)]
@@ -25,9 +23,29 @@ public class CustomerOrderCoordinator : InteractionZone
     CustomerSpawner _spawner;
     string _instanceId;
 
+    // 通过 Initialize 方法传入的鲜花和丝带列表
+    private string[] _availableFlowers;
+    private string[] _availableRibbons;
+
     private GameObject _singleOrderUIInstance;
     private CustomerOrder _currentOrder;
     private bool _isTutorialCustomer = false;
+
+    /// <summary>获取所有可用的鲜花名称列表（从CustomerSpawner获取）</summary>
+    public string[] GetAvailableFlowers()
+    {
+        if (_spawner != null)
+            return _spawner.GetAvailableFlowers();
+        return _availableFlowers ?? new string[0];
+    }
+
+    /// <summary>获取所有可用的丝带名称列表（从CustomerSpawner获取）</summary>
+    public string[] GetAvailableRibbons()
+    {
+        if (_spawner != null)
+            return _spawner.GetAvailableRibbons();
+        return _availableRibbons ?? new string[0];
+    }
 
     public int SlotIndex => _slotIndex;
     public string InstanceId => _instanceId;
@@ -36,7 +54,7 @@ public class CustomerOrderCoordinator : InteractionZone
     {
         _slotIndex = slotIndex;
         _customerNumber = customerNumber;
-        availableFlowers = flowers;
+        _availableFlowers = flowers;
         flowersPerOrder = perOrder;
         _spawner = spawner;
         _instanceId = instanceId ?? $"{customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
@@ -44,7 +62,7 @@ public class CustomerOrderCoordinator : InteractionZone
 
     public void InitializeRibbons(string[] ribbons)
     {
-        availableRibbons = ribbons;
+        _availableRibbons = ribbons;
     }
 
     public void SetTutorialCustomer(bool isTutorial)
@@ -61,6 +79,49 @@ public class CustomerOrderCoordinator : InteractionZone
     public void SetCustomerNumber(int number)
     {
         _customerNumber = number;
+    }
+
+        /// <summary>
+    /// 生成花束名称
+    /// 格式：flowerName_RibbonName，多个花用And连接
+    /// 示例：Rose_RedAndDaisy_Blue
+    /// <summary>
+    /// 生成花束名称
+    /// 格式：FlowerName_RibbonName
+    /// 例如：Rose_Red、Daisy_Blue、Tulip_Yellow
+    /// </summary>
+    private string GenerateBouquetName(string flowerName, string ribbonName)
+    {
+        // 提取鲜花基础名称（移除 "2" 后缀，如 Rose2 -> Rose）
+        string flower = NormalizeFlowerName(flowerName);
+        
+        // 提取丝带名称（移除 "Ribbon" 前缀，如 RibbonRed -> Red）
+        string ribbon = NormalizeRibbonName(ribbonName);
+        
+        return $"{flower}_{ribbon}";
+    }
+
+    /// <summary>
+    /// 获取当前花束模式是否启用
+    /// </summary>
+    public bool IsBouquetModeEnabled => useBouquetMode;
+
+    private string NormalizeFlowerName(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return "Unknown";
+        // 移除可能的 "2" 后缀（如 Rose2 -> Rose）
+        if (name.EndsWith("2"))
+            name = name.Substring(0, name.Length - 1);
+        return name;
+    }
+
+    private string NormalizeRibbonName(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return "Unknown";
+        // 移除 Ribbon 前缀（如 RibbonRed -> Red）
+        if (name.StartsWith("Ribbon"))
+            name = name.Substring(6);
+        return name;
     }
 
 protected override void Interact()
@@ -98,15 +159,39 @@ protected override void Interact()
             isTutorialOrder = _isTutorialCustomer
         };
 
-        string[] randomFlowers = GetRandomItems(availableFlowers, flowersPerOrder);
-        order.flowerPrefabName0 = randomFlowers.Length > 0 ? randomFlowers[0] : "";
-        order.flowerPrefabName1 = randomFlowers.Length > 1 ? randomFlowers[1] : "";
-        order.flowerPrefabName2 = randomFlowers.Length > 2 ? randomFlowers[2] : "";
+        // 随机选择鲜花和丝带（每个花束 = 1种鲜花 + 1种丝带）
+        string[] allFlowers = GetAvailableFlowers();
+        string[] allRibbons = GetAvailableRibbons();
+        
+        const int bouquetsPerOrder = 3; // 每个订单3个花束
+        string[] chosenBouquets = new string[bouquetsPerOrder];
+        
+        // 填充订单的花朵和丝带字段（用于显示，取第一个花束）
+        string[] firstFlowers = GetRandomItems(allFlowers, 1);
+        string[] firstRibbons = GetRandomItems(allRibbons, 1);
+        
+        order.flowerPrefabName0 = firstFlowers.Length > 0 ? firstFlowers[0] : "";
+        order.flowerPrefabName1 = "";
+        order.flowerPrefabName2 = "";
+        
+        order.ribbonPrefabName0 = firstRibbons.Length > 0 ? firstRibbons[0] : "";
+        order.ribbonPrefabName1 = "";
+        order.ribbonPrefabName2 = "";
 
-        string[] randomRibbons = GetRandomItems(availableRibbons, flowersPerOrder);
-        order.ribbonPrefabName0 = randomRibbons.Length > 0 ? randomRibbons[0] : "";
-        order.ribbonPrefabName1 = randomRibbons.Length > 1 ? randomRibbons[1] : "";
-        order.ribbonPrefabName2 = randomRibbons.Length > 2 ? randomRibbons[2] : "";
+        // 【花束模式】生成3个花束
+        System.Collections.Generic.List<string> bouquetList = new System.Collections.Generic.List<string>();
+        for (int i = 0; i < bouquetsPerOrder; i++)
+        {
+            string[] randomFlowers = GetRandomItems(allFlowers, 1);
+            string[] randomRibbons = GetRandomItems(allRibbons, 1);
+            string bouquet = GenerateBouquetName(randomFlowers[0], randomRibbons[0]);
+            bouquetList.Add(bouquet);
+        }
+        
+        order.bouquetNames = bouquetList.ToArray();
+        order.useBouquetInventory = true;
+
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 生成花束订单（{bouquetsPerOrder}个）: {string.Join(", ", order.bouquetNames)}");
 
         if (GameManager.Instance != null)
         {
@@ -138,6 +223,7 @@ protected override void Interact()
         if (_singleOrderUIInstance == null)
         {
             ShowSingleOrderUI();
+            Debug.Log("还有订单");
         }
         else
         {
@@ -195,10 +281,16 @@ protected override void Interact()
 
     public void NotifyOrderCompleted()
     {
-        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 订单完成，离开。");
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 订单完成，开始离开流程。");
+        Debug.Log($"[CustomerOrderCoordinator] _spawner={_spawner != null}, _slotIndex={_slotIndex}, _isTutorialCustomer={_isTutorialCustomer}");
+        if (_spawner != null)
+            Debug.Log($"[CustomerOrderCoordinator] _spawner.IsTutorialMode={_spawner.IsTutorialMode}");
+        
         CloseSingleOrderUI();
+        
         if (_spawner != null && _slotIndex >= 0)
         {
+            Debug.Log($"[CustomerOrderCoordinator] 调用 _spawner.OnCustomerLeft({_slotIndex})");
             if (_isTutorialCustomer && _spawner.IsTutorialMode)
             {
                 _spawner.SetTutorialCompleted();
@@ -207,6 +299,7 @@ protected override void Interact()
         }
         else
         {
+            Debug.LogWarning($"[CustomerOrderCoordinator] 条件不满足，_spawner={_spawner != null}, _slotIndex={_slotIndex}");
             Destroy(gameObject);
         }
     }
