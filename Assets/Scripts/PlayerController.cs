@@ -3,14 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator anim;
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
-    private Vector2 moveDirection;
+    private Vector2 input;
+    private Vector2 lastMoveDir;
     private bool canMove = true;
-    private static bool shouldTeleport = false;
-    private static Vector3 teleportPosition;
 
     void Awake()
     {
@@ -19,10 +20,24 @@ public class PlayerController : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
         }
+
         rb.freezeRotation = true;
         rb.gravityScale = 0f;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void Update()
+    {
+        GetInput();
+        Animate();
+    }
+
+    void FixedUpdate()
+    {
+        if (!canMove) return;
+
+        rb.linearVelocity = input * moveSpeed;
     }
 
     void OnDestroy()
@@ -38,31 +53,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    void GetInput()
     {
-        if (!canMove) return;
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(horizontal, vertical).normalized;
+        input = new Vector2(horizontal, vertical).normalized;
 
-        if (horizontal != 0)
+        if (input.magnitude > 0.1f)
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * horizontal, 1f, 1f);
+            lastMoveDir = input;
         }
     }
 
-    void FixedUpdate()
+    void Animate()
     {
-        if (!canMove) return;
-
-        rb.linearVelocity = moveDirection * moveSpeed;
+        if (input.magnitude > 0.1f)
+        {
+            anim.SetFloat("MoveX", input.x);
+            anim.SetFloat("MoveY", input.y);
+        }
+        else
+        {
+            anim.SetFloat("MoveX", lastMoveDir.x);
+            anim.SetFloat("MoveY", lastMoveDir.y);
+        }
+        anim.SetFloat("Speed", input.magnitude);
     }
 
     public void EnableMovement(bool enable)
     {
         canMove = enable;
+
         if (!enable)
         {
             rb.linearVelocity = Vector2.zero;

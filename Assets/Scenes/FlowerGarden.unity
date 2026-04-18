@@ -1868,6 +1868,7 @@ GameObject:
   - component: {fileID: 169334170}
   - component: {fileID: 169334169}
   - component: {fileID: 169334173}
+  - component: {fileID: 169334174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1933,6 +1934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397b4028e9d3cb247ae696039a10941b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  anim: {fileID: 169334174}
   moveSpeed: 5
 --- !u!212 &169334171
 SpriteRenderer:
@@ -2023,6 +2025,28 @@ MonoBehaviour:
   harvestRange: 1.83
   harvestKey: 101
   harvestSound: {fileID: 0}
+--- !u!95 &169334174
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169334168}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c59639bb96cc242bb804e9787199f6f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &171706775
 GameObject:
   m_ObjectHideFlags: 0
