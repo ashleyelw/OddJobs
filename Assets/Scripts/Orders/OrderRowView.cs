@@ -126,7 +126,7 @@ public class OrderRowView : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"[OrderRowView] 未找到丝带的 Sprite：「{name}」");
+                //Debug.LogWarning($"[OrderRowView] 未找到丝带的 Sprite：「{name}」");
                 img.sprite = emptySlotSprite;
                 img.enabled = emptySlotSprite != null;
             }
