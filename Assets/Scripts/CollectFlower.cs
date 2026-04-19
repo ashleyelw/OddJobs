@@ -1,9 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class CollectFlower : MonoBehaviour
 {
-    public GameObject prefabReference; 
+    public GameObject prefabReference;
     public AudioClip collectSound;
+    public GameObject collectPrompt;
 
     private bool playerInRange = false;
     private AudioSource audioSource;
@@ -11,6 +13,8 @@ public class CollectFlower : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        if (collectPrompt != null)
+            collectPrompt.SetActive(false);
     }
 
     void Update()
@@ -29,9 +33,10 @@ public class CollectFlower : MonoBehaviour
             Debug.Log("Collected: " + prefabReference.name);
 
             if (collectSound != null)
-            {
                 AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            }
+
+            if (collectPrompt != null)
+                collectPrompt.SetActive(false);
         }
         else
         {
@@ -42,13 +47,21 @@ public class CollectFlower : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInRange = true;
+            if (collectPrompt != null)
+                collectPrompt.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInRange = false;
+            if (collectPrompt != null)
+                collectPrompt.SetActive(false);
+        }
     }
 
 }
