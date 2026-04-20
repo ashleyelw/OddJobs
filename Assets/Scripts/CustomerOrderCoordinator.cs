@@ -180,11 +180,12 @@ protected override void Interact()
 
         // 【花束模式】生成3个花束
         System.Collections.Generic.List<string> bouquetList = new System.Collections.Generic.List<string>();
+        string[] fixedRibbon = GetRandomItems(allRibbons, 1);
         for (int i = 0; i < bouquetsPerOrder; i++)
         {
             string[] randomFlowers = GetRandomItems(allFlowers, 1);
-            string[] randomRibbons = GetRandomItems(allRibbons, 1);
-            string bouquet = GenerateBouquetName(randomFlowers[0], randomRibbons[0]);
+            //随机丝带string[] randomRibbons = GetRandomItems(allRibbons, 1);
+            string bouquet = GenerateBouquetName(randomFlowers[0], fixedRibbon[0]);
             bouquetList.Add(bouquet);
         }
         
