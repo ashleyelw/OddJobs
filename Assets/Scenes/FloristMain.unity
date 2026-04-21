@@ -1932,6 +1932,7 @@ GameObject:
   - component: {fileID: 778302977}
   - component: {fileID: 778302979}
   - component: {fileID: 778302980}
+  - component: {fileID: 778302981}
   m_Layer: 0
   m_Name: Gamemanager
   m_TagString: Untagged
@@ -2032,6 +2033,22 @@ MonoBehaviour:
   - {fileID: 7918080303275346785, guid: 7b0cab9670fde804ba38a6d01a8f462e, type: 3}
   - {fileID: 1303711433276962041, guid: f3ecbd1f62ed33d49b5cdd649a47af23, type: 3}
   - {fileID: 265489387557948235, guid: 46cd9b07fc25ab34abaef42f0d9208df, type: 3}
+--- !u!114 &778302981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778302976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233e0c0cbd81544879e894a1a03fd6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryDebugDisplay
+  panelRoot: {fileID: 0}
+  inventoryText: {fileID: 0}
+  toggleKey: 105
+  autoCreateUI: 1
 --- !u!1 &819025202
 GameObject:
   m_ObjectHideFlags: 0
