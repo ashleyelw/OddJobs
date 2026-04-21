@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class ConfirmBouquet : MonoBehaviour
 {
@@ -12,52 +13,51 @@ public class ConfirmBouquet : MonoBehaviour
             return;
         }
 
-        // Gather ribbon name
+        // --- Get selected ribbon ---
         string ribbonRaw = null;
         if (RibbonManager.Instance != null && RibbonManager.Instance.selectedRibbonPrefab != null)
             ribbonRaw = GameManager.NormalizeKey(RibbonManager.Instance.selectedRibbonPrefab.name);
 
-        // Gather flower names from trimmed prefabs
-        var flowerNames = new System.Collections.Generic.List<string>();
-        if (FlowerTransferManager.Instance != null)
+        if (string.IsNullOrEmpty(ribbonRaw))
         {
-            var source = FlowerTransferManager.Instance.selectedFlowerPrefabs;
-            foreach (var prefab in source)
-            {
-                if (prefab == null) continue;
-                string name = GameManager.Instance.NormalizeFlowerName(
-                                GameManager.NormalizeKey(prefab.name));
-                flowerNames.Add(name);
-            }
-        }
-
-        if (flowerNames.Count == 0)
-        {
-            Debug.LogWarning("[ConfirmBouquet] No flowers selected.");
-            SceneManager.LoadScene("FloristMain");
+            Debug.LogWarning("[ConfirmBouquet] No ribbon selected.");
             return;
         }
 
-        // AssembleBouquet handles name generation AND consumes trimmed inventory
-        string bouquetName = GameManager.Instance.AssembleBouquet(flowerNames, ribbonRaw);
+        string ribbonNormalized = GameManager.Instance.NormalizeRibbonName(ribbonRaw);
 
-        if (bouquetName == null)
+        // --- Read from confirmedFlowerNames (set by FlowerWrapSpawn) ---
+        List<string> flowerNames = FlowerTransferManager.Instance?.confirmedFlowerNames;
+
+        if (flowerNames == null || flowerNames.Count == 0)
         {
-            Debug.LogWarning("[ConfirmBouquet] AssembleBouquet failed — check trimmed flower inventory.");
-            // Fallback: force-add anyway so player isn't stuck
-            string normalizedRibbon = string.IsNullOrEmpty(ribbonRaw) ? null
-                : GameManager.Instance.NormalizeRibbonName(ribbonRaw);
-            bouquetName = string.IsNullOrEmpty(normalizedRibbon)
-                ? flowerNames[0]
-                : $"{flowerNames[0]}_{normalizedRibbon}";
-            GameManager.Instance.AddBouquet(bouquetName, flowerNames, normalizedRibbon);
-            Debug.LogWarning($"[ConfirmBouquet] Fallback: force-added bouquet {bouquetName}");
+            Debug.LogWarning("[ConfirmBouquet] confirmedFlowerNames is empty.");
+            return;
         }
 
-        Debug.Log($"[ConfirmBouquet] Bouquet confirmed: {bouquetName}");
+        // --- Create one bouquet per flower ---
+        int saved = 0;
+        foreach (var flowerName in flowerNames)
+        {
+            if (string.IsNullOrEmpty(flowerName)) continue;
+
+            string bouquetName = $"{flowerName}_{ribbonNormalized}";
+
+            GameManager.Instance.AddBouquet(
+                bouquetName,
+                new List<string> { flowerName },
+                ribbonNormalized
+            );
+
+            Debug.Log($"[ConfirmBouquet] Saved bouquet: '{bouquetName}'");
+            saved++;
+        }
+
+        Debug.Log($"[ConfirmBouquet] Total bouquets saved: {saved}");
         GameManager.Instance.Test_PrintAllInventory();
 
-        // Clear transfer state
+        // --- Clear everything ---
+        FlowerTransferManager.Instance.confirmedFlowerNames.Clear();
         if (FlowerTransferManager.Instance != null)
         {
             FlowerTransferManager.Instance.selectedFlowerPrefabs.Clear();

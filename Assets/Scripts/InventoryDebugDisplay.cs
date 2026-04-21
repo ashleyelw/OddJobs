@@ -28,7 +28,6 @@ public class InventoryDebugDisplay : MonoBehaviour
         if (Input.GetKeyDown(toggleKey))
             Toggle();
 
-        // Refresh display every frame while open so it stays live
         if (_isVisible)
             RefreshDisplay();
     }
@@ -79,7 +78,6 @@ public class InventoryDebugDisplay : MonoBehaviour
         }
         else
         {
-            // Group bouquets by name for cleaner display
             var grouped = new Dictionary<string, int>();
             foreach (var b in GameManager.Instance.bouquetInventory)
             {
@@ -87,10 +85,10 @@ public class InventoryDebugDisplay : MonoBehaviour
                 grouped[key] = grouped.ContainsKey(key) ? grouped[key] + 1 : 1;
             }
             foreach (var kvp in grouped)
-                sb.AppendLine($"  {kvp.Key}: x{kvp.Value}");
+                sb.AppendLine($"  '{kvp.Key}': x{kvp.Value}");
         }
 
-        // --- Ribbons (from RibbonManager) ---
+        // --- Ribbons ---
         sb.AppendLine("\n[Ribbons]");
         if (RibbonManager.Instance == null || !RibbonManager.Instance.HasAnyRibbons())
         {
@@ -99,13 +97,41 @@ public class InventoryDebugDisplay : MonoBehaviour
         else
         {
             foreach (var key in RibbonManager.Instance.GetRibbonKeys())
-                sb.AppendLine($"  {key}: x{RibbonManager.Instance.GetRibbonCount(key)}");
+                sb.AppendLine($"  '{key}': x{RibbonManager.Instance.GetRibbonCount(key)}");
         }
 
         // --- Coins ---
         sb.AppendLine($"\n[Coins]  {GameManager.Instance.coins}");
 
-        sb.AppendLine("\n(Press I to close)");
+        // --- Pending Orders ---
+        sb.AppendLine("\n=== PENDING ORDERS ===");
+        if (GameManager.Instance.pendingOrders == null || GameManager.Instance.pendingOrders.Count == 0)
+        {
+            sb.AppendLine("  (no orders)");
+        }
+        else
+        {
+            foreach (var order in GameManager.Instance.pendingOrders)
+            {
+                sb.AppendLine($"\n  Customer {order.customerNumber}:");
+                if (order.bouquetNames != null && order.bouquetNames.Length > 0)
+                {
+                    foreach (var bouquet in order.bouquetNames)
+                    {
+                        // Check if this bouquet exists in inventory
+                        int have = GameManager.Instance.GetBouquetCount(bouquet);
+                        string status = have > 0 ? "✓" : "✗";
+                        sb.AppendLine($"    {status} needs: '{bouquet}' (have: {have})");
+                    }
+                }
+                else
+                {
+                    sb.AppendLine("    (no bouquets required)");
+                }
+            }
+        }
+
+        sb.AppendLine($"\n(Press {toggleKey} to close)");
         inventoryText.text = sb.ToString();
     }
 
@@ -124,14 +150,14 @@ public class InventoryDebugDisplay : MonoBehaviour
 
         var panelRect = panelRoot.AddComponent<RectTransform>();
         panelRect.anchorMin = new Vector2(0, 0);
-        panelRect.anchorMax = new Vector2(0.35f, 1f);
+        panelRect.anchorMax = new Vector2(0.4f, 1f);
         panelRect.offsetMin = new Vector2(10, 10);
         panelRect.offsetMax = new Vector2(-10, -10);
 
         var panelImage = panelRoot.AddComponent<Image>();
-        panelImage.color = new Color(0, 0, 0, 0.8f);
+        panelImage.color = new Color(0, 0, 0, 0.85f);
 
-        // Scroll text
+        // Text
         var textGo = new GameObject("InventoryText");
         textGo.transform.SetParent(panelRoot.transform, false);
 
@@ -143,7 +169,7 @@ public class InventoryDebugDisplay : MonoBehaviour
 
         inventoryText = textGo.AddComponent<Text>();
         inventoryText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        inventoryText.fontSize = 14;
+        inventoryText.fontSize = 13;
         inventoryText.color = Color.white;
         inventoryText.alignment = TextAnchor.UpperLeft;
     }
