@@ -37,30 +37,45 @@ public class Scissors : MonoBehaviour
    }
 
    private void CutFlower(GameObject bud)
-   {
-    if(bud==null) return;
-    if(!bud.activeInHierarchy) return;
-
-    if(bud.transform.childCount==0)
     {
-        Debug.Log("No stem found - ignoring cut");
-        return;
+        if (bud == null) return;
+        if (!bud.activeInHierarchy) return;
+
+        if (bud.transform.childCount == 0)
+        {
+            Debug.Log("No stem found - ignoring cut");
+            return;
+        }
+
+        Transform stem = bud.transform.GetChild(0);
+        FlowerData data = bud.GetComponent<FlowerData>();
+
+        if (data != null && data.prefabReference != null)
+        {
+            FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(data.prefabReference);
+            Debug.Log("Flower added: " + data.prefabReference.name);
+
+            // ADD THIS: move from untrimmed → trimmed inventory
+            if (GameManager.Instance != null)
+            {
+                string flowerName = GameManager.NormalizeKey(data.prefabReference.name);
+                bool transferred = GameManager.Instance.TransferToTrimmed(flowerName);
+                if (!transferred)
+                {
+                    // Flower wasn't in untrimmed (e.g. picked up in a previous session)
+                    // Add directly to trimmed as a fallback
+                    GameManager.Instance.AddTrimmedFlower(flowerName);
+                    Debug.LogWarning($"[Scissors] {flowerName} wasn't in untrimmed stock, added directly to trimmed.");
+                }
+                data.MarkAsTrimmed();
+            }
+        }
+
+        bud.transform.position += new Vector3(0.5f, 0.5f, 0f);
+
+        if (bud.GetComponent<DraggableFlower>() == null)
+            bud.gameObject.AddComponent<DraggableFlower>();
+
+        Destroy(stem.gameObject);
     }
-
-    Transform stem=bud.transform.GetChild(0);
-    FlowerData data = bud.GetComponent<FlowerData>();
-
-    if(data!= null && data.prefabReference != null)
-    {
-        FlowerTransferManager.Instance.selectedFlowerPrefabs.Add(data.prefabReference);
-        Debug.Log("Flower added: " + data.prefabReference.name);
-    }
-
-    bud.transform.position += new Vector3(0.5f,0.5f,0f);
-
-    if  (bud.GetComponent<DraggableFlower>()==null)
-    bud.gameObject.AddComponent<DraggableFlower>();
-
-    Destroy(stem.gameObject);
-}
 }

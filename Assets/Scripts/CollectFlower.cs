@@ -32,6 +32,13 @@ public class CollectFlower : MonoBehaviour
             FlowerTransferManager.Instance.selectedFlowerStemPrefabs.Add(prefabReference);
             Debug.Log("Collected: " + prefabReference.name);
 
+            // ADD THIS: save to untrimmed inventory
+            if (GameManager.Instance != null)
+            {
+                string flowerName = GameManager.NormalizeKey(prefabReference.name);
+                GameManager.Instance.AddUntrimmedFlower(flowerName);
+            }
+
             if (collectSound != null)
                 AudioSource.PlayClipAtPoint(collectSound, transform.position);
 

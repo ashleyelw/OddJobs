@@ -9,6 +9,7 @@ public class RibbonSpawner : MonoBehaviour
     if(ribbonPrefab!=null)
     {
         Instantiate(ribbonPrefab,bouquetPoint.position,Quaternion.identity);
+        
     }
    }
 }

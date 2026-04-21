@@ -54,10 +54,20 @@ public class GameManager : MonoBehaviour
     /// <returns>是否有足够的花束</returns>
     public bool HasEnoughBouquetsForOrder(string[] bouquetNames)
     {
+        // Count how many of each name are required
+        var required = new Dictionary<string, int>();
         foreach (var name in bouquetNames)
         {
             if (string.IsNullOrWhiteSpace(name)) continue;
-            if (!HasEnoughBouquetsForOrder(name)) return false;
+            string key = NormalizeKey(name);
+            required[key] = required.ContainsKey(key) ? required[key] + 1 : 1;
+        }
+
+        // Check inventory has enough of each
+        foreach (var kvp in required)
+        {
+            int have = GetBouquetCount(kvp.Key); // already exists and works correctly
+            if (have < kvp.Value) return false;
         }
         return true;
     }
@@ -316,7 +326,7 @@ public class GameManager : MonoBehaviour
         {
             if (stemPrefab != null)
             {
-                string name = NormalizeKey(stemPrefab.name);
+                string name = NormalizeFlowerName(NormalizeKey(stemPrefab.name));
                 flowerNames.Add(name);
             }
         }
@@ -459,7 +469,8 @@ public class GameManager : MonoBehaviour
         if (normalizedRibbon.StartsWith("Ribbon"))
             normalizedRibbon = normalizedRibbon.Substring(6); // 移除 "Ribbon" 前缀
         
-        string bouquetName = $"{flowerNames[0]}_{normalizedRibbon}";
+        string firstFlower = NormalizeFlowerName(flowerNames[0]); // strips "2" suffix
+        string bouquetName = $"{firstFlower}_{normalizedRibbon}";
 
         // 消耗已修剪鲜花
         foreach (var name in flowerNames)
@@ -472,6 +483,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager] 成功组装花束 {bouquetName}（鲜花: {string.Join(", ", flowerNames)}，丝带: {ribbonName}）");
         return bouquetName;
     }
+
+    
 
     // ============================================
     // 【新增】订单生成时自动组装花束
@@ -784,6 +797,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        
         if (Instance == null)
         {
             Instance = this;
@@ -796,6 +810,17 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+    }
+    // Call this once at game start to stock ribbons
+    void InitializeRibbonInventory()
+    {
+        if (RibbonManager.Instance == null) return;
+        
+        // Add these names to match your RibbonSpriteRegistry prefab names
+        RibbonManager.Instance.AddRibbonToInventory("RibbonRed", 99);
+        RibbonManager.Instance.AddRibbonToInventory("RibbonBlue", 99);
+        RibbonManager.Instance.AddRibbonToInventory("RibbonYellow", 99);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

@@ -565,14 +565,10 @@ public class OrderSystemController : MonoBehaviour
         if (order.IsUsingBouquetMode())
         {
             // 花束模式：检查所有花束库存
-            string[] bouquetNames = order.GetBouquetNames();
-            for (int i = 0; i < bouquetNames.Length; i++)
+            if (!GameManager.Instance.HasEnoughBouquetsForOrder(order.GetBouquetNames()))
             {
-                if (!GameManager.Instance.HasEnoughBouquetsForOrder(bouquetNames[i]))
-                {
-                    ShowTip($"Out of bouquet: {bouquetNames[i]}!");
-                    return;
-                }
+                ShowTip("Not enough bouquets for this order!");
+                return;
             }
         }
         else
