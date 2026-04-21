@@ -5,31 +5,55 @@ public class RibbonSpawner : MonoBehaviour
 {
     public Transform bouquetPoint;
 
-    [Header("Ribbon Buttons — assign prefabs only, listeners set in code")]
-    [SerializeField] private RibbonButtonEntry[] ribbonButtons;
+    [Header("Ribbon Prefabs and their corresponding Button names")]
+    [SerializeField] private RibbonButtonEntry[] ribbonEntries;
 
     [System.Serializable]
     public class RibbonButtonEntry
     {
-        public Button button;
         public GameObject ribbonPrefab;
+        public string buttonName; // exact name of the Button GameObject in the scene
     }
 
-    void Start()
+    void OnEnable()
     {
-        // Reassign all button listeners on every scene load
-        if (ribbonButtons == null) return;
+        AssignButtonListeners();
+    }
 
-        foreach (var entry in ribbonButtons)
+    void AssignButtonListeners()
+    {
+        if (ribbonEntries == null || ribbonEntries.Length == 0)
         {
-            if (entry.button == null || entry.ribbonPrefab == null) continue;
+            Debug.LogWarning("[RibbonSpawner] No ribbon entries assigned.");
+            return;
+        }
+
+        foreach (var entry in ribbonEntries)
+        {
+            if (entry.ribbonPrefab == null || string.IsNullOrEmpty(entry.buttonName))
+                continue;
+
+            // Find button by name in scene
+            GameObject btnGo = GameObject.Find(entry.buttonName);
+            if (btnGo == null)
+            {
+                Debug.LogWarning($"[RibbonSpawner] Could not find button named: {entry.buttonName}");
+                continue;
+            }
+
+            Button btn = btnGo.GetComponent<Button>();
+            if (btn == null)
+            {
+                Debug.LogWarning($"[RibbonSpawner] GameObject {entry.buttonName} has no Button component.");
+                continue;
+            }
 
             // Capture for lambda
             GameObject prefab = entry.ribbonPrefab;
 
-            entry.button.onClick.RemoveAllListeners();
-            entry.button.onClick.AddListener(() => SpawnRibbon(prefab));
-            Debug.Log($"[RibbonSpawner] Listener assigned for ribbon: {prefab.name}");
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => SpawnRibbon(prefab));
+            Debug.Log($"[RibbonSpawner] Button '{entry.buttonName}' assigned to ribbon: {prefab.name}");
         }
     }
 
