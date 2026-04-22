@@ -7,9 +7,18 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 180;
-    public const int MinDailyCoins = 100;
-    public const int TotalHighCoins = 500;
+    public const int DayDurationSeconds = 120;
+
+    [Header("Ending Thresholds")]
+    [Tooltip("Coins needed per day to avoid bad ending")]
+    [SerializeField] private int minDailyCoins = 100;
+
+    [Tooltip("Total coins over all 3 days needed for good ending")]
+    [SerializeField] private int totalHighCoins = 500;
+
+    // Public getters so other scripts can still read them
+    public int MinDailyCoins => minDailyCoins;
+    public int TotalHighCoins => totalHighCoins;
 
     [Header("Day Tracking")]
     public int currentDay = 1;
@@ -54,7 +63,6 @@ public class DayManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reset the day timer whenever FloristMain loads (i.e. start of each new day)
         if (scene.name == "FloristMain")
         {
             if (GameTimeController.Instance != null)
@@ -64,7 +72,6 @@ public class DayManager : MonoBehaviour
             }
             else
             {
-                // GameTimeController may not be ready yet, retry next frame
                 StartCoroutine(ResetTimerNextFrame());
             }
         }
@@ -100,7 +107,7 @@ public class DayManager : MonoBehaviour
             day = currentDay,
             coinsEarned = todayCoinsEarned,
             ordersDelivered = todayOrdersDelivered,
-            metDailyMinimum = todayCoinsEarned >= MinDailyCoins
+            metDailyMinimum = todayCoinsEarned >= minDailyCoins
         });
 
         SceneManager.LoadScene("EndOfDay");
@@ -111,10 +118,7 @@ public class DayManager : MonoBehaviour
         currentDay++;
         todayCoinsEarned = 0;
         todayOrdersDelivered = 0;
-
         Debug.Log($"[DayManager] Starting day {currentDay}");
-
-        // Timer reset is handled by OnSceneLoaded when FloristMain loads
         SceneManager.LoadScene("FloristMain");
     }
 
@@ -125,9 +129,9 @@ public class DayManager : MonoBehaviour
 
     public EndingType GetEnding()
     {
-        if (totalCoinsEarned >= TotalHighCoins)
+        if (totalCoinsEarned >= totalHighCoins)
             return EndingType.Good;
-        else if (totalCoinsEarned >= MinDailyCoins * TotalDays)
+        else if (totalCoinsEarned >= minDailyCoins * TotalDays)
             return EndingType.Neutral;
         else
             return EndingType.Bad;
@@ -135,12 +139,12 @@ public class DayManager : MonoBehaviour
 
     public int GetCoinsNeededForGoodEnding()
     {
-        return Mathf.Max(0, TotalHighCoins - totalCoinsEarned);
+        return Mathf.Max(0, totalHighCoins - totalCoinsEarned);
     }
 
     public int GetCoinsNeededForMinimum()
     {
-        return Mathf.Max(0, MinDailyCoins - todayCoinsEarned);
+        return Mathf.Max(0, minDailyCoins - todayCoinsEarned);
     }
 
     public enum EndingType { Bad, Neutral, Good }
