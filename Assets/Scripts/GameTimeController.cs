@@ -27,6 +27,9 @@ public class GameTimeController : MonoBehaviour
     DateTime _currentTime;
     int _lastNotifiedTotalMinutes;
     float _timer;
+    // ADD this field at the top with other fields
+    float _dayTimer = 0f;
+    bool _dayEnded = false;
 
     void Awake()
     {
@@ -55,7 +58,18 @@ public class GameTimeController : MonoBehaviour
 
     void Update()
     {
+        if (_dayEnded) return;
+
+        _dayTimer += Time.deltaTime;
         _timer += Time.deltaTime;
+
+        // Check if 3 minutes (180 seconds) have passed
+        if (_dayTimer >= DayManager.DayDurationSeconds)
+        {
+            _dayEnded = true;
+            DayManager.Instance?.TriggerEndOfDay();
+            return;
+        }
 
         if (_timer >= 1f)
         {
@@ -72,6 +86,11 @@ public class GameTimeController : MonoBehaviour
         }
     }
 
+    public void ResetDayTimer()
+    {
+        _dayTimer = 0f;
+        _dayEnded = false;
+    }
     int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 
     public int GetTotalMinutes() => TotalMinutes(_currentTime);

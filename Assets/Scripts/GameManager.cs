@@ -1029,6 +1029,7 @@ public class GameManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
+        DayManager.Instance?.OnOrderDelivered(amount);
         Debug.Log($"[GameManager] 金币 +{amount}，当前: {coins}");
     }
 
