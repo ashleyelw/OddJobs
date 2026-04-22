@@ -50,14 +50,19 @@ public class CustomerOrderCoordinator : InteractionZone
     public int SlotIndex => _slotIndex;
     public string InstanceId => _instanceId;
 
-    public void Initialize(int slotIndex, int customerNumber, string[] flowers, int perOrder, CustomerSpawner spawner, string instanceId = null)
+    public void Initialize(int slotIndex, int customerNumber, string[] flowers, 
+                       int perOrder, CustomerSpawner spawner, string instanceId = null)
     {
         _slotIndex = slotIndex;
         _customerNumber = customerNumber;
         _availableFlowers = flowers;
         flowersPerOrder = perOrder;
         _spawner = spawner;
-        _instanceId = instanceId ?? $"{customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
+        _instanceId = instanceId ?? 
+                    $"{customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
+
+        // ADD THIS: restore order if one already exists for this customer
+        RestoreCurrentOrder();
     }
 
     public void InitializeRibbons(string[] ribbons)
@@ -74,6 +79,29 @@ public class CustomerOrderCoordinator : InteractionZone
     {
         _hasOrderedThisSession = hasOrdered;
         Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 恢复下单状态: {hasOrdered}");
+
+        // ADD THIS: restore order reference if customer has already ordered
+        if (hasOrdered)
+            RestoreCurrentOrder();
+    }
+    public void RestoreCurrentOrder()
+    {
+        if (GameManager.Instance == null) return;
+
+        // Find the matching order in pendingOrders by customerNumber
+        foreach (var order in GameManager.Instance.pendingOrders)
+        {
+            if (order.customerNumber == _customerNumber)
+            {
+                _currentOrder = order;
+                Debug.Log($"[CustomerOrderCoordinator] Restored _currentOrder for " +
+                        $"customer {_customerNumber}: {string.Join(", ", order.bouquetNames)}");
+                return;
+            }
+        }
+
+        Debug.LogWarning($"[CustomerOrderCoordinator] Could not find order for " +
+                        $"customer {_customerNumber} in pendingOrders");
     }
 
     public void SetCustomerNumber(int number)
@@ -203,44 +231,72 @@ public class CustomerOrderCoordinator : InteractionZone
     }
 
     // ADD this new method
-    void TryDeliverCurrentOrder()
-    {
-        if (_currentOrder == null) return;
-
-        if (OrderSystemController.Instance != null)
-        {
-            // Reuse the existing delivery logic in OrderSystemController
-            OrderSystemController.Instance.TryDeliverOrder(_currentOrder);
-        }
-        else
-        {
-            Debug.LogWarning("[CustomerOrderCoordinator] OrderSystemController not found!");
-        }
-    }
-
     void Update()
     {
-        base.Update();
-
-        // Update prompt text based on order state
-        if (interactionUI != null)
+        // Log every frame when player is inside so we can see state
+        if (isPlayerInside)
         {
-            var promptText = interactionUI.GetComponentInChildren<TMPro.TMP_Text>();
-            if (promptText != null)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                promptText.text = _hasOrderedThisSession
-                    ? "Press E to deliver bouquet"
-                    : "Press E to take order";
+                Debug.Log($"[CustomerOrderCoordinator] E pressed - " +
+                        $"hasOrdered={_hasOrderedThisSession}, " +
+                        $"currentOrder={_currentOrder != null}, " +
+                        $"isPlayerInside={isPlayerInside}");
+
+                if (_hasOrderedThisSession && _currentOrder != null)
+                {
+                    Debug.Log("[CustomerOrderCoordinator] Routing to TryDeliverCurrentOrder");
+                    TryDeliverCurrentOrder();
+                }
+                else if (!_hasOrderedThisSession)
+                {
+                    Debug.Log("[CustomerOrderCoordinator] Routing to Interact (place order)");
+                    Interact();
+                }
+                else
+                {
+                    Debug.Log($"[CustomerOrderCoordinator] E pressed but no action taken - " +
+                            $"hasOrdered={_hasOrderedThisSession}, " +
+                            $"currentOrder is null={_currentOrder == null}");
+                }
             }
         }
 
+        // Q key to toggle single order UI
         if (isPlayerInside && _hasOrderedThisSession && _currentOrder != null)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                Debug.Log("调用了");
                 ToggleSingleOrderUI();
             }
+        }
+    }
+
+    void TryDeliverCurrentOrder()
+    {
+        Debug.Log($"[CustomerOrderCoordinator] TryDeliverCurrentOrder called");
+        Debug.Log($"[CustomerOrderCoordinator] _currentOrder null={_currentOrder == null}");
+        Debug.Log($"[CustomerOrderCoordinator] OrderSystemController null={OrderSystemController.Instance == null}");
+
+        if (_currentOrder == null)
+        {
+            Debug.LogWarning("[CustomerOrderCoordinator] _currentOrder is null, cannot deliver");
+            return;
+        }
+
+        Debug.Log($"[CustomerOrderCoordinator] Order bouquets: " +
+                $"{string.Join(", ", _currentOrder.bouquetNames)}");
+        Debug.Log($"[CustomerOrderCoordinator] Order isDelivered={_currentOrder.isDelivered}, " +
+                $"isTimedOut={_currentOrder.isTimedOut}");
+
+        if (OrderSystemController.Instance != null)
+        {
+            Debug.Log("[CustomerOrderCoordinator] Calling TryDeliverOrder");
+            OrderSystemController.Instance.TryDeliverOrder(_currentOrder);
+        }
+        else
+        {
+            Debug.LogWarning("[CustomerOrderCoordinator] OrderSystemController.Instance is null!");
         }
     }
 

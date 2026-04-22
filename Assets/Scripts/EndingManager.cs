@@ -91,7 +91,7 @@ public class EndingManager : MonoBehaviour
         {
             // Destroy DayManager so it resets on next play
             Destroy(DayManager.Instance.gameObject);
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Menu");
         });
     }
 }
