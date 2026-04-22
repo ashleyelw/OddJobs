@@ -124,25 +124,27 @@ public class CustomerOrderCoordinator : InteractionZone
         return name;
     }
 
-protected override void Interact()
+    protected override void Interact()
     {
+        // If already ordered, treat interaction as delivery attempt instead
         if (_hasOrderedThisSession)
         {
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 本次已下过单，跳过。");
+            if (_currentOrder != null)
+            {
+                Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 尝试交付订单。");
+                TryDeliverCurrentOrder();
+            }
             return;
         }
 
         _hasOrderedThisSession = true;
-
         Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 开始下单流程");
 
         if (_spawner != null && _slotIndex >= 0)
             _spawner.OnCustomerOrdered(_slotIndex);
 
         if (string.IsNullOrEmpty(_instanceId))
-        {
             _instanceId = $"{_customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
-        }
 
         float orderTimeLimit = _isTutorialCustomer ? float.MaxValue :
             (OrderSystemController.Instance != null ? OrderSystemController.Instance.defaultOrderTimeLimit : 30f);
@@ -159,40 +161,34 @@ protected override void Interact()
             isTutorialOrder = _isTutorialCustomer
         };
 
-        // 随机选择鲜花和丝带（每个花束 = 1种鲜花 + 1种丝带）
         string[] allFlowers = GetAvailableFlowers();
         string[] allRibbons = GetAvailableRibbons();
-        
-        const int bouquetsPerOrder = 3; // 每个订单3个花束
-        string[] chosenBouquets = new string[bouquetsPerOrder];
-        
-        // 填充订单的花朵和丝带字段（用于显示，取第一个花束）
+
+        const int bouquetsPerOrder = 3;
         string[] firstFlowers = GetRandomItems(allFlowers, 1);
         string[] firstRibbons = GetRandomItems(allRibbons, 1);
-        
+
         order.flowerPrefabName0 = firstFlowers.Length > 0 ? firstFlowers[0] : "";
         order.flowerPrefabName1 = "";
         order.flowerPrefabName2 = "";
-        
         order.ribbonPrefabName0 = firstRibbons.Length > 0 ? firstRibbons[0] : "";
         order.ribbonPrefabName1 = "";
         order.ribbonPrefabName2 = "";
 
-        // 【花束模式】生成3个花束
-        System.Collections.Generic.List<string> bouquetList = new System.Collections.Generic.List<string>();
+        var bouquetList = new System.Collections.Generic.List<string>();
         string[] fixedRibbon = GetRandomItems(allRibbons, 1);
         for (int i = 0; i < bouquetsPerOrder; i++)
         {
             string[] randomFlowers = GetRandomItems(allFlowers, 1);
-            //随机丝带string[] randomRibbons = GetRandomItems(allRibbons, 1);
             string bouquet = GenerateBouquetName(randomFlowers[0], fixedRibbon[0]);
             bouquetList.Add(bouquet);
         }
-        
+
         order.bouquetNames = bouquetList.ToArray();
         order.useBouquetInventory = true;
 
-        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 生成花束订单（{bouquetsPerOrder}个）: {string.Join(", ", order.bouquetNames)}");
+        Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 生成花束订单（{bouquetsPerOrder}个）: " +
+                $"{string.Join(", ", order.bouquetNames)}");
 
         if (GameManager.Instance != null)
         {
@@ -200,14 +196,43 @@ protected override void Interact()
             GameManager.Instance.pendingOrders.Add(order);
             _currentOrder = order;
 
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单{( _isTutorialCustomer ? "(教程)" : "")}");
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单" +
+                    $"{(_isTutorialCustomer ? "(教程)" : "")}");
             OrderSystemController.Instance?.NotifyOrderAdded();
+        }
+    }
+
+    // ADD this new method
+    void TryDeliverCurrentOrder()
+    {
+        if (_currentOrder == null) return;
+
+        if (OrderSystemController.Instance != null)
+        {
+            // Reuse the existing delivery logic in OrderSystemController
+            OrderSystemController.Instance.TryDeliverOrder(_currentOrder);
+        }
+        else
+        {
+            Debug.LogWarning("[CustomerOrderCoordinator] OrderSystemController not found!");
         }
     }
 
     void Update()
     {
         base.Update();
+
+        // Update prompt text based on order state
+        if (interactionUI != null)
+        {
+            var promptText = interactionUI.GetComponentInChildren<TMPro.TMP_Text>();
+            if (promptText != null)
+            {
+                promptText.text = _hasOrderedThisSession
+                    ? "Press E to deliver bouquet"
+                    : "Press E to take order";
+            }
+        }
 
         if (isPlayerInside && _hasOrderedThisSession && _currentOrder != null)
         {

@@ -26,6 +26,7 @@ public class DayManager : MonoBehaviour
     public int todayCoinsEarned = 0;
     public int todayOrdersDelivered = 0;
     public int totalOrdersDelivered = 0;
+    private bool _dayStarted = false;
 
     public List<DaySummary> daySummaries = new List<DaySummary>();
 
@@ -65,14 +66,23 @@ public class DayManager : MonoBehaviour
     {
         if (scene.name == "FloristMain")
         {
-            if (GameTimeController.Instance != null)
+            // Only reset timer if this is a fresh day, not a mid-day scene return
+            if (!_dayStarted)
             {
-                GameTimeController.Instance.ResetDayTimer();
-                Debug.Log($"[DayManager] Day timer reset for day {currentDay}");
+                _dayStarted = true;
+                if (GameTimeController.Instance != null)
+                {
+                    GameTimeController.Instance.ResetDayTimer();
+                    Debug.Log($"[DayManager] Day {currentDay} timer started.");
+                }
+                else
+                {
+                    StartCoroutine(ResetTimerNextFrame());
+                }
             }
             else
             {
-                StartCoroutine(ResetTimerNextFrame());
+                Debug.Log($"[DayManager] Returned to FloristMain mid-day, timer continues.");
             }
         }
     }
@@ -85,6 +95,7 @@ public class DayManager : MonoBehaviour
             GameTimeController.Instance.ResetDayTimer();
             Debug.Log($"[DayManager] Day timer reset (delayed) for day {currentDay}");
         }
+        _dayStarted = true;
     }
 
     public void OnOrderDelivered(int coinsEarned)
@@ -100,17 +111,21 @@ public class DayManager : MonoBehaviour
     public void TriggerEndOfDay()
     {
         Debug.Log($"[DayManager] Day {currentDay} ended. " +
-                  $"Coins: {todayCoinsEarned}, Orders: {todayOrdersDelivered}");
+                $"Coins: {todayCoinsEarned}, Orders: {todayOrdersDelivered}");
 
         daySummaries.Add(new DaySummary
         {
             day = currentDay,
             coinsEarned = todayCoinsEarned,
             ordersDelivered = todayOrdersDelivered,
-            metDailyMinimum = todayCoinsEarned >= minDailyCoins
+            metDailyMinimum = todayCoinsEarned >= MinDailyCoins
         });
 
-        SceneManager.LoadScene("EndOfDay");
+        // Show splash before transitioning
+        if (EndOfDaySplash.Instance != null)
+            EndOfDaySplash.Instance.Show(currentDay, todayCoinsEarned);
+        else
+            SceneManager.LoadScene("EndOfDay"); // Fallback if splash not found
     }
 
     public void StartNextDay()
@@ -118,6 +133,7 @@ public class DayManager : MonoBehaviour
         currentDay++;
         todayCoinsEarned = 0;
         todayOrdersDelivered = 0;
+        _dayStarted = false; // ADD THIS so next day's timer resets properly
         Debug.Log($"[DayManager] Starting day {currentDay}");
         SceneManager.LoadScene("FloristMain");
     }
