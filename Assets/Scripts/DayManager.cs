@@ -145,6 +145,14 @@ public class DayManager : MonoBehaviour
 
     public EndingType GetEnding()
     {
+        // If any day failed the minimum, always bad ending
+        foreach (var summary in daySummaries)
+        {
+            if (!summary.metDailyMinimum)
+                return EndingType.Bad;
+        }
+
+        // All minimums met — check total for good vs neutral
         if (totalCoinsEarned >= totalHighCoins)
             return EndingType.Good;
         else if (totalCoinsEarned >= minDailyCoins * TotalDays)

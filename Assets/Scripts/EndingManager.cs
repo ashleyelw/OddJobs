@@ -35,14 +35,12 @@ public class EndingManager : MonoBehaviour
         var dm = DayManager.Instance;
         var ending = dm.GetEnding();
 
-        // Final stats
         if (finalCoinsText != null)
             finalCoinsText.text = $"Total Coins Earned: {dm.totalCoinsEarned}";
 
         if (finalOrdersText != null)
             finalOrdersText.text = $"Total Orders Delivered: {dm.totalOrdersDelivered}";
 
-        // Ending specific content
         switch (ending)
         {
             case DayManager.EndingType.Good:
@@ -87,11 +85,78 @@ public class EndingManager : MonoBehaviour
     {
         if (restartButton == null) return;
         restartButton.onClick.RemoveAllListeners();
-        restartButton.onClick.AddListener(() =>
+        restartButton.onClick.AddListener(OnRestartClicked);
+    }
+
+    void OnRestartClicked()
+    {
+        Debug.Log("[EndingManager] Restarting game — destroying all persistent managers.");
+        DestroyAllPersistentManagers();
+        SceneManager.LoadScene("Menu");
+    }
+
+    void DestroyAllPersistentManagers()
+    {
+        // Destroy all DontDestroyOnLoad managers so they
+        // get recreated fresh when the game restarts
+
+        if (CustomerSpawner.Instance != null)
         {
-            // Destroy DayManager so it resets on next play
+            // Force all customer slots empty before destroying
+            for (int i = 0; i < 4; i++)
+                CustomerSpawner.Instance.OnCustomerLeft(i);
+            Destroy(CustomerSpawner.Instance.gameObject);
+        }
+
+        if (GameManager.Instance != null)
+        {
+            // Clear all inventory and orders
+            GameManager.Instance.pendingOrders.Clear();
+            GameManager.Instance.bouquetInventory.Clear();
+            GameManager.Instance.trimmedFlowers.Clear();
+            GameManager.Instance.untrimmedFlowers.Clear();
+            GameManager.Instance.flowerInventory.Clear();
+            GameManager.Instance.collectedFlowers.Clear();
+            GameManager.Instance.coins = 0;
+            Destroy(GameManager.Instance.gameObject);
+        }
+
+        if (OrderSystemController.Instance != null)
+            Destroy(OrderSystemController.Instance.gameObject);
+
+        if (GameTimeController.Instance != null)
+            Destroy(GameTimeController.Instance.gameObject);
+
+        if (CustomerSpawner.Instance != null)
+            Destroy(CustomerSpawner.Instance.gameObject);
+
+        if (FlowerTransferManager.Instance != null)
+        {
+            FlowerTransferManager.Instance.selectedFlowerPrefabs.Clear();
+            FlowerTransferManager.Instance.selectedFlowerStemPrefabs.Clear();
+            FlowerTransferManager.Instance.confirmedFlowerNames.Clear();
+            Destroy(FlowerTransferManager.Instance.gameObject);
+        }
+
+        if (RibbonManager.Instance != null)
+            Destroy(RibbonManager.Instance.gameObject);
+
+        if (EndOfDaySplash.Instance != null)
+            Destroy(EndOfDaySplash.Instance.gameObject);
+
+        if (DayManager.Instance != null)
             Destroy(DayManager.Instance.gameObject);
-            SceneManager.LoadScene("Menu");
-        });
+
+        // Destroy InventoryDebugDisplay if present
+        var debugDisplay = FindObjectOfType<InventoryDebugDisplay>();
+        if (debugDisplay != null)
+            Destroy(debugDisplay.gameObject);
+
+        // Destroy GameHUD if present
+        var hud = FindObjectOfType<GameHUD>();
+        if (hud != null)
+            Destroy(hud.gameObject);
+
+        Debug.Log("[EndingManager] All persistent managers destroyed.");
     }
 }

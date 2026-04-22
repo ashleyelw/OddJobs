@@ -90,7 +90,34 @@ public class EndOfDayUI : MonoBehaviour
 
         var dm = DayManager.Instance;
         bool isLastDay = dm.currentDay >= DayManager.TotalDays;
+        var latestSummary = dm.daySummaries[dm.daySummaries.Count - 1];
+        bool metDailyMinimum = latestSummary.metDailyMinimum;
 
+        // Failed the daily minimum — bad ending regardless of day
+        if (!metDailyMinimum)
+        {
+            if (continueButtonText != null)
+                continueButtonText.text = "See Ending...";
+
+            // Update minimum status text to make it clear why
+            if (minimumStatusText != null)
+            {
+                minimumStatusText.text = "Daily minimum not met — ending the run!";
+                minimumStatusText.color = badColor;
+            }
+
+            continueButton.onClick.RemoveAllListeners();
+            continueButton.onClick.AddListener(() =>
+            {
+                Debug.Log($"[EndOfDayUI] Daily minimum not met on day {dm.currentDay}," +
+                        $" triggering bad ending.");
+                dm.TriggerEnding();
+            });
+
+            return;
+        }
+
+        // Met minimum — continue to next day or final ending
         if (continueButtonText != null)
             continueButtonText.text = isLastDay ? "See Ending" : $"Start Day {dm.currentDay + 1}";
 
