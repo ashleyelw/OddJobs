@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7414990277904191207}
   - component: {fileID: -4612894055657928303}
   - component: {fileID: 9082939832495312140}
+  - component: {fileID: 7258806028272479166}
   m_Layer: 0
   m_Name: Hydrangea2
   m_TagString: Flower
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlowerData
   prefabReference: {fileID: 2810266385544225313}
+  trimState: 0
 --- !u!114 &9082939832495312140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,3 +167,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293e033459745214f934e69b4d549b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableFlower
+--- !u!50 &7258806028272479166
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810266385544225313}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
