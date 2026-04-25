@@ -16,7 +16,7 @@ public class RibbonManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // ADD THIS
         }
         else
         {
@@ -26,13 +26,24 @@ public class RibbonManager : MonoBehaviour
 
     public void SelectRibbon(GameObject ribbonPrefab)
     {
+        Debug.Log($"[RibbonManager] SelectRibbon called, ribbonPrefab={ribbonPrefab?.name ?? "NULL"}");
+        Debug.Log($"[RibbonManager] Instance ID={GetInstanceID()}");
+        
         selectedRibbonPrefab = ribbonPrefab;
-        Debug.Log($"[RibbonManager] 选择了丝带: {ribbonPrefab?.name}");
+
+        if (ribbonPrefab != null)
+        {
+            ribbonInventory.Clear();
+            string ribbonName = NormalizeKey(ribbonPrefab.name);
+            AddRibbonToInventory(ribbonName, 1);
+            Debug.Log($"[RibbonManager] Ribbon inventory updated to: {ribbonName}");
+        }
     }
 
     public void ClearSelection()
     {
         selectedRibbonPrefab = null;
+        ribbonInventory.Clear();
     }
 
     // ============================================

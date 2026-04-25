@@ -27,13 +27,17 @@ public class GameTimeController : MonoBehaviour
     DateTime _currentTime;
     int _lastNotifiedTotalMinutes;
     float _timer;
+    // ADD this field at the top with other fields
+    float _dayTimer = 0f;
+    bool _dayEnded = false;
+    bool _dayTimerActive = false;
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // ADD THIS
         }
         else
         {
@@ -55,7 +59,20 @@ public class GameTimeController : MonoBehaviour
 
     void Update()
     {
+        if (!_dayTimerActive) return;
+        if (_dayEnded) return;
+
+        _dayTimer += Time.deltaTime;
         _timer += Time.deltaTime;
+
+        if (_dayTimer >= DayManager.DayDurationSeconds)
+        {
+            _dayEnded = true;
+            _dayTimerActive = false;
+            Debug.Log($"[GameTimeController] Day timer reached {DayManager.DayDurationSeconds}s.");
+            DayManager.Instance?.TriggerEndOfDay();
+            return;
+        }
 
         if (_timer >= 1f)
         {
@@ -72,8 +89,18 @@ public class GameTimeController : MonoBehaviour
         }
     }
 
+    public void ResetDayTimer()
+    {
+        _dayTimer = 0f;
+        _dayEnded = false;
+        _dayTimerActive = true;
+        Debug.Log("[GameTimeController] Day timer started.");
+    }
     int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 
+    // ADD this public property so other scripts can read the timer
+    public float DayTimer => _dayTimer;
+    public bool DayTimerActive => _dayTimerActive;
     public int GetTotalMinutes() => TotalMinutes(_currentTime);
 
     void RefreshUI()

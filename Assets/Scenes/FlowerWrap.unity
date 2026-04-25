@@ -1577,6 +1577,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339567842}
   m_CullTransparentMesh: 1
+--- !u!1 &398250947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398250948}
+  - component: {fileID: 398250950}
+  - component: {fileID: 398250949}
+  m_Layer: 0
+  m_Name: FlowerSlot3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398250948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398250947}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.049, y: 0.17909998, z: 0}
+  m_LocalScale: {x: 0.021836, y: 0.021836, z: 0.021836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942627931}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398250949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398250947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4160ec3868236498bbef988e092581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerSlot
+  isOccupied: 0
+--- !u!58 &398250950
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398250947}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &411885344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 419245453}
   - component: {fileID: 419245454}
+  - component: {fileID: 419245455}
   m_Layer: 0
   m_Name: RibbonSpawner
   m_TagString: Untagged
@@ -1769,6 +1852,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RibbonSpawner
   bouquetPoint: {fileID: 1870373108}
+  ribbonEntries:
+  - ribbonPrefab: {fileID: 1303711433276962041, guid: f3ecbd1f62ed33d49b5cdd649a47af23, type: 3}
+    buttonName: SpotRibbon
+  - ribbonPrefab: {fileID: 7918080303275346785, guid: 7b0cab9670fde804ba38a6d01a8f462e, type: 3}
+    buttonName: RedRibbon
+  - ribbonPrefab: {fileID: 265489387557948235, guid: 46cd9b07fc25ab34abaef42f0d9208df, type: 3}
+    buttonName: GreenRibbon
+  - ribbonPrefab: {fileID: 6919715670889461173, guid: 8aa9c9ad92408144c824fb9e998d6d4c, type: 3}
+    buttonName: PinkRibbon
+--- !u!114 &419245455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419245452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05948d2de4284494d93eb05e362cf853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RibbonManager
+  selectedRibbonPrefab: {fileID: 0}
+  ribbonInventory:
+    keys: []
+    values: 
 --- !u!1 &510602807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,6 +4422,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1870373108}
+  - {fileID: 1451539122}
+  - {fileID: 1733378306}
+  - {fileID: 398250948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963917679
@@ -5032,7 +5143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 242.9076, y: 0}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 62.3328, y: 60.442688}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1169276488
@@ -5078,19 +5189,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1169276489}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 419245454}
-        m_TargetAssemblyTypeName: RibbonSpawner, Assembly-CSharp
-        m_MethodName: SpawnRibbon
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7918080303275346785, guid: 7b0cab9670fde804ba38a6d01a8f462e, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1169276489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,7 +5338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -54.49756, y: 0}
+  m_AnchoredPosition: {x: -65, y: 0}
   m_SizeDelta: {x: 67.5993, y: 59.962402}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1264386257
@@ -5285,19 +5384,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1264386258}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 419245454}
-        m_TargetAssemblyTypeName: RibbonSpawner, Assembly-CSharp
-        m_MethodName: SpawnRibbon
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1303711433276962041, guid: f3ecbd1f62ed33d49b5cdd649a47af23, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1264386258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5565,6 +5652,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392749777}
   m_CullTransparentMesh: 1
+--- !u!1 &1451539121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451539122}
+  - component: {fileID: 1451539124}
+  - component: {fileID: 1451539123}
+  m_Layer: 0
+  m_Name: FlowerSlot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451539122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451539121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.053, y: 0.1786, z: 0}
+  m_LocalScale: {x: -0.025304, y: -0.025304, z: -0.025304}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942627931}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451539123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451539121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4160ec3868236498bbef988e092581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerSlot
+  isOccupied: 0
+--- !u!58 &1451539124
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451539121}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1478285935
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +6139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlowerTransferManager
   selectedFlowerPrefabs: []
   selectedFlowerStemPrefabs: []
+  confirmedFlowerNames: []
 --- !u!4 &1559789906
 Transform:
   m_ObjectHideFlags: 0
@@ -6641,6 +6811,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661384067}
   m_CullTransparentMesh: 1
+--- !u!1 &1733378305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733378306}
+  - component: {fileID: 1733378308}
+  - component: {fileID: 1733378307}
+  m_Layer: 0
+  m_Name: FlowerSlot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733378306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733378305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.005, y: 0.17859998, z: 0}
+  m_LocalScale: {x: 0.021834, y: 0.021834, z: 0.021834}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942627931}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733378307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733378305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4160ec3868236498bbef988e092581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerSlot
+  isOccupied: 0
+--- !u!58 &1733378308
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733378305}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1737747619
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,7 +7389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -190.41452, y: 0}
+  m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 114.3577, y: 92.741}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1851714988
@@ -7183,19 +7435,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1851714989}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 419245454}
-        m_TargetAssemblyTypeName: RibbonSpawner, Assembly-CSharp
-        m_MethodName: SpawnRibbon
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 6919715670889461173, guid: 8aa9c9ad92408144c824fb9e998d6d4c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1851714989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7685,7 +7925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 96, y: 0}
+  m_AnchoredPosition: {x: 65, y: 0}
   m_SizeDelta: {x: 64.8099, y: 56.793213}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2029040151
@@ -7731,19 +7971,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2029040152}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 419245454}
-        m_TargetAssemblyTypeName: RibbonSpawner, Assembly-CSharp
-        m_MethodName: SpawnRibbon
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 265489387557948235, guid: 46cd9b07fc25ab34abaef42f0d9208df, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2029040152
 MonoBehaviour:
   m_ObjectHideFlags: 0

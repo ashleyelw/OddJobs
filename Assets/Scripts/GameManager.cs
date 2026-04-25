@@ -812,16 +812,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         
     }
-    // Call this once at game start to stock ribbons
-    void InitializeRibbonInventory()
-    {
-        if (RibbonManager.Instance == null) return;
-        
-        // Add these names to match your RibbonSpriteRegistry prefab names
-        RibbonManager.Instance.AddRibbonToInventory("RibbonRed", 99);
-        RibbonManager.Instance.AddRibbonToInventory("RibbonBlue", 99);
-        RibbonManager.Instance.AddRibbonToInventory("RibbonYellow", 99);
-    }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -1039,6 +1029,7 @@ public class GameManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
+        DayManager.Instance?.OnOrderDelivered(amount);
         Debug.Log($"[GameManager] 金币 +{amount}，当前: {coins}");
     }
 
