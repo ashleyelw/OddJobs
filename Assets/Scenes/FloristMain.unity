@@ -267,7 +267,7 @@ MonoBehaviour:
   tipText: {fileID: 819025204}
   tipDuration: 2.5
   coinDisplayText: {fileID: 1241973882}
-  defaultOrderTimeLimit: 40
+  defaultOrderTimeLimit: 30
   dialogueUIPrefab: {fileID: 7657374049228394653, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
   dialogueUIRoot: {fileID: 11277529}
 --- !u!1 &23334979

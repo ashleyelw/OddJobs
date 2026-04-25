@@ -163,7 +163,8 @@ protected override void Interact()
         string[] allFlowers = GetAvailableFlowers();
         string[] allRibbons = GetAvailableRibbons();
         
-        const int bouquetsPerOrder = 3; // 每个订单3个花束
+        // 随机生成1-3个花束
+        int bouquetsPerOrder = Random.Range(1, 4);
         string[] chosenBouquets = new string[bouquetsPerOrder];
         
         // 填充订单的花朵和丝带字段（用于显示，取第一个花束）

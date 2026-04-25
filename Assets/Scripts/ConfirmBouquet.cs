@@ -14,19 +14,33 @@ public class ConfirmBouquet : MonoBehaviour
 
         // Gather ribbon name
         string ribbonRaw = null;
+        if (RibbonManager.Instance == null)
+        {
+            Debug.Log("RibbonManager.Instance=null");
+        }
+        if (RibbonManager.Instance.selectedRibbonPrefab == null)
+        {
+            Debug.Log("RibbonManager.Instance.selectedRibbonPrefab=null");
+        }
         if (RibbonManager.Instance != null && RibbonManager.Instance.selectedRibbonPrefab != null)
+        {
+            Debug.Log("添加丝带");
             ribbonRaw = GameManager.NormalizeKey(RibbonManager.Instance.selectedRibbonPrefab.name);
-
+        }
+    
+        Debug.Log("丝带名字"+ribbonRaw);
         // Gather flower names from trimmed prefabs
         var flowerNames = new System.Collections.Generic.List<string>();
         if (FlowerTransferManager.Instance != null)
         {
+            Debug.Log("flower manager!=null");
             var source = FlowerTransferManager.Instance.selectedFlowerPrefabs;
             foreach (var prefab in source)
-            {
+            {Debug.Log("遍历花束prefab名字"+prefab.name);
                 if (prefab == null) continue;
                 string name = GameManager.Instance.NormalizeFlowerName(
                                 GameManager.NormalizeKey(prefab.name));
+                Debug.Log("添加花束名字为"+name);
                 flowerNames.Add(name);
             }
         }
@@ -40,7 +54,7 @@ public class ConfirmBouquet : MonoBehaviour
 
         // AssembleBouquet handles name generation AND consumes trimmed inventory
         string bouquetName = GameManager.Instance.AssembleBouquet(flowerNames, ribbonRaw);
-
+        Debug.Log(bouquetName);
         if (bouquetName == null)
         {
             Debug.LogWarning("[ConfirmBouquet] AssembleBouquet failed — check trimmed flower inventory.");
@@ -51,6 +65,7 @@ public class ConfirmBouquet : MonoBehaviour
                 ? flowerNames[0]
                 : $"{flowerNames[0]}_{normalizedRibbon}";
             GameManager.Instance.AddBouquet(bouquetName, flowerNames, normalizedRibbon);
+            Debug.Log("花的信息"+flowerNames+""+normalizedRibbon);
             Debug.LogWarning($"[ConfirmBouquet] Fallback: force-added bouquet {bouquetName}");
         }
 
