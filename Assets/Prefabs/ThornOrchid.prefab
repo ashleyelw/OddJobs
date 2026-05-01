@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3746862813856224800}
   m_Layer: 0
   m_Name: RightThorn (2)
-  m_TagString: Untagged
+  m_TagString: Thorn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 5702577075180899132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.379667, y: -0.41387117, z: 0}
+  m_LocalPosition: {x: -19.85507, y: -1.5971498, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 9093361885495466207}
   m_Layer: 0
   m_Name: LeftThorn (2)
-  m_TagString: Untagged
+  m_TagString: Thorn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
