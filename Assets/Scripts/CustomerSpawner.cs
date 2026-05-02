@@ -45,6 +45,24 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] int spawnIntervalMinutes = 3;
     [Range(1, 3)]
     [SerializeField] int flowersPerOrder = 2;
+    [Tooltip("启用后每次生成1到多个随机数量的客户；关闭后每次只生成1个客户")]
+    [SerializeField] bool enableMultiCustomerSpawn = true;
+    [Range(1, 4)]
+    [Tooltip("每次生成客户的数量范围（最小值）")]
+    [SerializeField] int spawnCountMin = 1;
+    [Range(1, 4)]
+    [Tooltip("每次生成客户的数量范围（最大值），最大为4")]
+    [SerializeField] int spawnCountMax = 3;
+
+    [Header("生成加速")]
+    [Tooltip("启用后生成间隔随游戏时间不断缩短")]
+    [SerializeField] bool enableSpawnAcceleration = false;
+    [Tooltip("每经过1分钟游戏时间，生成间隔缩短的百分比（0.05 = 每分钟缩短5%%）。值越大加速越快")]
+    [Range(0.01f, 0.5f)]
+    [SerializeField] float spawnAccelerationRate = 0.05f;
+    [Tooltip("生成间隔的最短时间下限（秒），防止间隔无限缩短")]
+    [SerializeField] float minSpawnIntervalSeconds = 15f;
+    float _accumulatedGameMinutes = 0f;
 
     [Header("鲜花和丝带来源（从Registry自动获取）")]
     [SerializeField] private FlowerSpriteRegistry flowerRegistry;
@@ -84,7 +102,6 @@ public class CustomerSpawner : MonoBehaviour
 
     [SerializeField] int _currentCustomerNumber = 1;
 
-    float _accumulatedGameMinutes = 0f;
     float _lastSpawnAccumulatedMinutes = 0f;
     string[] _cachedSpawnPointNames = new string[4];
 
@@ -293,30 +310,68 @@ public class CustomerSpawner : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name != "FloristMain") return;
 
+        _accumulatedGameMinutes++;
+
         float gameMinutes = GameTimeController.Instance.GetTotalMinutes();
         float minutesSinceLastSpawn = gameMinutes - _lastSpawnAccumulatedMinutes;
 
-        if (minutesSinceLastSpawn >= spawnIntervalMinutes)
+        float currentIntervalMinutes = GetCurrentSpawnInterval() / 60f;
+
+        if (minutesSinceLastSpawn >= currentIntervalMinutes)
         {
             _lastSpawnAccumulatedMinutes = gameMinutes;
-            TrySpawnNextCustomer();
+            SpawnMultipleCustomers();
         }
     }
 
-    void TrySpawnNextCustomer()
+    float GetCurrentSpawnInterval()
+    {
+        if (!enableSpawnAcceleration)
+            return spawnIntervalMinutes * 60f;
+
+        float baseMinutes = spawnIntervalMinutes;
+        float accelerated = baseMinutes * (1f - spawnAccelerationRate * _accumulatedGameMinutes);
+        return Mathf.Max(minSpawnIntervalSeconds, accelerated * 60f);
+    }
+
+    void SpawnMultipleCustomers()
     {
         ClearInvalidCustomerRefs();
 
+        int emptySlots = 0;
         for (int i = 0; i < 4; i++)
+        {
+            if (_slotData[i].prefabIndex < 0)
+                emptySlots++;
+        }
+
+        if (emptySlots == 0)
+        {
+            Debug.Log("[CustomerSpawner] 所有槽位都满了，不生成新客户");
+            return;
+        }
+
+        int toSpawn;
+        if (enableMultiCustomerSpawn)
+        {
+            toSpawn = UnityEngine.Random.Range(spawnCountMin, Mathf.Min(spawnCountMax, emptySlots) + 1);
+        }
+        else
+        {
+            toSpawn = 1;
+        }
+
+        Debug.Log($"[CustomerSpawner] 此次生成 {toSpawn} 个客户（空槽位: {emptySlots}）");
+
+        int spawned = 0;
+        for (int i = 0; i < 4 && spawned < toSpawn; i++)
         {
             if (_slotData[i].prefabIndex < 0)
             {
                 TrySpawnInSlot(i);
-                return;
+                spawned++;
             }
         }
-
-        Debug.Log("[CustomerSpawner] 所有槽位都满了，不生成新客户");
     }
 
     public void TrySpawnInSlot(int slotIndex)
@@ -384,6 +439,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (!_isTutorialMode) return;
         _isTutorialMode = false;
+        _accumulatedGameMinutes = 0f;
         Debug.Log("[CustomerSpawner] 教程完成，启用正常客户生成");
     }
 
@@ -402,6 +458,7 @@ public class CustomerSpawner : MonoBehaviour
         if (_isTutorialMode && slotIndex == 0)
         {
             _tutorialCompleted = true;
+            _accumulatedGameMinutes = 0f;
             Debug.Log("[CustomerSpawner] 教程客户已完成，恢复正常生成逻辑");
         }
 
@@ -430,7 +487,7 @@ public class CustomerSpawner : MonoBehaviour
 
     public void ForceSpawnAll()
     {
-        TrySpawnNextCustomer();
+        SpawnMultipleCustomers();
     }
 
     public SlotCustomerData GetSlotData(int slotIndex)

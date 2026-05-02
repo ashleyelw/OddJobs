@@ -10,6 +10,8 @@ public class CustomerOrderCoordinator : InteractionZone
     [Header("订单配置")]
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
+    [Tooltip("启用后每次订单随机生成1-6束花束；关闭后使用固定的 flowersPerOrder 数量")]
+    [SerializeField] private bool enableRandomBouquetCount = true;
 
     [Header("教程模式")]
     [SerializeField] private bool isTutorialCustomer = false;
@@ -191,9 +193,16 @@ public class CustomerOrderCoordinator : InteractionZone
 
         string[] allFlowers = GetAvailableFlowers();
         string[] allRibbons = GetAvailableRibbons();
-        
-        // 随机生成1-3个花束
-        int bouquetsPerOrder = Random.Range(1, 4);
+
+        int bouquetsPerOrder;
+        if (enableRandomBouquetCount)
+        {
+            bouquetsPerOrder = Random.Range(1, 7);
+        }
+        else
+        {
+            bouquetsPerOrder = flowersPerOrder;
+        }
         string[] chosenBouquets = new string[bouquetsPerOrder];
         
         // 填充订单的花朵和丝带字段（用于显示，取第一个花束）

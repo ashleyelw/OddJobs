@@ -452,6 +452,7 @@ MonoBehaviour:
       m_Calls: []
   useBouquetMode: 0
   flowersPerOrder: 2
+  enableRandomBouquetCount: 1
   isTutorialCustomer: 0
   singleOrderUIPrefab: {fileID: 6844313506661459935, guid: 902c8626d939d9b499d85028854560dc, type: 3}
 --- !u!114 &7615547553188217919

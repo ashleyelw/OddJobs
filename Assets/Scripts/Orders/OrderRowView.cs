@@ -6,16 +6,24 @@ using UnityEngine.Events;
 
 public class OrderRowView : MonoBehaviour
 {
+    public const int MaxSlots = 6;
+
     [Header("UI 引用")]
     [SerializeField] Text customerLabel;
     [SerializeField] Image flowerSlot0;
     [SerializeField] Image flowerSlot1;
     [SerializeField] Image flowerSlot2;
+    [SerializeField] Image flowerSlot3;
+    [SerializeField] Image flowerSlot4;
+    [SerializeField] Image flowerSlot5;
 
     [Header("丝带 UI")]
     [SerializeField] Image ribbonSlot0;
     [SerializeField] Image ribbonSlot1;
     [SerializeField] Image ribbonSlot2;
+    [SerializeField] Image ribbonSlot3;
+    [SerializeField] Image ribbonSlot4;
+    [SerializeField] Image ribbonSlot5;
 
     [Header("空槽")]
     [SerializeField] Sprite emptySlotSprite;
@@ -35,13 +43,23 @@ public class OrderRowView : MonoBehaviour
     [Header("对话交付标记")]
     [SerializeField] Image dialogueIndicator;
 
+    [Header("花束数量显示")]
+    [SerializeField] Text bouquetCountText;
+
     private CustomerOrder _boundOrder;
     private System.Action<CustomerOrder> _onDeliverRequested;
     private System.Action<CustomerOrder> _onCloseRequested;
     private bool _isClosed = false;
 
-    Image[] FlowerSlots => new[] { flowerSlot0, flowerSlot1, flowerSlot2 };
-    Image[] RibbonSlots => new[] { ribbonSlot0, ribbonSlot1, ribbonSlot2 };
+    Image[] FlowerSlots => new[] {
+        flowerSlot0, flowerSlot1, flowerSlot2,
+        flowerSlot3, flowerSlot4, flowerSlot5
+    };
+
+    Image[] RibbonSlots => new[] {
+        ribbonSlot0, ribbonSlot1, ribbonSlot2,
+        ribbonSlot3, ribbonSlot4, ribbonSlot5
+    };
 
     void Awake()
     {
@@ -57,10 +75,10 @@ public class OrderRowView : MonoBehaviour
 
         var flowerSlots = FlowerSlots;
         var flowerNames = flowerPrefabNames ?? Array.Empty<string>();
-        
+
         Debug.Log($"[OrderRowView] Bind: flowerNames=[{string.Join(", ", flowerNames)}], flowerRegistry={flowerRegistry != null}");
 
-        for (int i = 0; i < flowerSlots.Length; i++)
+        for (int i = 0; i < MaxSlots; i++)
         {
             var img = flowerSlots[i];
             if (img == null)
@@ -77,18 +95,15 @@ public class OrderRowView : MonoBehaviour
             bool gotSprite = false;
             Sprite sp = null;
 
-          
             if (flowerRegistry != null && flowerRegistry.TryGetSprite(name + 2, out sp))
             {
                 gotSprite = true;
             }
-           
             else if (flowerRegistry != null && flowerRegistry.TryGetSprite(name, out sp))
             {
                 gotSprite = true;
             }
 
-          
             if (gotSprite)
             {
                 img.sprite = sp;
@@ -105,7 +120,7 @@ public class OrderRowView : MonoBehaviour
         var ribbonSlots = RibbonSlots;
         var ribbonNames = ribbonPrefabNames ?? Array.Empty<string>();
 
-        for (int i = 0; i < ribbonSlots.Length; i++)
+        for (int i = 0; i < MaxSlots; i++)
         {
             var img = ribbonSlots[i];
             if (img == null)
@@ -126,7 +141,6 @@ public class OrderRowView : MonoBehaviour
             }
             else
             {
-                //Debug.LogWarning($"[OrderRowView] 未找到丝带的 Sprite：「{name}」");
                 img.sprite = emptySlotSprite;
                 img.enabled = emptySlotSprite != null;
             }
@@ -150,6 +164,13 @@ public class OrderRowView : MonoBehaviour
 
         if (dialogueIndicator != null)
             dialogueIndicator.gameObject.SetActive(order.RequiresDialogueDelivery());
+
+        if (bouquetCountText != null && order != null)
+        {
+            int count = order.GetBouquetCount();
+            bouquetCountText.text = $"x{count}";
+            bouquetCountText.gameObject.SetActive(count > 0);
+        }
 
         UpdateTimeDisplay(order);
     }
