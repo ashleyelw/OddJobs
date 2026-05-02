@@ -260,7 +260,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (spawnPoints[slotIndex] == null)
         {
-            Debug.LogWarning($"[CustomerSpawner] 槽位 {slotIndex} 没有指定生成点，跳过恢复。");
+           // Debug.LogWarning($"[CustomerSpawner] 槽位 {slotIndex} 没有指定生成点，跳过恢复。");
             return;
         }
 
