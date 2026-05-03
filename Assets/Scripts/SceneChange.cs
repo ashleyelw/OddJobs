@@ -28,8 +28,8 @@ public class SceneChange : MonoBehaviour
       SceneManager.LoadScene("FlowerWater");
    }
 
-   public void GoToFlowerPicki()
+   public void GoToThornPicki()
    {
-      SceneManager.LoadScene("FlowerPicki");
+      SceneManager.LoadScene("ThornPicki");
    }
 }

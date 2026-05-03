@@ -6,8 +6,8 @@ TagManager:
   tags:
   - UI
   - Flower
-  - FlowerStem
   - Thorn
+  - Stem
   layers:
   - Default
   - TransparentFX

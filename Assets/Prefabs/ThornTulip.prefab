@@ -152,8 +152,8 @@ GameObject:
   - component: {fileID: 4959454217250495420}
   - component: {fileID: 1674975533239812131}
   m_Layer: 0
-  m_Name: ThornTulip Variant
-  m_TagString: Flower
+  m_Name: ThornTulip
+  m_TagString: Stem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 6472372442950921345}
   m_Layer: 0
   m_Name: Stem(Clone)
-  m_TagString: Flower
+  m_TagString: Stem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
