@@ -3645,6 +3645,12 @@ MonoBehaviour:
   - 
   spawnIntervalMinutes: 20
   flowersPerOrder: 3
+  enableMultiCustomerSpawn: 1
+  spawnCountMin: 1
+  spawnCountMax: 3
+  enableSpawnAcceleration: 0
+  spawnAccelerationRate: 0.05
+  minSpawnIntervalSeconds: 15
   flowerRegistry: {fileID: 778302977}
   ribbonRegistry: {fileID: 778302980}
   startWithTutorial: 1
@@ -4473,7 +4479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToFlowerGarden
+      value: GoToFlowerWater
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9189,6 +9195,7 @@ MonoBehaviour:
       m_Calls: []
   useBouquetMode: 0
   flowersPerOrder: 2
+  enableRandomBouquetCount: 1
   isTutorialCustomer: 0
   singleOrderUIPrefab: {fileID: 0}
 --- !u!4 &127652618582421416
@@ -9533,6 +9540,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1732249766}
+  - {fileID: 1551610031}
+  - {fileID: 11277529}
   - {fileID: 1146526907}
   - {fileID: 1227861051}
   - {fileID: 1707035853}
@@ -9543,8 +9552,6 @@ SceneRoots:
   - {fileID: 778302978}
   - {fileID: 1488010930}
   - {fileID: 1036746431}
-  - {fileID: 1551610031}
-  - {fileID: 11277529}
   - {fileID: 1575009391}
   - {fileID: 1521050392}
   - {fileID: 879982251}

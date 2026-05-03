@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToFlowerGarden
+      value: GoToFlowerWater
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
