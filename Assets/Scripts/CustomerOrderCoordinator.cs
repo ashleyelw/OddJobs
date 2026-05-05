@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class CustomerOrderCoordinator : InteractionZone
@@ -12,6 +13,16 @@ public class CustomerOrderCoordinator : InteractionZone
     [SerializeField] private int flowersPerOrder = 2;
     [Tooltip("启用后每次订单随机生成1-6束花束；关闭后使用固定的 flowersPerOrder 数量")]
     [SerializeField] private bool enableRandomBouquetCount = true;
+
+    [Header("【Level2专属】花束数量范围")]
+    [Tooltip("仅在 Level2 场景生效。启用后每次订单随机生成4-6束花束；否则使用通用的1-6范围")]
+    [SerializeField] private bool useLevel2BouquetRange = true;
+    [Tooltip("Level2 花束数量范围（最小值），默认4")]
+    [Range(4, 6)]
+    [SerializeField] private int bouquetCountMinLevel2 = 4;
+    [Tooltip("Level2 花束数量范围（最大值），默认6")]
+    [Range(4, 6)]
+    [SerializeField] private int bouquetCountMaxLevel2 = 6;
 
     [Header("教程模式")]
     [SerializeField] private bool isTutorialCustomer = false;
@@ -195,9 +206,19 @@ public class CustomerOrderCoordinator : InteractionZone
         string[] allRibbons = GetAvailableRibbons();
 
         int bouquetsPerOrder;
+        bool isLevel2 = SceneManager.GetActiveScene().name == "Level2";
         if (enableRandomBouquetCount)
         {
-            bouquetsPerOrder = Random.Range(1, 7);
+            if (isLevel2 && useLevel2BouquetRange)
+            {
+                bouquetsPerOrder = Random.Range(bouquetCountMinLevel2, bouquetCountMaxLevel2 + 1);
+                Debug.Log($"[CustomerOrderCoordinator] 场景={SceneManager.GetActiveScene().name}，Level2花束范围: {bouquetCountMinLevel2}-{bouquetCountMaxLevel2}，实际生成: {bouquetsPerOrder}");
+            }
+            else
+            {
+                bouquetsPerOrder = Random.Range(1, 7);
+                Debug.Log($"[CustomerOrderCoordinator] 场景={SceneManager.GetActiveScene().name}，通用花束范围: 1-6，实际生成: {bouquetsPerOrder}");
+            }
         }
         else
         {
@@ -231,15 +252,23 @@ public class CustomerOrderCoordinator : InteractionZone
         Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 生成花束订单（{bouquetsPerOrder}个）: " +
                 $"{string.Join(", ", order.bouquetNames)}");
 
+        Debug.Log($"[CustomerOrderCoordinator] 下一步：注册到 GameManager 和 OrderSystemController");
+        Debug.Log($"[CustomerOrderCoordinator]   GameManager.Instance = {GameManager.Instance != null}");
+        Debug.Log($"[CustomerOrderCoordinator]   OrderSystemController.Instance = {OrderSystemController.Instance != null}");
+
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterActiveCustomer(gameObject.name, _slotIndex);
             GameManager.Instance.pendingOrders.Add(order);
             _currentOrder = order;
 
-            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单" +
+            Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单并注册到 GameManager（pendingOrders.Count={GameManager.Instance.pendingOrders.Count}）" +
                     $"{(_isTutorialCustomer ? "(教程)" : "")}");
             OrderSystemController.Instance?.NotifyOrderAdded();
+        }
+        else
+        {
+            Debug.LogError($"[CustomerOrderCoordinator] GameManager.Instance 为 null！无法注册订单！");
         }
     }
 

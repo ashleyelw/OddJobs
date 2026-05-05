@@ -59,8 +59,19 @@ public class GameTimeController : MonoBehaviour
 
     void Update()
     {
-        if (!_dayTimerActive) return;
-        if (_dayEnded) return;
+        if (!_dayTimerActive)
+        {
+            // 每隔10秒打印一次等待状态，避免刷屏
+            if (Time.frameCount % 600 == 0)
+                Debug.Log($"[GameTimeController] 时间未运行 | _dayTimerActive={_dayTimerActive}, _dayEnded={_dayEnded}, _dayTimer={_dayTimer:F1}s/{DayManager.DayDurationSeconds}s");
+            return;
+        }
+        if (_dayEnded)
+        {
+            if (Time.frameCount % 600 == 0)
+                Debug.Log("[GameTimeController] 今日已结束，等待结算");
+            return;
+        }
 
         _dayTimer += Time.deltaTime;
         _timer += Time.deltaTime;
@@ -69,7 +80,7 @@ public class GameTimeController : MonoBehaviour
         {
             _dayEnded = true;
             _dayTimerActive = false;
-            Debug.Log($"[GameTimeController] Day timer reached {DayManager.DayDurationSeconds}s.");
+            Debug.Log($"[GameTimeController] 一天结束！已运行 {_dayTimer:F1}s，触发 TriggerEndOfDay()");
             DayManager.Instance?.TriggerEndOfDay();
             return;
         }
@@ -84,6 +95,7 @@ public class GameTimeController : MonoBehaviour
             if (currentMins > _lastNotifiedTotalMinutes)
             {
                 _lastNotifiedTotalMinutes = currentMins;
+                Debug.Log($"[GameTimeController] 游戏时间推进 +{minutesToAdd}分钟，当前: {currentMins}（每分钟通知一次CustomerSpawner）");
                 CustomerSpawner.Instance?.OnGameMinuteChanged();
             }
         }
@@ -94,7 +106,9 @@ public class GameTimeController : MonoBehaviour
         _dayTimer = 0f;
         _dayEnded = false;
         _dayTimerActive = true;
-        Debug.Log("[GameTimeController] Day timer started.");
+        _timer = 0f;
+        Debug.Log("[GameTimeController] ResetDayTimer() 被调用！计时器已启动。");
+        Debug.Log($"[GameTimeController] 计时器状态: _dayTimerActive={_dayTimerActive}, _dayEnded={_dayEnded}, _dayTimer={_dayTimer}");
     }
     int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 
