@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 8193587311418610686}
   m_Layer: 0
   m_Name: Stem(Clone)
-  m_TagString: Flower
+  m_TagString: Stem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

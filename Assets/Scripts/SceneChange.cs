@@ -22,4 +22,14 @@ public class SceneChange : MonoBehaviour
    {
       SceneManager.LoadScene("FlowerGarden");
    }
+
+   public void GoToFlowerWater()
+   {
+      SceneManager.LoadScene("FlowerWater");
+   }
+
+   public void GoToThornPicki()
+   {
+      SceneManager.LoadScene("ThornPicki");
+   }
 }
