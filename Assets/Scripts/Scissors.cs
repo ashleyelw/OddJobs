@@ -112,7 +112,7 @@ public class Scissors : MonoBehaviour
             }
         }
 
-        bud.transform.position += new Vector3(0.5f, 0.5f, 0f);
+        bud.transform.position += new Vector3(0f, 0f, 0f);
 
         if (bud.GetComponent<DraggableFlower>() == null)
             bud.gameObject.AddComponent<DraggableFlower>();

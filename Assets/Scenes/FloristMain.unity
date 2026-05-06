@@ -3928,14 +3928,27 @@ MonoBehaviour:
   - 
   - 
   - 
+  spawnPointsLevel2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _spawnPointNamesLevel2:
+  - 
+  - 
+  - 
+  - 
+  _allowedScenes:
+  - FloristMain
+  - Level2
   spawnIntervalMinutes: 20
   flowersPerOrder: 3
-  enableMultiCustomerSpawn: 1
-  spawnCountMin: 1
-  spawnCountMax: 3
-  enableSpawnAcceleration: 1
-  spawnAccelerationRate: 0.05
-  minSpawnIntervalSeconds: 15
+  enableMultiCustomerSpawnLevel2: 1
+  spawnCountMinLevel2: 2
+  spawnCountMaxLevel2: 4
+  enableSpawnAccelerationLevel2: 1
+  spawnAccelerationRateLevel2: 0.05
+  minSpawnIntervalSecondsLevel2: 10
   flowerRegistry: {fileID: 778302977}
   ribbonRegistry: {fileID: 778302980}
   startWithTutorial: 1
@@ -4764,7 +4777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToFlowerGarden
+      value: GoToFlowerWater
       objectReference: {fileID: 0}
     - target: {fileID: 2767573831984456290, guid: a8688e99de5224d25be12957b698e8f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9114,7 +9127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 347467120309482274, guid: 649f6690571f74f2096a5f9f136c1eba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToFlowerAssembly
+      value: GoToThornPicki
       objectReference: {fileID: 0}
     - target: {fileID: 347467120309482274, guid: 649f6690571f74f2096a5f9f136c1eba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9481,6 +9494,9 @@ MonoBehaviour:
   useBouquetMode: 0
   flowersPerOrder: 2
   enableRandomBouquetCount: 1
+  useLevel2BouquetRange: 1
+  bouquetCountMinLevel2: 4
+  bouquetCountMaxLevel2: 6
   isTutorialCustomer: 0
   singleOrderUIPrefab: {fileID: 0}
 --- !u!4 &127652618582421416

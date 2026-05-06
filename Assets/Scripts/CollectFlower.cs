@@ -42,8 +42,8 @@ public class CollectFlower : MonoBehaviour
             if (collectSound != null)
                 AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-            if (collectPrompt != null)
-                collectPrompt.SetActive(false);
+            //if (collectPrompt != null)
+                //collectPrompt.SetActive(false);
         }
         else
         {
