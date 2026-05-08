@@ -7,7 +7,7 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 120;
+    public const int DayDurationSeconds = 180;
 
     [Header("Ending Thresholds")]
     [Tooltip("Coins needed per day to avoid bad ending")]
