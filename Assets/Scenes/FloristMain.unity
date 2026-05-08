@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 11277526}
   - component: {fileID: 11277530}
   - component: {fileID: 11277531}
+  - component: {fileID: 11277532}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -276,6 +277,21 @@ MonoBehaviour:
   defaultOrderTimeLimit: 30
   dialogueUIPrefab: {fileID: 7657374049228394653, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
   dialogueUIRoot: {fileID: 11277529}
+--- !u!114 &11277532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11277525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c73744edeaccf4cb9ec310626ae3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level2UnlockUI
+  unlockLevel2Button: {fileID: 543780001}
+  unlockLevel2Text: {fileID: 38398105}
+  coinThreshold: 120
 --- !u!1 &23334979
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -391,8 +407,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 37
+  m_fontSizeBase: 37
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1594,14 +1610,13 @@ GameObject:
   - component: {fileID: 543780003}
   - component: {fileID: 543780002}
   - component: {fileID: 543780001}
-  - component: {fileID: 543780000}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &543779999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1620,21 +1635,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 239.6597, y: 86.5327}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &543780000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543779998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edb7a01a03fce741a685170d0c18cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::tetsscene
-  targetSceneName: Level2
 --- !u!114 &543780001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1679,10 +1681,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 543780000}
-        m_TargetAssemblyTypeName: tetsscene, Assembly-CSharp
-        m_MethodName: JumpToTargetScene
+      - m_Target: {fileID: 11277532}
+        m_TargetAssemblyTypeName: Level2UnlockUI, Assembly-CSharp
+        m_MethodName: OnUnlockLevel2Clicked
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 543779998}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1711,8 +1725,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -4171949278277939191, guid: ad3787751f05d491ea27075af849ca73, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9494,6 +9508,9 @@ MonoBehaviour:
   useBouquetMode: 0
   flowersPerOrder: 2
   enableRandomBouquetCount: 1
+  useFloristMainBouquetRange: 0
+  bouquetCountMinFloristMain: 1
+  bouquetCountMaxFloristMain: 3
   useLevel2BouquetRange: 1
   bouquetCountMinLevel2: 4
   bouquetCountMaxLevel2: 6

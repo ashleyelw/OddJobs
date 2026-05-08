@@ -11,18 +11,28 @@ public class CustomerOrderCoordinator : InteractionZone
     [Header("订单配置")]
     [Range(1, 3)]
     [SerializeField] private int flowersPerOrder = 2;
-    [Tooltip("启用后每次订单随机生成1-6束花束；关闭后使用固定的 flowersPerOrder 数量")]
-    [SerializeField] private bool enableRandomBouquetCount = true;
+    [Tooltip("启用后每次订单随机生成花束数量；关闭后使用固定的 flowersPerOrder 数量")]
+    [SerializeField] private bool enableRandomBouquetCount = false;
+
+    [Header("【FloristMain专属】花束数量范围")]
+    [Tooltip("仅在 FloristMain 场景生效。启用后每次订单随机生成花束数量（可配置范围）；关闭后使用固定的 flowersPerOrder 数量")]
+    [SerializeField] private bool useFloristMainBouquetRange = false;
+    [Tooltip("FloristMain 花束数量范围（最小值），默认1")]
+    [Range(1, 6)]
+    [SerializeField] private int bouquetCountMinFloristMain = 1;
+    [Tooltip("FloristMain 花束数量范围（最大值），默认3")]
+    [Range(1, 6)]
+    [SerializeField] private int bouquetCountMaxFloristMain = 3;
 
     [Header("【Level2专属】花束数量范围")]
     [Tooltip("仅在 Level2 场景生效。启用后每次订单随机生成4-6束花束；否则使用通用的1-6范围")]
     [SerializeField] private bool useLevel2BouquetRange = true;
     [Tooltip("Level2 花束数量范围（最小值），默认4")]
-    [Range(4, 6)]
+    [Range(4, 5)]
     [SerializeField] private int bouquetCountMinLevel2 = 4;
-    [Tooltip("Level2 花束数量范围（最大值），默认6")]
-    [Range(4, 6)]
-    [SerializeField] private int bouquetCountMaxLevel2 = 6;
+    [Tooltip("Level2 花束数量范围（最大值），默认5")]
+    [Range(4, 5)]
+    [SerializeField] private int bouquetCountMaxLevel2 = 5;
 
     [Header("教程模式")]
     [SerializeField] private bool isTutorialCustomer = false;
@@ -206,23 +216,23 @@ public class CustomerOrderCoordinator : InteractionZone
         string[] allRibbons = GetAvailableRibbons();
 
         int bouquetsPerOrder;
-        bool isLevel2 = SceneManager.GetActiveScene().name == "Level2";
-        if (enableRandomBouquetCount)
+        string sceneName = SceneManager.GetActiveScene().name;
+        bool isLevel2 = sceneName == "Level2";
+
+        if (isLevel2 && useLevel2BouquetRange)
         {
-            if (isLevel2 && useLevel2BouquetRange)
-            {
-                bouquetsPerOrder = Random.Range(bouquetCountMinLevel2, bouquetCountMaxLevel2 + 1);
-                Debug.Log($"[CustomerOrderCoordinator] 场景={SceneManager.GetActiveScene().name}，Level2花束范围: {bouquetCountMinLevel2}-{bouquetCountMaxLevel2}，实际生成: {bouquetsPerOrder}");
-            }
-            else
-            {
-                bouquetsPerOrder = Random.Range(1, 7);
-                Debug.Log($"[CustomerOrderCoordinator] 场景={SceneManager.GetActiveScene().name}，通用花束范围: 1-6，实际生成: {bouquetsPerOrder}");
-            }
+            bouquetsPerOrder = Random.Range(bouquetCountMinLevel2, bouquetCountMaxLevel2 + 1);
+            Debug.Log($"[CustomerOrderCoordinator] 场景={sceneName}，Level2花束范围: {bouquetCountMinLevel2}-{bouquetCountMaxLevel2}，实际生成: {bouquetsPerOrder}");
+        }
+        else if (useFloristMainBouquetRange)
+        {
+            bouquetsPerOrder = Random.Range(bouquetCountMinFloristMain, bouquetCountMaxFloristMain + 1);
+            Debug.Log($"[CustomerOrderCoordinator] 场景={sceneName}，FloristMain花束范围: {bouquetCountMinFloristMain}-{bouquetCountMaxFloristMain}，实际生成: {bouquetsPerOrder}");
         }
         else
         {
             bouquetsPerOrder = flowersPerOrder;
+            Debug.Log($"[CustomerOrderCoordinator] 场景={sceneName}，固定花束数量: {bouquetsPerOrder}");
         }
         string[] chosenBouquets = new string[bouquetsPerOrder];
         
