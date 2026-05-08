@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OrderSystemController : MonoBehaviour
@@ -116,6 +117,7 @@ public class OrderSystemController : MonoBehaviour
 
     void UpdateAllOrderTimeDisplays()
     {
+        if (SceneManager.GetActiveScene().name == "FloristMain") return;
         if (GameTimeController.Instance == null) return;
         int currentMinutes = GameTimeController.Instance.GetTotalMinutes();
 
@@ -317,9 +319,10 @@ public class OrderSystemController : MonoBehaviour
                 ? GameTimeController.Instance.GetTotalMinutes()
                 : 0;
             order.orderStartGameMinutes = gameMinutes;
-            order.timeLimitMinutes = defaultOrderTimeLimit;
+            if (SceneManager.GetActiveScene().name != "FloristMain")
+                order.timeLimitMinutes = defaultOrderTimeLimit;
             Debug.Log($"[OrderSystem] 订单时限已设置 - 客户{order.customerNumber}: " +
-                      $"开始时间={gameMinutes}, 时限={defaultOrderTimeLimit}分钟");
+                      $"开始时间={gameMinutes}, 时限={order.timeLimitMinutes}分钟");
         }
 
         row.BindWithDeliver(order.customerNumber, order.GetFlowerNames(), flowerSpriteRegistry,
@@ -389,6 +392,7 @@ public class OrderSystemController : MonoBehaviour
 
     void CheckAllOrdersTimeout(int currentGameMinutes)
     {
+        if (SceneManager.GetActiveScene().name == "FloristMain") return;
         if (GameManager.Instance == null || GameManager.Instance.pendingOrders == null)
             return;
 

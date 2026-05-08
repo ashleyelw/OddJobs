@@ -179,6 +179,8 @@ public class OrderRowView : MonoBehaviour
     {
         if (order == null || _isClosed) return;
 
+        bool isNoTimeLimit = order.timeLimitMinutes >= float.MaxValue;
+
         if (GameTimeController.Instance != null)
         {
             int currentMinutes = GameTimeController.Instance.GetTotalMinutes();
@@ -190,6 +192,11 @@ public class OrderRowView : MonoBehaviour
                 {
                     timeLimitText.text = "TUTORIAL";
                     timeLimitText.color = Color.cyan;
+                }
+                else if (isNoTimeLimit)
+                {
+                    timeLimitText.text = "";
+                    timeLimitText.color = normalTimeColor;
                 }
                 else if (remaining <= 0)
                 {
@@ -208,7 +215,7 @@ public class OrderRowView : MonoBehaviour
                 }
             }
 
-            if (timerBarFill != null && order.timeLimitMinutes > 0 && !order.isTutorialOrder)
+            if (timerBarFill != null && !isNoTimeLimit && order.timeLimitMinutes > 0 && !order.isTutorialOrder)
             {
                 float progress = Mathf.Clamp01(remaining / order.timeLimitMinutes);
                 timerBarFill.fillAmount = progress;
@@ -224,6 +231,11 @@ public class OrderRowView : MonoBehaviour
             {
                 timerBarFill.fillAmount = 1f;
                 timerBarFill.color = Color.cyan;
+            }
+            else if (timerBarFill != null)
+            {
+                timerBarFill.fillAmount = 1f;
+                timerBarFill.color = normalTimeColor;
             }
         }
     }

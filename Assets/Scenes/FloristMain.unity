@@ -3955,7 +3955,7 @@ MonoBehaviour:
   _allowedScenes:
   - FloristMain
   - Level2
-  spawnIntervalMinutes: 20
+  spawnIntervalMinutes: 15
   flowersPerOrder: 3
   enableMultiCustomerSpawnLevel2: 1
   spawnCountMinLevel2: 2

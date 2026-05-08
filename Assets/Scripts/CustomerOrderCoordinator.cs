@@ -197,28 +197,14 @@ public class CustomerOrderCoordinator : InteractionZone
         if (string.IsNullOrEmpty(_instanceId))
             _instanceId = $"{_customerNumber}_{System.Guid.NewGuid().ToString().Substring(0, 8)}";
 
-        float orderTimeLimit = _isTutorialCustomer ? float.MaxValue :
-            (OrderSystemController.Instance != null ? OrderSystemController.Instance.defaultOrderTimeLimit : 30f);
-
-        CustomerOrder order = new CustomerOrder
-        {
-            customerNumber = _customerNumber,
-            customerName = gameObject.name,
-            instanceId = _instanceId,
-            orderStartGameMinutes = GameTimeController.Instance != null
-                ? GameTimeController.Instance.GetTotalMinutes()
-                : 0,
-            timeLimitMinutes = orderTimeLimit,
-            isTutorialOrder = _isTutorialCustomer
-        };
-
         string[] allFlowers = GetAvailableFlowers();
         string[] allRibbons = GetAvailableRibbons();
 
-        int bouquetsPerOrder;
         string sceneName = SceneManager.GetActiveScene().name;
         bool isLevel2 = sceneName == "Level2";
+        bool isFloristMain = sceneName == "FloristMain";
 
+        int bouquetsPerOrder;
         if (isLevel2 && useLevel2BouquetRange)
         {
             bouquetsPerOrder = Random.Range(bouquetCountMinLevel2, bouquetCountMaxLevel2 + 1);
@@ -234,6 +220,29 @@ public class CustomerOrderCoordinator : InteractionZone
             bouquetsPerOrder = flowersPerOrder;
             Debug.Log($"[CustomerOrderCoordinator] 场景={sceneName}，固定花束数量: {bouquetsPerOrder}");
         }
+
+        float orderTimeLimit;
+        if (_isTutorialCustomer)
+            orderTimeLimit = float.MaxValue;
+        else if (isFloristMain)
+            orderTimeLimit = float.MaxValue;
+        else if (isLevel2)
+            orderTimeLimit = OrderSystemController.Instance != null ? OrderSystemController.Instance.defaultOrderTimeLimit : 20f;
+        else
+            orderTimeLimit = OrderSystemController.Instance != null ? OrderSystemController.Instance.defaultOrderTimeLimit : 30f;
+
+        CustomerOrder order = new CustomerOrder
+        {
+            customerNumber = _customerNumber,
+            customerName = gameObject.name,
+            instanceId = _instanceId,
+            orderStartGameMinutes = GameTimeController.Instance != null
+                ? GameTimeController.Instance.GetTotalMinutes()
+                : 0,
+            timeLimitMinutes = orderTimeLimit,
+            isTutorialOrder = _isTutorialCustomer
+        };
+
         string[] chosenBouquets = new string[bouquetsPerOrder];
         
         // 填充订单的花朵和丝带字段（用于显示，取第一个花束）
@@ -273,7 +282,7 @@ public class CustomerOrderCoordinator : InteractionZone
             _currentOrder = order;
 
             Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 已下单并注册到 GameManager（pendingOrders.Count={GameManager.Instance.pendingOrders.Count}）" +
-                    $"{(_isTutorialCustomer ? "(教程)" : "")}");
+                    $"{(orderTimeLimit >= float.MaxValue ? "(无时限订单)" : "")}");
             OrderSystemController.Instance?.NotifyOrderAdded();
         }
         else
