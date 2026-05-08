@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Level2UnlockUI
   unlockLevel2Button: {fileID: 543780001}
   unlockLevel2Text: {fileID: 38398105}
-  coinThreshold: 120
+  coinThreshold: 150
 --- !u!1 &23334979
 GameObject:
   m_ObjectHideFlags: 0
