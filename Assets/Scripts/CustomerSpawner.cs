@@ -230,6 +230,22 @@ public class CustomerSpawner : MonoBehaviour
         {
             Debug.Log($"[CustomerSpawner] 场景 {scene.name} 不在允许列表中，不会在此场景自动生成客户");
         }
+
+        // When leaving a game scene (not a transition scene), clear all slot data
+        // so stale customer references from the previous scene don't pollute order cleanup
+        if (scene.name != "FloristMain" && scene.name != "Level2")
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (_slotCustomers[i] != null)
+                {
+                    Destroy(_slotCustomers[i]);
+                    _slotCustomers[i] = null;
+                }
+                _slotData[i] = new SlotCustomerData();
+            }
+            Debug.Log("[CustomerSpawner] 非游戏场景，清除所有槽位客户数据");
+        }
     }
 
     /// <summary>检查指定场景是否允许生成客户</summary>
@@ -637,7 +653,6 @@ public class CustomerSpawner : MonoBehaviour
         {
             _tutorialCompleted = true;
             _accumulatedGameMinutes = 0f;
-            _accumulatedGameMinutesLevel2 = 0f;
             Debug.Log("[CustomerSpawner] 教程客户已完成，恢复正常生成逻辑");
         }
 

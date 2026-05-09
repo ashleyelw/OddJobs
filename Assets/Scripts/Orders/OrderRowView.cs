@@ -205,6 +205,7 @@ public class OrderRowView : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log($"时间在更新{Mathf.Max(0, remaining):F1}m");
                     timeLimitText.text = $"{Mathf.Max(0, remaining):F1}m";
                     if (remaining <= 0.5f)
                         timeLimitText.color = criticalTimeColor;

@@ -8,6 +8,7 @@ public class DayManager : MonoBehaviour
 
     public const int TotalDays = 3;
     public const int DayDurationSeconds = 180;
+    public const int Level2UnlockCoins = 150;
 
     [Header("Ending Thresholds")]
     [Tooltip("Coins needed per day to avoid bad ending")]
@@ -83,6 +84,22 @@ public class DayManager : MonoBehaviour
             else
             {
                 Debug.Log($"[DayManager] Returned to FloristMain mid-day, timer continues.");
+            }
+        }
+        else if (scene.name == "Level2")
+        {
+            // Level2 also needs the day timer running for customer spawning and order timeouts
+            if (GameTimeController.Instance != null)
+            {
+                if (!GameTimeController.Instance.DayTimerActive)
+                {
+                    GameTimeController.Instance.ResetDayTimer();
+                    Debug.Log($"[DayManager] Level2 entered, timer started for customer spawning and order timeouts.");
+                }
+                else
+                {
+                    Debug.Log($"[DayManager] Level2 entered, timer already active.");
+                }
             }
         }
     }

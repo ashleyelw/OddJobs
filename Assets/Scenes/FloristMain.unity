@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 11277526}
   - component: {fileID: 11277530}
   - component: {fileID: 11277531}
-  - component: {fileID: 11277532}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -269,7 +268,7 @@ MonoBehaviour:
   flowerSpriteRegistry: {fileID: 778302977}
   ribbonSpriteRegistry: {fileID: 778302980}
   debugOrders: []
-  coinRewardPerOrder: 10
+  coinRewardPerOrder: 50
   tipRoot: {fileID: 819025202}
   tipText: {fileID: 819025204}
   tipDuration: 2.5
@@ -277,21 +276,6 @@ MonoBehaviour:
   defaultOrderTimeLimit: 30
   dialogueUIPrefab: {fileID: 7657374049228394653, guid: 5d19bb67762b15a49acaeb5734d0c4c6, type: 3}
   dialogueUIRoot: {fileID: 11277529}
---- !u!114 &11277532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11277525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c73744edeaccf4cb9ec310626ae3d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Level2UnlockUI
-  unlockLevel2Button: {fileID: 543780001}
-  unlockLevel2Text: {fileID: 38398105}
-  coinThreshold: 150
 --- !u!1 &23334979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,7 +1665,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11277532}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Level2UnlockUI, Assembly-CSharp
         m_MethodName: OnUnlockLevel2Clicked
         m_Mode: 1

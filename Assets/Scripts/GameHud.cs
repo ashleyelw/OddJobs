@@ -38,6 +38,9 @@ public class GameHUD : MonoBehaviour
     {
         if (DayManager.Instance == null) return;
 
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        bool isLevel2 = sceneName == "Level2";
+
         int totalSeconds = DayManager.DayDurationSeconds;
         float elapsed = GetElapsedSeconds();
         float remaining = Mathf.Max(0, totalSeconds - elapsed);
@@ -49,32 +52,52 @@ public class GameHUD : MonoBehaviour
         if (dayText != null)
             dayText.text = $"Day {DayManager.Instance.currentDay} / {DayManager.TotalDays}";
 
-        // Timer
+        // Timer — hidden in Level2 (unlimited time for Level2)
         if (timerText != null)
         {
-            timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
-
-            // Change color as time runs out
-            if (remaining <= 20f)
-                timerText.color = criticalColor;
-            else if (remaining <= 45f)
-                timerText.color = warningColor;
-            else
-                timerText.color = normalColor;
+            timerText.enabled = !isLevel2;
         }
 
-        // Timer bar
         if (timerBarFill != null)
         {
-            float progress = remaining / totalSeconds;
-            timerBarFill.fillAmount = progress;
+            timerBarFill.enabled = !isLevel2;
+            if (!isLevel2)
+            {
+                float progress = remaining / totalSeconds;
+                timerBarFill.fillAmount = progress;
 
-            if (progress <= 0.15f)
-                timerBarFill.color = criticalColor;
-            else if (progress <= 0.35f)
-                timerBarFill.color = warningColor;
-            else
-                timerBarFill.color = normalColor;
+                if (progress <= 0.15f)
+                    timerBarFill.color = criticalColor;
+                else if (progress <= 0.35f)
+                    timerBarFill.color = warningColor;
+                else
+                    timerBarFill.color = normalColor;
+            }
+        }
+
+        if (isLevel2)
+        {
+            // In Level2, timer text shows static "Level 2 - No Time Limit"
+            if (timerText != null)
+            {
+                timerText.text = "Level 2 - No Time Limit";
+                timerText.color = normalColor;
+            }
+        }
+        else
+        {
+            // Timer
+            if (timerText != null)
+            {
+                timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
+
+                if (remaining <= 20f)
+                    timerText.color = criticalColor;
+                else if (remaining <= 45f)
+                    timerText.color = warningColor;
+                else
+                    timerText.color = normalColor;
+            }
         }
 
         // Coins
@@ -104,12 +127,6 @@ public class GameHUD : MonoBehaviour
                 thresholdText.color = criticalColor;
             }
         }
-
-        // Debug info — shows whether timer is actually running
-        // Remove this once transition is working
-        //Debug.Log($"[GameHUD] DayManager={DayManager.Instance != null}, " +
-        //          $"GameTimeController={GameTimeController.Instance != null}, " +
-        //          $"Remaining={remaining:F1}s, Elapsed={elapsed:F1}s");
     }
 
     // Mirror the timer from GameTimeController since _dayTimer is private

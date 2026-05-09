@@ -819,7 +819,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] 当前库存 - 未修剪鲜花: {GetUntrimmedInventoryDebugInfo()}, 已修剪鲜花: {GetTrimmedInventoryDebugInfo()}, 花束: {GetBouquetInventoryDebugInfo()}, 金币: {coins}");
 
-        if (scene.name == "FloristMain")
+        if (scene.name == "FloristMain" || scene.name == "Level2")
         {
             CleanupInvalidOrders();
         }

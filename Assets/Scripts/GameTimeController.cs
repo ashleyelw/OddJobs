@@ -76,13 +76,21 @@ public class GameTimeController : MonoBehaviour
         _dayTimer += Time.deltaTime;
         _timer += Time.deltaTime;
 
+        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         if (_dayTimer >= DayManager.DayDurationSeconds)
         {
-            _dayEnded = true;
-            _dayTimerActive = false;
-            Debug.Log($"[GameTimeController] 一天结束！已运行 {_dayTimer:F1}s，触发 TriggerEndOfDay()");
-            DayManager.Instance?.TriggerEndOfDay();
-            return;
+            if (currentSceneName == "Level2")
+            {
+                _dayTimer = DayManager.DayDurationSeconds;
+            }
+            else
+            {
+                _dayEnded = true;
+                _dayTimerActive = false;
+                Debug.Log($"[GameTimeController] 一天结束！已运行 {_dayTimer:F1}s，触发 TriggerEndOfDay()");
+                DayManager.Instance?.TriggerEndOfDay();
+                return;
+            }
         }
 
         if (_timer >= 1f)

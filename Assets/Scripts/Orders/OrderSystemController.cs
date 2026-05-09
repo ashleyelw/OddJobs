@@ -68,13 +68,46 @@ public class OrderSystemController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "FloristMain" || scene.name == "Level2")
+        {
+            Debug.Log("[OrderSystem] 进入游戏场景，清除旧订单行 UI");
+            ClearPages();
+
+            // Re-open any existing pending orders for this scene
+            if (GameManager.Instance != null &&
+                GameManager.Instance.pendingOrders != null &&
+                GameManager.Instance.pendingOrders.Count > 0)
+            {
+                Debug.Log($"[OrderSystem] 重新显示 {GameManager.Instance.pendingOrders.Count} 个已有订单");
+                OpenPendingOrdersFromGameManager();
+            }
+        }
+    }
+
     void Start()
     {
         if (ordersRoot != null)
             ordersRoot.SetActive(false);
 
         InitializeDialogueUI();
-        OpenDebugOrders();
+        // Only open debug orders in non-game scenes (like tutorial scenes that don't load pending orders)
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (sceneName != "FloristMain" && sceneName != "Level2")
+        {
+            OpenDebugOrders();
+        }
     }
 
     void InitializeDialogueUI()
@@ -112,6 +145,7 @@ public class OrderSystemController : MonoBehaviour
             }
         }
 
+        // Always update time displays every frame so UI timer bars are smooth
         UpdateAllOrderTimeDisplays();
     }
 
@@ -119,7 +153,6 @@ public class OrderSystemController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "FloristMain") return;
         if (GameTimeController.Instance == null) return;
-        int currentMinutes = GameTimeController.Instance.GetTotalMinutes();
 
         foreach (var row in _activeOrderRows)
         {
@@ -129,15 +162,6 @@ public class OrderSystemController : MonoBehaviour
             if (order == null) continue;
 
             row.UpdateTimeDisplay(order);
-
-            if (!order.isTimedOut && !row.IsClosed() && order.orderStartGameMinutes > 0)
-            {
-                if (order.CheckTimeout(currentMinutes))
-                {
-                    Debug.Log($"[OrderSystem] 帧检测到订单超时: 客户{order.customerNumber}");
-                    HandleOrderTimeout(order);
-                }
-            }
         }
     }
 

@@ -14,6 +14,10 @@ public class EndOfDayUI : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private TMP_Text continueButtonText;
 
+    [Header("Level2 Unlock Button")]
+    [SerializeField] private Button unlockLevel2Button;
+    [SerializeField] private TMP_Text unlockLevel2Text;
+
     [Header("Colors")]
     [SerializeField] private Color goodColor = Color.green;
     [SerializeField] private Color badColor = Color.red;
@@ -29,6 +33,7 @@ public class EndOfDayUI : MonoBehaviour
 
         PopulateSummary();
         SetupContinueButton();
+        SetupUnlockLevel2Button();
     }
 
     void PopulateSummary()
@@ -129,5 +134,34 @@ public class EndOfDayUI : MonoBehaviour
             else
                 dm.StartNextDay();
         });
+    }
+
+    void SetupUnlockLevel2Button()
+    {
+        if (unlockLevel2Button == null) return;
+
+        var dm = DayManager.Instance;
+        bool isDay3 = dm.currentDay == DayManager.TotalDays;
+        bool hasEnoughCoins = dm.totalCoinsEarned >= DayManager.Level2UnlockCoins;
+
+        if (isDay3 && hasEnoughCoins)
+        {
+            unlockLevel2Button.gameObject.SetActive(true);
+            if (unlockLevel2Text != null)
+                unlockLevel2Text.text = "Next Level";
+
+            unlockLevel2Button.onClick.RemoveAllListeners();
+            unlockLevel2Button.onClick.AddListener(() =>
+            {
+                Debug.Log($"[EndOfDayUI] Unlocking Level2! Total coins: {dm.totalCoinsEarned}");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
+            });
+
+            Debug.Log($"[EndOfDayUI] Day 3 complete with {dm.totalCoinsEarned} total coins — Level2 unlocked!");
+        }
+        else
+        {
+            unlockLevel2Button.gameObject.SetActive(false);
+        }
     }
 }

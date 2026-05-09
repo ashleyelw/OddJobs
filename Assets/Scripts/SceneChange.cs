@@ -17,8 +17,11 @@ public class SceneChange : MonoBehaviour
    {
       SceneManager.LoadScene("FloristMain");
    }
-
-   public void GoToFlowerGarden()
+    public void GoToLevel2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+    public void GoToFlowerGarden()
    {
       SceneManager.LoadScene("FlowerGarden");
    }

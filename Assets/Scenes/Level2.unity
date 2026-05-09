@@ -216,7 +216,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 85132695}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: GoToFloristMain
+        m_MethodName: GoToLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1745,12 +1745,12 @@ MonoBehaviour:
   - Level2
   spawnIntervalMinutes: 20
   flowersPerOrder: 3
-  enableMultiCustomerSpawn: 1
-  spawnCountMin: 1
-  spawnCountMax: 3
-  enableSpawnAcceleration: 0
-  spawnAccelerationRate: 0.05
-  minSpawnIntervalSeconds: 15
+  enableMultiCustomerSpawnLevel2: 1
+  spawnCountMinLevel2: 2
+  spawnCountMaxLevel2: 4
+  enableSpawnAccelerationLevel2: 1
+  spawnAccelerationRateLevel2: 0.05
+  minSpawnIntervalSecondsLevel2: 10
   flowerRegistry: {fileID: 0}
   ribbonRegistry: {fileID: 0}
   startWithTutorial: 1
@@ -6458,6 +6458,12 @@ MonoBehaviour:
   useBouquetMode: 0
   flowersPerOrder: 2
   enableRandomBouquetCount: 1
+  useFloristMainBouquetRange: 0
+  bouquetCountMinFloristMain: 1
+  bouquetCountMaxFloristMain: 3
+  useLevel2BouquetRange: 1
+  bouquetCountMinLevel2: 4
+  bouquetCountMaxLevel2: 5
   isTutorialCustomer: 0
   singleOrderUIPrefab: {fileID: 0}
 --- !u!61 &1996673449
