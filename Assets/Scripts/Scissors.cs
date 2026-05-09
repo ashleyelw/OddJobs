@@ -9,6 +9,7 @@ public class Scissors : MonoBehaviour
    private bool isHolding = false;
    private bool justDropped = false;
 
+
    private void Update()
     {
         if (isHolding)
@@ -117,6 +118,7 @@ public class Scissors : MonoBehaviour
         if (bud.GetComponent<DraggableFlower>() == null)
             bud.gameObject.AddComponent<DraggableFlower>();
 
+        TrimTutorialManager.Instance.ScissorsUsed();
         Destroy(stem.gameObject);
     }
 }

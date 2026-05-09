@@ -6,6 +6,7 @@ public class ThornCut : MonoBehaviour
     {
         if (other.CompareTag("Thorn"))
         {
+            TrimTutorialManager.Instance.ThornToolUsed();
             Destroy(other.gameObject);
         }
     }
