@@ -1,7 +1,7 @@
 using UnityEngine;
 public class DragThornCutters : MonoBehaviour
 {
-    private bool isHolding = true;
+    private bool isHolding = false;
     private bool justDropped = false;
 
     void Update()
