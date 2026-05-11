@@ -154,8 +154,20 @@ public class EndOfDayUI : MonoBehaviour
             unlockLevel2Button.onClick.AddListener(() =>
             {
                 Debug.Log($"[EndOfDayUI] Unlocking Level2! Total coins: {dm.totalCoinsEarned}");
+                ClearAllGameStateForNewLevel();
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
             });
+
+    void ClearAllGameStateForNewLevel()
+    {
+        OrderSystemController.CloseAllCustomerOrderUIs();
+        if (OrderSystemController.Instance != null)
+            OrderSystemController.Instance.CloseAll();
+        if (GameManager.Instance != null)
+            GameManager.Instance.ClearPendingOrders();
+        if (CustomerSpawner.Instance != null)
+            CustomerSpawner.Instance.ResetAllSlots();
+    }
 
             Debug.Log($"[EndOfDayUI] Day 3 complete with {dm.totalCoinsEarned} total coins — Level2 unlocked!");
         }

@@ -862,6 +862,8 @@ public class GameManager : MonoBehaviour
                 {
                     string customerName = $"Customer_{i}_{slotData.customerNumber}";
                     activeCustomerNames.Add(customerName);
+                    if (!string.IsNullOrEmpty(slotData.instanceId))
+                        activeCustomerNames.Add(slotData.instanceId);
                 }
             }
         }
@@ -873,7 +875,11 @@ public class GameManager : MonoBehaviour
 
             bool shouldRemove = false;
 
-            if (!string.IsNullOrEmpty(order.customerName))
+            if (!string.IsNullOrEmpty(order.instanceId) && activeCustomerNames.Contains(order.instanceId))
+            {
+                shouldRemove = false;
+            }
+            else if (!string.IsNullOrEmpty(order.customerName))
             {
                 if (!activeCustomerNames.Contains(order.customerName))
                 {
@@ -1031,6 +1037,13 @@ public class GameManager : MonoBehaviour
         coins += amount;
         DayManager.Instance?.OnOrderDelivered(amount);
         Debug.Log($"[GameManager] 金币 +{amount}，当前: {coins}");
+    }
+
+    /// <summary>清空所有待处理订单（用于进入新关卡或新一天）</summary>
+    public void ClearPendingOrders()
+    {
+        pendingOrders.Clear();
+        Debug.Log("[GameManager] pendingOrders 已清空。");
     }
 
     public void RegisterActiveCustomer(string customerName, int slotIndex)

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Linq;
 
+
 public class CustomerSpawner : MonoBehaviour
 {
     public static CustomerSpawner Instance { get; private set; }
@@ -14,6 +15,8 @@ public class CustomerSpawner : MonoBehaviour
         public int customerNumber;
         public bool hasOrdered;
         public string instanceId;
+        public CustomerOrder orderData;
+        public string sceneName;
 
         public SlotCustomerData() { }
 
@@ -23,6 +26,8 @@ public class CustomerSpawner : MonoBehaviour
             this.customerNumber = customerNumber;
             this.instanceId = instanceId;
             this.hasOrdered = false;
+            this.orderData = null;
+            this.sceneName = null;
         }
 
         public SlotCustomerData(int prefabIndex, int customerNumber, string instanceId, bool hasOrdered)
@@ -31,11 +36,26 @@ public class CustomerSpawner : MonoBehaviour
             this.customerNumber = customerNumber;
             this.instanceId = instanceId;
             this.hasOrdered = hasOrdered;
+            this.orderData = null;
+            this.sceneName = null;
+        }
+
+        public SlotCustomerData(int prefabIndex, int customerNumber, string instanceId, bool hasOrdered, CustomerOrder orderData)
+        {
+            this.prefabIndex = prefabIndex;
+            this.customerNumber = customerNumber;
+            this.instanceId = instanceId;
+            this.hasOrdered = hasOrdered;
+            this.orderData = orderData;
+            this.sceneName = null;
         }
     }
 
     [Header("客户预制体")]
+    [Tooltip("FloristMain 场景的客户预制体")]
     [SerializeField] GameObject[] customerPrefabs = new GameObject[4];
+    [Tooltip("Level2 场景的客户预制体（留空则复用 FloristMain 的）")]
+    [SerializeField] GameObject[] customerPrefabsLevel2 = new GameObject[0];
 
     [Header("生成点")]
     [Tooltip("FloristMain 场景的生成点")]
@@ -231,7 +251,6 @@ public class CustomerSpawner : MonoBehaviour
             Debug.Log($"[CustomerSpawner] 场景 {scene.name} 不在允许列表中，不会在此场景自动生成客户");
         }
 
-        // When leaving a game scene (not a transition scene), clear all slot data
         // so stale customer references from the previous scene don't pollute order cleanup
         if (scene.name != "FloristMain" && scene.name != "Level2")
         {
@@ -242,9 +261,12 @@ public class CustomerSpawner : MonoBehaviour
                     Destroy(_slotCustomers[i]);
                     _slotCustomers[i] = null;
                 }
-                _slotData[i] = new SlotCustomerData();
+                // NOTE: do NOT clear _slotData here. Slot data (prefabIndex, customerNumber,
+                // instanceId, hasOrdered, orderData) is kept intact so that when the player
+                // returns to FloristMain/Level2, TryRestoreAllSlots can correctly re-instantiate
+                // customers and restore their pending orders.
             }
-            Debug.Log("[CustomerSpawner] 非游戏场景，清除所有槽位客户数据");
+            Debug.Log("[CustomerSpawner] 非游戏场景，清除客户引用，保留槽位数据以支持恢复");
         }
     }
 
@@ -286,7 +308,7 @@ public class CustomerSpawner : MonoBehaviour
     public void AutoFindSpawnPoints()
     {
         Debug.Log("[CustomerSpawner] AutoFindSpawnPoints 被调用，检查所有槽位的生成点...");
-        string currentScene = SceneManager.GetActiveScene().name;
+        string currentScene = _currentSceneName;
         bool isLevel2 = currentScene == "Level2";
 
         string[] cachedNames = isLevel2 ? _cachedSpawnPointNamesLevel2 : _cachedSpawnPointNames;
@@ -318,7 +340,7 @@ public class CustomerSpawner : MonoBehaviour
     /// <summary>获取当前场景的生成点数组</summary>
     public Transform[] GetCurrentSpawnPoints()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
+        string currentScene = _currentSceneName;
         bool isLevel2 = currentScene == "Level2";
         return isLevel2 ? spawnPointsLevel2 : spawnPoints;
     }
@@ -326,13 +348,15 @@ public class CustomerSpawner : MonoBehaviour
     /// <summary>获取当前场景的生成点名称缓存</summary>
     public string[] GetCurrentSpawnPointNames()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
+        string currentScene = _currentSceneName;
         bool isLevel2 = currentScene == "Level2";
         return isLevel2 ? _cachedSpawnPointNamesLevel2 : _cachedSpawnPointNames;
     }
 
     public void TryRestoreAllSlots()
     {
+        Debug.Log($"[CustomerSpawner] ===== TryRestoreAllSlots 开始 =====");
+        Debug.Log($"[CustomerSpawner] _hasRestoredThisLoad = {_hasRestoredThisLoad}");
         if (_hasRestoredThisLoad)
         {
             Debug.Log("[CustomerSpawner] TryRestoreAllSlots 已在本次场景加载中调用过，跳过。");
@@ -340,21 +364,36 @@ public class CustomerSpawner : MonoBehaviour
         }
         _hasRestoredThisLoad = true;
 
-        Debug.Log($"[CustomerSpawner] TryRestoreAllSlots 被调用（_currentCustomerNumber = {_currentCustomerNumber}）");
-
         ClearInvalidCustomerRefs();
+
+        // Log all slot states before restore
+        string beforeState = "[CustomerSpawner] 恢复前槽位状态:\n";
+        for (int i = 0; i < 4; i++)
+        {
+            beforeState += $"  槽位{i}: prefabIndex={_slotData[i].prefabIndex}, customerNumber={_slotData[i].customerNumber}, hasOrdered={_slotData[i].hasOrdered}, instanceId={_slotData[i].instanceId}\n";
+        }
+        Debug.Log(beforeState);
 
         for (int i = 0; i < 4; i++)
         {
-            Debug.Log($"[CustomerSpawner] 检查槽位 {i}: prefabIndex={_slotData[i].prefabIndex}");
+            Debug.Log($"[CustomerSpawner] 检查槽位 {i}: prefabIndex={_slotData[i].prefabIndex}, HasValidCustomer={IsCustomerValid(_slotCustomers[i])}");
             if (_slotData[i].prefabIndex >= 0 && !IsCustomerValid(_slotCustomers[i]))
             {
                 Debug.Log($"[CustomerSpawner] 槽位 {i} 有数据但没有有效客户，调用 RestoreSlot({i})");
                 RestoreSlot(i);
             }
+            else if (_slotData[i].prefabIndex >= 0 && IsCustomerValid(_slotCustomers[i]))
+            {
+                Debug.Log($"[CustomerSpawner] 槽位 {i} 已有有效客户，无需恢复");
+            }
+            else
+            {
+                Debug.Log($"[CustomerSpawner] 槽位 {i} 没有数据(prefabIndex={_slotData[i].prefabIndex})，跳过");
+            }
         }
 
         LogAllSlots();
+        Debug.Log($"[CustomerSpawner] ===== TryRestoreAllSlots 结束 =====");
     }
 
     void LogAllSlots()
@@ -376,22 +415,26 @@ public class CustomerSpawner : MonoBehaviour
         Transform[] currentSpawnPoints = GetCurrentSpawnPoints();
         if (currentSpawnPoints[slotIndex] == null)
         {
-            Debug.LogError($"[CustomerSpawner] RestoreSlot: 场景 {SceneManager.GetActiveScene().name} 槽位 {slotIndex} 的生成点为 null，无法恢复客户！");
+            Debug.LogError($"[CustomerSpawner] RestoreSlot: 场景 {_currentSceneName} 槽位 {slotIndex} 的生成点为 null，无法恢复客户！");
             return;
         }
 
         int prefabIdx = _slotData[slotIndex].prefabIndex;
-        Debug.Log($"[CustomerSpawner] RestoreSlot: prefabIndex={prefabIdx}, customerPrefabs.Length={customerPrefabs.Length}");
+        string slotScene = _slotData[slotIndex].sceneName;
+        bool isSlotLevel2 = slotScene == "Level2";
+        GameObject[] prefabs = isSlotLevel2 && customerPrefabsLevel2 != null && customerPrefabsLevel2.Length > 0
+            ? customerPrefabsLevel2 : customerPrefabs;
+        Debug.Log($"[CustomerSpawner] RestoreSlot: prefabIndex={prefabIdx}, slotScene={slotScene}, prefabs.Length={prefabs.Length}");
 
-        if (prefabIdx < 0 || prefabIdx >= customerPrefabs.Length || customerPrefabs[prefabIdx] == null)
+        if (prefabIdx < 0 || prefabIdx >= prefabs.Length || prefabs[prefabIdx] == null)
         {
             Debug.LogWarning($"[CustomerSpawner] 槽位 {slotIndex} 的预制体索引无效: {prefabIdx}，重置槽位。");
             _slotData[slotIndex] = new SlotCustomerData();
             return;
         }
 
-        Debug.Log($"[CustomerSpawner] RestoreSlot: 开始 Instantiate {customerPrefabs[prefabIdx].name} 到 {currentSpawnPoints[slotIndex].name}");
-        GameObject customer = Instantiate(customerPrefabs[prefabIdx], currentSpawnPoints[slotIndex]);
+        Debug.Log($"[CustomerSpawner] RestoreSlot: 开始 Instantiate {prefabs[prefabIdx].name} 到 {currentSpawnPoints[slotIndex].name}");
+        GameObject customer = Instantiate(prefabs[prefabIdx], currentSpawnPoints[slotIndex]);
         customer.transform.localPosition = Vector3.zero;
         customer.transform.localRotation = Quaternion.identity;
         customer.name = $"Customer_{slotIndex}_{_slotData[slotIndex].customerNumber}";
@@ -435,17 +478,17 @@ public class CustomerSpawner : MonoBehaviour
         if (!_isInitialized) { Debug.Log("[CustomerSpawner] 阻止生成: _isInitialized=false"); return; }
         if (_isTutorialMode && !_tutorialCompleted) { Debug.Log("[CustomerSpawner] 阻止生成: 教程模式未完成"); return; }
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        Debug.Log($"[CustomerSpawner] 当前场景: {currentScene.name}");
-        if (!IsCustomerSpawningAllowed(currentScene.name))
+        string currentSceneName = _currentSceneName;
+        Debug.Log($"[CustomerSpawner] 当前场景: {currentSceneName}");
+        if (!IsCustomerSpawningAllowed(currentSceneName))
         {
-            Debug.Log($"[CustomerSpawner] 阻止生成: 场景 {currentScene.name} 不在允许列表中");
+            Debug.Log($"[CustomerSpawner] 阻止生成: 场景 {currentSceneName} 不在允许列表中");
             return;
         }
 
         _accumulatedGameMinutes++;
 
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = _currentSceneName;
         bool isLevel2 = sceneName == "Level2";
 
         if (isLevel2 && enableSpawnAccelerationLevel2)
@@ -479,7 +522,7 @@ public class CustomerSpawner : MonoBehaviour
 
     float GetCurrentSpawnInterval()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = _currentSceneName;
         bool isLevel2 = sceneName == "Level2";
 
         if (!isLevel2)
@@ -497,7 +540,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         Debug.Log("[CustomerSpawner] SpawnMultipleCustomers 开始执行");
 
-        string sceneName = SceneManager.GetActiveScene().name;
+        string sceneName = _currentSceneName;
         bool isLevel2 = sceneName == "Level2";
         bool currentMultiSpawn = isLevel2 && enableMultiCustomerSpawnLevel2;
         int currentMin = isLevel2 ? spawnCountMinLevel2 : 1;
@@ -556,8 +599,8 @@ public class CustomerSpawner : MonoBehaviour
         if (slotIndex < 0 || slotIndex >= 4) { Debug.LogError($"[CustomerSpawner] 槽位索引无效: {slotIndex}"); return; }
 
         Transform[] currentSpawnPoints = GetCurrentSpawnPoints();
-        if (currentSpawnPoints[slotIndex] == null) { Debug.LogError($"[CustomerSpawner] 场景 {SceneManager.GetActiveScene().name} 槽位 {slotIndex} 的生成点(currentSpawnPoints[{slotIndex}]) 为 null！"); return; }
-        Debug.Log($"[CustomerSpawner] 场景 {SceneManager.GetActiveScene().name} 槽位 {slotIndex} 生成点: {currentSpawnPoints[slotIndex].name}");
+        if (currentSpawnPoints[slotIndex] == null) { Debug.LogError($"[CustomerSpawner] 场景 {_currentSceneName} 槽位 {slotIndex} 的生成点(currentSpawnPoints[{slotIndex}]) 为 null！"); return; }
+        Debug.Log($"[CustomerSpawner] 场景 {_currentSceneName} 槽位 {slotIndex} 生成点: {currentSpawnPoints[slotIndex].name}");
 
         if (_slotData[slotIndex].prefabIndex >= 0)
         {
@@ -565,15 +608,15 @@ public class CustomerSpawner : MonoBehaviour
             return;
         }
 
-        var validPrefabs = customerPrefabs
+        var validPrefabs = GetCurrentCustomerPrefabs()
             .Select((prefab, index) => new { prefab, index })
             .Where(x => x.prefab != null)
             .ToArray();
 
         Debug.Log($"[CustomerSpawner] 可用预制体数量: {validPrefabs.Length}");
-        for (int i = 0; i < customerPrefabs.Length; i++)
+        for (int i = 0; i < GetCurrentCustomerPrefabs().Length; i++)
         {
-            Debug.Log($"[CustomerSpawner]   customerPrefabs[{i}] = {customerPrefabs[i]?.name ?? "NULL"}");
+            Debug.Log($"[CustomerSpawner]   currentPrefabs[{i}] = {GetCurrentCustomerPrefabs()[i]?.name ?? "NULL"}");
         }
 
         if (validPrefabs.Length == 0)
@@ -596,6 +639,7 @@ public class CustomerSpawner : MonoBehaviour
         Debug.Log($"[CustomerSpawner] Instantiate 成功，实例名称: {customer.name}");
 
         _slotData[slotIndex] = new SlotCustomerData(chosen.index, _currentCustomerNumber, instanceId, false);
+        _slotData[slotIndex].sceneName = SceneManager.GetActiveScene().name;
 
         var coordinator = customer.GetComponent<CustomerOrderCoordinator>();
         if (coordinator != null)
@@ -691,4 +735,32 @@ public class CustomerSpawner : MonoBehaviour
     }
 
     public int CurrentCustomerNumber => _currentCustomerNumber;
+
+    /// <summary>重置所有槽位数据，清空客户和订单（用于新的一天开始）</summary>
+    public void ResetAllSlots()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (_slotCustomers[i] != null)
+            {
+                Destroy(_slotCustomers[i]);
+                _slotCustomers[i] = null;
+            }
+            _slotData[i] = new SlotCustomerData();
+        }
+        _currentCustomerNumber = 1;
+        _lastSpawnAccumulatedMinutes = 0f;
+        _accumulatedGameMinutes = 0f;
+        _accumulatedGameMinutesLevel2 = 0f;
+        Debug.Log("[CustomerSpawner] 所有槽位已重置，新的一天开始。");
+    }
+
+    /// <summary>获取当前场景对应的客户预制体数组</summary>
+    public GameObject[] GetCurrentCustomerPrefabs()
+    {
+        string sceneName = _currentSceneName;
+        if (sceneName == "Level2" && customerPrefabsLevel2 != null && customerPrefabsLevel2.Length > 0)
+            return customerPrefabsLevel2;
+        return customerPrefabs;
+    }
 }

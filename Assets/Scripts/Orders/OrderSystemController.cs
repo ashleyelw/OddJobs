@@ -84,15 +84,6 @@ public class OrderSystemController : MonoBehaviour
         {
             Debug.Log("[OrderSystem] 进入游戏场景，清除旧订单行 UI");
             ClearPages();
-
-            // Re-open any existing pending orders for this scene
-            if (GameManager.Instance != null &&
-                GameManager.Instance.pendingOrders != null &&
-                GameManager.Instance.pendingOrders.Count > 0)
-            {
-                Debug.Log($"[OrderSystem] 重新显示 {GameManager.Instance.pendingOrders.Count} 个已有订单");
-                OpenPendingOrdersFromGameManager();
-            }
         }
     }
 
@@ -233,6 +224,29 @@ public class OrderSystemController : MonoBehaviour
             ordersRoot.SetActive(false);
         _isPanelShowing = false;
         _lastPage = null;
+    }
+
+    /// <summary>关闭所有订单 UI、对话交付 UI 和分页（用于场景切换或新一天开始）</summary>
+    public void CloseAll()
+    {
+        Close();
+        if (_dialogueUIInstance != null)
+        {
+            Destroy(_dialogueUIInstance.gameObject);
+            _dialogueUIInstance = null;
+        }
+        ClearPages();
+        Debug.Log("[OrderSystem] CloseAll: 所有订单 UI 已清理。");
+    }
+
+    /// <summary>关闭场景中所有 CustomerOrderCoordinator 的单订单 UI（静态调用）</summary>
+    public static void CloseAllCustomerOrderUIs()
+    {
+        foreach (var coordinator in UnityEngine.Object.FindObjectsOfType<CustomerOrderCoordinator>())
+        {
+            if (coordinator != null)
+                coordinator.CloseSingleOrderUI();
+        }
     }
 
     public void Toggle()
