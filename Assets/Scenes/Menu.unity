@@ -371,7 +371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -90}
+  m_AnchoredPosition: {x: 420, y: -90}
   m_SizeDelta: {x: 73.0263, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579143605
@@ -553,9 +553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start Tutorial Level
-
-'
+  m_text: Start Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
   m_sharedMaterial: {fileID: 1260715531048141648, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
@@ -911,7 +909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 330, y: -240}
+  m_AnchoredPosition: {x: 360, y: -240}
   m_SizeDelta: {x: 73.0263, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873571411
@@ -1412,9 +1410,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome to OddJobs! \n\n1. Press E to speak to a customer\nRemember their
-    order! \n\n2. Go to the garden.\nPress E to pick flowers\n\n3. Click and drag\nto
-    trim the stems \n\n4. Choose a bow\n to complete the order \n\nReturn to the
-    store to complete the order!\n"
+    order! \n\n2. Go to the garden.\nPress E to water and pick flowers\n\n3. Click
+    and drag\nto trim the thorns and stems \n\n4. Choose a bow and a pot\n to complete
+    the order \n\nReturn to the store to complete the order!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
   m_sharedMaterial: {fileID: 1260715531048141648, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
@@ -2008,7 +2006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: 90}
+  m_AnchoredPosition: {x: 500, y: 90}
   m_SizeDelta: {x: 71.2309, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748342699
