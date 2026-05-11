@@ -1404,7 +1404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222, y: -69}
+  m_AnchoredPosition: {x: 360, y: -69}
   m_SizeDelta: {x: 73.0263, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501228825
@@ -3768,11 +3768,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 334537008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 581, y: 323.47}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -100}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1016064888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4277,8 +4277,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome to OddJobs! \n\n1. Press E to speak to a customer\nRemember their
-    order! \n\n2. Go to the garden.\nPress E to pick flowers\n\n3. Click and drag\nto
-    trim the stems \n\n4. Choose a bow\n\nComplete the order!\n"
+    order! \n\n2. Go to the garden.\nPress E to water and pick flowers\n\n3. Click
+    and drag\nto trim the thorns and stems \n\n4. Choose a bow and a pot\n to complete
+    the order \n\nReturn to the store to complete the order!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
   m_sharedMaterial: {fileID: 1260715531048141648, guid: 9a14a8a1184c5f14fbce3338ea4d7a35, type: 2}
@@ -6030,7 +6031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222, y: -199}
+  m_AnchoredPosition: {x: 300, y: -199}
   m_SizeDelta: {x: 73.0263, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556591331
@@ -7316,7 +7317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 294.13, y: 52}
+  m_AnchoredPosition: {x: 400, y: 52}
   m_SizeDelta: {x: 71.2309, y: 64.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561041370
