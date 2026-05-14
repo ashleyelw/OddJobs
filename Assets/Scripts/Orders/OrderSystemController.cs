@@ -609,6 +609,7 @@ public class OrderSystemController : MonoBehaviour
             // 花束模式：检查所有花束库存
             if (!GameManager.Instance.HasEnoughBouquetsForOrder(order.GetBouquetNames()))
             {
+                ReactionManager.Instance.ShowSad();
                 ShowTip("Not enough bouquets for this order!");
                 return;
             }
@@ -619,6 +620,7 @@ public class OrderSystemController : MonoBehaviour
             var missing = GameManager.Instance.GetMissingFlowers(order);
             if (missing.Count > 0)
             {
+                ReactionManager.Instance.ShowSad();
                 var parts = new List<string>();
                 foreach (var kvp in missing)
                     parts.Add($"{kvp.Key} x{kvp.Value}");
@@ -629,6 +631,7 @@ public class OrderSystemController : MonoBehaviour
             var missingRibbons = GameManager.Instance.GetMissingRibbons(order);
             if (missingRibbons.Count > 0)
             {
+                ReactionManager.Instance.ShowSad();
                 var parts = new List<string>();
                 foreach (var kvp in missingRibbons)
                     parts.Add($"{kvp.Key} x{kvp.Value}");
@@ -687,6 +690,7 @@ public class OrderSystemController : MonoBehaviour
         }
 
         GameManager.Instance.AddCoins(coinRewardPerOrder);
+        ReactionManager.Instance.ShowHappy();
         UpdateCoinDisplay();
         ShowTip($"Payment successful! +{coinRewardPerOrder} coins");
 
