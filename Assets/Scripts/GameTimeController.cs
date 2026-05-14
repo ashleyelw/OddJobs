@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameTimeController : MonoBehaviour
@@ -29,8 +30,10 @@ public class GameTimeController : MonoBehaviour
     float _timer;
     // ADD this field at the top with other fields
     float _dayTimer = 0f;
+    float _pausedTime = 0f;
     bool _dayEnded = false;
     bool _dayTimerActive = false;
+    bool _skipDayEnd = false;
 
     void Awake()
     {
@@ -49,6 +52,26 @@ public class GameTimeController : MonoBehaviour
         _lastNotifiedTotalMinutes = TotalMinutes(_currentTime);
         AutoFindUI();
         RefreshUI();
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"[GameTimeController] OnSceneLoaded: scene={scene.name}, Day3Settled={DayManager.Instance?.Day3Settled}");
+        if (scene.name == "Level2" && DayManager.Instance != null && DayManager.Instance.Day3Settled)
+        {
+            _skipDayEnd = true;
+            Debug.Log("[GameTimeController] Level2 entered after Day3 settled, daily timer check disabled.");
+        }
     }
 
     void AutoFindUI()
@@ -83,6 +106,10 @@ public class GameTimeController : MonoBehaviour
             {
                 _dayTimer = DayManager.DayDurationSeconds;
             }
+            else if (_skipDayEnd)
+            {
+                _dayTimer = DayManager.DayDurationSeconds;
+            }
             else
             {
                 _dayEnded = true;
@@ -103,7 +130,7 @@ public class GameTimeController : MonoBehaviour
             if (currentMins > _lastNotifiedTotalMinutes)
             {
                 _lastNotifiedTotalMinutes = currentMins;
-                Debug.Log($"[GameTimeController] 游戏时间推进 +{minutesToAdd}分钟，当前: {currentMins}（每分钟通知一次CustomerSpawner）");
+                //Debug.Log($"[GameTimeController] 游戏时间推进 +{minutesToAdd}分钟，当前: {currentMins}（每分钟通知一次CustomerSpawner）");
                 CustomerSpawner.Instance?.OnGameMinuteChanged();
             }
         }
@@ -117,6 +144,22 @@ public class GameTimeController : MonoBehaviour
         _timer = 0f;
         Debug.Log("[GameTimeController] ResetDayTimer() 被调用！计时器已启动。");
         Debug.Log($"[GameTimeController] 计时器状态: _dayTimerActive={_dayTimerActive}, _dayEnded={_dayEnded}, _dayTimer={_dayTimer}");
+    }
+
+    public void PauseDayTimer()
+    {
+        if (!_dayTimerActive) return;
+        _pausedTime = _dayTimer;
+        _dayTimerActive = false;
+        Debug.Log($"[GameTimeController] 暂停计时器，当前 _dayTimer={_pausedTime:F1}s");
+    }
+
+    public void ResumeDayTimer()
+    {
+        if (_dayTimerActive) return;
+        _dayTimer = _pausedTime;
+        _dayTimerActive = true;
+        Debug.Log($"[GameTimeController] 恢复计时器，_dayTimer={_dayTimer:F1}s");
     }
     int TotalMinutes(DateTime dt) => dt.Day * 1440 + dt.Hour * 60 + dt.Minute;
 

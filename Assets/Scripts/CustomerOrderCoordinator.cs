@@ -183,7 +183,7 @@ public class CustomerOrderCoordinator : InteractionZone
             if (_currentOrder != null)
             {
                 Debug.Log($"[CustomerOrderCoordinator] 客户 {gameObject.name} 尝试交付订单。");
-                TryDeliverCurrentOrder();
+               // TryDeliverCurrentOrder();
             }
             return;
         }
@@ -307,7 +307,7 @@ public class CustomerOrderCoordinator : InteractionZone
                 if (_hasOrderedThisSession && _currentOrder != null)
                 {
                     Debug.Log("[CustomerOrderCoordinator] Routing to TryDeliverCurrentOrder");
-                    TryDeliverCurrentOrder();
+                   // TryDeliverCurrentOrder();
                 }
                 else if (!_hasOrderedThisSession)
                 {

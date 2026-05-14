@@ -42,6 +42,18 @@ public class Level2UnlockUI : MonoBehaviour
 
     public void OnUnlockLevel2Clicked()
     {
+        ClearAllGameStateForNewLevel();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
+    }
+
+    void ClearAllGameStateForNewLevel()
+    {
+        OrderSystemController.CloseAllCustomerOrderUIs();
+        if (OrderSystemController.Instance != null)
+            OrderSystemController.Instance.CloseAll();
+        if (GameManager.Instance != null)
+            GameManager.Instance.ClearPendingOrders();
+        if (CustomerSpawner.Instance != null)
+            CustomerSpawner.Instance.ResetAllSlots();
     }
 }

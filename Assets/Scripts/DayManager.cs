@@ -7,7 +7,7 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 180;
+    public const int DayDurationSeconds = 80;
     public const int Level2UnlockCoins = 150;
 
     [Header("Ending Thresholds")]
@@ -28,7 +28,9 @@ public class DayManager : MonoBehaviour
     public int todayOrdersDelivered = 0;
     public int totalOrdersDelivered = 0;
     private bool _dayStarted = false;
-
+    private bool _day3Settled = false;
+    private bool _level2Entered = false;
+    public bool Day3Settled => _day3Settled;
     public List<DaySummary> daySummaries = new List<DaySummary>();
 
     [System.Serializable]
@@ -88,13 +90,12 @@ public class DayManager : MonoBehaviour
         }
         else if (scene.name == "Level2")
         {
-            // Level2 also needs the day timer running for customer spawning and order timeouts
             if (GameTimeController.Instance != null)
             {
                 if (!GameTimeController.Instance.DayTimerActive)
                 {
                     GameTimeController.Instance.ResetDayTimer();
-                    Debug.Log($"[DayManager] Level2 entered, timer started for customer spawning and order timeouts.");
+                    Debug.Log($"[DayManager] Level2 entered, timer started.");
                 }
                 else
                 {
@@ -138,6 +139,9 @@ public class DayManager : MonoBehaviour
             metDailyMinimum = todayCoinsEarned >= MinDailyCoins
         });
 
+        if (currentDay >= TotalDays)
+            _day3Settled = true;
+
         // Show splash before transitioning
         if (EndOfDaySplash.Instance != null)
             EndOfDaySplash.Instance.Show(currentDay, todayCoinsEarned);
@@ -150,9 +154,23 @@ public class DayManager : MonoBehaviour
         currentDay++;
         todayCoinsEarned = 0;
         todayOrdersDelivered = 0;
-        _dayStarted = false; // ADD THIS so next day's timer resets properly
+        _dayStarted = false;
         Debug.Log($"[DayManager] Starting day {currentDay}");
+
+        CloseAllOrderUIs();
+        if (CustomerSpawner.Instance != null)
+            CustomerSpawner.Instance.ResetAllSlots();
+
         SceneManager.LoadScene("FloristMain");
+    }
+
+    void CloseAllOrderUIs()
+    {
+        OrderSystemController.CloseAllCustomerOrderUIs();
+        if (OrderSystemController.Instance != null)
+            OrderSystemController.Instance.CloseAll();
+        if (GameManager.Instance != null)
+            GameManager.Instance.ClearPendingOrders();
     }
 
     public void TriggerEnding()
