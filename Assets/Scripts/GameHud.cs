@@ -16,10 +16,22 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private Color warningColor = Color.yellow;
     [SerializeField] private Color criticalColor = Color.red;
 
+    [Header("Pulse Effect")]
+    [SerializeField] private float pulseSpeed = 4f;        // How fast the pulse oscillates
+    [SerializeField] private float pulseMinAlpha = 0.4f;   // Dimmest point of pulse
+    [SerializeField] private float pulseMaxAlpha = 1f;     // Brightest point of pulse
+
     [Header("Auto Create UI if not assigned")]
     [SerializeField] private bool autoCreateUI = true;
 
-    // Track timer ourselves since GameTimeController._dayTimer is private
+    // Pulse state
+    private bool _isPulsing = false;
+    private float _pulseTimer = 0f;
+
+    // Fallback elapsed timer
+    private float _elapsedSeconds = 0f;
+
+    // Unused fields kept to avoid breaking serialized references
     private float _displayTimer = 0f;
     private bool _timerRunning = false;
 
@@ -32,7 +44,47 @@ public class GameHUD : MonoBehaviour
     void Update()
     {
         RefreshHUD();
+        UpdatePulse();
     }
+
+    // ─── Pulse ────────────────────────────────────────────────────────────────
+
+    void UpdatePulse()
+    {
+        if (!_isPulsing || timerBarFill == null) return;
+
+        _pulseTimer += Time.deltaTime * pulseSpeed;
+        // Ping-pong alpha between min and max
+        float t = (Mathf.Sin(_pulseTimer) + 1f) * 0.5f; // 0..1
+        float alpha = Mathf.Lerp(pulseMinAlpha, pulseMaxAlpha, t);
+
+        Color c = timerBarFill.color;
+        c.a = alpha;
+        timerBarFill.color = c;
+    }
+
+    void StartPulse()
+    {
+        if (_isPulsing) return;
+        _isPulsing = true;
+        _pulseTimer = 0f;
+    }
+
+    void StopPulse()
+    {
+        if (!_isPulsing) return;
+        _isPulsing = false;
+
+        // Restore full opacity so the bar doesn't freeze mid-fade
+        if (timerBarFill != null)
+        {
+            Color c = timerBarFill.color;
+            c.a = 1f;
+            timerBarFill.color = c;
+        }
+    }
+
+    // ─── HUD Refresh ──────────────────────────────────────────────────────────
 
     void RefreshHUD()
     {
@@ -44,92 +96,95 @@ public class GameHUD : MonoBehaviour
         int totalSeconds = DayManager.DayDurationSeconds;
         float elapsed = GetElapsedSeconds();
         float remaining = Mathf.Max(0, totalSeconds - elapsed);
+        float progress = remaining / totalSeconds;
 
         int minutes = Mathf.FloorToInt(remaining / 60f);
         int seconds = Mathf.FloorToInt(remaining % 60f);
 
-        // Day
+        // Day label
         if (dayText != null)
             dayText.text = $"Day {DayManager.Instance.currentDay} / {DayManager.TotalDays}";
 
-        // Timer — hidden in Level2 (unlimited time for Level2)
-        if (timerText != null)
-        {
-            timerText.enabled = !isLevel2;
-        }
-
+        // ── Timer bar ──
         if (timerBarFill != null)
         {
             timerBarFill.enabled = !isLevel2;
+
             if (!isLevel2)
             {
-                float progress = remaining / totalSeconds;
+                // Drain the bar left-to-right
                 timerBarFill.fillAmount = progress;
 
-                if (progress <= 0.15f)
-                    timerBarFill.color = criticalColor;
-                else if (progress <= 0.35f)
-                    timerBarFill.color = warningColor;
-                else
-                    timerBarFill.color = normalColor;
+                bool isCritical = progress <= 0.20f;
+                bool isWarning  = progress <= 0.45f;
+
+                // Pick base colour (pulse overrides alpha, not hue)
+                Color baseColor = isCritical ? criticalColor
+                                : isWarning  ? warningColor
+                                             : normalColor;
+                baseColor.a = timerBarFill.color.a; // keep whatever alpha the pulse set
+                timerBarFill.color = baseColor;
+
+                // Start/stop pulse at critical threshold
+                if (isCritical) StartPulse();
+                else            StopPulse();
+            }
+            else
+            {
+                StopPulse();
             }
         }
 
-        if (isLevel2)
+        // ── Timer text ──
+        if (timerText != null)
         {
-            // In Level2, timer text shows static "Level 2 - No Time Limit"
-            if (timerText != null)
+            timerText.enabled = !isLevel2;
+
+            if (isLevel2)
             {
-                timerText.text = "Level 2 - No Time Limit";
+                timerText.text  = "Level 2 - No Time Limit";
                 timerText.color = normalColor;
             }
-        }
-        else
-        {
-            // Timer
-            if (timerText != null)
+            else
             {
                 timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
-
-                if (remaining <= 20f)
-                    timerText.color = criticalColor;
-                else if (remaining <= 45f)
-                    timerText.color = warningColor;
-                else
-                    timerText.color = normalColor;
+                timerText.color = remaining <= 20f ? criticalColor
+                                : remaining <= 45f ? warningColor
+                                                   : normalColor;
             }
         }
 
-        // Coins
+        // ── Coins ──
         if (coinsText != null && GameManager.Instance != null)
             coinsText.text = $"Coins Today: {DayManager.Instance.todayCoinsEarned} " +
                              $"(Total: {DayManager.Instance.totalCoinsEarned})";
 
-        // Threshold status
+        // ── Threshold status ──
         if (thresholdText != null)
         {
-            int neededMin = DayManager.Instance.GetCoinsNeededForMinimum();
+            int neededMin  = DayManager.Instance.GetCoinsNeededForMinimum();
             int neededGood = DayManager.Instance.GetCoinsNeededForGoodEnding();
 
             if (neededMin <= 0 && neededGood <= 0)
             {
-                thresholdText.text = "Good Ending: ON TRACK ✓";
+                thresholdText.text  = "Good Ending: ON TRACK ✓";
                 thresholdText.color = normalColor;
             }
             else if (neededMin <= 0)
             {
-                thresholdText.text = $"Good Ending: need {neededGood} more coins";
+                thresholdText.text  = $"Good Ending: need {neededGood} more coins";
                 thresholdText.color = warningColor;
             }
             else
             {
-                thresholdText.text = $"Daily Min: need {neededMin} more coins";
+                thresholdText.text  = $"Daily Min: need {neededMin} more coins";
                 thresholdText.color = criticalColor;
             }
         }
     }
 
-    // Mirror the timer from GameTimeController since _dayTimer is private
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
     float GetElapsedSeconds()
     {
         if (GameTimeController.Instance != null)
@@ -137,14 +192,13 @@ public class GameHUD : MonoBehaviour
         return _elapsedSeconds;
     }
 
-    private float _elapsedSeconds = 0f;
-
     void FixedUpdate()
     {
-        // Only count if GameTimeController exists and day hasn't ended
         if (GameTimeController.Instance != null && DayManager.Instance != null)
             _elapsedSeconds += Time.fixedDeltaTime;
     }
+
+    // ─── Auto-create UI ───────────────────────────────────────────────────────
 
     void CreateHUDAutomatically()
     {
@@ -187,7 +241,7 @@ public class GameHUD : MonoBehaviour
             new Vector2(1, 1), new Vector2(1, 1),
             new Vector2(-210, -10), new Vector2(-10, -50), 16);
 
-        // Timer bar — thin bar below the panel
+        // Timer bar background — thin strip below the panel
         var barBg = new GameObject("TimerBarBG");
         barBg.transform.SetParent(canvas.transform, false);
         var barBgRect = barBg.AddComponent<RectTransform>();
@@ -199,6 +253,7 @@ public class GameHUD : MonoBehaviour
         var barBgImg = barBg.AddComponent<Image>();
         barBgImg.color = new Color(0.2f, 0.2f, 0.2f, 1f);
 
+        // Timer bar fill
         var barFill = new GameObject("TimerBarFill");
         barFill.transform.SetParent(barBg.transform, false);
         var barFillRect = barFill.AddComponent<RectTransform>();
@@ -210,6 +265,7 @@ public class GameHUD : MonoBehaviour
         timerBarFill.color = normalColor;
         timerBarFill.type = Image.Type.Filled;
         timerBarFill.fillMethod = Image.FillMethod.Horizontal;
+        timerBarFill.fillOrigin = (int)Image.OriginHorizontal.Left; // drains left→right
         timerBarFill.fillAmount = 1f;
     }
 
