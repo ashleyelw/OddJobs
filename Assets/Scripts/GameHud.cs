@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameHUD : MonoBehaviour
 {
@@ -17,34 +18,94 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private Color criticalColor = Color.red;
 
     [Header("Pulse Effect")]
-    [SerializeField] private float pulseSpeed = 4f;        // How fast the pulse oscillates
-    [SerializeField] private float pulseMinAlpha = 0.4f;   // Dimmest point of pulse
-    [SerializeField] private float pulseMaxAlpha = 1f;     // Brightest point of pulse
+    [SerializeField] private float pulseSpeed = 4f;
+    [SerializeField] private float pulseMinAlpha = 0.4f;
+    [SerializeField] private float pulseMaxAlpha = 1f;
 
     [Header("Auto Create UI if not assigned")]
     [SerializeField] private bool autoCreateUI = true;
 
-    // Pulse state
+    // Scenes where the HUD should be completely hidden
+    private static readonly string[] HiddenScenes = { "EndOfDay", "Ending", "Menu" };
+
+    // Runtime state
     private bool _isPulsing = false;
     private float _pulseTimer = 0f;
-
-    // Fallback elapsed timer
     private float _elapsedSeconds = 0f;
 
-    // Unused fields kept to avoid breaking serialized references
+    // Kept to avoid breaking any serialized references
     private float _displayTimer = 0f;
     private bool _timerRunning = false;
+
+    // References to the auto-created root objects so we can hide/show them
+    private GameObject _hudPanel;
+    private GameObject _timerBarBG;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        bool shouldHide = IsHiddenScene(scene.name);
+        SetHUDVisible(!shouldHide);
+
+        // If entering a gameplay scene and UI hasn't been built yet, build it now
+        if (!shouldHide && autoCreateUI && dayText == null)
+            CreateHUDAutomatically();
+    }
 
     void Start()
     {
         if (autoCreateUI && dayText == null)
             CreateHUDAutomatically();
+
+        // Check the current scene immediately on start
+        bool shouldHide = IsHiddenScene(SceneManager.GetActiveScene().name);
+        SetHUDVisible(!shouldHide);
     }
 
     void Update()
     {
+        if (IsHiddenScene(SceneManager.GetActiveScene().name)) return;
         RefreshHUD();
         UpdatePulse();
+    }
+
+    // ─── Visibility ───────────────────────────────────────────────────────────
+
+    bool IsHiddenScene(string sceneName)
+    {
+        foreach (var s in HiddenScenes)
+            if (s == sceneName) return true;
+        return false;
+    }
+
+    void SetHUDVisible(bool visible)
+    {
+        // Hide/show the auto-created root objects if they exist
+        if (_hudPanel != null)     _hudPanel.SetActive(visible);
+        if (_timerBarBG != null)   _timerBarBG.SetActive(visible);
+
+        // Also hide/show manually assigned UI text references
+        if (dayText != null)       dayText.gameObject.SetActive(visible);
+        if (timerText != null)     timerText.gameObject.SetActive(visible);
+        if (coinsText != null)     coinsText.gameObject.SetActive(visible);
+        if (thresholdText != null) thresholdText.gameObject.SetActive(visible);
+        if (timerBarFill != null)  timerBarFill.gameObject.SetActive(visible);
+
+        if (!visible) StopPulse();
     }
 
     // ─── Pulse ────────────────────────────────────────────────────────────────
@@ -54,8 +115,7 @@ public class GameHUD : MonoBehaviour
         if (!_isPulsing || timerBarFill == null) return;
 
         _pulseTimer += Time.deltaTime * pulseSpeed;
-        // Ping-pong alpha between min and max
-        float t = (Mathf.Sin(_pulseTimer) + 1f) * 0.5f; // 0..1
+        float t = (Mathf.Sin(_pulseTimer) + 1f) * 0.5f;
         float alpha = Mathf.Lerp(pulseMinAlpha, pulseMaxAlpha, t);
 
         Color c = timerBarFill.color;
@@ -75,7 +135,6 @@ public class GameHUD : MonoBehaviour
         if (!_isPulsing) return;
         _isPulsing = false;
 
-        // Restore full opacity so the bar doesn't freeze mid-fade
         if (timerBarFill != null)
         {
             Color c = timerBarFill.color;
@@ -90,7 +149,7 @@ public class GameHUD : MonoBehaviour
     {
         if (DayManager.Instance == null) return;
 
-        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        string sceneName = SceneManager.GetActiveScene().name;
         bool isLevel2 = sceneName == "Level2";
 
         int totalSeconds = DayManager.DayDurationSeconds;
@@ -112,20 +171,17 @@ public class GameHUD : MonoBehaviour
 
             if (!isLevel2)
             {
-                // Drain the bar left-to-right
                 timerBarFill.fillAmount = progress;
 
-                bool isCritical = progress <= 0.20f;
-                bool isWarning  = progress <= 0.45f;
+                bool isCritical = progress <= 0.15f;
+                bool isWarning  = progress <= 0.35f;
 
-                // Pick base colour (pulse overrides alpha, not hue)
                 Color baseColor = isCritical ? criticalColor
                                 : isWarning  ? warningColor
                                              : normalColor;
-                baseColor.a = timerBarFill.color.a; // keep whatever alpha the pulse set
+                baseColor.a = timerBarFill.color.a;
                 timerBarFill.color = baseColor;
 
-                // Start/stop pulse at critical threshold
                 if (isCritical) StartPulse();
                 else            StopPulse();
             }
@@ -147,7 +203,7 @@ public class GameHUD : MonoBehaviour
             }
             else
             {
-                timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
+                timerText.text  = $"Time Left: {minutes:00}:{seconds:00}";
                 timerText.color = remaining <= 20f ? criticalColor
                                 : remaining <= 45f ? warningColor
                                                    : normalColor;
@@ -210,52 +266,52 @@ public class GameHUD : MonoBehaviour
         }
 
         // HUD Panel — top of screen
-        var panel = new GameObject("HUDPanel");
-        panel.transform.SetParent(canvas.transform, false);
-        var panelRect = panel.AddComponent<RectTransform>();
+        _hudPanel = new GameObject("HUDPanel");
+        _hudPanel.transform.SetParent(canvas.transform, false);
+        var panelRect = _hudPanel.AddComponent<RectTransform>();
         panelRect.anchorMin = new Vector2(0, 1);
         panelRect.anchorMax = new Vector2(1, 1);
         panelRect.pivot = new Vector2(0.5f, 1f);
         panelRect.sizeDelta = new Vector2(0, 80);
         panelRect.anchoredPosition = Vector2.zero;
-        var panelImg = panel.AddComponent<Image>();
+        var panelImg = _hudPanel.AddComponent<Image>();
         panelImg.color = new Color(0, 0, 0, 0.75f);
 
         // Day text — top left
-        dayText = CreateTMPText(panel.transform, "DayText",
+        dayText = CreateTMPText(_hudPanel.transform, "DayText",
             new Vector2(0, 1), new Vector2(0, 1),
             new Vector2(10, -10), new Vector2(200, -50), 20);
 
         // Timer text — top center
-        timerText = CreateTMPText(panel.transform, "TimerText",
+        timerText = CreateTMPText(_hudPanel.transform, "TimerText",
             new Vector2(0.5f, 1), new Vector2(0.5f, 1),
             new Vector2(-100, -10), new Vector2(200, -50), 22);
 
         // Coins text — below timer
-        coinsText = CreateTMPText(panel.transform, "CoinsText",
+        coinsText = CreateTMPText(_hudPanel.transform, "CoinsText",
             new Vector2(0.5f, 1), new Vector2(0.5f, 1),
             new Vector2(-150, -40), new Vector2(300, -70), 16);
 
         // Threshold text — top right
-        thresholdText = CreateTMPText(panel.transform, "ThresholdText",
+        thresholdText = CreateTMPText(_hudPanel.transform, "ThresholdText",
             new Vector2(1, 1), new Vector2(1, 1),
             new Vector2(-210, -10), new Vector2(-10, -50), 16);
 
-        // Timer bar background — thin strip below the panel
-        var barBg = new GameObject("TimerBarBG");
-        barBg.transform.SetParent(canvas.transform, false);
-        var barBgRect = barBg.AddComponent<RectTransform>();
+        // Timer bar background
+        _timerBarBG = new GameObject("TimerBarBG");
+        _timerBarBG.transform.SetParent(canvas.transform, false);
+        var barBgRect = _timerBarBG.AddComponent<RectTransform>();
         barBgRect.anchorMin = new Vector2(0, 1);
         barBgRect.anchorMax = new Vector2(1, 1);
         barBgRect.pivot = new Vector2(0.5f, 1f);
         barBgRect.sizeDelta = new Vector2(0, 8);
         barBgRect.anchoredPosition = new Vector2(0, -80);
-        var barBgImg = barBg.AddComponent<Image>();
+        var barBgImg = _timerBarBG.AddComponent<Image>();
         barBgImg.color = new Color(0.2f, 0.2f, 0.2f, 1f);
 
         // Timer bar fill
         var barFill = new GameObject("TimerBarFill");
-        barFill.transform.SetParent(barBg.transform, false);
+        barFill.transform.SetParent(_timerBarBG.transform, false);
         var barFillRect = barFill.AddComponent<RectTransform>();
         barFillRect.anchorMin = Vector2.zero;
         barFillRect.anchorMax = Vector2.one;
@@ -265,7 +321,7 @@ public class GameHUD : MonoBehaviour
         timerBarFill.color = normalColor;
         timerBarFill.type = Image.Type.Filled;
         timerBarFill.fillMethod = Image.FillMethod.Horizontal;
-        timerBarFill.fillOrigin = (int)Image.OriginHorizontal.Left; // drains left→right
+        timerBarFill.fillOrigin = (int)Image.OriginHorizontal.Left;
         timerBarFill.fillAmount = 1f;
     }
 
