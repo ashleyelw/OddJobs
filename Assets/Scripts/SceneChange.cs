@@ -60,4 +60,14 @@ public class SceneChange : MonoBehaviour
    {
       SceneManager.LoadScene("ThornPicki");
    }
+
+      public void GoToCredits()
+   {
+      SceneManager.LoadScene("Credits");
+   }
+
+      public void GoToMenu()
+   {
+      SceneManager.LoadScene("Menu");
+   }
 }
