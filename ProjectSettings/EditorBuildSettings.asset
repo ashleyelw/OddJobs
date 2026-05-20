@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThornPicki.unity
     guid: db04a2ad05acae44fa36bdf451830830
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0628d59823ea54831a46a8dbe8849a0a
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 39773311494d74822b6df36ecd1b1f52
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
