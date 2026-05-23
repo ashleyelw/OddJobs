@@ -10,7 +10,14 @@ public class ReactionManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        
     }
 
     public void ShowHappy()

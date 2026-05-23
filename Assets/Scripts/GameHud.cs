@@ -152,6 +152,18 @@ public class GameHUD : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         bool isLevel2 = sceneName == "Level2";
 
+        if (isLevel2)
+        {
+            RefreshLevel2HUD();
+        }
+        else
+        {
+            RefreshFloristMainHUD();
+        }
+    }
+
+    void RefreshFloristMainHUD()
+    {
         int totalSeconds = DayManager.DayDurationSeconds;
         float elapsed = GetElapsedSeconds();
         float remaining = Mathf.Max(0, totalSeconds - elapsed);
@@ -167,47 +179,30 @@ public class GameHUD : MonoBehaviour
         // ── Timer bar ──
         if (timerBarFill != null)
         {
-            timerBarFill.enabled = !isLevel2;
+            timerBarFill.enabled = true;
+            timerBarFill.fillAmount = progress;
 
-            if (!isLevel2)
-            {
-                timerBarFill.fillAmount = progress;
+            bool isCritical = progress <= 0.15f;
+            bool isWarning  = progress <= 0.35f;
 
-                bool isCritical = progress <= 0.15f;
-                bool isWarning  = progress <= 0.35f;
+            Color baseColor = isCritical ? criticalColor
+                            : isWarning  ? warningColor
+                                         : normalColor;
+            baseColor.a = timerBarFill.color.a;
+            timerBarFill.color = baseColor;
 
-                Color baseColor = isCritical ? criticalColor
-                                : isWarning  ? warningColor
-                                             : normalColor;
-                baseColor.a = timerBarFill.color.a;
-                timerBarFill.color = baseColor;
-
-                if (isCritical) StartPulse();
-                else            StopPulse();
-            }
-            else
-            {
-                StopPulse();
-            }
+            if (isCritical) StartPulse();
+            else            StopPulse();
         }
 
         // ── Timer text ──
         if (timerText != null)
         {
-            timerText.enabled = !isLevel2;
-
-            if (isLevel2)
-            {
-                timerText.text  = "Level 2 - No Time Limit";
-                timerText.color = normalColor;
-            }
-            else
-            {
-                timerText.text  = $"Time Left: {minutes:00}:{seconds:00}";
-                timerText.color = remaining <= 20f ? criticalColor
-                                : remaining <= 45f ? warningColor
-                                                   : normalColor;
-            }
+            timerText.enabled = true;
+            timerText.text  = $"Time Left: {minutes:00}:{seconds:00}";
+            timerText.color = remaining <= 20f ? criticalColor
+                            : remaining <= 45f ? warningColor
+                                               : normalColor;
         }
 
         // ── Coins ──
@@ -238,6 +233,150 @@ public class GameHUD : MonoBehaviour
             }
         }
     }
+
+    void RefreshLevel2HUD()
+    {
+        if (dayText != null)
+            dayText.text = "Level 2";
+
+        // ── Level2 倒计时 ──
+        if (timerBarFill != null)
+        {
+            timerBarFill.enabled = true;
+            float elapsed = GetLevel2ElapsedSeconds();
+            int total = DayManager.Level2DurationSeconds;
+            float remaining = Mathf.Max(0, total - elapsed);
+            float progress = remaining / total;
+            timerBarFill.fillAmount = progress;
+
+            bool isCritical = progress <= 0.15f;
+            bool isWarning  = progress <= 0.35f;
+
+            Color baseColor = isCritical ? criticalColor
+                            : isWarning  ? warningColor
+                                         : normalColor;
+            baseColor.a = timerBarFill.color.a;
+            timerBarFill.color = baseColor;
+
+            if (isCritical) StartPulse();
+            else            StopPulse();
+        }
+
+        // ── Level2 计时器文本 ──
+        if (timerText != null)
+        {
+            timerText.enabled = true;
+            float elapsed = GetLevel2ElapsedSeconds();
+            int remaining = Mathf.FloorToInt(DayManager.Level2DurationSeconds - elapsed);
+            int minutes = remaining / 60;
+            int seconds = remaining % 60;
+            timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
+            timerText.color = remaining <= 45 ? criticalColor
+                            : remaining <= 105 ? warningColor
+                                               : normalColor;
+        }
+
+        // ── 金币目标进度 ──
+        if (coinsText != null && GameManager.Instance != null)
+        {
+            int current = DayManager.Instance.todayCoinsEarned;
+            int target = DayManager.Level2TargetCoins;
+            bool passed = current >= target;
+            coinsText.text = $"Coins: {current} / {target} {(passed ? "✓" : "")}";
+            coinsText.color = passed ? normalColor : warningColor;
+        }
+
+        // ── 目标状态 ──
+        if (thresholdText != null)
+        {
+            int current = DayManager.Instance.todayCoinsEarned;
+            int needed = Mathf.Max(0, DayManager.Level2TargetCoins - current);
+            if (needed <= 0)
+            {
+                thresholdText.text  = "Target Reached! Keep going! ✓";
+                thresholdText.color = normalColor;
+            }
+            else
+            {
+                thresholdText.text  = $"Need {needed} more coins";
+                thresholdText.color = criticalColor;
+            }
+        }
+    }
+
+    float GetLevel2ElapsedSeconds()
+    {
+        if (GameTimeController.Instance != null)
+            return GameTimeController.Instance.Level2Timer;
+        return 0f;
+            dayText.text = "Level 2";
+
+        // ── Level2 倒计时 ──
+        if (timerBarFill != null)
+        {
+            timerBarFill.enabled = true;
+            float elapsed = GetLevel2ElapsedSeconds();
+            int total = DayManager.Level2DurationSeconds;
+            float remaining = Mathf.Max(0, total - elapsed);
+            float progress = remaining / total;
+            timerBarFill.fillAmount = progress;
+
+            bool isCritical = progress <= 0.15f;
+            bool isWarning  = progress <= 0.35f;
+
+            Color baseColor = isCritical ? criticalColor
+                            : isWarning  ? warningColor
+                                         : normalColor;
+            baseColor.a = timerBarFill.color.a;
+            timerBarFill.color = baseColor;
+
+            if (isCritical) StartPulse();
+            else            StopPulse();
+        }
+
+        // ── Level2 计时器文本 ──
+        if (timerText != null)
+        {
+            timerText.enabled = true;
+            float elapsed = GetLevel2ElapsedSeconds();
+            int remaining = Mathf.FloorToInt(DayManager.Level2DurationSeconds - elapsed);
+            int minutes = remaining / 60;
+            int seconds = remaining % 60;
+            timerText.text = $"Time Left: {minutes:00}:{seconds:00}";
+            timerText.color = remaining <= 45 ? criticalColor
+                            : remaining <= 105 ? warningColor
+                                               : normalColor;
+        }
+
+        // ── 金币目标进度 ──
+        if (coinsText != null && GameManager.Instance != null)
+        {
+            int current = DayManager.Instance.todayCoinsEarned;
+            int target = DayManager.Level2TargetCoins;
+            bool passed = current >= target;
+            coinsText.text = $"Coins: {current} / {target} {(passed ? "✓" : "")}";
+            coinsText.color = passed ? normalColor : warningColor;
+        }
+
+        // ── 目标状态 ──
+        if (thresholdText != null)
+        {
+            int current = DayManager.Instance.todayCoinsEarned;
+            int needed = Mathf.Max(0, DayManager.Level2TargetCoins - current);
+            if (needed <= 0)
+            {
+                thresholdText.text  = "Target Reached! Keep going! ✓";
+                thresholdText.color = normalColor;
+            }
+            else
+            {
+                thresholdText.text  = $"Need {needed} more coins";
+                thresholdText.color = criticalColor;
+            }
+        }
+    }
+
+
 
     // ─── Helpers ──────────────────────────────────────────────────────────────
 

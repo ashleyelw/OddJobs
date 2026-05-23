@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &406504562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5093,6 +5093,9 @@ MonoBehaviour:
   normalColor: {r: 0, g: 1, b: 0, a: 1}
   warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   criticalColor: {r: 1, g: 0, b: 0, a: 1}
+  pulseSpeed: 4
+  pulseMinAlpha: 0.4
+  pulseMaxAlpha: 1
   autoCreateUI: 1
 --- !u!4 &1573973072
 Transform:

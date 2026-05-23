@@ -35,6 +35,9 @@ public class GameTimeController : MonoBehaviour
     bool _dayTimerActive = false;
     bool _skipDayEnd = false;
 
+    float _level2Timer = 0f;
+    bool _level2Ended = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -72,6 +75,13 @@ public class GameTimeController : MonoBehaviour
             _skipDayEnd = true;
             Debug.Log("[GameTimeController] Level2 entered after Day3 settled, daily timer check disabled.");
         }
+
+        if (scene.name == "Level2")
+        {
+            _level2Timer = 0f;
+            _level2Ended = false;
+            Debug.Log("[GameTimeController] Level2 entered, Level2 timer reset.");
+        }
     }
 
     void AutoFindUI()
@@ -100,13 +110,30 @@ public class GameTimeController : MonoBehaviour
         _timer += Time.deltaTime;
 
         string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        if (_dayTimer >= DayManager.DayDurationSeconds)
+
+        // ── Level2 独立计时逻辑 ──
+        if (currentSceneName == "Level2")
         {
-            if (currentSceneName == "Level2")
+            if (!_level2Ended && DayManager.Instance != null)
             {
-                _dayTimer = DayManager.DayDurationSeconds;
+                _level2Timer += Time.deltaTime;
+
+                // 倒计时到 0 时结算
+                if (_level2Timer >= DayManager.Level2DurationSeconds)
+                {
+                    _level2Ended = true;
+                    if (DayManager.Instance.todayCoinsEarned >= DayManager.Level2TargetCoins)
+                        DayManager.Instance.TriggerLevel2Success();
+                    else
+                        DayManager.Instance.TriggerLevel2Fail();
+                    return;
+                }
             }
-            else if (_skipDayEnd)
+        }
+        // ── FloristMain 计时逻辑（原逻辑）──
+        else if (_dayTimer >= DayManager.DayDurationSeconds)
+        {
+            if (_skipDayEnd)
             {
                 _dayTimer = DayManager.DayDurationSeconds;
             }
@@ -142,6 +169,8 @@ public class GameTimeController : MonoBehaviour
         _dayEnded = false;
         _dayTimerActive = true;
         _timer = 0f;
+        _level2Timer = 0f;
+        _level2Ended = false;
         Debug.Log("[GameTimeController] ResetDayTimer() 被调用！计时器已启动。");
         Debug.Log($"[GameTimeController] 计时器状态: _dayTimerActive={_dayTimerActive}, _dayEnded={_dayEnded}, _dayTimer={_dayTimer}");
     }
@@ -165,6 +194,7 @@ public class GameTimeController : MonoBehaviour
 
     // ADD this public property so other scripts can read the timer
     public float DayTimer => _dayTimer;
+    public float Level2Timer => _level2Timer;
     public bool DayTimerActive => _dayTimerActive;
     public int GetTotalMinutes() => TotalMinutes(_currentTime);
 

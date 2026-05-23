@@ -7,8 +7,15 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 80;
+    public const int DayDurationSeconds = 10;
     public const int Level2UnlockCoins = 150;
+
+    [Header("Level2 Settings")]
+    [Tooltip("Level2 的最大游戏时间（秒）")]
+    public const int Level2DurationSeconds = 20;
+
+    [Tooltip("Level2 的过关金币目标")]
+    public const int Level2TargetCoins = 200;
 
     [Header("Ending Thresholds")]
     [Tooltip("Coins needed per day to avoid bad ending")]
@@ -173,11 +180,28 @@ public class DayManager : MonoBehaviour
             GameManager.Instance.ClearPendingOrders();
     }
 
+    public void TriggerLevel2Success()
+    {
+        Debug.Log($"[DayManager] Level2 成功！金币: {todayCoinsEarned}，触发成功结算。");
+        if (EndOfDaySplash.Instance != null)
+            EndOfDaySplash.Instance.ShowLevel2Success(todayCoinsEarned);
+        else
+            SceneManager.LoadScene("Ending");
+    }
+
+    public void TriggerLevel2Fail()
+    {
+        Debug.Log($"[DayManager] Level2 失败！金币: {todayCoinsEarned}/{Level2TargetCoins}，触发失败结算。");
+        if (EndOfDaySplash.Instance != null)
+            EndOfDaySplash.Instance.ShowLevel2Fail(todayCoinsEarned);
+        else
+            SceneManager.LoadScene("Ending");
+    }
+
     public void TriggerEnding()
     {
         SceneManager.LoadScene("Ending");
     }
-
     public EndingType GetEnding()
     {
         // If any day failed the minimum, always bad ending
@@ -195,7 +219,6 @@ public class DayManager : MonoBehaviour
         else
             return EndingType.Bad;
     }
-
     public int GetCoinsNeededForGoodEnding()
     {
         return Mathf.Max(0, totalHighCoins - totalCoinsEarned);

@@ -113,7 +113,29 @@ public class EndOfDaySplash : MonoBehaviour
         StartCoroutine(SplashRoutine());
     }
 
-    IEnumerator SplashRoutine()
+    public void ShowLevel2Success(int coinsEarned)
+    {
+        if (_splashCanvas == null) BuildSplashUI();
+
+        _splashText.text = "LEVEL 2 CLEARED!";
+        _subText.text = $"You reached {coinsEarned} coins! Success!";
+
+        _splashCanvas.gameObject.SetActive(true);
+        StartCoroutine(SplashRoutine("Ending"));
+    }
+
+    public void ShowLevel2Fail(int coinsEarned)
+    {
+        if (_splashCanvas == null) BuildSplashUI();
+
+        _splashText.text = "TIME'S UP!";
+        _subText.text = $"Only {coinsEarned}/{DayManager.Level2TargetCoins} coins. Try again!";
+
+        _splashCanvas.gameObject.SetActive(true);
+        StartCoroutine(SplashRoutine("Ending"));
+    }
+
+    IEnumerator SplashRoutine(string nextScene = "EndOfDay")
     {
         // Fade in
         float t = 0f;
@@ -139,7 +161,7 @@ public class EndOfDaySplash : MonoBehaviour
 
         HideImmediate();
 
-        // Now transition to EndOfDay scene
-        SceneManager.LoadScene("EndOfDay");
+        // Now transition to the target scene
+        SceneManager.LoadScene(nextScene);
     }
 }
