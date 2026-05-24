@@ -7,12 +7,12 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 10;
+    public const int DayDurationSeconds = 60;
     public const int Level2UnlockCoins = 150;
 
     [Header("Level2 Settings")]
     [Tooltip("Level2 的最大游戏时间（秒）")]
-    public const int Level2DurationSeconds = 20;
+    public const int Level2DurationSeconds = 180;
 
     [Tooltip("Level2 的过关金币目标")]
     public const int Level2TargetCoins = 200;
