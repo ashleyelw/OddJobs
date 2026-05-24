@@ -41,50 +41,44 @@ public class EndOfDayUI : MonoBehaviour
         var dm = DayManager.Instance;
         var summary = dm.daySummaries[dm.daySummaries.Count - 1];
 
-        // Day title
         if (dayTitleText != null)
             dayTitleText.text = $"Day {summary.day} Summary";
 
-        // Coins earned today
         if (coinsEarnedText != null)
             coinsEarnedText.text = $"Coins Earned Today: {summary.coinsEarned}";
 
-        // Orders delivered today
         if (ordersDeliveredText != null)
             ordersDeliveredText.text = $"Orders Delivered: {summary.ordersDelivered}";
 
-        // Met daily minimum?
         if (minimumStatusText != null)
         {
             if (summary.metDailyMinimum)
             {
-                minimumStatusText.text = "Daily Minimum: MET ✓";
+                minimumStatusText.text = "Daily Minimum: MET!";
                 minimumStatusText.color = goodColor;
             }
             else
             {
-                minimumStatusText.text = "Daily Minimum: NOT MET ✗";
+                minimumStatusText.text = "Daily Minimum: NOT MET!";
                 minimumStatusText.color = badColor;
             }
         }
 
-        // Coins still needed
         if (coinsNeededText != null)
         {
             int needed = dm.GetCoinsNeededForGoodEnding();
             if (needed <= 0)
             {
-                coinsNeededText.text = "Good Ending: ON TRACK ✓";
-                coinsNeededText.color = goodColor;
+                coinsNeededText.text = "✨ Something special awaits...";
+                coinsNeededText.color = new Color(0.6f, 0f, 0.8f, 1f);
             }
             else
             {
-                coinsNeededText.text = $"Need {needed} more coins for good ending";
+                coinsNeededText.text = $"Need {needed} more coins for a special ending";
                 coinsNeededText.color = neutralColor;
             }
         }
 
-        // Running total
         if (totalCoinsText != null)
             totalCoinsText.text = $"Total Coins (all days): {dm.totalCoinsEarned}";
     }
@@ -98,13 +92,11 @@ public class EndOfDayUI : MonoBehaviour
         var latestSummary = dm.daySummaries[dm.daySummaries.Count - 1];
         bool metDailyMinimum = latestSummary.metDailyMinimum;
 
-        // Failed the daily minimum — bad ending regardless of day
         if (!metDailyMinimum)
         {
             if (continueButtonText != null)
                 continueButtonText.text = "See Ending...";
 
-            // Update minimum status text to make it clear why
             if (minimumStatusText != null)
             {
                 minimumStatusText.text = "Daily minimum not met — ending the run!";
@@ -114,17 +106,19 @@ public class EndOfDayUI : MonoBehaviour
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
             {
-                Debug.Log($"[EndOfDayUI] Daily minimum not met on day {dm.currentDay}," +
-                        $" triggering bad ending.");
+                Debug.Log($"[EndOfDayUI] Daily minimum not met on day {dm.currentDay}, triggering bad ending.");
                 dm.TriggerEnding();
             });
 
             return;
         }
 
-        // Met minimum — continue to next day or final ending
+        // Label changes based on whether we're in Level2 or FloristMain
+        string nextScene = dm.IsInLevel2 ? "Level 2" : "FloristMain";
         if (continueButtonText != null)
-            continueButtonText.text = isLastDay ? "See Ending" : $"Start Day {dm.currentDay + 1}";
+            continueButtonText.text = isLastDay
+                ? "See Ending"
+                : $"Start Day {dm.currentDay + 1}";
 
         continueButton.onClick.RemoveAllListeners();
         continueButton.onClick.AddListener(() =>
@@ -148,15 +142,24 @@ public class EndOfDayUI : MonoBehaviour
         {
             unlockLevel2Button.gameObject.SetActive(true);
             if (unlockLevel2Text != null)
-                unlockLevel2Text.text = "Next Level";
+                unlockLevel2Text.text = "Keep Going?";
 
             unlockLevel2Button.onClick.RemoveAllListeners();
             unlockLevel2Button.onClick.AddListener(() =>
             {
                 Debug.Log($"[EndOfDayUI] Unlocking Level2! Total coins: {dm.totalCoinsEarned}");
+                DayManager.Instance?.ResetForLevel2();
                 ClearAllGameStateForNewLevel();
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
             });
+
+            Debug.Log($"[EndOfDayUI] Day 3 complete with {dm.totalCoinsEarned} total coins — Level2 unlocked!");
+        }
+        else
+        {
+            unlockLevel2Button.gameObject.SetActive(false);
+        }
+    }
 
     void ClearAllGameStateForNewLevel()
     {
@@ -167,13 +170,5 @@ public class EndOfDayUI : MonoBehaviour
             GameManager.Instance.ClearPendingOrders();
         if (CustomerSpawner.Instance != null)
             CustomerSpawner.Instance.ResetAllSlots();
-    }
-
-            Debug.Log($"[EndOfDayUI] Day 3 complete with {dm.totalCoinsEarned} total coins — Level2 unlocked!");
-        }
-        else
-        {
-            unlockLevel2Button.gameObject.SetActive(false);
-        }
     }
 }

@@ -182,8 +182,8 @@ public class GameHUD : MonoBehaviour
             timerBarFill.enabled = true;
             timerBarFill.fillAmount = progress;
 
-            bool isCritical = progress <= 0.15f;
-            bool isWarning  = progress <= 0.35f;
+            bool isCritical = progress <= 0.10f;
+            bool isWarning  = progress <= 0.20f;
 
             Color baseColor = isCritical ? criticalColor
                             : isWarning  ? warningColor
@@ -200,8 +200,8 @@ public class GameHUD : MonoBehaviour
         {
             timerText.enabled = true;
             timerText.text  = $"Time Left: {minutes:00}:{seconds:00}";
-            timerText.color = remaining <= 20f ? criticalColor
-                            : remaining <= 45f ? warningColor
+            timerText.color = remaining <= 10f ? criticalColor
+                            : remaining <= 20f ? warningColor
                                                : normalColor;
         }
 
@@ -218,12 +218,12 @@ public class GameHUD : MonoBehaviour
 
             if (neededMin <= 0 && neededGood <= 0)
             {
-                thresholdText.text  = "Good Ending: ON TRACK ✓";
+                thresholdText.text  = "Something good will happen!";
                 thresholdText.color = normalColor;
             }
             else if (neededMin <= 0)
             {
-                thresholdText.text  = $"Good Ending: need {neededGood} more coins";
+                thresholdText.text  = $"What if you get {neededGood} more coins...";
                 thresholdText.color = warningColor;
             }
             else

@@ -42,6 +42,7 @@ public class Level2UnlockUI : MonoBehaviour
 
     public void OnUnlockLevel2Clicked()
     {
+        DayManager.Instance?.ResetForLevel2();
         ClearAllGameStateForNewLevel();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
     }

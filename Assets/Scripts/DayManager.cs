@@ -7,12 +7,12 @@ public class DayManager : MonoBehaviour
     public static DayManager Instance { get; private set; }
 
     public const int TotalDays = 3;
-    public const int DayDurationSeconds = 60;
+    public const int DayDurationSeconds = 45;
     public const int Level2UnlockCoins = 150;
 
     [Header("Level2 Settings")]
     [Tooltip("Level2 的最大游戏时间（秒）")]
-    public const int Level2DurationSeconds = 180;
+    public const int Level2DurationSeconds = 45;
 
     [Tooltip("Level2 的过关金币目标")]
     public const int Level2TargetCoins = 200;
@@ -37,7 +37,9 @@ public class DayManager : MonoBehaviour
     private bool _dayStarted = false;
     private bool _day3Settled = false;
     private bool _level2Entered = false;
+    private bool _isInLevel2 = false;   // tracks whether the current run is Level2
     public bool Day3Settled => _day3Settled;
+    public bool IsInLevel2  => _isInLevel2;
     public List<DaySummary> daySummaries = new List<DaySummary>();
 
     [System.Serializable]
@@ -97,6 +99,7 @@ public class DayManager : MonoBehaviour
         }
         else if (scene.name == "Level2")
         {
+            _isInLevel2 = true;
             if (GameTimeController.Instance != null)
             {
                 if (!GameTimeController.Instance.DayTimerActive)
@@ -153,7 +156,7 @@ public class DayManager : MonoBehaviour
         if (EndOfDaySplash.Instance != null)
             EndOfDaySplash.Instance.Show(currentDay, todayCoinsEarned);
         else
-            SceneManager.LoadScene("EndOfDay"); // Fallback if splash not found
+            SceneManager.LoadScene("EndOfDay");
     }
 
     public void StartNextDay()
@@ -162,13 +165,34 @@ public class DayManager : MonoBehaviour
         todayCoinsEarned = 0;
         todayOrdersDelivered = 0;
         _dayStarted = false;
-        Debug.Log($"[DayManager] Starting day {currentDay}");
+        Debug.Log($"[DayManager] Starting day {currentDay} (Level2={_isInLevel2})");
 
         CloseAllOrderUIs();
         if (CustomerSpawner.Instance != null)
             CustomerSpawner.Instance.ResetAllSlots();
 
-        SceneManager.LoadScene("FloristMain");
+        // Return to whichever level the player is currently playing
+        SceneManager.LoadScene(_isInLevel2 ? "Level2" : "FloristMain");
+    }
+
+    /// <summary>
+    /// Resets day tracking back to Day 1 when entering Level2.
+    /// Keeps totalCoinsEarned intact for the ending calculation.
+    /// </summary>
+    public void ResetForLevel2()
+    {
+        currentDay           = 1;
+        todayCoinsEarned     = 0;
+        todayOrdersDelivered = 0;
+        _dayStarted          = false;
+        _day3Settled         = false;
+        _isInLevel2          = true;
+        daySummaries.Clear();
+        Debug.Log("[DayManager] Reset for Level2 — day counter back to 1.");
+
+        CloseAllOrderUIs();
+        if (CustomerSpawner.Instance != null)
+            CustomerSpawner.Instance.ResetAllSlots();
     }
 
     void CloseAllOrderUIs()
@@ -179,6 +203,8 @@ public class DayManager : MonoBehaviour
         if (GameManager.Instance != null)
             GameManager.Instance.ClearPendingOrders();
     }
+
+    // ── Level2 outcomes ───────────────────────────────────────────────────────
 
     public void TriggerLevel2Success()
     {
@@ -202,8 +228,13 @@ public class DayManager : MonoBehaviour
     {
         SceneManager.LoadScene("Ending");
     }
+
     public EndingType GetEnding()
     {
+        // Secret ending — checked first, overrides everything else
+        if (totalCoinsEarned >= totalHighCoins)
+            return EndingType.Secret;
+
         // If any day failed the minimum, always bad ending
         foreach (var summary in daySummaries)
         {
@@ -212,13 +243,12 @@ public class DayManager : MonoBehaviour
         }
 
         // All minimums met — check total for good vs neutral
-        if (totalCoinsEarned >= totalHighCoins)
-            return EndingType.Good;
-        else if (totalCoinsEarned >= minDailyCoins * TotalDays)
+        if (totalCoinsEarned >= minDailyCoins * TotalDays)
             return EndingType.Neutral;
         else
             return EndingType.Bad;
     }
+
     public int GetCoinsNeededForGoodEnding()
     {
         return Mathf.Max(0, totalHighCoins - totalCoinsEarned);
@@ -229,5 +259,5 @@ public class DayManager : MonoBehaviour
         return Mathf.Max(0, minDailyCoins - todayCoinsEarned);
     }
 
-    public enum EndingType { Bad, Neutral, Good }
+    public enum EndingType { Bad, Neutral, Good, Secret }
 }

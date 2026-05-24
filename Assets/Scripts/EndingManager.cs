@@ -17,6 +17,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private Color goodEndingColor = Color.green;
     [SerializeField] private Color neutralEndingColor = Color.yellow;
     [SerializeField] private Color badEndingColor = Color.red;
+    [SerializeField] private Color secretEndingColor = new Color(0.6f, 0f, 0.8f, 1f);
 
     void Start()
     {
@@ -43,6 +44,20 @@ public class EndingManager : MonoBehaviour
 
         switch (ending)
         {
+            case DayManager.EndingType.Secret:
+                if (endingTitleText != null)
+                    endingTitleText.text = "Full Bloom Legend!";
+                if (endingDescriptionText != null)
+                    endingDescriptionText.text =
+                        "They said it couldn't be done — but you proved them all wrong. " +
+                        "Your flower shop has become a legend, whispered about in every " +
+                        "corner of the city. Royalty, celebrities, and dreamers all seek " +
+                        "out your bouquets. You didn't just build a business... " +
+                        "you created something magical.";
+                if (endingBackground != null)
+                    endingBackground.color = secretEndingColor;
+                break;
+
             case DayManager.EndingType.Good:
                 if (endingTitleText != null)
                     endingTitleText.text = "Flourishing Florist!";
